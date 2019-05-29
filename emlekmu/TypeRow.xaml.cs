@@ -37,27 +37,31 @@ namespace emlekmu
 
 
 
+
+
         public string TypeName
         {
             get { return (string)GetValue(TypeNameProperty); }
             set { SetValue(TypeNameProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Name.  This enables animation, styling, binding, etc...
+        // Using a DependencyProperty as the backing store for TypeName.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TypeNameProperty =
             DependencyProperty.Register("TypeName", typeof(string), typeof(TypeRow), new PropertyMetadata(""));
 
 
 
-        public string Descripton
+
+
+        public string Description
         {
-            get { return (string)GetValue(DescriptonProperty); }
-            set { SetValue(DescriptonProperty, value); }
+            get { return (string)GetValue(DescriptionProperty); }
+            set { SetValue(DescriptionProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for Descripton.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty DescriptonProperty =
-            DependencyProperty.Register("Descripton", typeof(string), typeof(TypeRow), new PropertyMetadata(""));
+        public static readonly DependencyProperty DescriptionProperty =
+            DependencyProperty.Register("Description", typeof(string), typeof(TypeRow), new PropertyMetadata(""));
 
 
 
@@ -76,6 +80,7 @@ namespace emlekmu
         public TypeRow()
         {
             InitializeComponent();
+            Root.DataContext = this;
         }
     }
 }

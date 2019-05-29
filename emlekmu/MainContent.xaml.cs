@@ -88,8 +88,7 @@ namespace emlekmu
             ObservableCollection<Monument> filteredMonuments;
 
             ObservableCollection<Tag> tags;
-
-            ObservableCollection<Type> types;
+        
         #endregion
         #region Monument
         public delegate Monument onAddMonument(Monument m);
