@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400">
-    <Grid>
-        <local:EditTag></local:EditTag>
+    <Grid x:Name="Root">
+        <local:TypeSection Types="{Binding Path=Types}"></local:TypeSection>
     </Grid>
 </UserControl>

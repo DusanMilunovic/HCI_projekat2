@@ -32,12 +32,18 @@ namespace emlekmu
 
         // Using a DependencyProperty as the backing store for Types.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TypesProperty =
-            DependencyProperty.Register("Types", typeof(ObservableCollection<Type>), typeof(TypeSection), new PropertyMetadata(null));
+            DependencyProperty.Register("Types", typeof(ObservableCollection<Type>), typeof(TypeSection), new PropertyMetadata(new ObservableCollection<Type>()));
 
 
         public TypeSection()
         {
             InitializeComponent();
+            Root.DataContext = this;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Write("cao");
         }
     }
 }

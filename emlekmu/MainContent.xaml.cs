@@ -1,6 +1,9 @@
 ﻿using emlekmu.models;
+using emlekmu.models.IO;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +23,39 @@ namespace emlekmu
     /// <summary>
     /// Interaction logic for MainContent.xaml
     /// </summary>
-    public partial class MainContent : UserControl
+    public partial class MainContent : UserControl, INotifyPropertyChanged
     {
+        #region Data
+
+        
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public ObservableCollection<Type> types;
+        public ObservableCollection<Type> Types {
+            get
+            {
+                return types;
+            }
+            set
+            {
+                if (value != types)
+                {
+                    types = value;
+                    OnPropertyChanged("Types");
+                }
+            }
+        }
+        #endregion
+
         #region Monument
         public delegate Monument onAddMonument(Monument m);
         public delegate Monument onRemoveMonument(int id);
@@ -126,7 +160,14 @@ namespace emlekmu
         #endregion
         public MainContent()
         {
+
             InitializeComponent();
+
+            Root.DataContext = this;
+            // data initialization
+            DataGraph dataGraph = XmlParser.deserialize();
+            Types = new ObservableCollection<Type>(dataGraph.types);
+
             // Tag callback initialization
             this.addTagCallback = new onAddTag(addTag);
             this.removeTagCallback = new onRemoveTag(removeTag);
