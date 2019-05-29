@@ -6,17 +6,29 @@
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400">
-    
-    <Grid>
+
+    <Grid x:Name="Root">
         <StackPanel Orientation="Vertical">
-            <Label x:Name="IdLabel">Id</Label>
-            <TextBox x:Name="IdTextBox"></TextBox>
-            <Label x:Name="NameLabel">Name</Label>
-            <TextBox x:Name="NameTextBox"></TextBox>
-            <Label x:Name="DescriptionLabel">Description</Label>
-            <TextBox x:Name="DescriptionTextBox"></TextBox>
-            <Label x:Name="IconLabel">Icon</Label>
+            <Label x:Name="IdLabel" Height="40" FontSize="16" Margin="10 10 10 0">Id</Label>
+            <TextBox x:Name="IdTextBox" Height="40" FontSize="16" Margin="10"></TextBox>
             
+            <Label x:Name="NameLabel" Height="40" FontSize="16" Margin="10 0">Name</Label>
+            <TextBox x:Name="NameTextBox" Height="40" FontSize="16" Margin="10"></TextBox>
+            
+            <Label x:Name="DescriptionLabel" Height="40" FontSize="16" Margin="10 0">Description</Label>
+            <TextBox x:Name="DescriptionTextBox" Height="120" FontSize="16" Margin="10"></TextBox>
+            
+            <Label x:Name="IconLabel" Height="40" FontSize="16" Margin="10 0">Icon</Label>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="IconTextBox" Text="{Binding Path=IconText}" Width="270" Height="40" FontSize="16" Margin="10"></TextBox>
+                <Button x:Name="BrowseButton" Width="100" Height="40" FontSize="16" Margin="0 10 10 10" Click="BrowseButton_Click">Browse...</Button>
+            </StackPanel>
+            
+            <Label x:Name="ValidationLabel" Height="40" FontSize="16" Foreground="Red" Margin="10 0"></Label>
+            <StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Right" Margin="0 20 0 0">
+                <Button x:Name="AddTagButton" Width="100" Height="40" FontSize="16" Margin="10 0">Add Tag</Button>
+                <Button x:Name="CancelButton" Width="100" Height="40" FontSize="16" Margin="0 0 10 0">Cancel</Button>
+            </StackPanel>
 
         </StackPanel>
     </Grid>
