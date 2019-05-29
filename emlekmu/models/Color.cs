@@ -12,6 +12,11 @@ namespace emlekmu.models
         public int Green { get; set; }
         public int Blue { get; set; }
 
+        public Color()
+        {
+
+        }
+
         public Color(int Red, int Green, int Blue)
         {
             this.Red = Red;

@@ -13,6 +13,11 @@ namespace emlekmu.models
         public string Icon { get; set; }
         public string Description { get; set; }
 
+        public Type()
+        {
+
+        }
+
         public Type(int Id, string Name, string Icon, string Description)
         {
             this.Id = Id;

@@ -127,6 +127,9 @@
   <ItemGroup>
     <Compile Include="models\Color.cs" />
     <Compile Include="models\Enumerations.cs" />
+    <Compile Include="models\IO\CsvParser.cs" />
+    <Compile Include="models\IO\DataGraph.cs" />
+    <Compile Include="models\IO\XmlParser.cs" />
     <Compile Include="models\Monument.cs" />
     <Compile Include="models\Tag.cs" />
     <Compile Include="models\Type.cs" />
@@ -155,6 +158,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="resources\monuments.txt" />
+    <Resource Include="resources\types.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

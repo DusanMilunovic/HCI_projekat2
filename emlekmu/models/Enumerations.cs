@@ -6,8 +6,23 @@ using System.Threading.Tasks;
 
 namespace emlekmu.models
 {
-    class Enumerations
+    public class Enumerations
     {
+        public static TouristicStatus stringToTouristic(string toParse)
+        {
+            if (toParse == "Not available")
+            {
+                return TouristicStatus.Unavailable;
+            }
+            else if (toParse == "Available")
+            {
+                return TouristicStatus.Available;
+            } else if (toParse == "Exploited")
+            {
+                return TouristicStatus.Exploited;
+            }
+            throw new Exception("It is zal");
+        }
     }
 
     public enum Era
@@ -26,4 +41,5 @@ namespace emlekmu.models
         Available,
         Unavailable
     }
+
 }
