@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace emlekmu.models
 {
-    public class Tag
+    public class Tag: INotifyPropertyChanged
     {
-        public string Id { get; set; }
-        public Color Color { get; set; }
         string description;
         public string Description {
             get
@@ -18,16 +17,75 @@ namespace emlekmu.models
             }
             set
             {
-                this.description = value;
-                if (this.description.Length > 30)
-                    this.DescriptionShort = this.description.Substring(0, 30) + "...";
-                else
-                    this.DescriptionShort = this.description;
+                if (value != description)
+                {
+                    
+                    this.description = value;
+                    if (this.description.Length > 30)
+                        this.DescriptionShort = this.description.Substring(0, 30) + "...";
+                    else
+                        this.DescriptionShort = this.description;
+                    OnPropertyChanged("Description");
+                }
             }
         }
 
-        public string DescriptionShort { get; set; }
+        public string descriptionShort;
+        public string DescriptionShort
+        {
+            get
+            {
+                return descriptionShort;
+            }
+            set
+            {
+                if (value != descriptionShort)
+                {
+                    descriptionShort = value;
+                    OnPropertyChanged("DescriptionShort");
+                }
+            }
+        }
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string id;
+        public string Id {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                if (value != id)
+                {
+                    id = value;
+                    OnPropertyChanged("Id");
+                }
+            }
+        }
+
+        public Color color;
+        public Color Color {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                if (value != color)
+                {
+                    OnPropertyChanged("Color");
+                }
+            }
+        }
         public Tag()
         {
 

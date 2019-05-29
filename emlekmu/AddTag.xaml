@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="400">
+            d:DesignHeight="600" d:DesignWidth="400">
     <UserControl.Resources>
         <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
             <Setter Property="Template">
