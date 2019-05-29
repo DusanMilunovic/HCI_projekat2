@@ -23,10 +23,7 @@ namespace emlekmu.models
             this.Color = Color;
             this.Description = Description;
         }
-
-        public Tag()
-        {
-        }
+        
 
         // override object.Equals
         public override bool Equals(object obj)

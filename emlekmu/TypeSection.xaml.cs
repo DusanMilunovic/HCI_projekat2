@@ -41,6 +41,11 @@ namespace emlekmu
             Root.DataContext = this;
         }
 
+        private void AddTag_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Console.Write("cao");
