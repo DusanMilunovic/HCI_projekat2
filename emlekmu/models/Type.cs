@@ -1,17 +1,91 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace emlekmu.models
 {
-    public class Type
+    public class Type: INotifyPropertyChanged
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Icon { get; set; }
-        public string Description { get; set; }
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public int id;
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                if (value != id)
+                {
+                    id = value;
+                    OnPropertyChanged("Id");
+                }
+            }
+        }
+
+        public string name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if (value != name)
+                {
+                    name = value;
+                    OnPropertyChanged("Name");
+                }
+            }
+        }
+
+        public string icon;
+        public string Icon
+        {
+            get
+            {
+                return icon;
+            }
+            set
+            {
+                if (value != icon)
+                {
+                    icon = value;
+                    OnPropertyChanged("Icon");
+                }
+            }
+        }
+
+        public string description;
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                if (value != description)
+                {
+                    description = value;
+                    OnPropertyChanged("Description");
+                }
+            }
+        }
 
         public Type()
         {
