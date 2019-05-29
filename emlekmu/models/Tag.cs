@@ -1,17 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace emlekmu.models
 {
-    public class Tag
+    public class Tag: INotifyPropertyChanged
     {
-        public string Id { get; set; }
-        public Color Color { get; set; }
-        public string Description { get; set; }
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string id;
+        public string Id {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                if (value != id)
+                {
+                    id = value;
+                    OnPropertyChanged("Id");
+                }
+            }
+        }
+
+        public Color color;
+        public Color Color {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                if (value != color)
+                {
+                    OnPropertyChanged("Color");
+                }
+            }
+        }
+
+        public string description;
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                if (value != description)
+                {
+                    OnPropertyChanged("Description");
+                }
+            }
+        }
         public Tag()
         {
 
