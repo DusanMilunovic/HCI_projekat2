@@ -7,8 +7,8 @@
     <ProjectGuid>{611B695C-3882-453B-896A-0E31F6C1F3B5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>emlekmu</RootNamespace>
-    <AssemblyName>emlekmu</AssemblyName>
+    <RootNamespace>WpfApplication1</RootNamespace>
+    <AssemblyName>WpfApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,11 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddType.xaml.cs">
-      <DependentUpon>AddType.xaml</DependentUpon>
-    <Compile Include="MonumentDetail.xaml.cs">
-      <DependentUpon>MonumentDetail.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="models\Color.cs" />
+    <Compile Include="models\Enumerations.cs" />
+    <Compile Include="models\IO\CsvParser.cs" />
+    <Compile Include="models\IO\DataGraph.cs" />
+    <Compile Include="models\IO\XmlParser.cs" />
+    <Compile Include="models\Monument.cs" />
+    <Compile Include="models\Tag.cs" />
+    <Compile Include="models\Type.cs" />
     <Compile Include="TagRow.xaml.cs">
       <DependentUpon>TagRow.xaml</DependentUpon>
     </Compile>
@@ -76,20 +79,20 @@
       <DependentUpon>TypeSection.xaml</DependentUpon>
     </Compile>
     <Page Include="AddTag.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="AddType.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="EditTag.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainContent.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +100,9 @@
     </Page>
     <Compile Include="AddTag.xaml.cs">
       <DependentUpon>AddTag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddType.xaml.cs">
+      <DependentUpon>AddType.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -113,39 +119,34 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MonumentDetail.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TagRow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TagRowDetail.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TagSection.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TypeRow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TypeSection.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="models\Color.cs" />
-    <Compile Include="models\Enumerations.cs" />
-    <Compile Include="models\IO\CsvParser.cs" />
-    <Compile Include="models\IO\DataGraph.cs" />
-    <Compile Include="models\IO\XmlParser.cs" />
-    <Compile Include="models\Monument.cs" />
-    <Compile Include="models\Tag.cs" />
-    <Compile Include="models\Type.cs" />
+    <Compile Include="MonumentDetail.xaml.cs">
+      <DependentUpon>MonumentDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -171,11 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Resource Include="resources\monuments.txt" />
-    <Resource Include="resources\types.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
