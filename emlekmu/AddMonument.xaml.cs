@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Type = emlekmu.models.Type;
+using System.Globalization;
 
 namespace emlekmu
 {
@@ -32,13 +33,6 @@ namespace emlekmu
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
-
-
-
-
-
-
-
 
         public ObservableCollection<Type> Types
         {
@@ -169,6 +163,17 @@ namespace emlekmu
             retVal.Add(new ErasComboItem("Renaissance", Era.Renaissance));
             retVal.Add(new ErasComboItem("Modern", Era.Modern));
             return retVal;
+        }
+    }
+
+    public class DateRegexpRule : ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            string temp = value.ToString();
+            if (temp == "cao")
+                return new ValidationResult(true, null);
+            return new ValidationResult(false, "Please enter \"cao\"");
         }
     }
 }

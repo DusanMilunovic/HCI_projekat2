@@ -64,7 +64,23 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Margin="10px" Width="70px">Date:</Label>
-                <TextBox x:Name="DateTextBox" Text="{Binding Monument.DiscoveryDate}" Margin="10px" Width="115px"></TextBox>
+                <TextBox x:Name="DateTextBox" Margin="10px" Width="115px">
+                    <TextBox.Text>
+                        <Binding Path="Monument.DiscoveryDate">
+                            <Binding.ValidationRules>
+                                <local:DateRegexpRule ValidationStep="RawProposedValue"></local:DateRegexpRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="DateErrorTextBox"/>
+                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
             </StackPanel>
             <Button Click="Button_Click">Test</Button>
         </StackPanel>
