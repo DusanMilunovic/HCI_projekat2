@@ -599,6 +599,17 @@ namespace emlekmu
 
 
         #endregion
+
+        #region MenuActions
+
+        public void types_Click(object sender, RoutedEventArgs e)
+        {
+            TypeSection typeSectionDialog = new TypeSection(Types, addTypeCallback, editTypeCallback, removeTypeCallback);
+
+            typeSectionDialog.ShowDialog();
+        }
+
+        #endregion
         public MainContent()
         {
 

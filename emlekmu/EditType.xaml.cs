@@ -19,12 +19,10 @@ using Type = emlekmu.models.Type;
 namespace emlekmu
 {
     /// <summary>
-    /// Interaction logic for AddType.xaml
+    /// Interaction logic for EditType.xaml
     /// </summary>
-    public partial class AddType : Window, INotifyPropertyChanged
+    public partial class EditType : Window, INotifyPropertyChanged
     {
-        
-
         protected virtual void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
@@ -55,31 +53,54 @@ namespace emlekmu
 
 
 
-        public onAddType AddTypeCallback
+        public onEditType EditTypeCallback
         {
-            get { return (onAddType)GetValue(AddTypeCallbackProperty); }
-            set { SetValue(AddTypeCallbackProperty, value); }
+            get { return (onEditType)GetValue(EditTypeCallbackProperty); }
+            set { SetValue(EditTypeCallbackProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for AddTypeCallback.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty AddTypeCallbackProperty =
-            DependencyProperty.Register("AddTypeCallback", typeof(onAddType), typeof(AddType), new PropertyMetadata(null));
+        // Using a DependencyProperty as the backing store for EditTypeCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EditTypeCallbackProperty =
+            DependencyProperty.Register("EditTypeCallback", typeof(onEditType), typeof(EditType), new PropertyMetadata(null));
 
 
 
-        public AddType()
+        public Type TypeToEdit
+        {
+            get { return (Type)GetValue(TypeToEditProperty); }
+            set { SetValue(TypeToEditProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TypeToEdit.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TypeToEditProperty =
+            DependencyProperty.Register("TypeToEdit", typeof(Type), typeof(EditType), new PropertyMetadata(null));
+
+
+
+        public EditType()
         {
             InitializeComponent();
             this.NewType = new Type();
             Root.DataContext = this;
         }
 
-        public AddType(onAddType addTypeCallback)
+        public EditType(Type typeToEdit, onEditType editTypeCallback)
         {
             InitializeComponent();
             this.NewType = new Type();
-            this.AddTypeCallback = addTypeCallback;
+            this.newType.Id = typeToEdit.Id;
+            this.newType.Name = typeToEdit.Name;
+            this.NewType.Description = typeToEdit.Description;
+            this.NewType.Icon = typeToEdit.Icon;
+
             Root.DataContext = this;
+            EditTypeCallback = editTypeCallback;
+        }
+
+        private void EditTypeButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditTypeCallback(newType);
+            
         }
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
@@ -98,11 +119,6 @@ namespace emlekmu
                 // Open document
                 NewType.Icon = dlg.FileName;
             }
-        }
-
-        private void AddTypeButton_Click(object sender, RoutedEventArgs e)
-        {
-            AddTypeCallback(newType);
         }
     }
 }
