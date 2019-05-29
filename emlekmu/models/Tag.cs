@@ -12,6 +12,11 @@ namespace emlekmu.models
         public Color Color { get; set; }
         public string Description { get; set; }
 
+        public Tag()
+        {
+
+        }
+
         public Tag(string Id, Color Color, string Description)
         {
             this.Id = Id;
