@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace emlekmu.models
 {
-    class Color
+    public class Color
     {
         public int Red { get; set; }
         public int Green { get; set; }
         public int Blue { get; set; }
+
+        public Color()
+        {
+
+        }
 
         public Color(int Red, int Green, int Blue)
         {
