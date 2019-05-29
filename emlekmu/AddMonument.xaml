@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="emlekmu.AddMonument"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:emlekmu"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="300">
+    <Grid>
+        <StackPanel>
+            <Label Margin="10px"></Label>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5px" Width="60px">Id:</Label>
+                <TextBox Margin="5px" Width="200"> Kurac </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5px" Width="60px">Name:</Label>
+                <TextBox Margin="5px" Width="200px">Kurac</TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  Width="60px">Description:</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Margin="5px" Width="280px" Height="75px"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  Margin="10px" Width="60px">Image:</Label>
+                <TextBox Width="150px" Margin="10px 10px 0px 10px"></TextBox>
+                <Button Margin="0px 10px 10px 10px">Select file</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
