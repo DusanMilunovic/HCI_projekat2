@@ -69,6 +69,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="models\Color.cs" />
+    <Compile Include="models\Enumerations.cs" />
+    <Compile Include="models\Monument.cs" />
+    <Compile Include="models\Tag.cs" />
+    <Compile Include="models\Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -1,0 +1,17 @@
+1|Benchmark|Placed by a government agency or private survey firm.
+2|Building|Designed as landmarks, usually built with an extraordinary feature, such being designed as the tallest, largest, or most distinctive design
+3|Cenotaph|Intended to honor the dead who are buried elsewhere and other memorials to commemorate the dead, usually war casualties
+4|Church monument|To commemorate the faithful dead, located above or near their grave, often featuring an effigy
+5|Column|Often topped with a statue
+6|Eternal flame|Kept burning continuously, usually lit to honor unknown soldiers
+7|Fountain|Water-pouring structures usually placed in formal gardens or town squares
+8|Gravestone|Small monuments to the deceased, placed at their gravesites
+9|Mausoleum or tomb|Honors the dead
+10|Triumphal arch|Almost always to commemorate military successes
+11|Mosque Monument|Places of worship that generally have domes and minarets that stand out against the skyline. They also usually feature highly skilled Islamic calligraphy and geometric artwork
+12|Mound|Erected to commemorate great leaders or events
+13|Obelisk|Usually erected to commemorate great leaders
+14|Palace|Imposing royal residences designed to impress people with their grandeur and greatness
+15|Terminating vista|Layout design for urban monuments on the end of an avenue
+16|Statue|Usually statue of famous individuals or symbols
+17|Temple|Religious structures built for pilgrimage, ritual or commemorative purposes
