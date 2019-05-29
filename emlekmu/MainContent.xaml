@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400">
     <Grid>
-        <local:EditTag></local:EditTag>
+        <local:TagSection></local:TagSection>
     </Grid>
 </UserControl>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using emlekmu.models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +20,31 @@ namespace emlekmu
     /// <summary>
     /// Interaction logic for TagSection.xaml
     /// </summary>
+    /// 
+
     public partial class TagSection : UserControl
     {
         public TagSection()
         {
             InitializeComponent();
+            this.DataContext = this;
+            this.Tags.Add(new Tag());
+            this.kurac = new ObservableCollection<Tag>();
+            this.kurac.Add(new Tag());
+            this.kurac.Add(new Tag());
+
         }
+
+        public ObservableCollection<Tag> kurac { get; set; }
+        public ObservableCollection<Tag> Tags
+        {
+            get { return (ObservableCollection<Tag>)GetValue(TagsProperty); }
+            set { SetValue(TagsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Tags.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TagsProperty =
+            DependencyProperty.Register("Tags", typeof(ObservableCollection<Tag>), typeof(TagSection), new PropertyMetadata(new ObservableCollection<Tag>()));
+
     }
 }

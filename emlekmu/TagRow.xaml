@@ -7,12 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="800">
     <Grid>
-        <Viewbox Stretch="Uniform">
-            <StackPanel Orientation="Horizontal">
-                <Label Width="250" Height="50" FontSize="28">Id</Label>
-                <Label Width="500" Height="50" FontSize="28">Description</Label>
+         
+        <Viewbox Stretch="Uniform" Margin="5">
+            <Border CornerRadius="2" BorderBrush="Gray" BorderThickness="2">
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="250" Height="50" FontSize="20" VerticalContentAlignment="Center">Id</Label>
+                    <Label Width="500" Height="50" FontSize="20" VerticalContentAlignment="Center">Description</Label>
                 <Ellipse Width="40" Height="40" Margin="5" Fill="#006699"></Ellipse>
-            </StackPanel>
+                </StackPanel>
+            </Border>
         </Viewbox>
     </Grid>
 </UserControl>
