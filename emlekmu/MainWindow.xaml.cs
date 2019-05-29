@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using emlekmu.models.IO;
+
 
 namespace emlekmu
 {
@@ -22,7 +24,9 @@ namespace emlekmu
     {
         public MainWindow()
         {
+            DataGraph dataGraph = XmlParser.deserialize();
             InitializeComponent();
+            XmlParser.serialize(dataGraph);
         }
     }
 }
