@@ -10,7 +10,23 @@ namespace emlekmu.models
     {
         public string Id { get; set; }
         public Color Color { get; set; }
-        public string Description { get; set; }
+        string description;
+        public string Description {
+            get
+            {
+                return this.description;
+            }
+            set
+            {
+                this.description = value;
+                if (this.description.Length > 30)
+                    this.DescriptionShort = this.description.Substring(0, 30) + "...";
+                else
+                    this.DescriptionShort = this.description;
+            }
+        }
+
+        public string DescriptionShort { get; set; }
 
         public Tag()
         {
@@ -22,6 +38,10 @@ namespace emlekmu.models
             this.Id = Id;
             this.Color = Color;
             this.Description = Description;
+            if (this.Description.Length > 30)
+                this.DescriptionShort = this.Description.Substring(0, 30) + "...";
+            else
+                this.DescriptionShort = this.Description;
         }
         
 

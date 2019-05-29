@@ -27,15 +27,10 @@ namespace emlekmu
         public TagSection()
         {
             InitializeComponent();
-            this.DataContext = this;
-            this.Tags.Add(new Tag());
-            this.kurac = new ObservableCollection<Tag>();
-            this.kurac.Add(new Tag());
-            this.kurac.Add(new Tag());
+            Root.DataContext = this;
 
         }
-
-        public ObservableCollection<Tag> kurac { get; set; }
+        
         public ObservableCollection<Tag> Tags
         {
             get { return (ObservableCollection<Tag>)GetValue(TagsProperty); }
@@ -46,5 +41,9 @@ namespace emlekmu
         public static readonly DependencyProperty TagsProperty =
             DependencyProperty.Register("Tags", typeof(ObservableCollection<Tag>), typeof(TagSection), new PropertyMetadata(new ObservableCollection<Tag>()));
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Write("aha");
+        }
     }
 }

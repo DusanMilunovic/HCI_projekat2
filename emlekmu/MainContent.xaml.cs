@@ -27,7 +27,7 @@ namespace emlekmu
     {
         #region Data
 
-        
+
 
         protected virtual void OnPropertyChanged(string name)
         {
@@ -40,7 +40,8 @@ namespace emlekmu
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<Type> types;
-        public ObservableCollection<Type> Types {
+        public ObservableCollection<Type> Types
+        {
             get
             {
                 return types;
@@ -51,6 +52,72 @@ namespace emlekmu
                 {
                     types = value;
                     OnPropertyChanged("Types");
+                }
+            }
+        }
+
+        ObservableCollection<Monument> monuments;
+        public ObservableCollection<Monument> Monuments
+        {
+            get
+            {
+                return monuments;
+            }
+            set
+            {
+                if (value != monuments)
+                {
+                    monuments = value;
+                    OnPropertyChanged("Monuments");
+                }
+            }
+        }
+        ObservableCollection<Monument> searchedMonuments;
+        public ObservableCollection<Monument> SearchedMonuments
+        {
+            get
+            {
+                return searchedMonuments;
+            }
+            set
+            {
+                if (value != searchedMonuments)
+                {
+                    searchedMonuments = value;
+                    OnPropertyChanged("SearchedMonuments");
+                }
+            }
+        }
+        ObservableCollection<Monument> filteredMonuments;
+        public ObservableCollection<Monument> FilteredMonuments
+        {
+            get
+            {
+                return filteredMonuments;
+            }
+            set
+            {
+                if (value != filteredMonuments)
+                {
+                    filteredMonuments = value;
+                    OnPropertyChanged("FilteredMonuments");
+                }
+            }
+        }
+
+        ObservableCollection<Tag> tags;
+        public ObservableCollection<Tag> Tags
+        {
+            get
+            {
+                return tags;
+            }
+            set
+            {
+                if (value != tags)
+                {
+                    tags = value;
+                    OnPropertyChanged("Tags");
                 }
             }
         }
@@ -83,12 +150,7 @@ namespace emlekmu
         List<Tag> tags_f;
         #endregion
         #region Lists
-        ObservableCollection<Monument> monuments;
-            ObservableCollection<Monument> searchedMonuments;
-            ObservableCollection<Monument> filteredMonuments;
 
-            ObservableCollection<Tag> tags;
-        
         #endregion
         #region Monument
         public delegate Monument onAddMonument(Monument m);
@@ -108,7 +170,7 @@ namespace emlekmu
 
         Monument addMonument(Monument t)
         {
-            this.monuments.Add(t);
+            this.Monuments.Add(t);
             this.findMonuments(
                 this.id_s,
                 this.name_s,
@@ -138,11 +200,11 @@ namespace emlekmu
 
         Monument removeMonument(int id)
         {
-            foreach (var m in this.monuments)
+            foreach (var m in this.Monuments)
             {
                 if (m.Id == id)
                 {
-                    this.monuments.Remove(m);
+                    this.Monuments.Remove(m);
                     this.findMonuments(
                         this.id_s,
                         this.name_s,
@@ -175,9 +237,9 @@ namespace emlekmu
 
         Monument editMonument(Monument t)
         {
-            if (this.monuments.Remove(t))
+            if (this.Monuments.Remove(t))
             {
-                this.monuments.Add(t);
+                this.Monuments.Add(t);
                 this.findMonuments(
                     this.id_s,
                     this.name_s,
@@ -209,9 +271,9 @@ namespace emlekmu
 
         Monument findMonument(int id)
         {
-            foreach (var m in this.monuments)
+            foreach (var m in this.Monuments)
             {
-                if(m.Id == id)
+                if (m.Id == id)
                 {
                     return m;
                 }
@@ -244,12 +306,12 @@ namespace emlekmu
             this.min_income_s = min_income;
             this.max_income_s = max_income;
             this.tags_s = tags;
-            List<Monument> sMonuments = new List<Monument>(this.monuments);
-            foreach (var monument in this.monuments)
+            List<Monument> sMonuments = new List<Monument>(this.Monuments);
+            foreach (var monument in this.Monuments)
             {
                 if (id != -1)
                 {
-                    if(monument.Id != id)
+                    if (monument.Id != id)
                     {
                         sMonuments.Remove(monument);
                     }
@@ -265,7 +327,7 @@ namespace emlekmu
 
                 if (typeName != "")
                 {
-                    if(!monument.Type.Name.ToString().ToLower().Contains(typeName.ToLower()))
+                    if (!monument.Type.Name.ToString().ToLower().Contains(typeName.ToLower()))
                     {
                         sMonuments.Remove(monument);
                     }
@@ -301,7 +363,7 @@ namespace emlekmu
                         sMonuments.Remove(monument);
                     }
                 }
-                
+
                 if (populated != -1)
                 {
                     bool match = false;
@@ -323,7 +385,7 @@ namespace emlekmu
 
                 if (min_income != -1)
                 {
-                    if(monument.Income < min_income)
+                    if (monument.Income < min_income)
                     {
                         sMonuments.Remove(monument);
                     }
@@ -337,11 +399,11 @@ namespace emlekmu
                     }
 
                 }
-                
-                if (tags.Count != 0)
+
+                if (Tags.Count != 0)
                 {
                     bool match = false;
-                    foreach (var t in tags)
+                    foreach (var t in Tags)
                     {
                         if (monument.Tags.IndexOf(t) != -1)
                             match = true;
@@ -474,10 +536,10 @@ namespace emlekmu
 
                 }
 
-                if (tags.Count != 0)
+                if (Tags.Count != 0)
                 {
                     bool match = false;
-                    foreach (var t in tags)
+                    foreach (var t in Tags)
                     {
                         if (monument.Tags.IndexOf(t) != -1)
                             match = true;
@@ -507,17 +569,17 @@ namespace emlekmu
 
         Type addType(Type t)
         {
-            this.types.Add(t);
+            this.Types.Add(t);
             return t;
         }
 
         Type removeType(int id)
         {
-            foreach (var t in this.types)
+            foreach (var t in this.Types)
             {
                 if (t.Id == id)
                 {
-                    this.types.Remove(t);
+                    this.Types.Remove(t);
                     return t;
                 }
             }
@@ -526,9 +588,9 @@ namespace emlekmu
 
         Type editType(Type t)
         {
-            if (this.types.Remove(t))
+            if (this.Types.Remove(t))
             {
-                this.types.Add(t);
+                this.Types.Add(t);
                 return t;
             }
             return null;
@@ -536,7 +598,7 @@ namespace emlekmu
 
         Type findType(int id)
         {
-            foreach (var t in this.types)
+            foreach (var t in this.Types)
             {
                 if (t.Id == id)
                     return t;
@@ -601,7 +663,20 @@ namespace emlekmu
         #endregion
         public MainContent()
         {
+            Tags = new ObservableCollection<Tag>();
 
+            this.Tags.Add(new Tag("Good", new models.Color(0, 100, 166), "Very good tag"));
+            this.Tags.Add(new Tag("GRood", new models.Color(100, 0, 166), "Very grood tag"));
+            this.Tags.Add(new Tag("GRooden", new models.Color(100, 166, 0), "Very grooden tag"));
+            this.Tags.Add(new Tag("Good", new models.Color(100, 100, 166), "Even verier good tag"));
+            this.Tags.Add(new Tag("GRood", new models.Color(100, 100, 166), "Even verier grood tag"));
+            this.Tags.Add(new Tag("GRooden", new models.Color(100, 166, 100), "Even verier grooden tag"));
+            this.Tags.Add(new Tag("Good", new models.Color(45, 100, 166), "Even verier beste tag"));
+            this.Tags.Add(new Tag("GRood", new models.Color(130, 207, 166), "Even verier bestere tag"));
+            this.Tags.Add(new Tag("GRooden", new models.Color(114, 20, 35), "Even verier besterederen tag"));
+            this.Tags.Add(new Tag("Good", new models.Color(66, 100, 200), "Even verier more grood beste tag"));
+            this.Tags.Add(new Tag("GRood", new models.Color(70, 100, 50), "Even verier more grooder beste tag"));
+            this.Tags.Add(new Tag("GRooden", new models.Color(20, 30, 20), "Even verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag"));
             InitializeComponent();
 
             Root.DataContext = this;

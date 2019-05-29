@@ -7,16 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="
              300" d:DesignWidth="800">
-    <Grid>
+    <Grid x:Name="Root">
         <Viewbox Stretch="Uniform" Margin="5">
             <Border CornerRadius="2" BorderBrush="Gray" BorderThickness="2">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <Label Width="700" Height="50" FontSize="20" VerticalContentAlignment="Center">Id</Label>
-                        <Ellipse Width="80" Height="80" Margin="10" Fill="#006699" HorizontalAlignment="Right"></Ellipse>
+                        <Label Width="700" Height="50" FontSize="20" VerticalContentAlignment="Center" Content="{Binding Id}"></Label>
+                        <Ellipse Width="80" Height="80" Margin="10" Fill="{Binding Color}" HorizontalAlignment="Right"></Ellipse>
                     </StackPanel>
                     <Border BorderThickness="0 1 0 0" BorderBrush="LightGray">
-                        <Label Width="800" Height="200" FontSize="20" VerticalContentAlignment="Top">Description</Label>
+                        <Label Width="800" Height="200" FontSize="20" VerticalContentAlignment="Top" Content="{Binding Description}"></Label>
                     </Border>
                 </StackPanel>
             </Border>

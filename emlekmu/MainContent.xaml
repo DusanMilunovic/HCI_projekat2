@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400">
     <Grid x:Name="Root">
-        <local:TypeSection Types="{Binding Path=Types}"></local:TypeSection>
+        <local:TagSection Tags="{Binding Path=Tags}"></local:TagSection>
     </Grid>
 </UserControl>

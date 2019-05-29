@@ -6,15 +6,17 @@
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid x:Name="Root">
         <ScrollViewer VerticalScrollBarVisibility="Auto" Height="450px">
             <StackPanel Orientation="Vertical">
-                <ItemsControl ItemsSource="{Binding kurac}">
+                <ItemsControl ItemsSource="{Binding Tags}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <local:TagRow></local:TagRow>
-                                <local:TagRowDetail></local:TagRowDetail>
+                                <local:TagRow Id="{Binding Path=Id}"
+                                               Description="{Binding Path=DescriptionShort}"
+                                               Color="{Binding Path=Color}">
+                                </local:TagRow>
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

@@ -20,9 +20,52 @@ namespace emlekmu
     /// </summary>
     public partial class TagRow : UserControl
     {
+
+
+
+        public string Id
+        {
+            get { return (string)GetValue(IdProperty); }
+            set { SetValue(IdProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Id.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IdProperty =
+            DependencyProperty.Register("Id", typeof(string), typeof(TagRow), new PropertyMetadata(""));
+
+
+
+
+
+        public string Description
+        {
+            get { return (string)GetValue(DescriptionProperty); }
+            set { SetValue(DescriptionProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Description.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DescriptionProperty =
+            DependencyProperty.Register("Description", typeof(string), typeof(TagRow), new PropertyMetadata(""));
+
+
+
+
+        public models.Color Color
+        {
+            get { return (models.Color)GetValue(ColorProperty); }
+            set { SetValue(ColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Color.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ColorProperty =
+            DependencyProperty.Register("Color", typeof(models.Color), typeof(TagRow), new PropertyMetadata(new models.Color(0,0,0)));
+
+
+
         public TagRow()
         {
             InitializeComponent();
+            Root.DataContext = this;
         }
     }
 }
