@@ -5,28 +5,66 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="300">
+             d:DesignHeight="700" d:DesignWidth="300">
     <Grid>
         <StackPanel>
             <Label Margin="10px"></Label>
             <StackPanel Orientation="Horizontal">
-                <Label Margin="5px" Width="60px">Id:</Label>
-                <TextBox Margin="5px" Width="200"> Kurac </TextBox>
+                <Label x:Name="IdLabel" Margin="5px" Width="70px">Id:</Label>
+                <TextBox x:Name="IdTextBox" Text="{Binding Monument.Id}" Margin="5px" Width="200"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Margin="5px" Width="60px">Name:</Label>
-                <TextBox Margin="5px" Width="200px">Kurac</TextBox>
+                <Label Margin="5px" Width="70px">Name:</Label>
+                <TextBox x:Name="NameTextBox" Text="{Binding Monument.Name}" Margin="5px" Width="200px"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label  Width="60px">Description:</Label>
+                <Label  Width="70px">Description:</Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBox Margin="5px" Width="280px" Height="75px"></TextBox>
+                <TextBox x:Name="DescriptionTextBox" Text="{Binding Monument.Description}" Margin="5px" Width="280px" Height="75px"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label  Margin="10px" Width="60px">Image:</Label>
-                <TextBox Width="150px" Margin="10px 10px 0px 10px"></TextBox>
+                <Label  Margin="10px" Width="70px">Image:</Label>
+                <TextBox x:Name="ImageTextBox" Text="{Binding Monument.Image}" Width="130px" Margin="10px 10px 0px 10px"></TextBox>
                 <Button Margin="0px 10px 10px 10px">Select file</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="10px" Width="70px">Type:</Label>
+                <ComboBox Margin="10px" Width="115px"></ComboBox>
+                <Button Margin="10px"> Add type</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="10px" Width="70px">Era:</Label>
+                <ComboBox Margin="10px" Width="115px"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  Margin="10px" Width="70px">Icon:</Label>
+                <TextBox x:Name="IconTextBox" Text="{Binding Monument.Icon}" Width="145px" Margin="10px 10px 0px 10px"></TextBox>
+                <Button Margin="0px 10px 10px 10px">Select file</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  Margin="10px" Width="85px">Archeological:</Label>
+                <CheckBox x:Name="ArcheologicalCheckBox" IsChecked="{Binding Monument.ArcheologicallyExplored}" Margin="15px"></CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  Margin="10px" Width="85px">Unesco:</Label>
+                <CheckBox x:Name="UnescoCheckBox" IsChecked="{Binding Monument.Unesco}" Margin="15px"></CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="10px" Width="85px">Populated:</Label>
+                <CheckBox x:Name="PopulatedCheckBox" IsChecked="{Binding Monument.PopulatedRegion}" Margin="15px"></CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="10px" Width="70px">Touristic:</Label>
+                <ComboBox Margin="10px" Width="115px"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="10px" Width="70px">Income:</Label>
+                <TextBox x:Name="IncomeTextBox" Text="{Binding Monument.Income}" Margin="10px" Width="115px"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="10px" Width="70px">Date:</Label>
+                <TextBox x:Name="DateTextBox" Text="{Binding Monument.DiscoveryDate}" Margin="10px" Width="115px"></TextBox>
             </StackPanel>
         </StackPanel>
     </Grid>
