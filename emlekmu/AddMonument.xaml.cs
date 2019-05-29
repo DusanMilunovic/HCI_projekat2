@@ -129,9 +129,9 @@ namespace emlekmu
     {
         public string Name { get; set; }
 
-        public int Value { get; set; }
+        public TouristicStatus Value { get; set; }
 
-        public TouristicStatusComboItem(string Name, int Value)
+        public TouristicStatusComboItem(string Name, TouristicStatus Value)
         {
             this.Name = Name;
             this.Value = Value;
@@ -140,9 +140,9 @@ namespace emlekmu
         public static ObservableCollection<TouristicStatusComboItem> initializeTouristicList()
         {
             var retVal = new ObservableCollection<TouristicStatusComboItem>();
-            retVal.Add(new TouristicStatusComboItem("Exploited", 0));
-            retVal.Add(new TouristicStatusComboItem("Available", 1));
-            retVal.Add(new TouristicStatusComboItem("Unavailable", 2));
+            retVal.Add(new TouristicStatusComboItem("Exploited", TouristicStatus.Exploited));
+            retVal.Add(new TouristicStatusComboItem("Available", TouristicStatus.Available));
+            retVal.Add(new TouristicStatusComboItem("Unavailable", TouristicStatus.Unavailable));
             return retVal;
         }
     }
@@ -151,9 +151,9 @@ namespace emlekmu
     {
         public string Name { get; set; }
 
-        public int Value { get; set; }
+        public Era Value { get; set; }
 
-        public ErasComboItem(string Name, int Value)
+        public ErasComboItem(string Name, Era Value)
         {
             this.Name = Name;
             this.Value = Value;
@@ -162,12 +162,12 @@ namespace emlekmu
         public static ObservableCollection<ErasComboItem> initializeEraList()
         {
             var retVal = new ObservableCollection<ErasComboItem>();
-            retVal.Add(new ErasComboItem("Paleolith", 0));
-            retVal.Add(new ErasComboItem("Neolithic", 1));
-            retVal.Add(new ErasComboItem("Ancient", 2));
-            retVal.Add(new ErasComboItem("Medieval", 3));
-            retVal.Add(new ErasComboItem("Renaissance", 4));
-            retVal.Add(new ErasComboItem("Modern", 5));
+            retVal.Add(new ErasComboItem("Paleolith", Era.Paleolith));
+            retVal.Add(new ErasComboItem("Neolithic", Era.Neolithic));
+            retVal.Add(new ErasComboItem("Ancient", Era.Ancient));
+            retVal.Add(new ErasComboItem("Medieval", Era.Medieval));
+            retVal.Add(new ErasComboItem("Renaissance", Era.Renaissance));
+            retVal.Add(new ErasComboItem("Modern", Era.Modern));
             return retVal;
         }
     }
