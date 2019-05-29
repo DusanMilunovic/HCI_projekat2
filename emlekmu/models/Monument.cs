@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 
 namespace emlekmu.models
 {
-    class Monument
+    public class Monument
     {
         public int Id { get; set; }
         public string Name { get; set; }

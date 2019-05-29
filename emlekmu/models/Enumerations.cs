@@ -10,7 +10,7 @@ namespace emlekmu.models
     {
     }
 
-    enum Era
+    public enum Era
     {
         Paleolith,
         Neolithic,
@@ -20,7 +20,7 @@ namespace emlekmu.models
         Modern
     }
 
-    enum TouristicStatus
+    public enum TouristicStatus
     {
         Exploited,
         Available,
