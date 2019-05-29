@@ -55,13 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddType.xaml.cs">
+      <DependentUpon>AddType.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TagRow.xaml.cs">
       <DependentUpon>TagRow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TagSection.xaml.cs">
       <DependentUpon>TagSection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TypeRow.xaml.cs">
+      <DependentUpon>TypeRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TypeSection.xaml.cs">
+      <DependentUpon>TypeSection.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddTag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,6 +112,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TagSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TypeRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TypeSection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
