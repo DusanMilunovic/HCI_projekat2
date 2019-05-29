@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="300">
-    <Grid>
+    <Grid x:Name="Root">
         <StackPanel>
             <Label Margin="10px"></Label>
             <StackPanel Orientation="Horizontal">
@@ -30,12 +30,12 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Margin="10px" Width="70px">Type:</Label>
-                <ComboBox Margin="10px" Width="115px"></ComboBox>
+                <ComboBox Margin="10px" Width="115px" ItemsSource="{Binding Types}" DisplayMemberPath="Name" SelectedValue="{Binding Monument.Type}"></ComboBox>
                 <Button Margin="10px"> Add type</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Margin="10px" Width="70px">Era:</Label>
-                <ComboBox Margin="10px" Width="115px"></ComboBox>
+                <ComboBox x:Name="EraComboBox" Margin="10px" Width="115px" ItemsSource="{Binding Eras}" DisplayMemberPath="Name" SelectedValuePath="Value" SelectedValue="{Binding Monument.Era}"></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label  Margin="10px" Width="70px">Icon:</Label>
@@ -56,7 +56,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Margin="10px" Width="70px">Touristic:</Label>
-                <ComboBox Margin="10px" Width="115px"></ComboBox>
+                <ComboBox x:Name="TouristicComboBox" Margin="10px" Width="115px" ItemsSource="{Binding Touristic}" DisplayMemberPath="Name" SelectedValuePath="Value" SelectedValue="{Binding Monument.Touristic}"></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Margin="10px" Width="70px">Income:</Label>
@@ -66,6 +66,7 @@
                 <Label Margin="10px" Width="70px">Date:</Label>
                 <TextBox x:Name="DateTextBox" Text="{Binding Monument.DiscoveryDate}" Margin="10px" Width="115px"></TextBox>
             </StackPanel>
+            <Button Click="Button_Click">Test</Button>
         </StackPanel>
     </Grid>
 </UserControl>
