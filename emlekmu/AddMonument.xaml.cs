@@ -519,6 +519,10 @@ namespace emlekmu
             {
                 return new ValidationResult(false, "Name property has to be filled.");
             }
+            if (value.ToString().Length > 50)
+            {
+                return new ValidationResult(false, "Name property can not be longer than 50 characters");
+            }
             return new ValidationResult(true, null);
         }
     }
@@ -530,6 +534,10 @@ namespace emlekmu
             if (value == null || value.ToString() == "")
             {
                 return new ValidationResult(false, "Description property has to be filled.");
+            }
+            if (value.ToString().Length > 1000)
+            {
+                return new ValidationResult(false, "Name property can not be longer than 1000 characters");
             }
             return new ValidationResult(true, null);
         }
