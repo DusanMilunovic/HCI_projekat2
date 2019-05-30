@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,19 @@ namespace emlekmu
     /// <summary>
     /// Interaction logic for TypeSection.xaml
     /// </summary>
-    public partial class TypeSection: Window
+    public partial class TypeSection: Window, INotifyPropertyChanged
     {
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public delegate void onTypeClicked(int id);
         public onAddType AddTypeCallback
         {
             get { return (onAddType)GetValue(AddTypeCallbackProperty); }
@@ -71,7 +82,22 @@ namespace emlekmu
         public static readonly DependencyProperty TypesProperty =
             DependencyProperty.Register("Types", typeof(ObservableCollection<Type>), typeof(TypeSection), new PropertyMetadata(new ObservableCollection<Type>()));
 
-
+        public onTypeClicked typeClickedCallback;
+        public onTypeClicked TypeClickedCallback
+        {
+            get
+            {
+                return typeClickedCallback;
+            }
+            set
+            {
+                if (value != typeClickedCallback)
+                {
+                    typeClickedCallback = value;
+                    OnPropertyChanged("TypeClickedCallback");
+                }
+            }
+        }
         public TypeSection()
         {
             InitializeComponent();
@@ -81,12 +107,88 @@ namespace emlekmu
         public TypeSection(ObservableCollection<Type> types, onAddType addTypeCallback, onEditType editTypeCallback, onRemoveType removeTypeCallback)
         {
             InitializeComponent();
+            EnlargenedTypes = new ObservableCollection<int>();
             Root.DataContext = this;
+            TypeClickedCallback = new onTypeClicked(typeClicked);
             Types = types;
             AddTypeCallback = addTypeCallback;
             EditTypeCallback = editTypeCallback;
             RemoveTypeCallback = removeTypeCallback;
         }
+
+        ObservableCollection<int> enlargenedTypes;
+        public ObservableCollection<int> EnlargenedTypes
+        {
+            get
+            {
+                return enlargenedTypes;
+            }
+            set
+            {
+                if (value != enlargenedTypes)
+                {
+                    enlargenedTypes = value;
+                    OnPropertyChanged("EnlargenedTypes");
+                }
+            }
+        }
+
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
+        }
+
+        public void typeClicked(int id)
+        {
+            TypeRow myTypeUC = null;
+            TypeRowDetail myTypeDUC = null;
+            foreach (TypeRow tb in FindVisualChildren<TypeRow>(RootWoot))
+            {
+                tb.Visibility = Visibility.Visible;
+                if (tb.Tag.Equals(id))
+                    myTypeUC = tb;
+                else
+                    this.EnlargenedTypes.Remove(tb.Id);
+            }
+            foreach (TypeRowDetail tb in FindVisualChildren<TypeRowDetail>(RootWoot))
+            {
+                tb.Visibility = Visibility.Collapsed;
+                if (tb.Tag.Equals(id))
+                    myTypeDUC = tb;
+                else
+                    this.EnlargenedTypes.Remove(tb.Id);
+            }
+
+            if (this.EnlargenedTypes.IndexOf(id) == -1)
+            {
+                myTypeUC.Visibility = Visibility.Collapsed;
+                myTypeDUC.Visibility = Visibility.Visible;
+                this.EnlargenedTypes.Add(id);
+            }
+            else
+            {
+                myTypeDUC.Visibility = Visibility.Collapsed;
+                myTypeUC.Visibility = Visibility.Visible;
+                this.EnlargenedTypes.Remove(id);
+            }
+        }
+
+
 
         private void AddTypeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -98,14 +200,5 @@ namespace emlekmu
             addTypeDialog.ShowDialog();
         }
 
-        private void EditTypeButton_Click(object sender, RoutedEventArgs e)
-        {
-            EditType editTypeDialog = new emlekmu.EditType(Types[0], EditTypeCallback);
-
-            editTypeDialog.Height = 600;
-            editTypeDialog.Width = 400;
-
-            editTypeDialog.ShowDialog();
-        }
     }
 }

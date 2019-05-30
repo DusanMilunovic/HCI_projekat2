@@ -70,19 +70,41 @@ namespace emlekmu.models
             }
         }
 
-        public string description;
+        string description;
         public string Description
         {
             get
             {
-                return description;
+                return this.description;
             }
             set
             {
                 if (value != description)
                 {
-                    description = value;
+
+                    this.description = value;
+                    if (this.description.Length > 30)
+                        this.DescriptionShort = this.description.Substring(0, 30) + "...";
+                    else
+                        this.DescriptionShort = this.description;
                     OnPropertyChanged("Description");
+                }
+            }
+        }
+
+        public string descriptionShort;
+        public string DescriptionShort
+        {
+            get
+            {
+                return descriptionShort;
+            }
+            set
+            {
+                if (value != descriptionShort)
+                {
+                    descriptionShort = value;
+                    OnPropertyChanged("DescriptionShort");
                 }
             }
         }
@@ -100,6 +122,10 @@ namespace emlekmu.models
             this.Name = Name;
             this.Icon = Icon;
             this.Description = Description;
+            if (this.Description.Length > 30)
+                this.DescriptionShort = this.Description.Substring(0, 30) + "...";
+            else
+                this.DescriptionShort = this.Description;
         }
 
         // override object.Equals
