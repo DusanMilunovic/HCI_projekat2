@@ -17,6 +17,11 @@
                     <Separator />
                     <MenuItem Header="_Exit" />
                 </MenuItem>
+                <MenuItem Header="_Add">
+                    <MenuItem Header="_Monument" Click="monumentAdd_Click"/>
+                    <MenuItem Header="_Tag" Click="tagAdd_Click"/>
+                    <MenuItem Header="_Type" Click="typeAdd_Click"/>
+                </MenuItem>
             </Menu>
             <local:MonumentsTable Monuments="{Binding Monuments}"/>
         </DockPanel>
