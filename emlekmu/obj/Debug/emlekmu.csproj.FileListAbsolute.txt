@@ -1,5 +1,4 @@
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\bin\Debug\WpfApplication1.exe.config
-D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\emlekmu.csprojResolveAssemblyReference.cache
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\AddTag.g.cs
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\AddType.g.cs
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\EditTag.g.cs
@@ -33,3 +32,6 @@ D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\TypeSection.baml
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\WpfApplication1.g.resources
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\WpfApplication1.Properties.Resources.resources
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\emlekmu.csproj.GenerateResource.Cache
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\EditType.g.cs
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\EditType.baml
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\emlekmu.csprojResolveAssemblyReference.cache

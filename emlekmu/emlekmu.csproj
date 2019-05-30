@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EditType.xaml.cs">
+      <DependentUpon>EditType.xaml</DependentUpon>
+    </Compile>
     <Compile Include="models\Color.cs" />
     <Compile Include="models\Enumerations.cs" />
     <Compile Include="models\IO\CsvParser.cs" />
@@ -89,6 +93,10 @@
     <Page Include="EditTag.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainContent.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +180,249 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Dag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\monument-images\24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\type-icons\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\monument24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\type17.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
