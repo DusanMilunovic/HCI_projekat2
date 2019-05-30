@@ -109,7 +109,8 @@ namespace emlekmu
                 return;
             }
             EditTypeCallback(newType);
-            EditTypeButton.IsCancel = true;
+            this.DialogResult = true;
+            this.Close();
         }
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
