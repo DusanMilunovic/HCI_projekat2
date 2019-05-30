@@ -11,6 +11,7 @@
             <Menu DockPanel.Dock="Top" Height="40">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Types" Click="types_Click"/>
+                    <MenuItem Header="T_ags" Click="tags_Click"/>
                     <MenuItem Header="_Open" />
                     <MenuItem Header="_Save" />
                     <Separator />

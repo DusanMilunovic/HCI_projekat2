@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static emlekmu.MainContent;
 using static emlekmu.TagSection;
 
 namespace emlekmu
@@ -86,6 +87,34 @@ namespace emlekmu
 
 
 
+        public onEditTag EditTagCallback
+        {
+            get { return (onEditTag)GetValue(EditTagCallbackProperty); }
+            set { SetValue(EditTagCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for EditTagCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EditTagCallbackProperty =
+            DependencyProperty.Register("EditTagCallback", typeof(onEditTag), typeof(TagRowDetail), new PropertyMetadata(null));
+
+
+
+
+
+        public onRemoveTag RemoveTagCallback
+        {
+            get { return (onRemoveTag)GetValue(RemoveTagCallbackProperty); }
+            set { SetValue(RemoveTagCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RemoveTagCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RemoveTagCallbackProperty =
+            DependencyProperty.Register("RemoveTagCallback", typeof(onRemoveTag), typeof(TagRowDetail), new PropertyMetadata(null));
+
+
+
+
+
         private void OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             TagClickedCallback(Id);
@@ -96,6 +125,19 @@ namespace emlekmu
         {
             InitializeComponent();
             Root.DataContext = this;
+        }
+
+        private void EditTagButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditTag editTagDialog = new emlekmu.EditTag(new models.Tag(Id, new models.Color(Color), Description), EditTagCallback);
+            editTagDialog.Height = 600;
+            editTagDialog.Width = 400;
+            editTagDialog.ShowDialog();
+        }
+
+        private void DeleteTagButton_Click(object sender, RoutedEventArgs e)
+        {
+            RemoveTagCallback(Id);
         }
     }
 }

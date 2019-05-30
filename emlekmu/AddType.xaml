@@ -21,16 +21,27 @@
                                 </StackPanel>
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
+                        <TextBox.Resources>
+                            <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
+                        </TextBox.Resources>
                         <TextBox.Text>
                             <Binding Path="NewType.Id">
                                 <Binding.ValidationRules>
-                                    <local:IdValidation x:Name="IdValidation" ValidationStep="RawProposedValue"></local:IdValidation>
+                                    <local:IdValidation x:Name="IdValidation" ValidationStep="RawProposedValue">
+                                        <local:IdValidation.Wrapper>
+                                            <local:IdValidationWrapper 
+                                                    Types="{Binding Data.Types, Source={StaticResource proxy}}">
+                                            </local:IdValidationWrapper>
+                                        </local:IdValidation.Wrapper>
+                                    </local:IdValidation>
                                 </Binding.ValidationRules>
                             </Binding>
                         </TextBox.Text>
+
                     </TextBox>
+
                     <Label x:Name="NameLabel" FontSize="16" Margin="5 20 5 0">Name</Label>
-                    <TextBox Height="30" FontSize="16" Margin="10 0 10 10" MaxWidth="380" TextWrapping="NoWrap">
+                    <TextBox x:Name="NameTextBox" Height="30" FontSize="16" Margin="10 0 10 10" MaxWidth="380" TextWrapping="NoWrap">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -48,23 +59,27 @@
                         </TextBox.Text>
                     </TextBox>
 
-                    <Label x:Name="DescriptionLabel" FontSize="16" Margin="5 20 5 0">Description</Label>
-                    <TextBox x:Name="DescriptionTextBox" Height="120" FontSize="16" Margin="10 0 10 10" TextWrapping="Wrap" Width="380">
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="DescriptionErrorLabel"></AdornedElementPlaceholder>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                    <TextBox.Text>
-                        <Binding Path="NewType.Description">
-                            <Binding.ValidationRules>
-                                <local:DescriptionValidation x:Name="DescriptionValidation" ValidationStep="RawProposedValue"></local:DescriptionValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
+
+
+
+
+                    <Label x:Name="DescriptionLabel" Height="40" FontSize="16" Margin="10 0">Description</Label>
+                    <TextBox x:Name="DescriptionTextBox" Height="120" FontSize="16" Margin="10">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="DescriptionErrorLabel"></AdornedElementPlaceholder>
+                                    <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                        <TextBox.Text>
+                            <Binding Path="NewType.Description">
+                                <Binding.ValidationRules>
+                                    <local:DescriptionValidation x:Name="DescriptionValidation" ValidationStep="RawProposedValue"></local:DescriptionValidation>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
                     </TextBox>
 
                     <Label x:Name="IconLabel" FontSize="16" Margin="5 20 5 0">Icon</Label>
@@ -73,7 +88,7 @@
                             <Validation.ErrorTemplate>
                                 <ControlTemplate>
                                     <StackPanel>
-                                        <AdornedElementPlaceholder x:Name="NameErrorLabel"></AdornedElementPlaceholder>
+                                        <AdornedElementPlaceholder x:Name="IconErrorLabel"></AdornedElementPlaceholder>
                                         <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
                                     </StackPanel>
                                 </ControlTemplate>
@@ -88,13 +103,12 @@
                         </TextBox>
                         <Button x:Name="BrowseButton" Width="100" Height="40" FontSize="16" Margin="0 0 10 10" Click="BrowseButton_Click">Browse...</Button>
                     </StackPanel>
-
-                    <Label x:Name="ValidationLabel" Height="30" FontSize="16" Foreground="Red" Margin="10 30 10 0"></Label>
                 </StackPanel>
-                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="40" HorizontalAlignment="Center" Margin="0 30 0 10">
+                <StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Right" Margin="0 20 0 0">
                     <Button x:Name="AddTypeButton" IsDefault="True" Width="100" Height="40" FontSize="16" Margin="10 0" Click="AddTypeButton_Click">Add Type</Button>
                     <Button x:Name="CancelButton" IsCancel="True" Width="100" Height="40" FontSize="16" Margin="0 0 10 0">Cancel</Button>
                 </StackPanel>
+                        
             </DockPanel>
         </Viewbox>
     </Grid>

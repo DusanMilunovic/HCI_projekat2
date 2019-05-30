@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="emlekmu.TagSection"
+﻿<Window x:Class="emlekmu.TagSection"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="800">
     <Grid x:Name="RootWoot">
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="550">
+        <StackPanel>
+        <Label Height="50" FontSize="30" HorizontalAlignment="Center">Tags</Label>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="420">
             <StackPanel Orientation="Vertical">
                 <ItemsControl x:Name="Root" ItemsSource="{Binding Tags}">
                     <ItemsControl.ItemTemplate>
@@ -28,6 +30,8 @@
                                                Visibility="Collapsed"
                                                TagClickedCallback="{Binding ElementName=Root, Path=DataContext.TagClickedCallback}"
                                                EnlargenedTags="{Binding ElementName=Root, Path=DataContext.EnlargenedTags}"
+                                               EditTagCallback="{Binding ElementName=Root, Path=DataContext.EditTagCallback}"
+                                               RemoveTagCallback="{Binding ElementName=Root, Path=DataContext.RemoveTagCallback}"
                                                
                                                >
                                 </local:TagRowDetail>
@@ -37,5 +41,10 @@
                 </ItemsControl>
             </StackPanel>
         </ScrollViewer>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="AddTagButton" Height="50" Width="100" Click="AddTagButton_Click">Add Tag</Button>
+                <Button x:Name="CloseButton" IsCancel="True" Height="50" Width="100">Close</Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
-</UserControl>
+</Window>
