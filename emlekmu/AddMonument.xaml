@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
+             xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="300">
     <Grid x:Name="Root">
@@ -64,14 +65,14 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Margin="10px" Width="70px">Date:</Label>
-                <TextBox x:Name="DateTextBox" Margin="10px" Width="115px">
-                    <TextBox.Text>
-                        <Binding Path="Monument.DiscoveryDate">
+                <wpfTool:MaskedTextBox Width="200" Height="30" Mask="00/00/9990">
+                    <wpfTool:MaskedTextBox.Text>
+                        <Binding Path="TestString">
                             <Binding.ValidationRules>
-                                <local:DateRegexpRule ValidationStep="RawProposedValue"></local:DateRegexpRule>
+                                <local:DateValidation ValidationStep="RawProposedValue"></local:DateValidation>
                             </Binding.ValidationRules>
                         </Binding>
-                    </TextBox.Text>
+                    </wpfTool:MaskedTextBox.Text>
                     <Validation.ErrorTemplate>
                         <ControlTemplate>
                             <StackPanel>
@@ -80,7 +81,8 @@
                             </StackPanel>
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
-                </TextBox>
+                </wpfTool:MaskedTextBox>
+                <ComboBox x:Name="DateComboBox" Margin="10px" Width="115px" ItemsSource="{Binding DateCollection}"></ComboBox>
             </StackPanel>
             <Button Click="Button_Click">Test</Button>
         </StackPanel>

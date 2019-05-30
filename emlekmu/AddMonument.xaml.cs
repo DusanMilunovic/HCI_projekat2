@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Type = emlekmu.models.Type;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace emlekmu
 {
@@ -100,7 +101,41 @@ namespace emlekmu
             }
         }
 
+        public ObservableCollection<string> dateCollection;
 
+        public ObservableCollection<string> DateCollection
+        {
+            get
+            {
+                return dateCollection;
+            }
+            set
+            {
+                if (value != dateCollection)
+                {
+                    dateCollection = value;
+                    OnPropertyChanged("DateCollection");
+                }
+            }
+        }
+
+        public string testString;
+
+        public string TestString
+        {
+            get
+            {
+                return testString;
+            }
+            set
+            {
+                if (value != testString)
+                {
+                    testString = value;
+                    OnPropertyChanged("TestString");
+                }
+            }
+        }
 
         public AddMonument()
         {
@@ -108,6 +143,7 @@ namespace emlekmu
             Root.DataContext = this;
             this.eras = ErasComboItem.initializeEraList();
             this.touristic = TouristicStatusComboItem.initializeTouristicList();
+            this.dateCollection = getDateCollection();
             this.Monument = new Monument();
         }
 
@@ -116,6 +152,14 @@ namespace emlekmu
             //debug button method
             int a = 3;
             a = a + 1;
+        }
+
+        public static ObservableCollection<string> getDateCollection()
+        {
+            var retVal = new ObservableCollection<string>();
+            retVal.Add("BCE");
+            retVal.Add("CE");
+            return retVal;
         }
     }
 
@@ -166,14 +210,36 @@ namespace emlekmu
         }
     }
 
-    public class DateRegexpRule : ValidationRule
+    public class DateValidation : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            string temp = value.ToString();
-            if (temp == "cao")
-                return new ValidationResult(true, null);
-            return new ValidationResult(false, "Please enter \"cao\"");
+            var temp = value.ToString();
+            string[] parts = temp.Split('/');
+            int day;
+            int month;
+            int year;
+            try
+            {
+                day = Convert.ToInt32(parts[0].Trim(new char[] { '_' }));
+                month = Convert.ToInt32(parts[1].Trim(new char[] { '_' }));
+                year = Convert.ToInt32(parts[2].Trim(new char[] { '_' }));
+            }
+            catch
+            {
+                return new ValidationResult(false, "Date has to consist of three numbers");
+            }
+            DateTime date;
+            try
+            {
+                date  = new DateTime(year, month, day);
+            }
+            catch
+            {
+                return new ValidationResult(false, "Date has to be a valid combination of day/month/year");
+            }
+            return new ValidationResult(true, null);
         }
     }
+
 }
