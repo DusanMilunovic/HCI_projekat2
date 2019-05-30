@@ -18,7 +18,7 @@
                     <MenuItem Header="_Exit" />
                 </MenuItem>
             </Menu>
-            <local:AddMonument Types="{Binding Path=Types}"></local:AddMonument>
+            <local:MonumentsTable Monuments="{Binding Monuments}"/>
         </DockPanel>
     </Grid>
 </UserControl>

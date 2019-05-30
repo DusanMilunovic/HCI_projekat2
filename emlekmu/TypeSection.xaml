@@ -5,39 +5,49 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="Root">
+             d:DesignHeight="800" d:DesignWidth="740">
+    <Grid x:Name="RootWoot" Background="#cceeff">
+        <Viewbox Stretch="Uniform">
         <StackPanel>
             <Label Height="50" HorizontalAlignment="Center" FontSize="30" Margin="10">Types</Label>
-            <StackPanel Orientation="Horizontal" Width="800" Height="50">
-                <Label Width="100" Height="50" FontSize="20">Id</Label>
-                <Label Width="300" Height="50" FontSize="20">Name</Label>
-                <Label Width="350" Height="50" FontSize="20">Description</Label>
-            </StackPanel>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300">
-                <StackPanel Orientation="Vertical">
-                    <ItemsControl ItemsSource="{Binding Types}">
+                <Border BorderBrush="#555555" BorderThickness="1" Margin="15 10">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="625" Width="700" Margin="5 10">
+                    <StackPanel Orientation="Vertical">
+                    <ItemsControl x:Name="Root" ItemsSource="{Binding Types}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <local:TypeRow Id="{Binding Path=Id}"
+                                    <local:TypeRow Tag="{Binding Path=Id}" Id="{Binding Path=Id}"
+                                               TypeName="{Binding Path=Name}"
+                                               Description="{Binding Path=DescriptionShort}"
+                                               Icon="{Binding Path=Icon}"
+                                               TypeClickedCallback="{Binding ElementName=Root, Path=DataContext.TypeClickedCallback}"
+                                               EnlargenedTypes="{Binding ElementName=Root, Path=DataContext.EnlargenedTypes}"
+                                               >
+                                    </local:TypeRow>
+                                    <local:TypeRowDetail Tag="{Binding Path=Id}" Id="{Binding Path=Id}"
                                                TypeName="{Binding Path=Name}"
                                                Description="{Binding Path=Description}"
-                                               Icon="{Binding Path=Icon}">
-                                    </local:TypeRow>
+                                               Icon="{Binding Path=Icon}"
+                                               TypeClickedCallback="{Binding ElementName=Root, Path=DataContext.TypeClickedCallback}"
+                                               EnlargenedTypes="{Binding ElementName=Root, Path=DataContext.EnlargenedTypes, Mode=TwoWay}"
+                                               Visibility="Collapsed"
+                                               editTypeCallbackFun="{Binding ElementName=Root, Path=DataContext.EditTypeCallback}"
+                                               removeTypeCallbackFun="{Binding ElementName=Root, Path=DataContext.RemoveTypeCallback}"
+                                                         >
+                                    </local:TypeRowDetail>
                                 </StackPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </StackPanel>
-            </ScrollViewer>
-            <StackPanel Height="50" Margin="10" Orientation="Horizontal">
-                <Button x:Name="AddTypeButton" FontSize="16" Width="100" Margin="10 0 5 0" Click="AddTypeButton_Click">Add Type</Button>
-                <Button x:Name="EditTypeButton" FontSize="16" Width="100" Margin="5 0" Click="EditTypeButton_Click">Edit Type</Button>
-                <Button x:Name="DeleteTypeButton" FontSize="16" Width="100" Margin="5 0 20 0">Delete Type</Button>
-                <Button x:Name="CloseButton" IsCancel="True" FontSize="16" Width="100" Margin="5 0 20 0">Close</Button>
+                    </ScrollViewer>
+                </Border>
+                <StackPanel Height="50" Orientation="Horizontal" DockPanel.Dock="Left" HorizontalAlignment="Center">
+                <Button Background="#FFFFFF" x:Name="AddTypeButton" FontSize="16" Width="100" Margin="5 5 15 5" Click="AddTypeButton_Click">Add Type</Button>
+                <Button Background="#FFFFFF" x:Name="CloseButton" IsCancel="True" FontSize="16" Width="100" Margin="15 5 5 5">Close</Button>
             </StackPanel>
         </StackPanel>
-        
+        </Viewbox>
     </Grid>
 </Window>

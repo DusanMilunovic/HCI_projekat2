@@ -9,104 +9,107 @@
 
     <Grid x:Name="Root">
         <Viewbox Stretch="Uniform">
-        <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <Label x:Name="IdLabel" Height="40" FontSize="16" Margin="10 10 10 0">Id</Label>
-            </StackPanel>
-
-            <TextBox x:Name="IdTextBox" Height="40" FontSize="16" Margin="10">
-                <Validation.ErrorTemplate>
-                    <ControlTemplate>
-                        <StackPanel>
-                            <AdornedElementPlaceholder x:Name="IdErrorLabel"></AdornedElementPlaceholder>
-                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
-                        </StackPanel>
-                    </ControlTemplate>
-                </Validation.ErrorTemplate>
-                <TextBox.Resources>
-                    <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
-                </TextBox.Resources>
-                <TextBox.Text>
-                    <Binding Path="NewType.Id">
-                        <Binding.ValidationRules>
-                            <local:IdValidation x:Name="IdValidation" ValidationStep="RawProposedValue">
-                                <local:IdValidation.Wrapper>
-                                    <local:IdValidationWrapper 
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
+                    <Label x:Name="IdLabel" FontSize="16" Margin="5 0">Id</Label>
+                    <TextBox x:Name="IdTextBox" Height="30" FontSize="16" Margin="10 0 10 10" MaxWidth="380" TextWrapping="NoWrap">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="IdErrorLabel"></AdornedElementPlaceholder>
+                                    <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                        <TextBox.Resources>
+                            <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
+                        </TextBox.Resources>
+                        <TextBox.Text>
+                            <Binding Path="NewType.Id">
+                                <Binding.ValidationRules>
+                                    <local:IdValidation x:Name="IdValidation" ValidationStep="RawProposedValue">
+                                        <local:IdValidation.Wrapper>
+                                            <local:IdValidationWrapper 
                                                     Types="{Binding Data.Types, Source={StaticResource proxy}}">
-                                    </local:IdValidationWrapper>
-                                </local:IdValidation.Wrapper>
-                            </local:IdValidation>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
+                                            </local:IdValidationWrapper>
+                                        </local:IdValidation.Wrapper>
+                                    </local:IdValidation>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
 
-            </TextBox>
-            
-            <Label x:Name="NameLabel" Height="40" FontSize="16" Margin="10 0">Name</Label>
-            <TextBox x:Name="NameTextBox" Height="40" FontSize="16" Margin="10">
-                <Validation.ErrorTemplate>
-                    <ControlTemplate>
-                        <StackPanel>
-                            <AdornedElementPlaceholder x:Name="NameErrorLabel"></AdornedElementPlaceholder>
-                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
-                        </StackPanel>
-                    </ControlTemplate>
-                </Validation.ErrorTemplate>
-                <TextBox.Text>
-                    <Binding Path="NewType.Name">
-                        <Binding.ValidationRules>
-                            <local:NameValidation x:Name="NameValidation" ValidationStep="RawProposedValue"></local:NameValidation>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
-            
-            <Label x:Name="DescriptionLabel" Height="40" FontSize="16" Margin="10 0">Description</Label>
-            <TextBox x:Name="DescriptionTextBox" Height="120" FontSize="16" Margin="10">
-                <Validation.ErrorTemplate>
-                    <ControlTemplate>
-                        <StackPanel>
-                            <AdornedElementPlaceholder x:Name="DescriptionErrorLabel"></AdornedElementPlaceholder>
-                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
-                        </StackPanel>
-                    </ControlTemplate>
-                </Validation.ErrorTemplate>
-                <TextBox.Text>
-                    <Binding Path="NewType.Description">
-                        <Binding.ValidationRules>
-                            <local:DescriptionValidation x:Name="DescriptionValidation" ValidationStep="RawProposedValue"></local:DescriptionValidation>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
-            
-            <Label x:Name="IconLabel" Height="40" FontSize="16" Margin="10 0">Icon</Label>
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="IconTextBox" Width="270" Height="40" FontSize="16" Margin="10">
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="NameErrorLabel"></AdornedElementPlaceholder>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                    <TextBox.Text>
-                        <Binding Path="NewType.Icon">
-                            <Binding.ValidationRules>
-                                <local:IconValidation x:Name="IconValidation" ValidationStep="RawProposedValue"></local:IconValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
+                    </TextBox>
 
-                </TextBox>
-                <Button x:Name="BrowseButton" Width="100" Height="40" FontSize="16" Margin="0 10 10 10" Click="BrowseButton_Click">Browse...</Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Right" Margin="0 20 0 0">
-                <Button x:Name="AddTypeButton" IsDefault="True" Width="100" Height="40" FontSize="16" Margin="10 0" Click="AddTypeButton_Click">Add Type</Button>
-                <Button x:Name="CancelButton" IsCancel="True" Width="100" Height="40" FontSize="16" Margin="0 0 10 0">Cancel</Button>
-            </StackPanel>
-        </StackPanel>
+                    <Label x:Name="NameLabel" FontSize="16" Margin="5 20 5 0">Name</Label>
+                    <TextBox x:Name="NameTextBox" Height="30" FontSize="16" Margin="10 0 10 10" MaxWidth="380" TextWrapping="NoWrap">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="NameErrorLabel"></AdornedElementPlaceholder>
+                                    <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                        <TextBox.Text>
+                            <Binding Path="NewType.Name">
+                                <Binding.ValidationRules>
+                                    <local:NameValidation x:Name="NameValidation" ValidationStep="RawProposedValue"></local:NameValidation>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+
+
+
+
+                    <Label x:Name="DescriptionLabel" Height="40" FontSize="16" Margin="10 0">Description</Label>
+                    <TextBox x:Name="DescriptionTextBox" Height="120" FontSize="16" Margin="10">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="DescriptionErrorLabel"></AdornedElementPlaceholder>
+                                    <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                        <TextBox.Text>
+                            <Binding Path="NewType.Description">
+                                <Binding.ValidationRules>
+                                    <local:DescriptionValidation x:Name="DescriptionValidation" ValidationStep="RawProposedValue"></local:DescriptionValidation>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                    <Label x:Name="IconLabel" FontSize="16" Margin="5 20 5 0">Icon</Label>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="IconTextBox" Width="270" Height="30" FontSize="16" Margin="10 0 10 10" TextWrapping="NoWrap">
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder x:Name="IconErrorLabel"></AdornedElementPlaceholder>
+                                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                            <TextBox.Text>
+                                <Binding Path="NewType.Icon">
+                                    <Binding.ValidationRules>
+                                        <local:IconValidation x:Name="IconValidation" ValidationStep="RawProposedValue"></local:IconValidation>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <Button x:Name="BrowseButton" Width="100" Height="40" FontSize="16" Margin="0 0 10 10" Click="BrowseButton_Click">Browse...</Button>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Right" Margin="0 20 0 0">
+                    <Button x:Name="AddTypeButton" IsDefault="True" Width="100" Height="40" FontSize="16" Margin="10 0" Click="AddTypeButton_Click">Add Type</Button>
+                    <Button x:Name="CancelButton" IsCancel="True" Width="100" Height="40" FontSize="16" Margin="0 0 10 0">Cancel</Button>
+                </StackPanel>
+                        
+            </DockPanel>
         </Viewbox>
     </Grid>
 </Window>
