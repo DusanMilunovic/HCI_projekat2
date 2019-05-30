@@ -30,9 +30,8 @@
                     </StackPanel>
                     <Border BorderThickness="0 1 0 0" BorderBrush="LightGray">
                         <StackPanel Orientation="Horizontal" >
-                            <Button Margin="20" Height="30" Width="80">Details</Button>
-                            <Button Margin="20" Height="30" Width="80">Edit tag</Button>
-                            <Button Margin="20" Height="30" Width="80">Delete tag</Button>
+                            <Button x:Name="EditTagButton" Margin="20" Height="30" Width="80" Click="EditTagButton_Click">Edit tag</Button>
+                            <Button x:Name="DeleteTagButton" Margin="20" Height="30" Width="80" Click="DeleteTagButton_Click">Delete tag</Button>
                         </StackPanel>
                     </Border>
                 </StackPanel>

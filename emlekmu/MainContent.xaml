@@ -7,19 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="Root">
-        <local:TagSection Tags="{Binding Path=Tags}"></local:TagSection>
-        <local:AddMonument Types="{Binding Path=Types}"></local:AddMonument>
         <DockPanel>
             <Menu DockPanel.Dock="Top" Height="40">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Types" Click="types_Click"/>
+                    <MenuItem Header="T_ags" Click="tags_Click"/>
                     <MenuItem Header="_Open" />
                     <MenuItem Header="_Save" />
                     <Separator />
                     <MenuItem Header="_Exit" />
                 </MenuItem>
             </Menu>
-            <TextBox AcceptsReturn="True" />
+            <local:AddMonument Types="{Binding Path=Types}"></local:AddMonument>
         </DockPanel>
     </Grid>
 </UserControl>
