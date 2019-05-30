@@ -511,23 +511,6 @@ namespace emlekmu
 
     }
 
-    public class BindingProxy : System.Windows.Freezable
-    {
-        protected override Freezable CreateInstanceCore()
-        {
-            return new BindingProxy();
-        }
-
-        public object Data
-        {
-            get { return (object)GetValue(DataProperty); }
-            set { SetValue(DataProperty, value); }
-        }
-
-        public static readonly DependencyProperty DataProperty =
-            DependencyProperty.Register("Data", typeof(object), typeof(BindingProxy), new PropertyMetadata(null));
-    }
-
     public class MonumentNameValidation : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
