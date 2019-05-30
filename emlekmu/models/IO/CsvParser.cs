@@ -9,7 +9,7 @@ namespace emlekmu.models.IO
 {
     class CsvParser
     {
-        public static string ABSOLUTE_PATH = "D:\\Dusan\\1Faks\\HCI\\emlekmu\\emlekmu\\resources\\";
+        public static string ABSOLUTE_PATH = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString() + "\\resources\\";
         public static DataGraph readCSV()
         {
 

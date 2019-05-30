@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 using static emlekmu.MainContent;
 using Type = emlekmu.models.Type;
 using System.IO;
+using emlekmu.models;
 
 namespace emlekmu
 {
@@ -116,9 +117,15 @@ namespace emlekmu
 
         private void AddTypeButton_Click(object sender, RoutedEventArgs e)
         {
-            string validationMessage = ValidateForm();
-            if (validationMessage != "") {
-                ValidationLabel.Content = validationMessage;
+            newType.Description = DescriptionTextBox.Text;
+            newType.Name = NameTextBox.Text;
+            newType.Icon = IconTextBox.Text;
+            IdTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            NameTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            DescriptionTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            IconTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            bool validation = ValidateForm();
+            if (validation == false) {
                 return;
             }
             AddTypeCallback(newType);
@@ -142,15 +149,8 @@ namespace emlekmu
             }
         }
 
-        private string ValidateForm()
+        private bool ValidateForm()
         {
-            foreach (var t in Types)
-            {
-                if (t.Id == newType.Id)
-                {
-                    return "Id is not unique";
-                }
-            }
             Dictionary<ValidationRule, Object> rules = new Dictionary<ValidationRule, object>();
             rules.Add(IdValidation, newType.Id);
             rules.Add(NameValidation, newType.Name);
@@ -161,75 +161,24 @@ namespace emlekmu
                 var result = validation.Validate(rules[validation], null);
                 if (!result.IsValid)
                 {
-                    return result.ErrorContent.ToString();
+                    return false;
                 }
             }
-            return "";
+            return true;
         }
-
-        private void IconTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        
     }
 
-    public class IdValidation : ValidationRule
+    public class IdValidationWrapper : DependencyObject
     {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        public ObservableCollection<Type> Types
         {
-
-        int _value;
-            if (!int.TryParse(value.ToString(), out _value)) {
-                return new ValidationResult(false, "Id has to be a number");
-            }
-            if (_value < 0)
-            {
-                return new ValidationResult(false, "Id can not be positive");
-            }
-            return new ValidationResult(true, "");
+            get { return (ObservableCollection<Type>)GetValue(TypesProperty); }
+            set { SetValue(TypesProperty, value); }
         }
-    }
 
-    public class NameValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            if (value.ToString() == "")
-            {
-                return new ValidationResult(false, "Name can not be empty");
-            }
-            return new ValidationResult(true, null);
-        }
-    }
-
-    public class DescriptionValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            if (value.ToString() == "")
-            {
-                return new ValidationResult(false, "Description can not be empty");
-            }
-            return new ValidationResult(true, null);
-        }
-    }
-
-    public class IconValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            if (value == null)
-            {
-                return new ValidationResult(false, "File has to be selected");
-            }
-            if (value.ToString() == "")
-            {
-                return new ValidationResult(false, "File can not be empty");
-            }
-            if (!File.Exists(value.ToString())) {
-                return new ValidationResult(false, "File does not exist");
-            }
-            return new ValidationResult(true, null);
-        }
+        // Using a DependencyProperty as the backing store for Tags.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TypesProperty =
+            DependencyProperty.Register("Types", typeof(ObservableCollection<Type>), typeof(IdValidationWrapper), new FrameworkPropertyMetadata(new ObservableCollection<Type>()));
     }
 }

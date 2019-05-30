@@ -99,17 +99,21 @@ namespace emlekmu
 
         private void EditTypeButton_Click(object sender, RoutedEventArgs e)
         {
-            NewType.Name = NameTextBox.Text;
-            NewType.Description = DescriptionTextBox.Text;
-            NewType.Icon = IconTextBox.Text;
-            string validationMessage = ValidateForm();
-            if (validationMessage != "")
+            newType.Description = DescriptionTextBox.Text;
+            newType.Name = NameTextBox.Text;
+            newType.Icon = IconTextBox.Text;
+            IdTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            NameTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            DescriptionTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            IconTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            bool validation = ValidateForm();
+            if (validation == false)
             {
-                ValidationLabel.Content = validationMessage;
                 return;
             }
             EditTypeCallback(newType);
-            EditTypeButton.IsCancel = true;
+            this.DialogResult = true;
+            this.Close();
         }
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
@@ -130,7 +134,7 @@ namespace emlekmu
             }
         }
 
-        private string ValidateForm()
+        private bool ValidateForm()
         {
             Dictionary<ValidationRule, Object> rules = new Dictionary<ValidationRule, object>();
             rules.Add(NameValidation, newType.Name);
@@ -141,10 +145,10 @@ namespace emlekmu
                 var result = validation.Validate(rules[validation], null);
                 if (!result.IsValid)
                 {
-                    return result.ErrorContent.ToString();
+                    return false;
                 }
             }
-            return "";
+            return true;
         }
     }
 }

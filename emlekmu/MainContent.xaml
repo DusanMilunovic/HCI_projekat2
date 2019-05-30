@@ -7,11 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="Root">
-
         <DockPanel>
             <Menu DockPanel.Dock="Top" Height="40">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Types" Click="types_Click"/>
+                    <MenuItem Header="T_ags" Click="tags_Click"/>
                     <MenuItem Header="_Open" />
                     <MenuItem Header="_Save" />
                     <Separator />
@@ -23,8 +23,7 @@
                     <MenuItem Header="_Type" Click="typeAdd_Click"/>
                 </MenuItem>
             </Menu>
-            <TextBox Height="400" Width="800" AcceptsReturn="True" />
-            
+            <local:MonumentsTable Monuments="{Binding Monuments}"/>
         </DockPanel>
     </Grid>
 </UserControl>

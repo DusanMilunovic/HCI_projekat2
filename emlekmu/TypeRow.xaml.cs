@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static emlekmu.TypeSection;
 using Type = emlekmu.models.Type;
 
 
@@ -23,6 +25,17 @@ namespace emlekmu
 
     public partial class TypeRow : UserControl
     {
+
+        public ObservableCollection<int> EnlargenedTypes
+        {
+            get { return (ObservableCollection<int>)GetValue(EnlargenedTagsProperty); }
+            set { SetValue(EnlargenedTagsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for EnlargenedTags.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EnlargenedTagsProperty =
+            DependencyProperty.Register("EnlargenedTypes", typeof(ObservableCollection<int>), typeof(TypeRow), new PropertyMetadata(new ObservableCollection<int>()));
+
 
 
         public int Id
@@ -76,7 +89,22 @@ namespace emlekmu
             DependencyProperty.Register("Icon", typeof(string), typeof(TypeRow), new PropertyMetadata(""));
 
 
+        public onTypeClicked TypeClickedCallback
+        {
+            get { return (onTypeClicked)GetValue(TagClickedCallbackProperty); }
+            set { SetValue(TagClickedCallbackProperty, value); }
+        }
 
+        // Using a DependencyProperty as the backing store for TagClickedCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TagClickedCallbackProperty =
+            DependencyProperty.Register("TypeClickedCallback", typeof(onTypeClicked), typeof(TypeRow), new PropertyMetadata(null));
+
+
+
+        private void OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            TypeClickedCallback(Id);
+        }
         public TypeRow()
         {
             InitializeComponent();

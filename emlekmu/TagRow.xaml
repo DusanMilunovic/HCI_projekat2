@@ -5,18 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="800">
-    <Grid>
-         
-        <Viewbox Stretch="Uniform" Margin="5">
-            <Border CornerRadius="2" BorderBrush="Gray" BorderThickness="2">
+             MouseLeftButtonUp="OnMouseDown"
+             d:DesignHeight="74" d:DesignWidth="844">
+    <Grid x:Name="Root" Cursor="Hand" Background="#FFFFFF" Margin="5">
 
-                <StackPanel Orientation="Horizontal">
-                    <Label Width="250" Height="50" FontSize="20" VerticalContentAlignment="Center">Id</Label>
-                    <Label Width="500" Height="50" FontSize="20" VerticalContentAlignment="Center">Description</Label>
-                <Ellipse Width="40" Height="40" Margin="5" Fill="#006699"></Ellipse>
+        <Border BorderBrush="Gray" BorderThickness="2">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <Label Width="250" Height="25" FontSize="12">Id:</Label>
+                    <Label Width="250" Height="35" FontSize="16" VerticalContentAlignment="Center" Content="{Binding Id}"></Label>
                 </StackPanel>
-            </Border>
-        </Viewbox>
+
+                <StackPanel>
+                    <Label Width="475" Height="25" FontSize="12">Description:</Label>
+                    <Label Width="475" Height="35" FontSize="16" VerticalContentAlignment="Center" Content="{Binding Description}"></Label>
+                </StackPanel>
+                <Ellipse Width="50" Height="50" Margin="5" Fill="{Binding Color.Hex}" HorizontalAlignment="Right"></Ellipse>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

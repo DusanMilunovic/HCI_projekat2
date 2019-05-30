@@ -9,6 +9,43 @@ namespace emlekmu.models
 {
     public class Tag: INotifyPropertyChanged
     {
+        string description;
+        public string Description {
+            get
+            {
+                return this.description;
+            }
+            set
+            {
+                if (value != description)
+                {
+                    
+                    this.description = value;
+                    if (this.description.Length > 30)
+                        this.DescriptionShort = this.description.Substring(0, 30) + "...";
+                    else
+                        this.DescriptionShort = this.description;
+                    OnPropertyChanged("Description");
+                }
+            }
+        }
+
+        public string descriptionShort;
+        public string DescriptionShort
+        {
+            get
+            {
+                return descriptionShort;
+            }
+            set
+            {
+                if (value != descriptionShort)
+                {
+                    descriptionShort = value;
+                    OnPropertyChanged("DescriptionShort");
+                }
+            }
+        }
         protected virtual void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
@@ -45,23 +82,8 @@ namespace emlekmu.models
             {
                 if (value != color)
                 {
+                    color = value;
                     OnPropertyChanged("Color");
-                }
-            }
-        }
-
-        public string description;
-        public string Description
-        {
-            get
-            {
-                return description;
-            }
-            set
-            {
-                if (value != description)
-                {
-                    OnPropertyChanged("Description");
                 }
             }
         }
@@ -75,6 +97,10 @@ namespace emlekmu.models
             this.Id = Id;
             this.Color = Color;
             this.Description = Description;
+            if (this.Description.Length > 30)
+                this.DescriptionShort = this.Description.Substring(0, 30) + "...";
+            else
+                this.DescriptionShort = this.Description;
         }
         
 

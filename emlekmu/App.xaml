@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:emlekmu"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FFFFFF"/>
+        </Style>
     </Application.Resources>
 </Application>
