@@ -99,8 +99,17 @@ namespace emlekmu
 
         private void EditTypeButton_Click(object sender, RoutedEventArgs e)
         {
+            NewType.Name = NameTextBox.Text;
+            NewType.Description = DescriptionTextBox.Text;
+            NewType.Icon = IconTextBox.Text;
+            string validationMessage = ValidateForm();
+            if (validationMessage != "")
+            {
+                ValidationLabel.Content = validationMessage;
+                return;
+            }
             EditTypeCallback(newType);
-            
+            EditTypeButton.IsCancel = true;
         }
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
@@ -119,6 +128,23 @@ namespace emlekmu
                 // Open document
                 NewType.Icon = dlg.FileName;
             }
+        }
+
+        private string ValidateForm()
+        {
+            Dictionary<ValidationRule, Object> rules = new Dictionary<ValidationRule, object>();
+            rules.Add(NameValidation, newType.Name);
+            rules.Add(DescriptionValidation, newType.Description);
+            rules.Add(IconValidation, newType.Icon);
+            foreach (var validation in rules.Keys)
+            {
+                var result = validation.Validate(rules[validation], null);
+                if (!result.IsValid)
+                {
+                    return result.ErrorContent.ToString();
+                }
+            }
+            return "";
         }
     }
 }

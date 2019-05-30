@@ -90,7 +90,10 @@ namespace emlekmu
 
         private void AddTypeButton_Click(object sender, RoutedEventArgs e)
         {
-            AddType addTypeDialog = new AddType(this.AddTypeCallback);
+            AddType addTypeDialog = new AddType(AddTypeCallback, Types);
+
+            addTypeDialog.Height = 600;
+            addTypeDialog.Width = 400;
 
             addTypeDialog.ShowDialog();
         }
@@ -98,6 +101,9 @@ namespace emlekmu
         private void EditTypeButton_Click(object sender, RoutedEventArgs e)
         {
             EditType editTypeDialog = new emlekmu.EditType(Types[0], EditTypeCallback);
+
+            editTypeDialog.Height = 600;
+            editTypeDialog.Width = 400;
 
             editTypeDialog.ShowDialog();
         }

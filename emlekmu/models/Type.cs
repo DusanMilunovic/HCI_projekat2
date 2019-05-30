@@ -89,7 +89,9 @@ namespace emlekmu.models
 
         public Type()
         {
-
+            name = "";
+            description = "";
+            icon = "";
         }
 
         public Type(int Id, string Name, string Icon, string Description)

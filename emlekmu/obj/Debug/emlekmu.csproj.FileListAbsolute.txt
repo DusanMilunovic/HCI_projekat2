@@ -34,3 +34,4 @@ D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\WpfApplication1.Properties.Resource
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\emlekmu.csproj.GenerateResource.Cache
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\EditType.g.cs
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\EditType.baml
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\emlekmu.csprojResolveAssemblyReference.cache
