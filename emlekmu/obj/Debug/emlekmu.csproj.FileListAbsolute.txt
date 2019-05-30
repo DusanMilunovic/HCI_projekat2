@@ -36,7 +36,6 @@ D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\emlekmu.csproj.GenerateResource.Cac
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\bin\Debug\WpfApplication1.exe.config
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\bin\Debug\WpfApplication1.exe
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\bin\Debug\WpfApplication1.pdb
-C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csprojAssemblyReference.cache
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\AddTag.g.cs
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\AddType.g.cs
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\EditTag.g.cs
@@ -69,3 +68,4 @@ C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\emlekmu.cspr
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csproj.CoreCompileInputs.cache
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\WpfApplication1.exe
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\WpfApplication1.pdb
+C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csprojAssemblyReference.cache

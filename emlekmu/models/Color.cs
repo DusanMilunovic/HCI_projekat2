@@ -1,19 +1,91 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace emlekmu.models
 {
-    public class Color
+    public class Color : INotifyPropertyChanged
     {
-        public int Red { get; set; }
-        public int Green { get; set; }
-        public int Blue { get; set; }
-        
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
 
-        public string Hex { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        int red;
+        public int Red
+        {
+            get
+            {
+                return red;
+            }
+            set
+            {
+                if (value != red)
+                {
+                    red = value;
+                    this.Hex = this.ToString();
+                    OnPropertyChanged("Red");
+                }
+            }
+        }
+        int green;
+        public int Green
+        {
+            get
+            {
+                return green;
+            }
+            set
+            {
+                if (value != green)
+                {
+                    green = value;
+                    this.Hex = this.ToString();
+                    OnPropertyChanged("Green");
+                }
+            }
+        }
+        int blue;
+        public int Blue
+        {
+            get
+            {
+                return blue;
+            }
+            set
+            {
+                if (value != blue)
+                {
+                    blue = value;
+                    this.Hex = this.ToString();
+                    OnPropertyChanged("Blue");
+                }
+            }
+        }
+
+        string hex;
+        public string Hex
+        {
+            get
+            {
+                return hex;
+            }
+            set
+            {
+                if (value != hex)
+                {
+                    hex = value;
+                    OnPropertyChanged("Hex");
+                }
+            }
+        }
 
         public Color()
         {

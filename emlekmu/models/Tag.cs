@@ -82,6 +82,7 @@ namespace emlekmu.models
             {
                 if (value != color)
                 {
+                    color = value;
                     OnPropertyChanged("Color");
                 }
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static emlekmu.TagSection;
 
 namespace emlekmu
 {
@@ -20,6 +22,17 @@ namespace emlekmu
     /// </summary>
     public partial class TagRow : UserControl
     {
+
+
+        public ObservableCollection<string> EnlargenedTags
+        {
+            get { return (ObservableCollection<string>)GetValue(EnlargenedTagsProperty); }
+            set { SetValue(EnlargenedTagsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for EnlargenedTags.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EnlargenedTagsProperty =
+            DependencyProperty.Register("EnlargenedTags", typeof(ObservableCollection<string>), typeof(TagRow), new PropertyMetadata(new ObservableCollection<string>()));
 
 
 
@@ -61,11 +74,28 @@ namespace emlekmu
             DependencyProperty.Register("Color", typeof(models.Color), typeof(TagRow), new PropertyMetadata(new models.Color(0,0,0)));
 
 
+        public onTagClicked TagClickedCallback
+        {
+            get { return (onTagClicked)GetValue(TagClickedCallbackProperty); }
+            set { SetValue(TagClickedCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TagClickedCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TagClickedCallbackProperty =
+            DependencyProperty.Register("TagClickedCallback", typeof(onTagClicked), typeof(TagRow), new PropertyMetadata(null));
+
+
+
+        private void OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            TagClickedCallback(Id);
+        }
 
         public TagRow()
         {
             InitializeComponent();
             Root.DataContext = this;
         }
+        
     }
 }
