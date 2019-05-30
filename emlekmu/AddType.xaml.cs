@@ -166,6 +166,11 @@ namespace emlekmu
             }
             return "";
         }
+
+        private void IconTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 
     public class IdValidation : ValidationRule
@@ -213,6 +218,10 @@ namespace emlekmu
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
+            if (value == null)
+            {
+                return new ValidationResult(false, "File has to be selected");
+            }
             if (value.ToString() == "")
             {
                 return new ValidationResult(false, "File can not be empty");

@@ -679,6 +679,24 @@ namespace emlekmu
             typeSectionDialog.ShowDialog();
         }
 
+        public void monumentAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddMonument addMonumentDialog = new emlekmu.AddMonument(Monuments, Types, Tags, addMonumentCallback, addTypeCallback);
+            addMonumentDialog.Height = 750;
+            addMonumentDialog.Width = 400;
+            addMonumentDialog.ShowDialog();
+        }
+
+        public void tagAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void typeAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         #endregion
         public MainContent()
         {
@@ -706,6 +724,8 @@ namespace emlekmu
             DataGraph dataGraph = XmlParser.deserialize();
 
             Types = new ObservableCollection<Type>(dataGraph.types);
+
+            Monuments = new ObservableCollection<Monument>(dataGraph.monuments);
 
             // Tag callback initialization
             this.addTagCallback = new onAddTag(addTag);

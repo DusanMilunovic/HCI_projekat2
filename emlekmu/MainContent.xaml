@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="Root">
-        <local:AddMonument Types="{Binding Path=Types}"></local:AddMonument>
+
         <DockPanel>
             <Menu DockPanel.Dock="Top" Height="40">
                 <MenuItem Header="_File">
@@ -17,8 +17,14 @@
                     <Separator />
                     <MenuItem Header="_Exit" />
                 </MenuItem>
+                <MenuItem Header="_Add">
+                    <MenuItem Header="_Monument" Click="monumentAdd_Click"/>
+                    <MenuItem Header="_Tag" Click="tagAdd_Click"/>
+                    <MenuItem Header="_Type" Click="typeAdd_Click"/>
+                </MenuItem>
             </Menu>
-            <TextBox AcceptsReturn="True" />
+            <TextBox Height="400" Width="800" AcceptsReturn="True" />
+            
         </DockPanel>
     </Grid>
 </UserControl>

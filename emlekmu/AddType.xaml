@@ -73,7 +73,7 @@
             
             <Label x:Name="IconLabel" Height="40" FontSize="16" Margin="10 0">Icon</Label>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="IconTextBox" Width="270" Height="40" FontSize="16" Margin="10">
+                <TextBox x:Name="IconTextBox" Width="270" Height="40" FontSize="16" Margin="10" TextChanged="IconTextBox_TextChanged">
                     <Validation.ErrorTemplate>
                         <ControlTemplate>
                             <StackPanel>
