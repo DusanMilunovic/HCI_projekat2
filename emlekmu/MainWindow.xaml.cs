@@ -27,9 +27,7 @@ namespace emlekmu
     {
         public MainWindow()
         {
-            DataGraph dataGraph = XmlParser.deserialize();
             InitializeComponent();
-            XmlParser.serialize(dataGraph);
         }
     }
 }
