@@ -16,6 +16,7 @@ namespace emlekmu.models.IO
             XmlSerializer ser = new XmlSerializer(typeof(DataGraph));
             TextWriter writer = new StreamWriter(@"../../resources/datagraph.xml");
             ser.Serialize(writer, dataGraph);
+            writer.Close();
         }
 
         public static DataGraph deserialize()

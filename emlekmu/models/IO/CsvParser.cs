@@ -9,8 +9,10 @@ namespace emlekmu.models.IO
 {
     class CsvParser
     {
+        public static string ABSOLUTE_PATH = "D:\\Dusan\\1Faks\\HCI\\emlekmu\\emlekmu\\resources\\";
         public static DataGraph readCSV()
         {
+
             DataGraph retVal = new DataGraph();
             using (var reader = new StreamReader(@"../../resources/types.txt"))
             {
@@ -19,7 +21,7 @@ namespace emlekmu.models.IO
                     var line = reader.ReadLine();
                     var values = line.Split('|');
                     int id = Convert.ToInt32(values[0]);
-                    string image = values[0] + ".png";
+                    string image = ABSOLUTE_PATH + "type" + values[0] + ".png";
                     retVal.types.Add(new Type(id, values[1], image, values[2]));
                 }
             }
@@ -35,11 +37,11 @@ namespace emlekmu.models.IO
                     int id = Convert.ToInt32(values[0]);
                     var name = values[1];
                     var description = values[2];
-                    var image = values[3];
+                    var image = ABSOLUTE_PATH + "monument" + values[0] + ".png";
                     var typeId = Convert.ToInt32(values[4]);
                     var type = retVal.types.Find(x => x.Id == typeId);
                     var era = (Era)Enum.Parse(typeof(Era), values[5]);
-                    var icon = values[6];
+                    var icon = ABSOLUTE_PATH + "type" + type.Id + ".png";
                     var archeological = "1" == values[7];
                     var unesco = "1" == values[8];
                     var populated = "1" == values[9];

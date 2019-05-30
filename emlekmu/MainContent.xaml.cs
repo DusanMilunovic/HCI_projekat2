@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,12 +25,15 @@ namespace emlekmu
     /// <summary>
     /// Interaction logic for MainContent.xaml
     /// </summary>
-    public partial class MainContent : UserControl
+    /// 
+   
+    public partial class MainContent : UserControl, INotifyPropertyChanged
     {
         #region Event listeners
         #endregion
         #region Data
 
+        public static string RESOURCES_PATH = "";
 
 
         protected virtual void OnPropertyChanged(string name)
@@ -572,7 +576,8 @@ namespace emlekmu
 
         Type addType(Type t)
         {
-            this.Types.Add(t);
+            this.types.Add(t);
+
             return t;
         }
 
@@ -664,8 +669,20 @@ namespace emlekmu
 
 
         #endregion
+
+        #region MenuActions
+
+        public void types_Click(object sender, RoutedEventArgs e)
+        {
+            TypeSection typeSectionDialog = new TypeSection(Types, addTypeCallback, editTypeCallback, removeTypeCallback);
+
+            typeSectionDialog.ShowDialog();
+        }
+
+        #endregion
         public MainContent()
         {
+            RESOURCES_PATH = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString() + "\\resources\\";
             Tags = new ObservableCollection<Tag>();
 
             this.Tags.Add(new Tag("Good", new Color(0, 100, 166), "Very good tag"));
@@ -687,6 +704,7 @@ namespace emlekmu
             Root.DataContext = this;
             // data initialization
             DataGraph dataGraph = XmlParser.deserialize();
+
             Types = new ObservableCollection<Type>(dataGraph.types);
 
             // Tag callback initialization

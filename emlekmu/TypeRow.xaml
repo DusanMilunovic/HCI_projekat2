@@ -12,7 +12,7 @@
                 <Label Width="150" Height="50" FontSize="28" Content="{Binding Id}"></Label>
                 <Label Width="450" Height="50" FontSize="28" Content="{Binding TypeName}"></Label>
                 <Label Width="550" Height="50" FontSize="28" Content="{Binding Description}"></Label>
-                <Image Width="40" Height="40" Margin="5" Source="{Binding Image}"></Image>
+                <Image Width="40" Height="40" Margin="5" Source="{Binding Icon}"></Image>
             </StackPanel>
         </Viewbox>
     </Grid>
