@@ -4,15 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
-             mc:Ignorable="d" 
-             MouseLeftButtonUp="OnMouseDown"
+             mc:Ignorable="d"
+             MouseRightButtonUp="onRigthClick"
              d:DesignHeight="280"
              d:DesignWidth="800">
+    <UserControl.Resources>
+        <ContextMenu x:Key="cmTagRowDetail">
+            <MenuItem Header="Edit" Click="EditTagButton_Click"></MenuItem>
+            <MenuItem Header="Delete" Click="DeleteTagButton_Click"></MenuItem>
+        </ContextMenu>
+    </UserControl.Resources>
     <Grid x:Name="Root" Margin="5">
         <Viewbox Stretch="Uniform">
-            <Border CornerRadius="3" BorderBrush="Gray" BorderThickness="2">
+            <Border CornerRadius="3" BorderBrush="#2299CC" BorderThickness="4">
                 <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Vertical" Cursor="Hand" Background="#FFFFFF">
+                    <StackPanel Orientation="Vertical" Cursor="Hand" Background="#FFFFFF" MouseLeftButtonUp="OnMouseDown">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel>
                             <Label Width="700" Margin="10 10 10 0" Height="25" FontSize="12">ID:</Label>
@@ -28,10 +34,10 @@
                         </Border>
 
                     </StackPanel>
-                    <Border BorderThickness="0 1 0 0" BorderBrush="LightGray">
-                        <StackPanel Orientation="Horizontal" >
-                            <Button x:Name="EditTagButton" Margin="20" Height="30" Width="80" Click="EditTagButton_Click">Edit tag</Button>
-                            <Button x:Name="DeleteTagButton" Margin="20" Height="30" Width="80" Click="DeleteTagButton_Click">Delete tag</Button>
+                    <Border BorderThickness="0 1 0 0" BorderBrush="LightGray"  Background="#F3FBFF">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                            <Button x:Name="EditTagButton" Margin="20" Height="40" Width="80" Click="EditTagButton_Click">Edit tag</Button>
+                            <Button x:Name="DeleteTagButton" Margin="20" Height="40" Width="80" Click="DeleteTagButton_Click">Delete tag</Button>
                         </StackPanel>
                     </Border>
                 </StackPanel>

@@ -137,12 +137,15 @@ namespace emlekmu
             cm.IsOpen = true;
         }
 
-        private void EditAction(object sender, RoutedEventArgs e)
+        private void EditAction_Click(object sender, RoutedEventArgs e)
         {
-            EditTag editTagDialog = new EditTag(new Tag(Id, Color, Description));
+            EditTag editTagDialog = new EditTag(new Tag(Id, Color, Description), EditTagCallback);
+            editTagDialog.Height = 600;
+            editTagDialog.Width = 400;
+            editTagDialog.ShowDialog();
         }
 
-        private void DeleteAction(object s, RoutedEventArgs ea)
+        private void DeleteAction_Click(object s, RoutedEventArgs ea)
         {
             DoubleAnimation animation = new DoubleAnimation();
             animation.To = 0;

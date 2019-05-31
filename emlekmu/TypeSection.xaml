@@ -6,9 +6,15 @@
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="740">
-    <Grid x:Name="RootWoot" Background="#cceeff">
+    <Window.Resources>
+        <ContextMenu x:Key="cmTypeSection">
+            <MenuItem Header="Add Type" Click="AddTypeButton_Click"></MenuItem>
+            <MenuItem Header="Close" Click="CloseAction_Click"></MenuItem>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid x:Name="RootWoot" Background="#cceeff"  MouseRightButtonUp="onRigthClick">
         <Viewbox Stretch="Uniform">
-        <StackPanel>
+            <StackPanel>
             <Label Height="50" HorizontalAlignment="Center" FontSize="30" Margin="10">Types</Label>
                 <Border BorderBrush="#555555" BorderThickness="1" Margin="15 10">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Height="625" Width="700" Margin="5 10">

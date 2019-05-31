@@ -14,10 +14,10 @@
             <MenuItem Header="Delete" Click="DeleteAction_Click"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
-    <Grid x:Name="Root" Cursor="Hand" Background="#FFFFFF" Margin="5">
+    <Grid x:Name="Root" Margin="5">
 
         <Border BorderBrush="Gray" BorderThickness="2">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal"  Cursor="Hand" Background="#FFFFFF" >
                 <StackPanel>
                     <Label Width="250" Height="25" FontSize="12">Id:</Label>
                     <Label Width="250" Height="35" FontSize="16" VerticalContentAlignment="Center" Content="{Binding Id}"></Label>
