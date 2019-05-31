@@ -96,6 +96,20 @@ namespace emlekmu
 
 
 
+
+        public onAddTag AddTagCallback
+        {
+            get { return (onAddTag)GetValue(AddTagCallbackProperty); }
+            set { SetValue(AddTagCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AddTagCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AddTagCallbackProperty =
+            DependencyProperty.Register("AddTagCallback", typeof(onAddTag), typeof(AddMonument), new PropertyMetadata(null));
+
+
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Monument monument;
@@ -144,9 +158,9 @@ namespace emlekmu
             }
             set
             {
-                if (value != era)
+                if (value != dateEra)
                 {
-                    era = value;
+                    dateEra = value;
                     OnPropertyChanged("DateEra");
                 }
             }
@@ -275,7 +289,8 @@ namespace emlekmu
             ObservableCollection<Type> types,
             ObservableCollection<Tag> tags,
             onAddMonument addMonumentCallback,
-            onAddType addTypeCallback)
+            onAddType addTypeCallback,
+            onAddTag addTagCallback)
         {
             InitializeComponent();
             Root.DataContext = this;
@@ -289,10 +304,18 @@ namespace emlekmu
             this.Tags = tags;
             this.AddMonumentCallback = addMonumentCallback;
             this.AddTypeCallBack = addTypeCallback;
-            this.TagListBoxItems = TagListBoxItem.initTagListBox();
-            this.TagListBox.ItemsSource = this.TagListBoxItems;
+            this.TagListBoxItems = TagListBoxItem.initTagListBox(this.Tags);
+            this.TagListBox.ItemsSource = this.Tags;
+            this.AddTagCallback = addTagCallback;
+            this.resetTagFlags();
+        }
 
-
+        public void resetTagFlags()
+        {
+            foreach (Tag t in this.Tags)
+            {
+                t.Selected = false;
+            }
         }
 
         public int findNextId()
@@ -312,50 +335,12 @@ namespace emlekmu
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //debug button method
-            DescriptionTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            IdTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            NameTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            ImageTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            TypesComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
-            EraComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
-            IconTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            TouristicComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
-            IncomeTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            DateTextBox.GetBindingExpression(Xceed.Wpf.Toolkit.MaskedTextBox.TextProperty).UpdateSource();
-            DateComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
-
-            int a = 3;
-            a = a + 1;
-        }
-
         public static ObservableCollection<string> getDateCollection()
         {
             var retVal = new ObservableCollection<string>();
             retVal.Add("BCE");
             retVal.Add("CE");
             return retVal;
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.FileName = "Icon"; // Default file name
-            dlg.DefaultExt = ".png"; // Default file extension
-            dlg.Filter = "Text documents (.png)|*.png"; // Filter files by extension
-
-            // Show open file dialog box
-            Nullable<bool> result = dlg.ShowDialog();
-
-            // Process open file dialog box results
-            if (result == true)
-            {
-                // Open document
-                Monument.Image = dlg.FileName;
-                ImageTextBox.Text = dlg.FileName;
-            }
         }
 
         private void AddType_Click(object sender, RoutedEventArgs e)
@@ -385,10 +370,139 @@ namespace emlekmu
             this.Touristics.Add("Unavailable");
         }
 
+        private void displayValidation()
+        {
+            DescriptionTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            IdTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            NameTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            ImageTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            TypesComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
+            EraComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
+            IconTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            TouristicComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
+            IncomeTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            DateTextBox.GetBindingExpression(Xceed.Wpf.Toolkit.MaskedTextBox.TextProperty).UpdateSource();
+            DateComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
+        }
+
+        private bool validateInputs()
+        {
+            Dictionary<ValidationRule, Object> rules = new Dictionary<ValidationRule, object>();
+            rules.Add(this.MonumentIdValidation, IdTextBox.Text);
+            rules.Add(this.MonumentNameValidation, NameTextBox.Text);
+            rules.Add(this.MonumentDescriptionValidation, DescriptionTextBox.Text);
+            rules.Add(this.MonumentImageValidation, ImageTextBox.Text);
+            rules.Add(this.MonumentTypeValidation, TypesComboBox.SelectedValue);
+            rules.Add(this.MonumentEraValidation, EraComboBox.SelectedValue);
+            rules.Add(this.MonumentIconValidation, IconTextBox.Text);
+            rules.Add(this.MonumentTouristicValidation, TouristicComboBox.SelectedValue);
+            rules.Add(this.MonumentIncomeValidation, IncomeTextBox.Text);
+            rules.Add(this.MonumentDateValidation, DateTextBox.Text);
+            rules.Add(this.MonumentDateEraValidation, DateComboBox.SelectedValue);
+            foreach (var validation in rules.Keys)
+            {
+                var result = validation.Validate(rules[validation], null);
+                if (!result.IsValid)
+                {
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
+        private void formatDate()
+        {
+            var parts = this.DateTextBox.Text.ToString().Split('/');
+            int day;
+            int month;
+            int year;
+            day = Convert.ToInt32(parts[0].Trim(new char[] { '_' }));
+            month = Convert.ToInt32(parts[1].Trim(new char[] { '_' }));
+            year = Convert.ToInt32(parts[2].Trim(new char[] { '_' }));
+            DateTime tempTime = new DateTime(year, month, day);
+            string dateString = tempTime.ToString("dd/MM/yyyy");
+            dateString += " " + DateComboBox.SelectedValue;
+            this.Monument.DiscoveryDate = dateString;
+        }
+
+        private void connectTags()
+        {
+            this.Monument.Tags = new ObservableCollection<models.Tag>();
+            foreach(Tag t in this.Tags)
+            {
+                if (t.Selected)
+                {
+                    this.Monument.Tags.Add(t);
+                }
+            }
+        }
+
         private void AddMonumentButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Monument.Era = (Era)Enum.Parse(typeof(Era), Era);
-            this.Monument.TouristicStatus = (TouristicStatus)Enum.Parse(typeof(TouristicStatus), Touristic);
+            displayValidation();
+            validateInputs();
+            if (validateInputs())
+            {
+                this.Monument.Era = (Era)Enum.Parse(typeof(Era), Era);
+                this.Monument.TouristicStatus = (TouristicStatus)Enum.Parse(typeof(TouristicStatus), Touristic);
+                this.formatDate();
+                this.connectTags();
+                this.AddMonumentCallback(this.Monument);
+                this.Close();
+            }
+            
+        }
+
+        private void AddTag_Click(object sender, RoutedEventArgs e)
+        {
+            emlekmu.AddTag dialog = new emlekmu.AddTag(this.AddTagCallback, this.Tags);
+            dialog.Height = 750;
+            dialog.Width = 400;
+            dialog.Show();
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SelectIcon_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.FileName = "Icon"; // Default file name
+            dlg.DefaultExt = ".png"; // Default file extension
+            dlg.Filter = "Text documents (.png)|*.png"; // Filter files by extension
+
+            // Show open file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == true)
+            {
+                // Open document
+                Monument.Icon = dlg.FileName;
+                IconTextBox.Text = dlg.FileName;
+            }
+        }
+
+        private void ImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.FileName = "Icon"; // Default file name
+            dlg.DefaultExt = ".png"; // Default file extension
+            dlg.Filter = "Text documents (.png)|*.png"; // Filter files by extension
+
+            // Show open file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == true)
+            {
+                // Open document
+                Monument.Image = dlg.FileName;
+                ImageTextBox.Text = dlg.FileName;
+            }
         }
     }
 
@@ -410,15 +524,13 @@ namespace emlekmu
             this.Color = color;
         }
 
-        public static ObservableCollection<TagListBoxItem> initTagListBox()
+        public static ObservableCollection<TagListBoxItem> initTagListBox(ObservableCollection<Tag> tags)
         {
             var retVal = new ObservableCollection<TagListBoxItem>();
-            retVal.Add(new TagListBoxItem("Name 1", new models.Color(20, 50, 100)));
-            retVal.Add(new TagListBoxItem("Name 2", new models.Color(30, 40, 50)));
-            retVal.Add(new TagListBoxItem("Name 3", new models.Color(40, 20, 30)));
-            retVal.Add(new TagListBoxItem("Name 4", new models.Color(40, 20, 30)));
-            retVal.Add(new TagListBoxItem("Name 5", new models.Color(40, 20, 30)));
-            retVal.Add(new TagListBoxItem("Name 6", new models.Color(40, 20, 30)));
+            foreach (Tag t in tags)
+            {
+                retVal.Add(new TagListBoxItem(t.Id, t.Color));
+            }
             return retVal;
         }
     }
