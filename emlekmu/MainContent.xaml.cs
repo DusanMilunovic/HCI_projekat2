@@ -327,7 +327,7 @@ namespace emlekmu
                     }
                 }
 
-                if (name != "")
+                if (name != "" && name != null)
                 {
                     if (!monument.Name.ToLower().Contains(name.ToLower()))
                     {
@@ -335,7 +335,7 @@ namespace emlekmu
                     }
                 }
 
-                if (typeName != "")
+                if (typeName != "" && typeName != null)
                 {
                     if (!monument.Type.Name.ToString().ToLower().Contains(typeName.ToLower()))
                     {
@@ -343,7 +343,7 @@ namespace emlekmu
                     }
                 }
 
-                if (era != "")
+                if (era != "" && era != null)
                 {
                     if (!monument.Era.ToString().ToLower().Contains(era.ToLower()))
                     {
@@ -385,7 +385,7 @@ namespace emlekmu
                     }
                 }
 
-                if (touristicStatus != "")
+                if (touristicStatus != "" && touristicStatus != null)
                 {
                     if (!monument.TouristicStatus.ToString().ToLower().Contains(touristicStatus.ToLower()))
                     {
@@ -463,7 +463,7 @@ namespace emlekmu
                     }
                 }
 
-                if (name != "")
+                if (name != "" && name != null)
                 {
                     if (!monument.Name.ToLower().Contains(name.ToLower()))
                     {
@@ -471,7 +471,7 @@ namespace emlekmu
                     }
                 }
 
-                if (typeName != "")
+                if (typeName != "" && typeName != null)
                 {
                     if (!monument.Type.Name.ToString().ToLower().Contains(typeName.ToLower()))
                     {
@@ -479,7 +479,7 @@ namespace emlekmu
                     }
                 }
 
-                if (era != "")
+                if (era != "" && era != null)
                 {
                     if (!monument.Era.ToString().ToLower().Contains(era.ToLower()))
                     {
@@ -521,7 +521,7 @@ namespace emlekmu
                     }
                 }
 
-                if (touristicStatus != "")
+                if (touristicStatus != "" && touristicStatus != null)
                 {
                     if (!monument.TouristicStatus.ToString().ToLower().Contains(touristicStatus.ToLower()))
                     {
@@ -694,7 +694,7 @@ namespace emlekmu
 
         public void monumentAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddMonument addMonumentDialog = new emlekmu.AddMonument(Monuments, Types, Tags, addMonumentCallback, addTypeCallback);
+            AddMonument addMonumentDialog = new emlekmu.AddMonument(Monuments, Types, Tags, addMonumentCallback, addTypeCallback, addTagCallback);
             addMonumentDialog.Height = 750;
             addMonumentDialog.Width = 400;
             addMonumentDialog.ShowDialog();

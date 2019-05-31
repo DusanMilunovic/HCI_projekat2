@@ -87,6 +87,24 @@ namespace emlekmu.models
                 }
             }
         }
+
+        public bool selected;
+        public bool Selected
+        {
+            get
+            {
+                return selected;
+            }
+            set
+            {
+                if (value != selected)
+                {
+                    selected = value;
+                    OnPropertyChanged("Selected");
+                }
+            }
+        }
+
         public Tag()
         {
 
@@ -101,6 +119,7 @@ namespace emlekmu.models
                 this.DescriptionShort = this.Description.Substring(0, 30) + "...";
             else
                 this.DescriptionShort = this.Description;
+            this.selected = false;
         }
         
 
