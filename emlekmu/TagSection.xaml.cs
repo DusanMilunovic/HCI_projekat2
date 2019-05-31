@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static emlekmu.MainContent;
 
 namespace emlekmu
 {
@@ -22,8 +23,9 @@ namespace emlekmu
     /// Interaction logic for TagSection.xaml
     /// </summary>
     /// 
+    
 
-    public partial class TagSection : UserControl, INotifyPropertyChanged
+    public partial class TagSection : Window, INotifyPropertyChanged
     {
 
         protected virtual void OnPropertyChanged(string name)
@@ -54,8 +56,58 @@ namespace emlekmu
             }
         }
 
-        public delegate void updateTag();
-        public event updateTag updateTagEvent;
+        public ObservableCollection<Tag> Tags
+        {
+            get { return (ObservableCollection<Tag>)GetValue(TagsProperty); }
+            set { SetValue(TagsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Tags.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TagsProperty =
+            DependencyProperty.Register("Tags", typeof(ObservableCollection<Tag>), typeof(TagSection), new PropertyMetadata(new ObservableCollection<Tag>()));
+
+
+
+
+
+        public onAddTag AddTagCallback
+        {
+            get { return (onAddTag)GetValue(AddTagCallbackProperty); }
+            set { SetValue(AddTagCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AddTagCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AddTagCallbackProperty =
+            DependencyProperty.Register("AddTagCallback", typeof(onAddTag), typeof(TagSection), new PropertyMetadata(null));
+
+
+
+
+        public onEditTag EditTagCallback
+        {
+            get { return (onEditTag)GetValue(EditTagCallbackProperty); }
+            set { SetValue(EditTagCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for EditTagCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EditTagCallbackProperty =
+            DependencyProperty.Register("EditTagCallback", typeof(onEditTag), typeof(TagSection), new PropertyMetadata(null));
+
+
+
+
+        public onRemoveTag RemoveTagCallback
+        {
+            get { return (onRemoveTag)GetValue(RemoveTagCallbackProperty); }
+            set { SetValue(RemoveTagCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RemoveTagCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RemoveTagCallbackProperty =
+            DependencyProperty.Register("RemoveTagCallback", typeof(onRemoveTag), typeof(TagSection), new PropertyMetadata(null));
+
+
+
 
 
         public TagSection()
@@ -64,6 +116,19 @@ namespace emlekmu
             EnlargenedTags = new ObservableCollection<string>();
             Root.DataContext = this;
             TagClickedCallback = new onTagClicked(tagClicked);
+
+        }
+
+        public TagSection(ObservableCollection<Tag> tags, onAddTag addTagCallback, onEditTag editTagCallback, onRemoveTag removeTagCallback)
+        {
+            InitializeComponent();
+            EnlargenedTags = new ObservableCollection<string>();
+            Root.DataContext = this;
+            TagClickedCallback = new onTagClicked(tagClicked);
+            Tags = tags;
+            AddTagCallback = addTagCallback;
+            EditTagCallback = editTagCallback;
+            RemoveTagCallback = removeTagCallback;
 
         }
 
@@ -140,15 +205,7 @@ namespace emlekmu
         }
         
 
-        public ObservableCollection<Tag> Tags
-        {
-            get { return (ObservableCollection<Tag>)GetValue(TagsProperty); }
-            set { SetValue(TagsProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for Tags.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TagsProperty =
-            DependencyProperty.Register("Tags", typeof(ObservableCollection<Tag>), typeof(TagSection), new PropertyMetadata(new ObservableCollection<Tag>()));
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -157,6 +214,16 @@ namespace emlekmu
 
         private void TagRow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+
+        }
+
+        private void AddTagButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddTag addTagDialog = new emlekmu.AddTag(AddTagCallback, Tags);
+            addTagDialog.Height = 600;
+            addTagDialog.Width = 400;
+
+            addTagDialog.ShowDialog();
 
         }
     }

@@ -90,6 +90,7 @@
     <Compile Include="models\Monument.cs" />
     <Compile Include="models\Tag.cs" />
     <Compile Include="models\Type.cs" />
+    <Compile Include="models\Validators.cs" />
     <Compile Include="MonumentRow.xaml.cs">
       <DependentUpon>MonumentRow.xaml</DependentUpon>
     </Compile>

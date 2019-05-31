@@ -11,10 +11,16 @@
             <Menu DockPanel.Dock="Top" Height="40">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Types" Click="types_Click"/>
+                    <MenuItem Header="T_ags" Click="tags_Click"/>
                     <MenuItem Header="_Open" />
                     <MenuItem Header="_Save" />
                     <Separator />
                     <MenuItem Header="_Exit" />
+                </MenuItem>
+                <MenuItem Header="_Add">
+                    <MenuItem Header="_Monument" Click="monumentAdd_Click"/>
+                    <MenuItem Header="_Tag" Click="tagAdd_Click"/>
+                    <MenuItem Header="_Type" Click="typeAdd_Click"/>
                 </MenuItem>
             </Menu>
             <local:MonumentsTable Monuments="{Binding Monuments}" RemoveMonumentCallback="{Binding removeMonumentCallback}" EditMonumentCallback="{Binding editMonumentCallback}"/>

@@ -134,5 +134,21 @@ namespace emlekmu.models
                 magicalNum = 255;
             return string.Format("#{0:X2}{1:X2}{2:X2}", magicalNum, magicalNum, magicalNum);
         }
+        
+        public Color(System.Windows.Media.Color color)
+        {
+            Red = color.R;
+            Green = color.G;
+            Blue = color.B;
+            Hex = ToString();
+        }
+
+        public Color(string hex)
+        {
+            Red = int.Parse(hex.Substring(1, 2), System.Globalization.NumberStyles.HexNumber);
+            Green = int.Parse(hex.Substring(3, 2), System.Globalization.NumberStyles.HexNumber);
+            Blue = int.Parse(hex.Substring(5, 2), System.Globalization.NumberStyles.HexNumber);
+            Hex = ToString();
+        }
     }
 }
