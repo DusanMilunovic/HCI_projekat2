@@ -23,6 +23,8 @@
                                                Icon="{Binding Path=Icon}"
                                                TypeClickedCallback="{Binding ElementName=Root, Path=DataContext.TypeClickedCallback}"
                                                EnlargenedTypes="{Binding ElementName=Root, Path=DataContext.EnlargenedTypes}"
+                                               EditTypeCallback="{Binding ElementName=Root, Path=DataContext.EditTypeCallback}"
+                                               RemoveTypeCallback="{Binding ElementName=Root, Path=DataContext.RemoveTypeCallback}"
                                                >
                                     </local:TypeRow>
                                     <local:TypeRowDetail Tag="{Binding Path=Id}" Id="{Binding Path=Id}"

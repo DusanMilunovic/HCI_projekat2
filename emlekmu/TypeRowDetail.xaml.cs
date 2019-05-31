@@ -135,7 +135,7 @@ namespace emlekmu
             Root.DataContext = this;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             var obj = new models.Type(this.Id, this.TypeName, this.Icon, this.Description);
             EditType editTypeDialog = new emlekmu.EditType(obj, this.editTypeCallbackFun);
@@ -146,7 +146,7 @@ namespace emlekmu
         }
 
         
-    private void DeleteBtn_Click(object s, RoutedEventArgs ea)
+        private void DeleteBtn_Click(object s, RoutedEventArgs ea)
         {
             DoubleAnimation animation = new DoubleAnimation();
             animation.To = 0;
@@ -171,5 +171,15 @@ namespace emlekmu
             sb.Begin();
 
         }
+        private void onRigthClick(object sender, MouseButtonEventArgs e)
+        {
+            // open context menu
+            ContextMenu cm = this.FindResource("cmTypeRowDetail") as ContextMenu;
+            cm.IsOpen = true;
+        }
     }
+
+    
+
+
 }

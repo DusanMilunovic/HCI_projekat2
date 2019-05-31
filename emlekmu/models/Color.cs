@@ -31,6 +31,7 @@ namespace emlekmu.models
                 {
                     red = value;
                     this.Hex = this.ToString();
+                    this.Hexi = ToInverseString();
                     OnPropertyChanged("Red");
                 }
             }
@@ -48,6 +49,7 @@ namespace emlekmu.models
                 {
                     green = value;
                     this.Hex = this.ToString();
+                    this.Hexi = ToInverseString();
                     OnPropertyChanged("Green");
                 }
             }
@@ -65,6 +67,7 @@ namespace emlekmu.models
                 {
                     blue = value;
                     this.Hex = this.ToString();
+                    this.Hexi = ToInverseString();
                     OnPropertyChanged("Blue");
                 }
             }
@@ -87,6 +90,23 @@ namespace emlekmu.models
             }
         }
 
+        string hexi;
+        public string Hexi
+        {
+            get
+            {
+                return hexi;
+            }
+            set
+            {
+                if (value != hexi)
+                {
+                    hexi = value;
+                    OnPropertyChanged("Hexi");
+                }
+            }
+        }
+
         public Color()
         {
 
@@ -98,10 +118,21 @@ namespace emlekmu.models
             this.Green = Green;
             this.Blue = Blue;
             this.Hex = this.ToString();
+            this.Hexi = ToInverseString();
         }
         public override string ToString()
         {
             return string.Format("#{0:X2}{1:X2}{2:X2}", Red, Green, Blue);
+        }
+
+        public string ToInverseString()
+        {
+            int magicalNum = (Red + Green + Blue) / 3;
+            if (magicalNum > 127)
+                magicalNum = 0;
+            else
+                magicalNum = 255;
+            return string.Format("#{0:X2}{1:X2}{2:X2}", magicalNum, magicalNum, magicalNum);
         }
     }
 }

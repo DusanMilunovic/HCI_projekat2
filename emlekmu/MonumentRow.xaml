@@ -5,28 +5,29 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
-             d:DesignHeight="94" d:DesignWidth="894">
+             MouseLeftButtonUp="OnMouseDown"
+             d:DesignHeight="94" d:DesignWidth="904">
     <Grid x:Name="Root" Margin="5">
         <Viewbox Stretch="Uniform">
             <Border BorderBrush="Gray" BorderThickness="2">
                 <StackPanel Orientation="Horizontal" Cursor="Hand" Background="#FFFFFF">
                     <StackPanel Orientation="Vertical">
-                        <Label Width="100" Height="25" FontSize="12">ID:</Label>
-                        <Label Width="100" Height="35" FontSize="16" HorizontalAlignment="Left" Content="{Binding MonumentId}"></Label>
+                        <TextBlock Width="95" Margin="5 0 0 0" Height="25" FontSize="12">ID:</TextBlock>
+                        <TextBlock Width="95" Margin="5 0 0 0" Height="65" FontSize="16" HorizontalAlignment="Left" Text="{Binding MonumentId}"></TextBlock>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="5 0">
+                        <TextBlock Width="250" Height="25" FontSize="12">Name:</TextBlock>
+                        <TextBlock Width="250" Height="65" FontSize="16" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Text="{Binding MonumentName}"></TextBlock>
 
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
-                        <Label Width="250" Height="25" FontSize="12">Name</Label>
-                        <Label Width="250" Height="35" FontSize="16" HorizontalAlignment="Left" Content="{Binding MonumentName}"></Label>
-
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <Label Width="195" Height="25" FontSize="12">Type</Label>
-                        <Label Width="195" Height="35" FontSize="16" HorizontalAlignment="Left" Content="{Binding MonumentType.Name}"></Label>
+                        <TextBlock Width="195" Height="25" FontSize="12">Type:</TextBlock>
+                        <TextBlock Width="195" Height="65" FontSize="16" HorizontalAlignment="Left" Text="{Binding MonumentType.Name}"></TextBlock>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical">
-                        <Label Width="245" Height="25" FontSize="12">Tags</Label>
+                        <Label Width="245" Height="25" FontSize="12">Tags:</Label>
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <ItemsControl ItemsSource="{Binding MonumentTags}">
                                 <ItemsControl.ItemTemplate>

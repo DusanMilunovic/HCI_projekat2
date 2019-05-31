@@ -17,19 +17,25 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel>
-                                            <local:MonumentRow MonumentId="{Binding Path=Id}"
+                                            <local:MonumentRow Tag="{Binding Path=Id}" MonumentId="{Binding Path=Id}"
                                                                MonumentName="{Binding Path=Name}"
                                                                MonumentTags="{Binding Path=Tags}"
                                                                MonumentType="{Binding Path=Type}"
-                                                               MonumentImage="{Binding Path=Icon}">
+                                                               MonumentImage="{Binding Path=Icon}"
+                                                               MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
+                                                               EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}">
 
                                             </local:MonumentRow>
-                                            <local:MonumentRowDetail MonumentId="{Binding Path=Id}"
+                                            <local:MonumentRowDetail Tag="{Binding Path=Id}" MonumentId="{Binding Path=Id}"
                                                                      MonumentName="{Binding Path=Name}"
                                                                      MonumentTags="{Binding Path=Tags}"
                                                                      MonumentType="{Binding Path=Type}"
                                                                      MonumentImage="{Binding Path=Icon}"
-                                                                     MonumentDescription="{Binding Path=Description}">
+                                                                     MonumentDescription="{Binding Path=Description}"
+                                                                     MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
+                                                                     EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments, Mode=TwoWay}"
+                                                                     Visibility="Collapsed"
+                                                                     removeMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}">
                                                 
                                             </local:MonumentRowDetail>
                                         </StackPanel>
