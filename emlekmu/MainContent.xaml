@@ -8,6 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="Root">
         <DockPanel>
+            <Button x:Name="EditFirstMonument" DockPanel.Dock="Top" Click="EditFirstMonument_Click">Edit my beauty</Button>
             <Menu DockPanel.Dock="Top" Height="40">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Types" Click="types_Click"/>

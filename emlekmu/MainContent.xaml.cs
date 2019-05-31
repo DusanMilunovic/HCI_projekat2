@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApplication1;
 using Type = emlekmu.models.Type;
 using Color = emlekmu.models.Color;
 
@@ -788,5 +789,12 @@ namespace emlekmu
             this.filterMonumentsCallback = new onFilterMonuments(filterMonuments);
         }
 
+        private void EditFirstMonument_Click(object sender, RoutedEventArgs e)
+        {
+            EditMonument dialog = new EditMonument(Types, Tags, this.editMonumentCallback, this.Monuments.First(), addTypeCallback, addTagCallback);
+            dialog.Height = 750;
+            dialog.Width = 400;
+            dialog.ShowDialog();
+        }
     }
 }
