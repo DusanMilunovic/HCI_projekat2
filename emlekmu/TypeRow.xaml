@@ -7,35 +7,49 @@
              MouseLeftButtonUp="OnMouseDown"
              MouseRightButtonUp="onRigthClick"
              mc:Ignorable="d" 
-             d:DesignHeight="94" d:DesignWidth="894">
+             d:DesignHeight="100" d:DesignWidth="900">
     <UserControl.Resources>
         <ContextMenu x:Key="cmTypeRow">
             <MenuItem Header="Edit" Click="editMenuAction"></MenuItem>
             <MenuItem Header="Delete" Click="deleteMenuAction"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
-    <Grid x:Name="Root" Margin="5">
-        <Viewbox Stretch="Uniform">
-            <Border BorderBrush="Gray" BorderThickness="2">
-                <StackPanel Orientation="Horizontal" Cursor="Hand" Background="#FFFFFF">
-                    <StackPanel Orientation="Vertical">
-                        <Label Width="100" Height="25" FontSize="12">ID:</Label>
-                        <Label Width="100" Height="35" FontSize="16" HorizontalAlignment="Left" Content="{Binding Id}"></Label>
+    <Grid x:Name="Root" Background="White"  Margin="5">
+        <Border BorderBrush="Gray" BorderThickness="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
 
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <Label Width="200" Height="25" FontSize="12">Name</Label>
-                        <Label Width="200" Height="35" FontSize="16" HorizontalAlignment="Left" Content="{Binding TypeName}"></Label>
+                <Label Grid.Row="0" Grid.Column="0"
+                       FontSize="12">ID:</Label>
+                <Label Grid.Row="1" Grid.Column="0"
+                       FontSize="16" HorizontalAlignment="Left"
+                       Content="{Binding Id}"></Label>
 
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <Label Width="490" Height="25" FontSize="12">Description</Label>
-                        <Label Width="490" Height="35" FontSize="16" HorizontalAlignment="Left" Content="{Binding Description}"></Label>
+                <Label Grid.Row="0" Grid.Column="1"
+                       FontSize="12">Name</Label>
+                <Label Grid.Row="1" Grid.Column="1" FontSize="16"
+                       HorizontalAlignment="Left"
+                       Content="{Binding TypeName}"></Label>
 
-                    </StackPanel>
-                    <Image Width="70" Height="70" Margin="10" Source="{Binding Icon}"></Image>
-                </StackPanel>
-            </Border>
-        </Viewbox>
+                <Label Grid.Row="0" Grid.Column="2"
+                       FontSize="12">Description</Label>
+                <Label Grid.Row="1" Grid.Column="2"
+                       FontSize="16" HorizontalAlignment="Left"
+                       Content="{Binding Description}"></Label>
+
+                <Image  Grid.RowSpan="2" Grid.Column="3"
+                       Width="50" Height="50" VerticalAlignment="Center"
+                       HorizontalAlignment="Center" Source="{Binding Icon}"></Image>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>
