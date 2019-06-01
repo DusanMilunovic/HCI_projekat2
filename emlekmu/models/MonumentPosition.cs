@@ -70,6 +70,11 @@ namespace emlekmu.models
             }
         }
 
+        public MonumentPosition()
+        {
+
+        }
+
         public MonumentPosition(int top, int left)
         {
             Top = top;

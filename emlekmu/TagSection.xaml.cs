@@ -242,5 +242,46 @@ namespace emlekmu
             this.DialogResult = false;
             this.Close();
         }
+
+        private void EditTagCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = this.EnlargenedTags.Count > 0;
+        }
+
+        private void EditTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string toEdit = EnlargenedTags.First();
+            Tag t = this.Tags.First(x => x.Id == toEdit);
+            EditTag dialog = new EditTag(t, this.EditTagCallback);
+            dialog.Width = 400;
+            dialog.Height = 400;
+            dialog.Show();
+        }
+
+        private void AddTagCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void AddTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            AddTag dialog = new AddTag(this.AddTagCallback, this.Tags);
+            dialog.Height = 400;
+            dialog.Width = 400;
+            dialog.Show();
+        }
+
+        private void DeleteTagCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = this.EnlargenedTags.Count > 0;
+        }
+
+        private void DeleteTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            string toRemove = this.EnlargenedTags.First();
+            Tag t = this.Tags.First(x => x.Id == toRemove);
+            this.RemoveTagCallback(toRemove);
+            this.EnlargenedTags.Remove(toRemove);
+        }
     }
 }

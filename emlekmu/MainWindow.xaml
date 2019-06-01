@@ -11,6 +11,8 @@
         <CommandBinding x:Name="AddMonumentCommand" Command="cmd:RoutedCommands.AddMonument" CanExecute="AddMonumentCommand_CanExecute" Executed="AddMonumentCommand_Executed"></CommandBinding>
         <CommandBinding x:Name="AddTypeCommand" Command="cmd:RoutedCommands.AddType" CanExecute="AddTypeCommand_CanExecute" Executed="AddTypeCommand_Executed"></CommandBinding>
         <CommandBinding x:Name="AddTagCommand" Command="cmd:RoutedCommands.AddTag" CanExecute="AddTagCommand_CanExecute" Executed="AddTagCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="EditMonumentCommand" Command="cmd:RoutedCommands.EditMonument" CanExecute="EditMonumentCommand_CanExecute" Executed="EditMonumentCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="RemoveMonumentCommand" Command="cmd:RoutedCommands.DeleteMonument" CanExecute="RemoveMonumentCommand_CanExecute" Executed="RemoveMonumentCommand_Executed"></CommandBinding>
     </Window.CommandBindings>
     <Grid>
         <local:MainContent x:Name="MainContent"></local:MainContent>

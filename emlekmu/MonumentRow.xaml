@@ -9,7 +9,7 @@
              d:DesignHeight="94" d:DesignWidth="904">
     <Grid x:Name="Root" Margin="5">
         <Viewbox Stretch="Uniform">
-            <Border BorderBrush="Gray" BorderThickness="2">
+            <Border BorderBrush="{Binding BorderColor}" BorderThickness="2">
                 <StackPanel Orientation="Horizontal" Cursor="Hand" Background="#FFFFFF">
                     <StackPanel Orientation="Vertical">
                         <TextBlock Width="95" Margin="5 0 0 0" Height="25" FontSize="12">ID:</TextBlock>

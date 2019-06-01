@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using emlekmu.models;
+using static emlekmu.MainContent;
 
 namespace emlekmu
 {
@@ -105,34 +106,58 @@ namespace emlekmu
             }
         }
 
-        public ObservableCollection<MonumentPosition> positions;
+
+
+
+
 
         public ObservableCollection<MonumentPosition> Positions
         {
-            get
-            {
-                return positions;
-            }
-            set
-            {
-                if (value != positions)
-                {
-                    positions = value;
-                    OnPropertyChanged("Positions");
-                }
-            }
+            get { return (ObservableCollection<MonumentPosition>)GetValue(PositionsProperty); }
+            set { SetValue(PositionsProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for Positions.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PositionsProperty =
+            DependencyProperty.Register("Positions", typeof(ObservableCollection<MonumentPosition>), typeof(Map), new PropertyMetadata(new ObservableCollection<MonumentPosition>()));
 
 
-        public ObservableCollection<Monument> Monuments
+
+        public onOpenEditMonument OpenEditMonumentCallback
         {
-            get { return (ObservableCollection<Monument>)GetValue(MonumentsProperty); }
-            set { SetValue(MonumentsProperty, value); }
+            get { return (onOpenEditMonument)GetValue(OpenEditMonumentCallbackProperty); }
+            set { SetValue(OpenEditMonumentCallbackProperty, value); }
         }
-        // Using a DependencyProperty as the backing store for Monuments.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty MonumentsProperty =
-            DependencyProperty.Register("Monuments", typeof(ObservableCollection<Monument>), typeof(Map), new PropertyMetadata(new ObservableCollection<Monument>()));
+
+        // Using a DependencyProperty as the backing store for OpenEditMonumentDialogCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OpenEditMonumentCallbackProperty =
+            DependencyProperty.Register("OpenEditMonumentCallback", typeof(onOpenEditMonument), typeof(Map), new PropertyMetadata(null));
+
+
+
+        public onRemoveMonument RemoveMonumentCallback
+        {
+            get { return (onRemoveMonument)GetValue(RemoveMonumentCallbackProperty); }
+            set { SetValue(RemoveMonumentCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RemoveMonumentCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RemoveMonumentCallbackProperty =
+            DependencyProperty.Register("RemoveMonumentCallback", typeof(onRemoveMonument), typeof(Map), new PropertyMetadata(null));
+
+
+
+
+        public onPinClicked PinClickedCallback
+        {
+            get { return (onPinClicked)GetValue(PinClickedCallbackProperty); }
+            set { SetValue(PinClickedCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PinClickedCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PinClickedCallbackProperty =
+            DependencyProperty.Register("PinClickedCallback", typeof(onPinClicked), typeof(Map), new PropertyMetadata(null));
+
 
 
 
@@ -140,19 +165,8 @@ namespace emlekmu
         {
             InitializeComponent();
             Root.DataContext = this;
-            EWidth = 20;
-            EHeight = 20;
-            ScrollHeight = 400;
-            ScrollWidth = 600;
-            Positions = new ObservableCollection<MonumentPosition>();
-            Positions.Add(new MonumentPosition(10, 10, new Monument()));
-            Positions.Add(new MonumentPosition(500, 100));
-            Positions.Add(new MonumentPosition(700, 1000));
-            Positions.Add(new MonumentPosition(100, 100));
-            Positions.Add(new MonumentPosition(150, 200));
-            Positions.Add(new MonumentPosition(111, 122));
-            Positions.Add(new MonumentPosition(550, 300));
-            Positions.Add(new MonumentPosition(700, 100));
+            EWidth = 80;
+            EHeight = 80;
         }
 
         const double ScaleRate = 2;
