@@ -18,7 +18,6 @@
                     <MenuItem Header="_Exit" />
                 </MenuItem>
             </Menu>
-            <local:MonumentsTable Monuments="{Binding Monuments}"/>
         </DockPanel>
     </Grid>
 </UserControl>
