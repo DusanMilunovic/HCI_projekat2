@@ -13,8 +13,6 @@
         <CommandBinding x:Name="AddTagCommand" Command="cmd:RoutedCommands.AddTag" CanExecute="AddTagCommand_CanExecute" Executed="AddTagCommand_Executed"></CommandBinding>
     </Window.CommandBindings>
     <Grid>
-        <Viewbox Stretch="Uniform">
-            <local:MainContent x:Name="MainContent"></local:MainContent>
-        </Viewbox>
+        <local:MainContent x:Name="MainContent"></local:MainContent>
     </Grid>
 </Window>

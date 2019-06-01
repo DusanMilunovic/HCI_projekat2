@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="800">
+             d:DesignHeight="1000" d:DesignWidth="1600">
     <Grid x:Name="Root" Background="#cceeff">
         <DockPanel>
             <Menu DockPanel.Dock="Top" Height="40">
@@ -23,7 +23,12 @@
                     <MenuItem Header="_Type" Click="typeAdd_Click"/>
                 </MenuItem>
             </Menu>
-            <local:MonumentsTable Monuments="{Binding Monuments}" RemoveMonumentCallback="{Binding removeMonumentCallback}" EditMonumentCallback="{Binding editMonumentCallback}"/>
-        </DockPanel>
+            <StackPanel Orientation="Horizontal">
+                <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1" Grid.Row="1" Monuments="{Binding SearchedNFMonuments}" FilteredMonuments="{Binding FilteredMonuments}" RemoveMonumentCallback="{Binding removeMonumentCallback}" EditMonumentCallback="{Binding editMonumentCallback}"/>
+                <local:SearchFilterControl Types="{Binding Types}" Tags="{Binding Tags}" DialogType="Search" SearchCallback="{Binding findMonumentsCallback}" FilterCallback="{Binding filterMonumentsCallback}"></local:SearchFilterControl>
+                <local:SearchFilterControl Types="{Binding Types}" Tags="{Binding Tags}" DialogType="Filter" SearchCallback="{Binding findMonumentsCallback}" FilterCallback="{Binding filterMonumentsCallback}"></local:SearchFilterControl>
+
+            </StackPanel>
+            </DockPanel>
     </Grid>
 </UserControl>

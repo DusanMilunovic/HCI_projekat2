@@ -101,6 +101,9 @@
     <Compile Include="MonumentsTable.xaml.cs">
       <DependentUpon>MonumentsTable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SearchFilterControl.xaml.cs">
+      <DependentUpon>SearchFilterControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TagRow.xaml.cs">
       <DependentUpon>TagRow.xaml</DependentUpon>
     </Compile>
@@ -180,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MonumentsTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchFilterControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
