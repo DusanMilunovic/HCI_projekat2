@@ -5,8 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              MouseLeftButtonUp="OnMouseDown"
+             MouseRightButtonUp="onRigthClick"
              mc:Ignorable="d" 
              d:DesignHeight="94" d:DesignWidth="894">
+    <UserControl.Resources>
+        <ContextMenu x:Key="cmTypeRow">
+            <MenuItem Header="Edit" Click="editMenuAction"></MenuItem>
+            <MenuItem Header="Delete" Click="deleteMenuAction"></MenuItem>
+        </ContextMenu>
+    </UserControl.Resources>
     <Grid x:Name="Root" Margin="5">
         <Viewbox Stretch="Uniform">
             <Border BorderBrush="Gray" BorderThickness="2">

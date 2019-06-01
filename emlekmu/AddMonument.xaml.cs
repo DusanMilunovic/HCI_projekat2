@@ -19,13 +19,14 @@ using System.Windows.Shapes;
 using Type = emlekmu.models.Type;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using static emlekmu.MainContent;
 
 namespace emlekmu
 {
     /// <summary>
     /// Interaction logic for AddMonument.xaml
     /// </summary>
-    public partial class AddMonument : UserControl, INotifyPropertyChanged
+    public partial class AddMonument : Window, INotifyPropertyChanged
     {
         protected virtual void OnPropertyChanged(string name)
         {
@@ -44,6 +45,70 @@ namespace emlekmu
         // Using a DependencyProperty as the backing store for Types.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TypesProperty =
             DependencyProperty.Register("Types", typeof(ObservableCollection<Type>), typeof(AddMonument), new PropertyMetadata(new ObservableCollection<Type>()));
+
+
+
+        public ObservableCollection<Monument> Monuments
+        {
+            get { return (ObservableCollection<Monument>)GetValue(MonumentsProperty); }
+            set { SetValue(MonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Monuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MonumentsProperty =
+            DependencyProperty.Register("Monuments", typeof(ObservableCollection<Monument>), typeof(AddMonument), new PropertyMetadata(new ObservableCollection<Monument>()));
+
+
+
+        public ObservableCollection<Tag> Tags
+        {
+            get { return (ObservableCollection<Tag>)GetValue(TagsProperty); }
+            set { SetValue(TagsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Tags.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TagsProperty =
+            DependencyProperty.Register("Tags", typeof(ObservableCollection<Tag>), typeof(AddMonument), new PropertyMetadata(null));
+
+
+
+        public onAddMonument AddMonumentCallback
+        {
+            get { return (onAddMonument)GetValue(AddMonumentCallbackProperty); }
+            set { SetValue(AddMonumentCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AddMonumentCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AddMonumentCallbackProperty =
+            DependencyProperty.Register("AddMonumentCallback", typeof(onAddMonument), typeof(AddMonument), new PropertyMetadata(null));
+
+
+
+        public onAddType AddTypeCallBack
+        {
+            get { return (onAddType)GetValue(AddTypeCallBackProperty); }
+            set { SetValue(AddTypeCallBackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AddTypeCallBack.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AddTypeCallBackProperty =
+            DependencyProperty.Register("AddTypeCallBack", typeof(onAddType), typeof(AddMonument), new PropertyMetadata(null));
+
+
+
+
+        public onAddTag AddTagCallback
+        {
+            get { return (onAddTag)GetValue(AddTagCallbackProperty); }
+            set { SetValue(AddTagCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AddTagCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AddTagCallbackProperty =
+            DependencyProperty.Register("AddTagCallback", typeof(onAddTag), typeof(AddMonument), new PropertyMetadata(null));
+
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -65,9 +130,63 @@ namespace emlekmu
             }
         }
 
-        public ObservableCollection<ErasComboItem> eras;
+        public string era;
+        
+        public string Era
+        {
+            get
+            {
+                return era;
+            }
+            set
+            {
+                if (value != era)
+                {
+                    era = value;
+                    OnPropertyChanged("Era");
+                }
+            }
+        }
 
-        public ObservableCollection<ErasComboItem> Eras
+        public string dateEra;
+
+        public string DateEra
+        {
+            get
+            {
+                return dateEra;
+            }
+            set
+            {
+                if (value != dateEra)
+                {
+                    dateEra = value;
+                    OnPropertyChanged("DateEra");
+                }
+            }
+        }
+
+        public string touristic;
+
+        public string Touristic
+        {
+            get
+            {
+                return touristic;
+            }
+            set
+            {
+                if (value != touristic)
+                {
+                    touristic = value;
+                    OnPropertyChanged("Touristic");
+                }
+            }
+        }
+
+        public ObservableCollection<string> eras;
+
+        public ObservableCollection<string> Eras
         {
             get
             {
@@ -83,20 +202,20 @@ namespace emlekmu
             }
         }
 
-        public ObservableCollection<TouristicStatusComboItem> touristic;
+        public ObservableCollection<string> touristics;
 
-        public ObservableCollection<TouristicStatusComboItem> Touristic
+        public ObservableCollection<string> Touristics
         {
             get
             {
-                return touristic;
+                return touristics;
             }
             set
             {
-                if (value != touristic)
+                if (value != touristics)
                 {
-                    touristic = value;
-                    OnPropertyChanged("Touristic");
+                    touristics = value;
+                    OnPropertyChanged("Touristics");
                 }
             }
         }
@@ -119,20 +238,20 @@ namespace emlekmu
             }
         }
 
-        public string testString;
+        public string dateString;
 
-        public string TestString
+        public string DateString
         {
             get
             {
-                return testString;
+                return dateString;
             }
             set
             {
-                if (value != testString)
+                if (value != dateString)
                 {
-                    testString = value;
-                    OnPropertyChanged("TestString");
+                    dateString = value;
+                    OnPropertyChanged("DateString");
                 }
             }
         }
@@ -141,17 +260,60 @@ namespace emlekmu
         {
             InitializeComponent();
             Root.DataContext = this;
-            this.eras = ErasComboItem.initializeEraList();
-            this.touristic = TouristicStatusComboItem.initializeTouristicList();
+            initializeEraList();
+            initializeTouristicList();
             this.dateCollection = getDateCollection();
             this.Monument = new Monument();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public AddMonument(
+            ObservableCollection<Monument> monuments,
+            ObservableCollection<Type> types,
+            ObservableCollection<Tag> tags,
+            onAddMonument addMonumentCallback,
+            onAddType addTypeCallback,
+            onAddTag addTagCallback)
         {
-            //debug button method
-            int a = 3;
-            a = a + 1;
+            InitializeComponent();
+            Root.DataContext = this;
+            initializeEraList();
+            initializeTouristicList();
+            this.dateCollection = getDateCollection();
+            this.Monument = new Monument();
+            this.Monuments = monuments;
+            this.Monument.Id = findNextId();
+            this.Types = types;
+            this.Tags = tags;
+            this.AddMonumentCallback = addMonumentCallback;
+            this.AddTypeCallBack = addTypeCallback;
+            this.TagListBox.ItemsSource = this.Tags;
+            this.AddTagCallback = addTagCallback;
+            this.resetTagFlags();
+        }
+
+        public void resetTagFlags()
+        {
+            foreach (Tag t in this.Tags)
+            {
+                t.Selected = false;
+            }
+        }
+
+        public int findNextId()
+        {
+            int i = 1;
+            loop: while (true)
+            {
+                foreach (var t in this.Monuments)
+                {
+                    if (t.Id == i)
+                    {
+                        i++;
+                        goto loop;
+                    }
+                }
+                return i;
+            }
         }
 
         public static ObservableCollection<string> getDateCollection()
@@ -161,85 +323,169 @@ namespace emlekmu
             retVal.Add("CE");
             return retVal;
         }
-    }
 
-    public class TouristicStatusComboItem
-    {
-        public string Name { get; set; }
-
-        public TouristicStatus Value { get; set; }
-
-        public TouristicStatusComboItem(string Name, TouristicStatus Value)
+        private void AddType_Click(object sender, RoutedEventArgs e)
         {
-            this.Name = Name;
-            this.Value = Value;
+            emlekmu.AddType dialog = new emlekmu.AddType(this.AddTypeCallBack, this.Types);
+            dialog.Height = 750;
+            dialog.Width = 400;
+            dialog.ShowDialog();
         }
 
-        public static ObservableCollection<TouristicStatusComboItem> initializeTouristicList()
+        public void initializeEraList()
         {
-            var retVal = new ObservableCollection<TouristicStatusComboItem>();
-            retVal.Add(new TouristicStatusComboItem("Exploited", TouristicStatus.Exploited));
-            retVal.Add(new TouristicStatusComboItem("Available", TouristicStatus.Available));
-            retVal.Add(new TouristicStatusComboItem("Unavailable", TouristicStatus.Unavailable));
-            return retVal;
-        }
-    }
-
-    public class ErasComboItem
-    {
-        public string Name { get; set; }
-
-        public Era Value { get; set; }
-
-        public ErasComboItem(string Name, Era Value)
-        {
-            this.Name = Name;
-            this.Value = Value;
+            this.Eras = new ObservableCollection<string>();
+            this.Eras.Add("Paleolith");
+            this.Eras.Add("Neolithic");
+            this.Eras.Add("Ancient");
+            this.Eras.Add("Medieval");
+            this.Eras.Add("Renaissance");
+            this.Eras.Add("Modern");
         }
 
-        public static ObservableCollection<ErasComboItem> initializeEraList()
+        public void initializeTouristicList()
         {
-            var retVal = new ObservableCollection<ErasComboItem>();
-            retVal.Add(new ErasComboItem("Paleolith", Era.Paleolith));
-            retVal.Add(new ErasComboItem("Neolithic", Era.Neolithic));
-            retVal.Add(new ErasComboItem("Ancient", Era.Ancient));
-            retVal.Add(new ErasComboItem("Medieval", Era.Medieval));
-            retVal.Add(new ErasComboItem("Renaissance", Era.Renaissance));
-            retVal.Add(new ErasComboItem("Modern", Era.Modern));
-            return retVal;
+            this.Touristics = new ObservableCollection<string>();
+            this.Touristics.Add("Exploited");
+            this.Touristics.Add("Available");
+            this.Touristics.Add("Unavailable");
         }
-    }
 
-    public class DateValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        private void displayValidation()
         {
-            var temp = value.ToString();
-            string[] parts = temp.Split('/');
+            DescriptionTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            IdTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            NameTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            ImageTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            TypesComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
+            EraComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
+            IconTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            TouristicComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
+            IncomeTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            DateTextBox.GetBindingExpression(Xceed.Wpf.Toolkit.MaskedTextBox.TextProperty).UpdateSource();
+            DateComboBox.GetBindingExpression(ComboBox.SelectedValueProperty).UpdateSource();
+        }
+
+        private bool validateInputs()
+        {
+            Dictionary<ValidationRule, Object> rules = new Dictionary<ValidationRule, object>();
+            rules.Add(this.MonumentIdValidation, IdTextBox.Text);
+            rules.Add(this.MonumentNameValidation, NameTextBox.Text);
+            rules.Add(this.MonumentDescriptionValidation, DescriptionTextBox.Text);
+            rules.Add(this.MonumentImageValidation, ImageTextBox.Text);
+            rules.Add(this.MonumentTypeValidation, TypesComboBox.SelectedValue);
+            rules.Add(this.MonumentEraValidation, EraComboBox.SelectedValue);
+            rules.Add(this.MonumentIconValidation, IconTextBox.Text);
+            rules.Add(this.MonumentTouristicValidation, TouristicComboBox.SelectedValue);
+            rules.Add(this.MonumentIncomeValidation, IncomeTextBox.Text);
+            rules.Add(this.MonumentDateValidation, DateTextBox.Text);
+            rules.Add(this.MonumentDateEraValidation, DateComboBox.SelectedValue);
+            foreach (var validation in rules.Keys)
+            {
+                var result = validation.Validate(rules[validation], null);
+                if (!result.IsValid)
+                {
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
+        private void formatDate()
+        {
+            var parts = this.DateTextBox.Text.ToString().Split('/');
             int day;
             int month;
             int year;
-            try
+            day = Convert.ToInt32(parts[0].Trim(new char[] { '_' }));
+            month = Convert.ToInt32(parts[1].Trim(new char[] { '_' }));
+            year = Convert.ToInt32(parts[2].Trim(new char[] { '_' }));
+            DateTime tempTime = new DateTime(year, month, day);
+            string dateString = tempTime.Day.ToString() + "." + tempTime.Month.ToString() + "." + tempTime.Year;
+            dateString += " " + DateComboBox.SelectedValue;
+            this.Monument.DiscoveryDate = dateString;
+        }
+
+        private void connectTags()
+        {
+            this.Monument.Tags = new ObservableCollection<models.Tag>();
+            foreach(Tag t in this.Tags)
             {
-                day = Convert.ToInt32(parts[0].Trim(new char[] { '_' }));
-                month = Convert.ToInt32(parts[1].Trim(new char[] { '_' }));
-                year = Convert.ToInt32(parts[2].Trim(new char[] { '_' }));
+                if (t.Selected)
+                {
+                    this.Monument.Tags.Add(t);
+                }
             }
-            catch
+        }
+
+        private void AddMonumentButton_Click(object sender, RoutedEventArgs e)
+        {
+            displayValidation();
+            validateInputs();
+            if (validateInputs())
             {
-                return new ValidationResult(false, "Date has to consist of three numbers");
+                this.Monument.Era = (Era)Enum.Parse(typeof(Era), Era);
+                this.Monument.TouristicStatus = (TouristicStatus)Enum.Parse(typeof(TouristicStatus), Touristic);
+                this.formatDate();
+                this.connectTags();
+                this.AddMonumentCallback(this.Monument);
+                this.Close();
             }
-            DateTime date;
-            try
+            
+        }
+
+        private void AddTag_Click(object sender, RoutedEventArgs e)
+        {
+            emlekmu.AddTag dialog = new emlekmu.AddTag(this.AddTagCallback, this.Tags);
+            dialog.Height = 750;
+            dialog.Width = 400;
+            dialog.Show();
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SelectIcon_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.FileName = "Icon"; // Default file name
+            dlg.DefaultExt = ".png"; // Default file extension
+            dlg.Filter = "Text documents (.png)|*.png"; // Filter files by extension
+
+            // Show open file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == true)
             {
-                date  = new DateTime(year, month, day);
+                // Open document
+                Monument.Icon = dlg.FileName;
+                IconTextBox.Text = dlg.FileName;
             }
-            catch
+        }
+
+        private void ImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.FileName = "Icon"; // Default file name
+            dlg.DefaultExt = ".png"; // Default file extension
+            dlg.Filter = "Text documents (.png)|*.png"; // Filter files by extension
+
+            // Show open file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == true)
             {
-                return new ValidationResult(false, "Date has to be a valid combination of day/month/year");
+                // Open document
+                Monument.Image = dlg.FileName;
+                ImageTextBox.Text = dlg.FileName;
             }
-            return new ValidationResult(true, null);
         }
     }
+
 
 }

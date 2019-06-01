@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static emlekmu.MainContent;
 
 namespace emlekmu
 {
@@ -23,6 +24,34 @@ namespace emlekmu
     /// </summary>
     public partial class MonumentsTable : UserControl, INotifyPropertyChanged
     {
+
+
+        public onRemoveMonument RemoveMonumentCallback
+        {
+            get { return (onRemoveMonument)GetValue(RemoveMonumentCallbackProperty); }
+            set { SetValue(RemoveMonumentCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RemoveMonumentCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RemoveMonumentCallbackProperty =
+            DependencyProperty.Register("RemoveMonumentCallback", typeof(onRemoveMonument), typeof(MonumentsTable), new PropertyMetadata(null));
+
+
+
+
+        public onEditMonument EditMonumentCallback
+        {
+            get { return (onEditMonument)GetValue(EditMonumentCallbackProperty); }
+            set { SetValue(EditMonumentCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for EditMonumentCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EditMonumentCallbackProperty =
+            DependencyProperty.Register("EditMonumentCallback", typeof(onEditMonument), typeof(MonumentsTable), new PropertyMetadata(null));
+
+
+
+
         protected virtual void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
@@ -34,7 +63,23 @@ namespace emlekmu
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-
+        public delegate void onMonumentClicked(int id);
+        public onMonumentClicked monumentClickedCallback;
+        public onMonumentClicked MonumentClickedCallback
+        {
+            get
+            {
+                return monumentClickedCallback;
+            }
+            set
+            {
+                if (value != monumentClickedCallback)
+                {
+                    monumentClickedCallback = value;
+                    OnPropertyChanged("MonumentClickedCallback");
+                }
+            }
+        }
 
         public ObservableCollection<Monument> Monuments
         {
@@ -51,12 +96,87 @@ namespace emlekmu
         public MonumentsTable()
         {
             InitializeComponent();
+            EnlargenedMonuments = new ObservableCollection<int>();
+            Root.DataContext = this;
             RootWoot.DataContext = this;
+            MonumentClickedCallback = new onMonumentClicked(monumentClicked);
         }
 
         private void AddMonumentButton_Click(object sender, RoutedEventArgs e)
         {
             Console.Write("KURAC");
+        }
+
+        ObservableCollection<int> enlargenedMonuments;
+        public ObservableCollection<int> EnlargenedMonuments
+        {
+            get
+            {
+                return enlargenedMonuments;
+            }
+            set
+            {
+                if (value != enlargenedMonuments)
+                {
+                    enlargenedMonuments = value;
+                    OnPropertyChanged("EnlargenedMonuments");
+                }
+            }
+        }
+
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
+        }
+
+        public void monumentClicked(int id)
+        {
+            MonumentRow myMonumentUC = null;
+            MonumentRowDetail myMonumentDUC = null;
+            foreach (MonumentRow tb in FindVisualChildren<MonumentRow>(RootWoot))
+            {
+                tb.Visibility = Visibility.Visible;
+                if (tb.Tag.Equals(id))
+                    myMonumentUC = tb;
+                else
+                    this.EnlargenedMonuments.Remove(tb.MonumentId);
+            }
+            foreach (MonumentRowDetail tb in FindVisualChildren<MonumentRowDetail>(RootWoot))
+            {
+                tb.Visibility = Visibility.Collapsed;
+                if (tb.Tag.Equals(id))
+                    myMonumentDUC = tb;
+                else
+                    this.EnlargenedMonuments.Remove(tb.MonumentId);
+            }
+
+            if (this.EnlargenedMonuments.IndexOf(id) == -1)
+            {
+                myMonumentUC.Visibility = Visibility.Collapsed;
+                myMonumentDUC.Visibility = Visibility.Visible;
+                this.EnlargenedMonuments.Add(id);
+            }
+            else
+            {
+                myMonumentDUC.Visibility = Visibility.Collapsed;
+                myMonumentUC.Visibility = Visibility.Visible;
+                this.EnlargenedMonuments.Remove(id);
+            }
         }
     }
 }

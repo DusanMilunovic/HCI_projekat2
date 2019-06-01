@@ -6,12 +6,13 @@
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
              d:DesignHeight="385"
-             d:DesignWidth="800">
-    <Grid x:Name="Root">
+             d:DesignWidth="800"
+             >
+    <Grid x:Name="Root" Margin="5">
         <Viewbox Stretch="Uniform">
             <Border CornerRadius="3" BorderBrush="#2299CC" BorderThickness="4">
                 <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Vertical" Cursor="Hand" Background="#FFFFFF">
+                    <StackPanel Orientation="Vertical" Cursor="Hand" Background="#FFFFFF"  MouseLeftButtonUp="OnMouseDown">
                         <StackPanel Orientation="Horizontal">
 
                             <Grid>
@@ -27,14 +28,14 @@
                                     </StackPanel>
                                     <Border Width="630" HorizontalAlignment="Left" BorderThickness="0 1 0 0" BorderBrush="LightGray">
                                         <StackPanel Width="590" HorizontalAlignment="Left">
-                                            <Label Width="590" Margin="10 10 10 0" HorizontalAlignment="Left" Height="25" FontSize="12">Name:</Label>
+                                            <TextBlock Width="590" Margin="10 10 10 0" HorizontalAlignment="Left" Height="25" FontSize="12" TextWrapping="WrapWithOverflow">Name:</TextBlock>
                                             <Label Width="590" Margin="10 0 10 10" Height="30" HorizontalAlignment="Left" FontSize="16" Content="{Binding MonumentName}"></Label>
                                         </StackPanel>
                                     </Border>
                                     <Border BorderThickness="0 1 0 0" BorderBrush="LightGray">
                                         <StackPanel>
                                             <Label Width="590" HorizontalAlignment="Left" Margin="10 10 10 0" Height="25" FontSize="12">Type:</Label>
-                                            <Label Width="590" Margin="10 0 10 10" HorizontalAlignment="Left" Height="30" FontSize="16" Content="{Binding MonumentId}"></Label>
+                                            <Label Width="590" Margin="10 0 10 10" HorizontalAlignment="Left" Height="30" FontSize="16" Content="{Binding MonumentType.Name}"></Label>
                                         </StackPanel>
                                     </Border>
 
@@ -49,7 +50,7 @@
 
                                 <StackPanel Grid.Column="1" Orientation="Vertical">
                                     <Image  Width="140" Height="140" Margin="10" Source="{Binding MonumentImage}"></Image>
-                                    <Border Width="140" Height="171" Margin="10" BorderBrush="Gray" BorderThickness="1">
+                                    <Border Width="140" MinHeight="100" Margin="10" BorderBrush="#FFFFFF" BorderThickness="1">
                                         <StackPanel Orientation="Vertical">
                                             <Label HorizontalAlignment="Center">Tags</Label>
                                             <StackPanel Orientation="Horizontal" Margin="5">
@@ -57,8 +58,8 @@
                                                     <ItemsControl.ItemTemplate>
                                                         <DataTemplate>
                                                             <Grid>
-                                                                <Rectangle Fill="{Binding Color.Hex}" Height="10" Margin="10 3" RadiusX="4" RadiusY="4"></Rectangle>
-                                                                <TextBlock Text="{Binding Id}" FontSize="8" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                <Rectangle Fill="{Binding Color.Hex}" Height="20" Margin="3 5" RadiusX="10" RadiusY="10"></Rectangle>
+                                                                <TextBlock Text="{Binding Id}" Foreground="{Binding Color.Hexi}" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                             </Grid>
                                                         </DataTemplate>
                                                     </ItemsControl.ItemTemplate>
@@ -83,8 +84,8 @@
                     </StackPanel>
                     <Border BorderThickness="0 1 0 0" BorderBrush="LightGray" Background="#F3FBFF">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button x:Name="EditButton" Margin="20" Height="40" Width="80" Click="EditButton_Click">Edit type</Button>
-                            <Button x:Name="DeleteBtn" Margin="20" Height="40" Width="80" Click="DeleteBtn_Click">Delete type</Button>
+                            <Button x:Name="EditButton" Margin="20" Height="40" Width="120" Click="EditButton_Click">Edit monument</Button>
+                            <Button x:Name="DeleteBtn" Margin="20" Height="40" Width="120" Click="DeleteBtn_Click">Delete monument</Button>
                         </StackPanel>
                     </Border>
                 </StackPanel>
