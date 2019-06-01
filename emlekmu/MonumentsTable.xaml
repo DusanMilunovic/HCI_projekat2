@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="400">
+             d:DesignHeight="450" d:DesignWidth="400">
     <Grid x:Name="RootWoot" Background="#cceeff">
         <Viewbox Stretch="Uniform">
             <StackPanel>
@@ -13,7 +13,7 @@
                 <Border BorderBrush="#555555" BorderThickness="1" Margin="15 10">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Height="625" Width="700" Margin="5 10">
                         <StackPanel>
-                            <ItemsControl x:Name="Root" ItemsSource="{Binding Monuments}">
+                            <ItemsControl x:Name="Root" ItemsSource="{Binding FilteredMonuments}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel>
@@ -23,7 +23,8 @@
                                                                MonumentType="{Binding Path=Type}"
                                                                MonumentImage="{Binding Path=Icon}"
                                                                MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
-                                                               EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}">
+                                                               EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}"
+                                                               BorderColor="#ef5656">
 
                                             </local:MonumentRow>
                                             <local:MonumentRowDetail Tag="{Binding Path=Id}" MonumentId="{Binding Path=Id}"
@@ -38,11 +39,44 @@
                                                                      removeMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}">
                                                 
                                             </local:MonumentRowDetail>
+                                            
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <ItemsControl x:Name="Root2" ItemsSource="{Binding Monuments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <local:MonumentRow Tag="{Binding Path=Id}" MonumentId="{Binding Path=Id}"
+                                                               MonumentName="{Binding Path=Name}"
+                                                               MonumentTags="{Binding Path=Tags}"
+                                                               MonumentType="{Binding Path=Type}"
+                                                               BorderColor="#808080"
+                                                               MonumentImage="{Binding Path=Icon}"
+                                                               MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
+                                                               EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}">
+
+                                                </local:MonumentRow>
+                                                <local:MonumentRowDetail Tag="{Binding Path=Id}" MonumentId="{Binding Path=Id}"
+                                                                     MonumentName="{Binding Path=Name}"
+                                                                     MonumentTags="{Binding Path=Tags}"
+                                                                     MonumentType="{Binding Path=Type}"
+                                                                     MonumentImage="{Binding Path=Icon}"
+                                                                     MonumentDescription="{Binding Path=Description}"
+                                                                     MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
+                                                                     EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments, Mode=TwoWay}"
+                                                                     Visibility="Collapsed"
+                                                                     removeMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}">
+
+                                            </local:MonumentRowDetail>
+
                                         </StackPanel>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
                         </StackPanel>
+                        
                     </ScrollViewer>
                 </Border>
                 <StackPanel Height="50" Orientation="Horizontal" DockPanel.Dock="Left" HorizontalAlignment="Center">
