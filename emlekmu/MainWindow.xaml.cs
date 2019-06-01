@@ -29,5 +29,45 @@ namespace emlekmu
         {
             InitializeComponent();
         }
+
+        private void AddMonumentCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void AddMonumentCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            AddMonument dialog = new AddMonument(MainContent.Monuments, MainContent.Types, MainContent.Tags,
+                MainContent.addMonumentCallback, MainContent.addTypeCallback, MainContent.addTagCallback);
+            dialog.Height = 900;
+            dialog.Width = 400;
+            dialog.Show();
+        }
+
+        private void AddTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void AddTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            AddType dialog = new AddType(MainContent.addTypeCallback, MainContent.Types);
+            dialog.Height = 400;
+            dialog.Width = 400;
+            dialog.Show();
+        }
+
+        private void AddTagCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void AddTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            AddTag dialog = new emlekmu.AddTag(MainContent.addTagCallback, MainContent.Tags);
+            dialog.Height = 400;
+            dialog.Width = 400;
+            dialog.Show();
+        }
     }
 }
