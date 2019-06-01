@@ -37,8 +37,38 @@ namespace emlekmu.models
             }
         }
 
-        public int Top { get; set; }
-        public int Left { get; set; }
+        public int top;
+        public int Top {
+            get
+            {
+                return top;
+            }
+            set
+            {
+                if (value != top)
+                {
+                    top = value;
+                    OnPropertyChanged("Top");
+                }
+            }
+        }
+
+        public int left;
+        public int Left {
+           get
+            {
+                return left;
+            }
+
+           set
+            {
+                if (value != left)
+                {
+                    left = value;
+                    OnPropertyChanged("Left");
+                }
+            }
+        }
 
         public MonumentPosition(int top, int left)
         {

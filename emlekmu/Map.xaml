@@ -9,39 +9,42 @@
     <Grid x:Name="Root">
         <StackPanel>
             <Viewbox Stretch="Uniform">
-            <Canvas x:Name="Kartocka" MouseWheel="Canvas_MouseWheel" Height="800" Width="1200" Background="PeachPuff"
-                    AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop">
-                <Canvas.RenderTransform>
-                    <ScaleTransform x:Name="st"/>
-                </Canvas.RenderTransform>
-                <local:MapWorld Height="800" Width="1200"></local:MapWorld>
-                <TextBlock Canvas.Left="120" Canvas.Top="500" Foreground="Red">AKREP</TextBlock>
-                <ItemsControl ItemsSource="{Binding Positions}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <Canvas/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <local:MonumentPin  Width="{Binding ElementName=Root, Path=DataContext.EWidth}"
-                                          Height="{Binding ElementName=Root, Path=DataContext.EHeight}"
-                                          MyMonument="{Binding Monument}"
-                                          PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" 
-                                          MouseMove="ListView_MouseMove">
-                                </local:MonumentPin>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemContainerStyle>
-                        <Style>
-                            <Setter Property="Canvas.Left" Value="{Binding Top}"/>
-                            <Setter Property="Canvas.Top" Value="{Binding Left}"/>
-                        </Style>
-                    </ItemsControl.ItemContainerStyle>
-                </ItemsControl>
-            </Canvas>
+                <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+
+                    <Canvas x:Name="Kartocka" MouseWheel="Canvas_MouseWheel" Height="800" Width="1200" Background="PeachPuff"
+                            AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop">
+                        <Canvas.RenderTransform>
+                            <ScaleTransform x:Name="st"/>
+                        </Canvas.RenderTransform>
+                        <local:MapWorld Height="800" Width="1200"></local:MapWorld>
+                        <TextBlock Canvas.Left="120" Canvas.Top="500" Foreground="Red">AKREP</TextBlock>
+                        <ItemsControl ItemsSource="{Binding Positions}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <local:MonumentPin  Width="{Binding ElementName=Root, Path=DataContext.EWidth}"
+                                                  Height="{Binding ElementName=Root, Path=DataContext.EHeight}"
+                                                  MyMonument="{Binding Monument}"
+                                                  PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" 
+                                                  MouseMove="ListView_MouseMove">
+                                        </local:MonumentPin>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style>
+                                    <Setter Property="Canvas.Left" Value="{Binding Top}"/>
+                                    <Setter Property="Canvas.Top" Value="{Binding Left}"/>
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                        </ItemsControl>
+                    </Canvas>
+                </ScrollViewer>
             </Viewbox>
         </StackPanel>
     </Grid>

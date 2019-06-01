@@ -40,7 +40,7 @@
             </Grid.ColumnDefinitions>
             <TabControl x:Name="MapsContainer" MouseMove="UpdateStatusBar" Grid.Column="0" Grid.Row="1">
                 <TabItem Header="Map1" Width="99">
-
+                    <local:Map Monuments="{Binding Monuments}"></local:Map>
                 </TabItem>
                 <TabItem Header="Map2" Width="99">
 

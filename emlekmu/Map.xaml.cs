@@ -69,6 +69,41 @@ namespace emlekmu
             }
         }
 
+        public double scrollWidth;
+
+        public double ScrollWidth
+        {
+            get
+            {
+                return scrollWidth;
+            }
+            set
+            {
+                if (value != scrollWidth)
+                {
+                    scrollWidth = value;
+                    OnPropertyChanged("ScrollWidth");
+                }
+            }
+        }
+
+        public double scrollHeight;
+
+        public double ScrollHeight
+        {
+            get
+            {
+                return scrollHeight;
+            }
+            set
+            {
+                if (value != scrollHeight)
+                {
+                    scrollHeight = value;
+                    OnPropertyChanged("ScrollHeight");
+                }
+            }
+        }
 
         public ObservableCollection<MonumentPosition> positions;
 
@@ -107,6 +142,8 @@ namespace emlekmu
             Root.DataContext = this;
             EWidth = 20;
             EHeight = 20;
+            ScrollHeight = 400;
+            ScrollWidth = 600;
             Positions = new ObservableCollection<MonumentPosition>();
             Positions.Add(new MonumentPosition(10, 10, new Monument()));
             Positions.Add(new MonumentPosition(500, 100));
@@ -123,37 +160,12 @@ namespace emlekmu
         double ai = 1;
         private void Canvas_MouseWheel(object sender, MouseWheelEventArgs e)
         {
+            e.Handled = true;
             double scaleDeltaX;
             double scaleDeltaY;
             var a = e.GetPosition((IInputElement)sender);
             if (e.Delta > 0)
             {
-                //double ww = 500;
-                //double wh = 300;
-                //double tw = 500 - a.X;
-                //double th = a.Y;
-                //double v1 = Math.Sqrt(tw * tw + th * th);
-                //double v2 = Math.Sqrt((ww - tw) * (ww - tw) + (wh - th) * (wh - th));
-                //double wr = ww / ScaleRate;
-                //double hr = wh / ScaleRate;
-                //double md = Math.Sqrt(wr * wr + hr * hr);
-
-                //double m1 = md / ((v2 / v1) + 1);
-                //double m2 = (v2 / v1) * m1;
-
-                //double c = th / tw;
-
-                //double maliwidth = Math.Sqrt((md * md) / (c * c + 1));
-                //double maliheight = maliwidth * c;
-
-
-                //double actualX = tw + maliwidth - wr;
-                //double actualY = maliheight + th;
-
-                //st.ScaleX *= ScaleRate;
-                //st.ScaleY *= ScaleRate;
-                //st.CenterX = actualX;
-                //st.CenterY = actualY;
                 if (ai > 10)
                 {
                     return;
@@ -175,7 +187,8 @@ namespace emlekmu
                 }
 
                 ai++;
-
+                ScrollHeight *= 2;
+                ScrollWidth *= 2;
                 EWidth /= 2;
                 EHeight /= 2;
             }
@@ -213,6 +226,8 @@ namespace emlekmu
 
                 ai--;
 
+                ScrollHeight /= 2;
+                ScrollWidth /= 2;
                 EWidth *= 2;
                 EHeight *= 2;
             }
@@ -245,7 +260,7 @@ namespace emlekmu
 
                 // Initialize the drag & drop operation
                 DataObject dragData = new DataObject("myFormat", monument);
-                DragDrop.DoDragDrop(a, dragData, DragDropEffects.Move);
+                DragDrop.DoDragDrop(listViewItem, dragData, DragDropEffects.Move);
             }
         }
 
@@ -267,7 +282,7 @@ namespace emlekmu
         {
             if (!e.Data.GetDataPresent("myFormat") || sender == e.Source)
             {
-                e.Effects = DragDropEffects.None;
+                e.Effects = DragDropEffects.Move;
             }
         }
 
@@ -275,7 +290,19 @@ namespace emlekmu
         {
             if (e.Data.GetDataPresent("myFormat"))
             {
+                var a = e.GetPosition((IInputElement)sender);
                 Monument monument = e.Data.GetData("myFormat") as Monument;
+                foreach (MonumentPosition position in Positions)
+                {
+                    if (position.monument != null && position.monument.Id == monument.Id)
+                    {
+                        
+                        position.Left = (int)(a.Y - 10);
+                        position.Top = (int)(a.X - 10);
+                        
+                        break;
+                    }
+                }
             }
         }
     }
