@@ -6,25 +6,56 @@
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="Root">
-        <DockPanel>
-            <Button x:Name="EditFirstMonument" DockPanel.Dock="Top" Click="EditFirstMonument_Click">Edit my beauty</Button>
-            <Menu DockPanel.Dock="Top" Height="40">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_Types" Click="types_Click"/>
-                    <MenuItem Header="T_ags" Click="tags_Click"/>
-                    <MenuItem Header="_Open" />
-                    <MenuItem Header="_Save" />
-                    <Separator />
-                    <MenuItem Header="_Exit" />
-                </MenuItem>
-                <MenuItem Header="_Add">
-                    <MenuItem Header="_Monument" Click="monumentAdd_Click"/>
-                    <MenuItem Header="_Tag" Click="tagAdd_Click"/>
-                    <MenuItem Header="_Type" Click="typeAdd_Click"/>
-                </MenuItem>
-            </Menu>
-            <local:MonumentsTable Monuments="{Binding Monuments}"/>
-        </DockPanel>
-    </Grid>
+    <DockPanel x:Name="Root">
+        <Menu DockPanel.Dock="Top" Height="20">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Types" Click="types_Click"/>
+                <MenuItem Header="T_ags" Click="tags_Click"/>
+                <MenuItem Header="_Open" />
+                <MenuItem Header="_Save" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Add">
+                <MenuItem Header="_Monument" Click="monumentAdd_Click"/>
+                <MenuItem Header="_Tag" Click="tagAdd_Click"/>
+                <MenuItem Header="_Type" Click="typeAdd_Click"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom" Height="20">
+            <StatusBarItem>
+                <TextBlock Name="lblCursorPositionX"/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Name="lblCursorPositionY"/>
+            </StatusBarItem>
+        </StatusBar>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TabControl x:Name="MapsContainer" MouseMove="UpdateStatusBar" Grid.Column="0" Grid.Row="1">
+                <TabItem Header="Map1" Width="99">
+
+                </TabItem>
+                <TabItem Header="Map2" Width="99">
+
+                </TabItem>
+                <TabItem Header="Map3" Width="99">
+
+                </TabItem>
+                <TabItem Header="Map4" Width="99">
+
+                </TabItem>
+            </TabControl>
+            <local:MonumentsTable Grid.Column="1" Grid.Row="1" Monuments="{Binding Monuments}"/>
+        </Grid>
+        
+        
+        
+    </DockPanel>
 </UserControl>

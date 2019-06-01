@@ -250,9 +250,19 @@ namespace emlekmu
                 return null;
             this.Monuments[idx].Name = t.Name;
             this.Monuments[idx].Description = t.Description;
+            this.Monuments[idx].Image = t.Image;
+            this.Monuments[idx].Type = t.Type;
+            this.Monuments[idx].Era = t.Era;
             this.Monuments[idx].Icon = t.Icon;
-            
-                this.findMonuments(
+            this.Monuments[idx].ArcheologicallyExplored = t.ArcheologicallyExplored;
+            this.Monuments[idx].Unesco = t.Unesco;
+            this.Monuments[idx].PopulatedRegion = t.PopulatedRegion;
+            this.Monuments[idx].TouristicStatus = t.TouristicStatus;
+            this.Monuments[idx].Income = t.Income;
+            this.Monuments[idx].DiscoveryDate = t.DiscoveryDate;
+            this.Monuments[idx].Tags = t.Tags;
+
+            this.findMonuments(
                     this.id_s,
                     this.name_s,
                     this.typeName_s,
@@ -787,6 +797,7 @@ namespace emlekmu
             this.findMonumentCallback = new onFindMonument(findMonument);
             this.findMonumentsCallback = new onFindMonuments(findMonuments);
             this.filterMonumentsCallback = new onFilterMonuments(filterMonuments);
+
         }
 
         private void EditFirstMonument_Click(object sender, RoutedEventArgs e)
@@ -795,6 +806,12 @@ namespace emlekmu
             dialog.Height = 750;
             dialog.Width = 400;
             dialog.ShowDialog();
+        }
+
+        private void UpdateStatusBar(object sender, MouseEventArgs e)
+        {
+            lblCursorPositionX.Text = "X: " + Convert.ToString(Mouse.GetPosition(MapsContainer).X);
+            lblCursorPositionY.Text = "Y: " + Convert.ToString(Mouse.GetPosition(MapsContainer).Y);
         }
     }
 }
