@@ -40,7 +40,7 @@ namespace emlekmu
 
         public void pinClicked(int monumentId)
         {
-            MTable.monumentClicked(monumentId);
+            MonumentTable.monumentClicked(monumentId);
         }
         #endregion
         #region Data
@@ -847,6 +847,27 @@ namespace emlekmu
             EditMonument editMonumentDialog = new EditMonument(Types, Tags, editMonumentCallback, monumentToEdit, addTypeCallback, addTagCallback);
             editMonumentDialog.ShowDialog();
         }
+
+        public delegate Monument onOpenAddMonument();
+        public onOpenAddMonument openAddMonumentCallback { get; set; }
+
+        public Monument openAddMonument()
+        {
+            AddMonument addMonumentDialog = new AddMonument(Monuments,
+                Types, Tags, addMonumentCallback, addTypeCallback, addTagCallback);
+
+            addMonumentDialog.ShowDialog();
+
+            if (addMonumentDialog.DialogResult.HasValue && addMonumentDialog.DialogResult.Value)
+            {
+                return addMonumentDialog.Monument;
+            } else
+            {
+                return null;
+            }
+            
+        }
+
         #endregion
 
         public MainContent()
@@ -975,6 +996,7 @@ namespace emlekmu
 
             // Dialog callback initialization
             this.openEditMonumentCallback = new onOpenEditMonument(openEditMonument);
+            this.openAddMonumentCallback = new onOpenAddMonument(openAddMonument);
 
             // pin click callback
             this.pinClickedCallback = new onPinClicked(pinClicked);
