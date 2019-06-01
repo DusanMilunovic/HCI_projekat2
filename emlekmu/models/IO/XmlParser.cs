@@ -35,6 +35,23 @@ namespace emlekmu.models.IO
                     newTags.Add(ds.tags.Find(x => x.Id == tag.Id));
                 }
                 monument.Tags = new ObservableCollection<Tag>(newTags);
+
+                foreach(MonumentPosition mp in ds.map1Monuments)
+                {
+                    mp.Monument = ds.monuments.Find(x => x.Id == mp.Monument.Id);
+                }
+                foreach (MonumentPosition mp in ds.map2Monuments)
+                {
+                    mp.Monument = ds.monuments.Find(x => x.Id == mp.Monument.Id);
+                }
+                foreach (MonumentPosition mp in ds.map3Monuments)
+                {
+                    mp.Monument = ds.monuments.Find(x => x.Id == mp.Monument.Id);
+                }
+                foreach (MonumentPosition mp in ds.map4Monuments)
+                {
+                    mp.Monument = ds.monuments.Find(x => x.Id == mp.Monument.Id);
+                }
             }
             return ds;
         }

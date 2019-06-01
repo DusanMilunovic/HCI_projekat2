@@ -40,7 +40,12 @@
             </Grid.ColumnDefinitions>
             <TabControl x:Name="MapsContainer" MouseMove="UpdateStatusBar" Grid.Column="0" Grid.Row="1">
                 <TabItem Header="Map1" Width="99">
-
+                    <local:Map Positions="{Binding Map1Monuments}"
+                               RemoveMonumentCallback="{Binding removeMonumentCallback}"
+                               OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
+                               PinClickedCallback="{Binding Path=pinClickedCallback}">
+                        
+                    </local:Map>
                 </TabItem>
                 <TabItem Header="Map2" Width="99">
 
