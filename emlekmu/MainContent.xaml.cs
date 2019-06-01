@@ -1025,9 +1025,5 @@ namespace emlekmu
             lblCursorPositionX.Text = "X: " + Convert.ToString(Mouse.GetPosition(MapsContainer).X);
             lblCursorPositionY.Text = "Y: " + Convert.ToString(Mouse.GetPosition(MapsContainer).Y);
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     }
 }
