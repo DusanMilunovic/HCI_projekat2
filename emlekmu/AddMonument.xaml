@@ -127,19 +127,16 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="150px">
                 <Label Margin="10px" Width="70px">Tags:</Label>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="100px">
-                    <ListBox Width="150px" x:Name="TagListBox">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <CheckBox IsChecked="{Binding Selected}"></CheckBox>
-                                    <Label Content="{Binding Id}"></Label>
-                                    <Ellipse Fill="{Binding Color.Hex}" HorizontalAlignment="Right" Height="15" Width="15"></Ellipse>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </ScrollViewer>
+                <ListBox Width="150px" x:Name="TagListBox" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionMode="Multiple">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Id}"></Label>
+                                <Ellipse Fill="{Binding Color.Hex}" HorizontalAlignment="Right" Height="15" Width="15"></Ellipse>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
                 <Button Margin="5px" x:Name="AddTag" Click="AddTag_Click">Add tag</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">

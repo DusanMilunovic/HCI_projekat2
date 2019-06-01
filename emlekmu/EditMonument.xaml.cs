@@ -116,7 +116,6 @@ namespace emlekmu
             this.AddTypeCallBack = addTypeCallback;
             this.AddTagCallback = addTagCallback;
             this.EditMonumentCallback = editMonumentCallback;
-            resetTagFlags();
             setTagFlags();
             setEraComboBoxValue();
             setTouristicComboBoxValue();
@@ -313,24 +312,10 @@ namespace emlekmu
 
         public void setTagFlags()
         {
+            TagListBox.Focus();
             foreach (Tag t1 in newMonument.Tags)
             {
-                foreach (Tag t2 in this.Tags)
-                {
-                    if (t1.Id == t2.Id)
-                    {
-                        t2.Selected = true;
-                        break;
-                    }
-                }
-            }
-        }
-
-        public void resetTagFlags()
-        {
-            foreach (Tag t in this.Tags)
-            {
-                t.Selected = false;
+                TagListBox.SelectedItems.Add(t1);
             }
         }
 
@@ -491,12 +476,9 @@ namespace emlekmu
         private void connectTags()
         {
             this.NewMonument.Tags = new ObservableCollection<models.Tag>();
-            foreach (Tag t in this.Tags)
+            foreach (Tag t in this.TagListBox.SelectedItems)
             {
-                if (t.Selected)
-                {
-                    this.NewMonument.Tags.Add(t);
-                }
+                this.NewMonument.Tags.Add(t);
             }
         }
 
