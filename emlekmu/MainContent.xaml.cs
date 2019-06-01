@@ -696,7 +696,7 @@ namespace emlekmu
 
         public void monumentAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddMonument addMonumentDialog = new emlekmu.AddMonument(Monuments, Types, Tags, addMonumentCallback, addTypeCallback);
+            AddMonument addMonumentDialog = new emlekmu.AddMonument(Monuments, Types, Tags, addMonumentCallback, addTypeCallback, addTagCallback);
             addMonumentDialog.Height = 750;
             addMonumentDialog.Width = 400;
             addMonumentDialog.ShowDialog();

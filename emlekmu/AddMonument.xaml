@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:emlekmu"
              xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
              mc:Ignorable="d" 
-             d:DesignHeight="750" d:DesignWidth="400">
+             d:DesignHeight="950" d:DesignWidth="400">
     <Grid x:Name="Root">
         <StackPanel>
             <Label Margin="10px"></Label>
@@ -19,7 +19,7 @@
                     <TextBox.Text>
                         <Binding Path="Monument.Id">
                             <Binding.ValidationRules>
-                                <local:MonumentIdValidation ValidationStep="RawProposedValue">
+                                <local:MonumentIdValidation x:Name="MonumentIdValidation" ValidationStep="RawProposedValue">
                                     <local:MonumentIdValidation.Wrapper>
                                         <local:MonumentIdValidationWrapper Monuments="{Binding  Data.Monuments, Source={StaticResource proxy}}"></local:MonumentIdValidationWrapper>
                                     </local:MonumentIdValidation.Wrapper>
@@ -43,7 +43,7 @@
                     <TextBox.Text>
                         <Binding Path="Monument.Name">
                             <Binding.ValidationRules>
-                                <local:MonumentNameValidation ValidationStep="RawProposedValue">
+                                <local:MonumentNameValidation x:Name="MonumentNameValidation" ValidationStep="RawProposedValue">
                                 </local:MonumentNameValidation>
                             </Binding.ValidationRules>
                         </Binding>
@@ -66,7 +66,7 @@
                     <TextBox.Text>
                         <Binding Path="Monument.Description">
                             <Binding.ValidationRules>
-                                <local:MonumentDescriptionValidation ValidationStep="RawProposedValue">
+                                <local:MonumentDescriptionValidation x:Name="MonumentDescriptionValidation" ValidationStep="RawProposedValue">
                                 </local:MonumentDescriptionValidation>
                             </Binding.ValidationRules>
                         </Binding>
@@ -87,7 +87,7 @@
                     <TextBox.Text>
                         <Binding Path="Monument.Image">
                             <Binding.ValidationRules>
-                                <local:IconValidation ValidationStep="RawProposedValue">
+                                <local:IconValidation x:Name="MonumentImageValidation" ValidationStep="RawProposedValue">
                                 </local:IconValidation>
                             </Binding.ValidationRules>
                         </Binding>
@@ -101,7 +101,7 @@
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
                 </TextBox>
-                <Button Margin="0px 10px 10px 10px" Click="Button_Click_1">Select file</Button>
+                <Button x:Name="ImageButton" Margin="0px 10px 10px 10px" Click="ImageButton_Click">Select file</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Margin="10px" Width="70px">Type:</Label>
@@ -109,7 +109,7 @@
                     <ComboBox.SelectedValue>
                         <Binding Path="Monument.Type">
                             <Binding.ValidationRules>
-                                <local:MonumentTypeValidation ValidationStep="RawProposedValue">
+                                <local:MonumentTypeValidation x:Name="MonumentTypeValidation" ValidationStep="RawProposedValue">
                                 </local:MonumentTypeValidation>
                             </Binding.ValidationRules>
                         </Binding>
@@ -126,22 +126,21 @@
                 <Button x:Name="AddType" Margin="10px" Click="AddType_Click"> Add type</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="150px">
-                <Label Margin="10px" Width="70px">Type:</Label>
+                <Label Margin="10px" Width="70px">Tags:</Label>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Height="100px">
                     <ListBox Width="150px" x:Name="TagListBox">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <CheckBox IsChecked="{Binding Checked}"></CheckBox>
-                                    <Label Content="{Binding Name}"></Label>
-                                    <Ellipse Fill="#000000" Height="15" Width="15"></Ellipse>
+                                    <CheckBox IsChecked="{Binding Selected}"></CheckBox>
+                                    <Label Content="{Binding Id}"></Label>
+                                    <Ellipse Fill="{Binding Color.Hex}" HorizontalAlignment="Right" Height="15" Width="15"></Ellipse>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </ScrollViewer>
-                
-                <Button Margin="5px">Add tag</Button>
+                <Button Margin="5px" x:Name="AddTag" Click="AddTag_Click">Add tag</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Margin="10px" Width="70px">Era:</Label>
@@ -149,7 +148,7 @@
                     <ComboBox.SelectedValue>
                         <Binding Path="Era">
                             <Binding.ValidationRules>
-                                <local:MonumentEraValidation ValidationStep="RawProposedValue">
+                                <local:MonumentEraValidation x:Name="MonumentEraValidation" ValidationStep="RawProposedValue">
                                 </local:MonumentEraValidation>
                             </Binding.ValidationRules>
                         </Binding>
@@ -170,7 +169,7 @@
                     <TextBox.Text>
                     <Binding Path="Monument.Icon">
                         <Binding.ValidationRules>
-                            <local:IconValidation ValidationStep="RawProposedValue">
+                            <local:IconValidation x:Name="MonumentIconValidation" ValidationStep="RawProposedValue">
                             </local:IconValidation>
                         </Binding.ValidationRules>
                     </Binding>
@@ -184,7 +183,7 @@
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
                 </TextBox>
-                <Button Margin="0px 10px 10px 10px">Select file</Button>
+                <Button x:Name="SelectIcon" Margin="0px 10px 10px 10px" Click="SelectIcon_Click">Select file</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label  Margin="10px" Width="85px">Archeological:</Label>
@@ -204,7 +203,7 @@
                     <ComboBox.SelectedValue>
                         <Binding Path="Touristic">
                             <Binding.ValidationRules>
-                                <local:MonumentTouristicValidation ValidationStep="RawProposedValue">
+                                <local:MonumentTouristicValidation x:Name="MonumentTouristicValidation" ValidationStep="RawProposedValue">
                                 </local:MonumentTouristicValidation>
                             </Binding.ValidationRules>
                         </Binding>
@@ -225,7 +224,7 @@
                     <TextBox.Text>
                         <Binding Path="Monument.Income">
                             <Binding.ValidationRules>
-                                <local:MonumentIncomeValidation ValidationStep="RawProposedValue">
+                                <local:MonumentIncomeValidation x:Name="MonumentIncomeValidation" ValidationStep="RawProposedValue">
                                 </local:MonumentIncomeValidation>
                             </Binding.ValidationRules>
                         </Binding>
@@ -246,7 +245,7 @@
                     <wpfTool:MaskedTextBox.Text>
                         <Binding Path="DateString">
                             <Binding.ValidationRules>
-                                <local:DateValidation ValidationStep="RawProposedValue"></local:DateValidation>
+                                <local:DateValidation x:Name="MonumentDateValidation" ValidationStep="RawProposedValue"></local:DateValidation>
                             </Binding.ValidationRules>
                         </Binding>
                     </wpfTool:MaskedTextBox.Text>
@@ -263,7 +262,7 @@
                     <ComboBox.SelectedValue>
                         <Binding Path="DateEra">
                             <Binding.ValidationRules>
-                                <local:MonumentDateEraValidation ValidationStep="RawProposedValue">
+                                <local:MonumentDateEraValidation x:Name="MonumentDateEraValidation" ValidationStep="RawProposedValue">
                                 </local:MonumentDateEraValidation>
                             </Binding.ValidationRules>
                         </Binding>
@@ -278,8 +277,10 @@
                     </Validation.ErrorTemplate>
                 </ComboBox>
             </StackPanel>
-            <Button Click="Button_Click">Test</Button>
-            <Button x:Name="AddMonumentButton" Click="AddMonumentButton_Click">Add Monument</Button>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="AddMonumentButton" Click="AddMonumentButton_Click">Add Monument</Button>
+                <Button x:Name="Cancel" Click="Cancel_Click">Cancel</Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
