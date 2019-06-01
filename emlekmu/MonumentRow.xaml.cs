@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static emlekmu.MonumentsTable;
 using Type = emlekmu.models.Type;
 
 namespace emlekmu
@@ -25,7 +26,17 @@ namespace emlekmu
     {
 
 
+        public ObservableCollection<int> EnlargenedMonuments
+        {
+            get { return (ObservableCollection<int>)GetValue(EnlargenedMonumentsProperty); }
+            set { SetValue(EnlargenedMonumentsProperty, value); }
+        }
 
+        // Using a DependencyProperty as the backing store for EnlargenedMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EnlargenedMonumentsProperty =
+            DependencyProperty.Register("EnlargenedMonuments", typeof(ObservableCollection<int>), typeof(MonumentRow), new PropertyMetadata(new ObservableCollection<int>()));
+
+    
         public int MonumentId
         {
             get { return (int)GetValue(MonumentIdProperty); }
@@ -89,8 +100,34 @@ namespace emlekmu
         public static readonly DependencyProperty MonumentImageProperty =
             DependencyProperty.Register("MonumentImage", typeof(string), typeof(MonumentRow), new PropertyMetadata(""));
 
+        
+        public onMonumentClicked MonumentClickedCallback
+        {
+            get { return (onMonumentClicked)GetValue(MonumentClickedCallbackProperty); }
+            set { SetValue(MonumentClickedCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MonumentClickedCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MonumentClickedCallbackProperty =
+            DependencyProperty.Register("MonumentClickedCallback", typeof(onMonumentClicked), typeof(MonumentRow), new PropertyMetadata(null));
 
 
+
+
+        private void OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MonumentClickedCallback(MonumentId);
+        }
+
+        private void onRigthClick(object sender, MouseButtonEventArgs e)
+        {
+            // open context menu
+        }
+
+        private void editMenuAction(object sender, RoutedEventArgs e)
+        {
+            
+        }
 
 
         public MonumentRow()

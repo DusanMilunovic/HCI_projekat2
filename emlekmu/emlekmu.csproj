@@ -82,6 +82,7 @@
     <Compile Include="EditMonument.xaml.cs">
       <DependentUpon>EditMonument.xaml</DependentUpon>
     </Compile>
+    <Compile Include="commands\RoutedCommands.cs" />
     <Compile Include="EditType.xaml.cs">
       <DependentUpon>EditType.xaml</DependentUpon>
     </Compile>

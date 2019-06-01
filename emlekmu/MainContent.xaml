@@ -54,8 +54,5 @@
             </TabControl>
             <local:MonumentsTable Grid.Column="1" Grid.Row="1" Monuments="{Binding Monuments}"/>
         </Grid>
-        
-        
-        
     </DockPanel>
 </UserControl>
