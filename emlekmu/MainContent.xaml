@@ -60,8 +60,7 @@
                     </TabItem>
                 </TabControl>
                 <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1" Grid.Row="1" Monuments="{Binding SearchedNFMonuments}" FilteredMonuments="{Binding FilteredMonuments}" RemoveMonumentCallback="{Binding removeMonumentCallback}" EditMonumentCallback="{Binding editMonumentCallback}"/>
-                <local:SearchFilterControl Types="{Binding Types}" Tags="{Binding Tags}" DialogType="Search" SearchCallback="{Binding findMonumentsCallback}" FilterCallback="{Binding filterMonumentsCallback}"></local:SearchFilterControl>
-                <local:SearchFilterControl Types="{Binding Types}" Tags="{Binding Tags}" DialogType="Filter" SearchCallback="{Binding findMonumentsCallback}" FilterCallback="{Binding filterMonumentsCallback}"></local:SearchFilterControl>
+
 
             </Grid>
         </DockPanel>
