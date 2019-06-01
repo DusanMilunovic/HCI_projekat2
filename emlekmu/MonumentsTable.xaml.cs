@@ -83,6 +83,32 @@ namespace emlekmu
 
 
 
+
+        public ObservableCollection<Monument> SearchedMonuments
+        {
+            get { return (ObservableCollection<Monument>)GetValue(SearchedMonumentsProperty); }
+            set { SetValue(SearchedMonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SearchedMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SearchedMonumentsProperty =
+            DependencyProperty.Register("SearchedMonuments", typeof(ObservableCollection<Monument>), typeof(MonumentsTable), new PropertyMetadata(new ObservableCollection<Monument>()));
+
+
+
+        public ObservableCollection<Monument> AllMonuments
+        {
+            get { return (ObservableCollection<Monument>)GetValue(AllMonumentsProperty); }
+            set { SetValue(AllMonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AllMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AllMonumentsProperty =
+            DependencyProperty.Register("AllMonuments", typeof(ObservableCollection<Monument>), typeof(MonumentsTable), new PropertyMetadata(new ObservableCollection<Monument>()));
+
+
+
+
         public ObservableCollection<Monument> FilteredMonuments
         {
             get { return (ObservableCollection<Monument>)GetValue(FilteredMonumentsProperty); }

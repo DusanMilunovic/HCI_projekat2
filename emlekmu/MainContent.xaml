@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1600">
+             d:DesignHeight="325" d:DesignWidth="800">
     <Grid x:Name="Root" Background="#cceeff">
-        <DockPanel>
+        <DockPanel Visibility="Hidden">
             <Menu DockPanel.Dock="Top" Height="20">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Types" Click="types_Click"/>
@@ -58,10 +58,8 @@
 
                     </TabItem>
                 </TabControl>
-                <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1" Grid.Row="1" Monuments="{Binding SearchedNFMonuments}" FilteredMonuments="{Binding FilteredMonuments}" RemoveMonumentCallback="{Binding removeMonumentCallback}" EditMonumentCallback="{Binding editMonumentCallback}"/>
-                <local:SearchFilterControl Types="{Binding Types}" Tags="{Binding Tags}" DialogType="Search" SearchCallback="{Binding findMonumentsCallback}" FilterCallback="{Binding filterMonumentsCallback}"></local:SearchFilterControl>
-                <local:SearchFilterControl Types="{Binding Types}" Tags="{Binding Tags}" DialogType="Filter" SearchCallback="{Binding findMonumentsCallback}" FilterCallback="{Binding filterMonumentsCallback}"></local:SearchFilterControl>
-
+                <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1" Grid.Row="1" SearchedMonuments="{Binding SearchedMonuments}" AllMonuments="{Binding AllMonuments}"  Monuments="{Binding SearchedNFMonuments}" FilteredMonuments="{Binding FilteredMonuments}" RemoveMonumentCallback="{Binding removeMonumentCallback}" EditMonumentCallback="{Binding editMonumentCallback}"/>
+                
             </Grid>
         </DockPanel>
         

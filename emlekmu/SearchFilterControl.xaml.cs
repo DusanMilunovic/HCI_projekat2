@@ -179,7 +179,11 @@ namespace emlekmu
             {
                 max_income = -1;
             }
-            List<Tag> tags = new List<Tag>();
+            var tags = new List<Tag>();
+            foreach (var item in TagListBox.SelectedItems)
+            {
+                tags.Add((Tag)item);
+            }
             if (DialogType.Equals("Search"))
                 SearchCallback(id, name, typeId, era, arch, unesco, populated, touristicStatus, min_income, max_income, tags);
             
@@ -189,18 +193,42 @@ namespace emlekmu
 
         private void Reset_era_Click(object sender, RoutedEventArgs e)
         {
+            input_era.SelectedIndex = -1;
+            input_era.SelectedItem = null;
+            input_era.SelectedValue = null;
+            input_era.Text = "";
+        }
+
+        private void Input_type_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (input_type.SelectedValue == null)
+                Reset_type.IsEnabled = false;
+            else
+                Reset_type.IsEnabled = true;
+        }
+
+        private void Reset_type_Click(object sender, RoutedEventArgs e)
+        {
             input_type.SelectedIndex = -1;
             input_type.SelectedItem = null;
             input_type.SelectedValue = null;
             input_type.Text = "";
         }
 
-        private void Input_type_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Input_era_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (input_type.SelectedValue == null)
+            if (input_era.SelectedValue == null)
                 Reset_era.IsEnabled = false;
             else
                 Reset_era.IsEnabled = true;
+        }
+
+        private void Reset_touristic_Click(object sender, RoutedEventArgs e)
+        {
+            input_touristic.SelectedIndex = -1;
+            input_touristic.SelectedItem = null;
+            input_touristic.SelectedValue = null;
+            input_touristic.Text = "";
         }
     }
 }
