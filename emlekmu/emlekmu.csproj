@@ -79,6 +79,9 @@
     <Compile Include="AddMonument.xaml.cs">
       <DependentUpon>AddMonument.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditMonument.xaml.cs">
+      <DependentUpon>EditMonument.xaml</DependentUpon>
+    </Compile>
     <Compile Include="commands\RoutedCommands.cs" />
     <Compile Include="EditType.xaml.cs">
       <DependentUpon>EditType.xaml</DependentUpon>
@@ -130,6 +133,10 @@
     <Page Include="AddType.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditMonument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditTag.xaml">
       <Generator>MSBuild:Compile</Generator>
