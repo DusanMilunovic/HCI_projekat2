@@ -107,6 +107,24 @@ namespace emlekmu
                 }
             }
         }
+
+        ObservableCollection<Monument> searchedNFMonuments;
+        public ObservableCollection<Monument> SearchedNFMonuments
+        {
+            get
+            {
+                return searchedNFMonuments;
+            }
+            set
+            {
+                if (value != searchedNFMonuments)
+                {
+                    searchedNFMonuments = value;
+                    
+                    OnPropertyChanged("SearchedNFMonuments");
+                }
+            }
+        }
         ObservableCollection<Monument> filteredMonuments;
         public ObservableCollection<Monument> FilteredMonuments
         {
@@ -119,6 +137,7 @@ namespace emlekmu
                 if (value != filteredMonuments)
                 {
                     filteredMonuments = value;
+                    
                     OnPropertyChanged("FilteredMonuments");
                 }
             }
@@ -217,7 +236,7 @@ namespace emlekmu
         #region Search parameters
         int id_s;
         string name_s;
-        string typeName_s;
+        int typeName_s;
         string era_s;
         int arch_s;
         int unesco_s;
@@ -230,7 +249,7 @@ namespace emlekmu
 
         int id_f;
         string name_f;
-        string typeName_f;
+        int typeName_f;
         string era_f;
         int arch_f;
         int unesco_f;
@@ -248,8 +267,8 @@ namespace emlekmu
         public delegate Monument onRemoveMonument(int id);
         public delegate Monument onEditMonument(Monument m);
         public delegate Monument onFindMonument(int id);
-        public delegate void onFindMonuments(int id, string name, string typeName, string era, int arch, int unesco, int populated, string touristicStatus, int min_income, int max_income, List<Tag> tags);
-        public delegate void onFilterMonuments(int id, string name, string typeName, string era, int arch, int unesco, int populated, string touristicStatus, int min_income, int max_income, List<Tag> tags);
+        public delegate void onFindMonuments(int id, string name, int typeName, string era, int arch, int unesco, int populated, string touristicStatus, int min_income, int max_income, List<Tag> tags);
+        public delegate void onFilterMonuments(int id, string name, int typeName, string era, int arch, int unesco, int populated, string touristicStatus, int min_income, int max_income, List<Tag> tags);
 
 
         public onAddMonument addMonumentCallback { get; set; }
@@ -418,7 +437,7 @@ namespace emlekmu
         void findMonuments(
             int id,
             string name,
-            string typeName,
+            int typeName,
             string era,
             int arch,
             int unesco,
@@ -459,15 +478,15 @@ namespace emlekmu
                     }
                 }
 
-                if (typeName != "" && typeName != null)
+                if (typeName != -1)
                 {
-                    if (!monument.Type.Name.ToString().ToLower().Contains(typeName.ToLower()))
+                    if (!monument.Type.Id.Equals(typeName))
                     {
                         sMonuments.Remove(monument);
                     }
                 }
 
-                if (era != "" && era != null)
+                if (era != "--" && era!="" && era != null)
                 {
                     if (!monument.Era.ToString().ToLower().Contains(era.ToLower()))
                     {
@@ -534,12 +553,12 @@ namespace emlekmu
 
                 }
 
-                if (Tags.Count != 0)
+                if (tags.Count != 0)
                 {
                     bool match = false;
-                    foreach (var t in Tags)
+                    foreach (var t in tags)
                     {
-                        if (monument.Tags.IndexOf(t) != -1)
+                        if (monument.tags.IndexOf(t) != -1)
                             match = true;
                     }
 
@@ -548,13 +567,17 @@ namespace emlekmu
                 }
             }
 
-            this.searchedMonuments = new ObservableCollection<Monument>(sMonuments);
+           
+            this.SearchedMonuments = new ObservableCollection<Monument>(sMonuments);
+            filterMonuments(id_f, name_f, typeName_f, era_f, arch_f, unesco_f, populated_f, touristicStatus_f, min_income_f, max_income_f, tags_f);
+            this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
+
         }
 
         void filterMonuments(
             int id,
             string name,
-            string typeName,
+            int typeName,
             string era,
             int arch,
             int unesco,
@@ -576,8 +599,9 @@ namespace emlekmu
             this.min_income_f = min_income;
             this.max_income_f = max_income;
             this.tags_f = tags;
-            List<Monument> fMonuments = new List<Monument>(this.searchedMonuments);
-            foreach (var monument in this.searchedMonuments)
+           
+            List<Monument> fMonuments = new List<Monument>(this.SearchedMonuments);
+            foreach (var monument in this.SearchedMonuments)
             {
                 if (id != -1)
                 {
@@ -595,15 +619,15 @@ namespace emlekmu
                     }
                 }
 
-                if (typeName != "" && typeName != null)
+                if (typeName != -1 && typeName != null)
                 {
-                    if (!monument.Type.Name.ToString().ToLower().Contains(typeName.ToLower()))
+                    if (!monument.Type.Id.Equals(typeName))
                     {
                         fMonuments.Remove(monument);
                     }
                 }
 
-                if (era != "" && era != null)
+                if (era != "" && era != "--" && era != null)
                 {
                     if (!monument.Era.ToString().ToLower().Contains(era.ToLower()))
                     {
@@ -645,7 +669,7 @@ namespace emlekmu
                     }
                 }
 
-                if (touristicStatus != "" && touristicStatus != null)
+                if (touristicStatus != ""  && touristicStatus != "--" && touristicStatus != null)
                 {
                     if (!monument.TouristicStatus.ToString().ToLower().Contains(touristicStatus.ToLower()))
                     {
@@ -670,21 +694,26 @@ namespace emlekmu
 
                 }
 
-                if (Tags.Count != 0)
+                if(tags != null)
                 {
-                    bool match = false;
-                    foreach (var t in Tags)
+                    if (tags.Count != 0)
                     {
-                        if (monument.Tags.IndexOf(t) != -1)
-                            match = true;
-                    }
+                        bool match = false;
+                        foreach (var t in tags)
+                        {
+                            if (monument.tags.IndexOf(t) != -1)
+                                match = true;
+                        }
 
-                    if (!match)
-                        fMonuments.Remove(monument);
+                        if (!match)
+                            fMonuments.Remove(monument);
+                    }
                 }
+                
             }
 
-            this.searchedMonuments = new ObservableCollection<Monument>(fMonuments);
+            this.FilteredMonuments = new ObservableCollection<Monument>(fMonuments);
+            this.SearchedNFMonuments = new ObservableCollection<Monument>( this.SearchedMonuments.Except(this.FilteredMonuments));
         }
 
         #endregion
@@ -974,6 +1003,9 @@ namespace emlekmu
             Monuments[3].Tags.Add(this.Tags[3]);
             Monuments[4].Tags.Add(this.Tags[3]);
 
+            this.SearchedMonuments = new ObservableCollection<Monument>(this.Monuments);
+            this.FilteredMonuments = new ObservableCollection<Monument>();
+            this.searchedNFMonuments = new ObservableCollection<Monument>(this.Monuments);
             // Tag callback initialization
             this.addTagCallback = new onAddTag(addTag);
             this.removeTagCallback = new onRemoveTag(removeTag);
