@@ -238,24 +238,6 @@ namespace emlekmu
             }
         }
 
-        public ObservableCollection<TagListBoxItem> tagListBoxItems;
-
-        public ObservableCollection<TagListBoxItem> TagListBoxItems
-        {
-            get
-            {
-                return tagListBoxItems;
-            }
-            set
-            {
-                if (value != tagListBoxItems)
-                {
-                    tagListBoxItems = value;
-                    OnPropertyChanged("TagListBoxItems");
-                }
-            }
-        }
-
         public string dateString;
 
         public string DateString
@@ -304,19 +286,10 @@ namespace emlekmu
             this.Tags = tags;
             this.AddMonumentCallback = addMonumentCallback;
             this.AddTypeCallBack = addTypeCallback;
-            this.TagListBoxItems = TagListBoxItem.initTagListBox(this.Tags);
             this.TagListBox.ItemsSource = this.Tags;
             this.AddTagCallback = addTagCallback;
-            this.resetTagFlags();
         }
 
-        public void resetTagFlags()
-        {
-            foreach (Tag t in this.Tags)
-            {
-                t.Selected = false;
-            }
-        }
 
         public int findNextId()
         {
@@ -421,7 +394,7 @@ namespace emlekmu
             month = Convert.ToInt32(parts[1].Trim(new char[] { '_' }));
             year = Convert.ToInt32(parts[2].Trim(new char[] { '_' }));
             DateTime tempTime = new DateTime(year, month, day);
-            string dateString = tempTime.ToString("dd/MM/yyyy");
+            string dateString = tempTime.Day.ToString() + "." + tempTime.Month.ToString() + "." + tempTime.Year;
             dateString += " " + DateComboBox.SelectedValue;
             this.Monument.DiscoveryDate = dateString;
         }
@@ -429,12 +402,10 @@ namespace emlekmu
         private void connectTags()
         {
             this.Monument.Tags = new ObservableCollection<models.Tag>();
-            foreach(Tag t in this.Tags)
+
+            foreach (Tag t in this.TagListBox.SelectedItems)
             {
-                if (t.Selected)
-                {
-                    this.Monument.Tags.Add(t);
-                }
+                this.Monument.Tags.Add(t);
             }
         }
 
@@ -506,229 +477,5 @@ namespace emlekmu
         }
     }
 
-    public class TagListBoxItem
-    {
-        public bool Checked { get; set; }
-        public string Name { get; set; }
-        public models.Color Color { get; set; }
-
-        public TagListBoxItem()
-        {
-
-        }
-
-        public TagListBoxItem(string __name, models.Color color)
-        {
-            this.Checked = false;
-            this.Name = __name;
-            this.Color = color;
-        }
-
-        public static ObservableCollection<TagListBoxItem> initTagListBox(ObservableCollection<Tag> tags)
-        {
-            var retVal = new ObservableCollection<TagListBoxItem>();
-            foreach (Tag t in tags)
-            {
-                retVal.Add(new TagListBoxItem(t.Id, t.Color));
-            }
-            return retVal;
-        }
-    }
-
-
-    public class DateValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            if (value == null)
-            {
-                return new ValidationResult(false, "Discovery date has to be entered");
-            }
-            var temp = value.ToString();
-            string[] parts = temp.Split('/');
-            int day;
-            int month;
-            int year;
-            try
-            {
-                day = Convert.ToInt32(parts[0].Trim(new char[] { '_' }));
-                month = Convert.ToInt32(parts[1].Trim(new char[] { '_' }));
-                year = Convert.ToInt32(parts[2].Trim(new char[] { '_' }));
-            }
-            catch
-            {
-                return new ValidationResult(false, "Date has to consist of three numbers");
-            }
-            DateTime date;
-            try
-            {
-                date  = new DateTime(year, month, day);
-            }
-            catch
-            {
-                return new ValidationResult(false, "Date has to be a valid combination of day/month/year");
-            }
-            return new ValidationResult(true, null);
-        }
-    }
-
-    public class MonumentIdValidationWrapper : DependencyObject
-    {
-
-
-        public ObservableCollection<Monument> Monuments
-        {
-            get { return (ObservableCollection<Monument>)GetValue(MonumentsProperty); }
-            set { SetValue(MonumentsProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for Monuments.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty MonumentsProperty =
-            DependencyProperty.Register("Monuments", typeof(ObservableCollection<Monument>), typeof(MonumentIdValidationWrapper), new FrameworkPropertyMetadata(new ObservableCollection<Monument>()));
-
-
-    }
-
-    public class MonumentIdValidation : ValidationRule
-    {
-
-        public MonumentIdValidationWrapper Wrapper { get; set; }
-
-
-
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            var temp = value.ToString();
-            int new_id;
-            try
-            {
-                new_id = Convert.ToInt32(value);
-            }
-            catch
-            {
-                return new ValidationResult(false, "Id has to be a number");
-            }
-            if (new_id < 0)
-            {
-                return new ValidationResult(false, "Id has to be a positive number");
-            }
-            Monument m = new List<Monument>(this.Wrapper.Monuments).Find(x => x.Id == new_id);
-            if (m != null)
-            {
-                return new ValidationResult(false, "This id is already taken.");
-            }
-            return new ValidationResult(true, null);
-        }
-
-
-    }
-
-    public class MonumentNameValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            if (value == null || value.ToString() == "")
-            {
-                return new ValidationResult(false, "Name property has to be filled.");
-            }
-            if (value.ToString().Length > 50)
-            {
-                return new ValidationResult(false, "Name property can not be longer than 50 characters");
-            }
-            return new ValidationResult(true, null);
-        }
-    }
-
-    public class MonumentDescriptionValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            if (value == null || value.ToString() == "")
-            {
-                return new ValidationResult(false, "Description property has to be filled.");
-            }
-            if (value.ToString().Length > 1000)
-            {
-                return new ValidationResult(false, "Name property can not be longer than 1000 characters");
-            }
-            return new ValidationResult(true, null);
-        }
-    }
-
-    public class MonumentTypeValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            Type t = (Type)value;
-            if (t == null)
-            {
-                return new ValidationResult(false, "Type has to be selected");
-
-            }
-            return new ValidationResult(true, null);
-        }
-    }
-
-    public class MonumentEraValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            if (value == null)
-            {
-                return new ValidationResult(false, "An era must be selected");
-            }
-            return new ValidationResult(true, null);
-        }
-    }
-
-    public class MonumentTouristicValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            if (value == null)
-            {
-                return new ValidationResult(false, "A touristic status must be selected");
-            }
-            return new ValidationResult(true, null);
-        }
-    }
-
-    public class MonumentIncomeValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            if (value == null)
-            {
-                return new ValidationResult(false, "Income must be filled in");
-            }
-            var temp = value.ToString();
-            int temp_val;
-            try
-            {
-                temp_val = Convert.ToInt32(temp);
-            }
-            catch
-            {
-                return new ValidationResult(false, "Income has to be a number");
-            }
-            if (temp_val < 0)
-            {
-                return new ValidationResult(false, "Income has to be a positivine number");
-            }
-            return new ValidationResult(true, null);
-        }
-    }
-
-    public class MonumentDateEraValidation : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            if (value == null)
-            {
-                return new ValidationResult(false, "An era must be selected for input date");
-            }
-            return new ValidationResult(true, null);
-        }
-    }
 
 }

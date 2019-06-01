@@ -29,5 +29,47 @@ namespace emlekmu.commands
                 new KeyGesture(Key.T, ModifierKeys.Control)
             }
             );
+
+        public static readonly RoutedUICommand EditMonument = new RoutedUICommand("Edit Monument", "EditMonument", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.E, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand EditTag = new RoutedUICommand("Edit Tag", "EditTag", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.E, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand EditType = new RoutedUICommand("Edit Type", "EditType", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.E, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand DeleteMonument = new RoutedUICommand("Delete Monument", "DeleteMonument", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.Delete)
+            }
+            );
+
+        public static readonly RoutedUICommand DeleteType = new RoutedUICommand("Delete Type", "DeleteType", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.Delete)
+            }
+            );
+
+        public static readonly RoutedUICommand DeleteTag = new RoutedUICommand("Delete Tag", "DeleteTag", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.Delete)
+            }
+            );
     }
 }

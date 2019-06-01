@@ -112,7 +112,7 @@ namespace emlekmu
                 return;
             }
             EditTypeCallback(newType);
-            this.DialogResult = true;
+            //this.DialogResult = true;
             this.Close();
         }
 

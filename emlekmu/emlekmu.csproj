@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -79,9 +80,18 @@
     <Compile Include="AddMonument.xaml.cs">
       <DependentUpon>AddMonument.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditMonument.xaml.cs">
+      <DependentUpon>EditMonument.xaml</DependentUpon>
+    </Compile>
     <Compile Include="commands\RoutedCommands.cs" />
     <Compile Include="EditType.xaml.cs">
       <DependentUpon>EditType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Map.xaml.cs">
+      <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapWorld.xaml.cs">
+      <DependentUpon>MapWorld.xaml</DependentUpon>
     </Compile>
     <Compile Include="models\Color.cs" />
     <Compile Include="models\Enumerations.cs" />
@@ -89,9 +99,13 @@
     <Compile Include="models\IO\DataGraph.cs" />
     <Compile Include="models\IO\XmlParser.cs" />
     <Compile Include="models\Monument.cs" />
+    <Compile Include="models\MonumentPosition.cs" />
     <Compile Include="models\Tag.cs" />
     <Compile Include="models\Type.cs" />
     <Compile Include="models\Validators.cs" />
+    <Compile Include="MonumentPin.xaml.cs">
+      <DependentUpon>MonumentPin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MonumentRow.xaml.cs">
       <DependentUpon>MonumentRow.xaml</DependentUpon>
     </Compile>
@@ -134,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="EditMonument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditTag.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -170,9 +188,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MapWorld.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MonumentDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MonumentPin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MonumentRow.xaml">
       <SubType>Designer</SubType>

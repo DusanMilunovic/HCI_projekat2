@@ -149,6 +149,36 @@ namespace emlekmu {
             #line hidden
             return;
             case 4:
+            this.EditMonumentCommand = ((System.Windows.Input.CommandBinding)(target));
+            
+            #line 14 "..\..\MainWindow.xaml"
+            this.EditMonumentCommand.CanExecute += new System.Windows.Input.CanExecuteRoutedEventHandler(this.EditMonumentCommand_CanExecute);
+            
+            #line default
+            #line hidden
+            
+            #line 14 "..\..\MainWindow.xaml"
+            this.EditMonumentCommand.Executed += new System.Windows.Input.ExecutedRoutedEventHandler(this.EditMonumentCommand_Executed);
+            
+            #line default
+            #line hidden
+            return;
+            case 5:
+            this.RemoveMonumentCommand = ((System.Windows.Input.CommandBinding)(target));
+            
+            #line 15 "..\..\MainWindow.xaml"
+            this.RemoveMonumentCommand.CanExecute += new System.Windows.Input.CanExecuteRoutedEventHandler(this.RemoveMonumentCommand_CanExecute);
+            
+            #line default
+            #line hidden
+            
+            #line 15 "..\..\MainWindow.xaml"
+            this.RemoveMonumentCommand.Executed += new System.Windows.Input.ExecutedRoutedEventHandler(this.RemoveMonumentCommand_Executed);
+            
+            #line default
+            #line hidden
+            return;
+            case 6:
             this.MainContent = ((emlekmu.MainContent)(target));
             return;
             }
