@@ -52,7 +52,7 @@
 
                 </TabItem>
             </TabControl>
-            <local:MonumentsTable Grid.Column="1" Grid.Row="1" Monuments="{Binding Monuments}"/>
+            <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1" Grid.Row="1" Monuments="{Binding Monuments}" RemoveMonumentCallback="{Binding removeMonumentCallback}" EditMonumentCallback="{Binding editMonumentCallback}"/>
         </Grid>
     </DockPanel>
 </UserControl>
