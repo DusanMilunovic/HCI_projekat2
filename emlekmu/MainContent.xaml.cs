@@ -20,6 +20,7 @@ using System.Windows.Shapes;
 using WpfApplication1;
 using Type = emlekmu.models.Type;
 using Color = emlekmu.models.Color;
+using emlekmu.models.IO;
 
 namespace emlekmu
 {
@@ -754,13 +755,16 @@ namespace emlekmu
             this.Tags.Add(new Tag("Good3123", new Color(66, 100, 200), "Even verier more grood beste tag"));
             this.Tags.Add(new Tag("GRo4537od3", new Color(70, 100, 50), "Even verier more grooder beste tag"));
             this.Tags.Add(new Tag("GRoo789den3", new Color(20, 30, 20), "Even verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag"));
+            
+            DataGraph dataGraph = XmlParser.deserialize();
             InitializeComponent();
 
 
 
             Root.DataContext = this;
             // data initialization
-            DataGraph dataGraph = XmlParser.deserialize();
+            
+
 
             Types = new ObservableCollection<Type>(dataGraph.types);
             Monuments = new ObservableCollection<Monument>(dataGraph.monuments);
