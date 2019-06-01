@@ -44,8 +44,9 @@
                         <local:Map Positions="{Binding Map1Monuments}"
                                RemoveMonumentCallback="{Binding removeMonumentCallback}"
                                OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
-                               PinClickedCallback="{Binding Path=pinClickedCallback}">
-
+                               PinClickedCallback="{Binding Path=pinClickedCallback}"
+                               OpenAddMonumentCallback="{Binding Path=openAddMonumentCallback}">
+                        
                         </local:Map>
                     </TabItem>
                     <TabItem Header="Map2" Width="99">

@@ -19,19 +19,24 @@
         </ContextMenu>
     </Window.Resources>
     <Grid x:Name="RootWoot" Background="#cceeff" MouseRightButtonUp="onRigthClick">
-        <Viewbox Stretch="Uniform">
-            <StackPanel>
-                <Label Height="50" FontSize="30" HorizontalAlignment="Center">Tags</Label>
-                <Border BorderBrush="#555555" BorderThickness="1" Margin="15 10">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="680" Width="820" Margin="5 10">
-                    <StackPanel Orientation="Vertical">
+        <DockPanel>
+            <Label DockPanel.Dock="Top" Height="50" FontSize="30" HorizontalAlignment="Center">Tags</Label>
+
+            <StackPanel DockPanel.Dock="Bottom" Height="50" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="AddTagButton" Height="40" FontSize="16" Width="100" Margin="5 5 15 5" Click="AddTagButton_Click">Add Tag</Button>
+                <Button x:Name="CloseButton" IsCancel="True" Height="40" FontSize="16" Width="100" Margin="15 5 5 5">Close</Button>
+            </StackPanel>
+            
+            <Border BorderBrush="#555555" BorderThickness="1" Margin="15 10">
+                <ScrollViewer x:Name="Scroller" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                              Margin="5 10">
+                    <Grid>
                         <ItemsControl x:Name="Root" ItemsSource="{Binding Tags}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
                                         <local:TagRow Tag="{Binding Path=Id}" Id="{Binding Path=Id, Mode=OneWay}"
                                                Description="{Binding Path=DescriptionShort}"
-                                                    Width="800"
                                                Color="{Binding Path=Color}"
                                                TagClickedCallback="{Binding ElementName=Root, Path=DataContext.TagClickedCallback}"
                                                EnlargenedTags="{Binding ElementName=Root, Path=DataContext.EnlargenedTags}"
@@ -40,7 +45,7 @@
                                                >
                                         </local:TagRow>
                                         <local:TagRowDetail Tag="{Binding Path=Id}" Id="{Binding Path=Id, Mode=OneWay}"
-                                                    Width="800"
+                                               
                                                Description="{Binding Path=Description}"
                                                Color="{Binding Path=Color}"
                                                Visibility="Collapsed"
@@ -51,18 +56,14 @@
                                                
                                                >
                                         </local:TagRowDetail>
+
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                    </StackPanel>
-                    </ScrollViewer>
-                </Border>
-                <StackPanel Height="50" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="AddTagButton" Height="40" FontSize="16" Width="100" Margin="5 5 15 5" Click="AddTagButton_Click">Add Tag</Button>
-                    <Button x:Name="CloseButton" IsCancel="True" Height="40" FontSize="16" Width="100" Margin="15 5 5 5">Close</Button>
-                </StackPanel>
-            </StackPanel>
-        </Viewbox>
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+        </DockPanel>
     </Grid>
 </Window>
