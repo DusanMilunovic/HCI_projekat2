@@ -31,7 +31,17 @@ namespace emlekmu
    
     public partial class MainContent : UserControl, INotifyPropertyChanged
     {
-        #region Event listeners
+
+
+        #region Events
+
+        public delegate void onPinClicked(int monumentId);
+        public onPinClicked pinClickedCallback { get; set; }
+
+        public void pinClicked(int monumentId)
+        {
+            MTable.monumentClicked(monumentId);
+        }
         #endregion
         #region Data
 
@@ -130,6 +140,78 @@ namespace emlekmu
                 }
             }
         }
+
+        ObservableCollection<MonumentPosition> map1Monumets;
+
+        public ObservableCollection<MonumentPosition> Map1Monuments
+        {
+            get
+            {
+                return map1Monumets;
+            }
+            set
+            {
+                if (value != map1Monumets)
+                {
+                    map1Monumets = value;
+                    OnPropertyChanged("Map1Monuments");
+                }
+            }
+        }
+
+        ObservableCollection<MonumentPosition> map2Monumets;
+
+        public ObservableCollection<MonumentPosition> Map2Monuments
+        {
+            get
+            {
+                return map2Monumets;
+            }
+            set
+            {
+                if (value != map2Monumets)
+                {
+                    map2Monumets = value;
+                    OnPropertyChanged("Map2Monuments");
+                }
+            }
+        }
+
+        ObservableCollection<MonumentPosition> map3Monumets;
+
+        public ObservableCollection<MonumentPosition> Map3Monuments
+        {
+            get
+            {
+                return map3Monumets;
+            }
+            set
+            {
+                if (value != map3Monumets)
+                {
+                    map3Monumets = value;
+                    OnPropertyChanged("Map3Monuments");
+                }
+            }
+        }
+
+        ObservableCollection<MonumentPosition> map4Monumets;
+
+        public ObservableCollection<MonumentPosition> Map4Monuments
+        {
+            get
+            {
+                return map4Monumets;
+            }
+            set
+            {
+                if (value != map4Monumets)
+                {
+                    map4Monumets = value;
+                    OnPropertyChanged("Map4Monuments");
+                }
+            }
+        }
         #endregion
 
         #region Search parameters
@@ -209,39 +291,69 @@ namespace emlekmu
 
         Monument removeMonument(int id)
         {
+            Monument mon = null;
+
             foreach (var m in this.Monuments)
             {
                 if (m.Id == id)
                 {
-                    this.Monuments.Remove(m);
-                    this.findMonuments(
-                        this.id_s,
-                        this.name_s,
-                        this.typeName_s,
-                        this.era_s,
-                        this.arch_s,
-                        this.unesco_s,
-                        this.populated_s,
-                        this.touristicStatus_s,
-                        this.min_income_s,
-                        this.max_income_s,
-                        this.tags_s);
-                    this.filterMonuments(
-                        this.id_f,
-                        this.name_f,
-                        this.typeName_f,
-                        this.era_f,
-                        this.arch_f,
-                        this.unesco_f,
-                        this.populated_f,
-                        this.touristicStatus_f,
-                        this.min_income_f,
-                        this.max_income_f,
-                        this.tags_f);
-                    return m;
+                    mon = m;
+                    break;
                 }
             }
-            return null;
+
+            if (mon == null)
+            {
+                return null;
+            }
+
+            MonumentPosition mp1 = Map1Monuments.SingleOrDefault(x => x.Monument.Id == id);
+            if (mp1 != null)
+            {
+                Map1Monuments.Remove(mp1);
+            }
+            MonumentPosition mp2 = Map2Monuments.SingleOrDefault(x => x.Monument.Id == id);
+            if (mp2 != null)
+            {
+                Map2Monuments.Remove(mp2);
+            }
+            MonumentPosition mp3 = Map3Monuments.SingleOrDefault(x => x.Monument.Id == id);
+            if (mp3 != null)
+            {
+                Map3Monuments.Remove(mp3);
+            }
+            MonumentPosition mp4 = Map4Monuments.SingleOrDefault(x => x.Monument.Id == id);
+            if (mp4 != null)
+            {
+                Map4Monuments.Remove(mp4);
+            }
+
+            this.Monuments.Remove(mon);
+            this.findMonuments(
+                this.id_s,
+                this.name_s,
+                this.typeName_s,
+                this.era_s,
+                this.arch_s,
+                this.unesco_s,
+                this.populated_s,
+                this.touristicStatus_s,
+                this.min_income_s,
+                this.max_income_s,
+                this.tags_s);
+            this.filterMonuments(
+                this.id_f,
+                this.name_f,
+                this.typeName_f,
+                this.era_f,
+                this.arch_f,
+                this.unesco_f,
+                this.populated_f,
+                this.touristicStatus_f,
+                this.min_income_f,
+                this.max_income_f,
+                this.tags_f);
+            return mon;
         }
 
         Monument editMonument(Monument t)
@@ -725,6 +837,18 @@ namespace emlekmu
         }
 
         #endregion
+
+        #region DialogCallbacks
+        public delegate void onOpenEditMonument(Monument monumentToEdit);
+        public onOpenEditMonument openEditMonumentCallback { get; set; }
+
+        public void openEditMonument(Monument monumentToEdit)
+        {
+            EditMonument editMonumentDialog = new EditMonument(Types, Tags, editMonumentCallback, monumentToEdit, addTypeCallback, addTagCallback);
+            editMonumentDialog.ShowDialog();
+        }
+        #endregion
+
         public MainContent()
         {
             Tags = new ObservableCollection<Tag>();
@@ -755,8 +879,11 @@ namespace emlekmu
             this.Tags.Add(new Tag("Good3123", new Color(66, 100, 200), "Even verier more grood beste tag"));
             this.Tags.Add(new Tag("GRo4537od3", new Color(70, 100, 50), "Even verier more grooder beste tag"));
             this.Tags.Add(new Tag("GRoo789den3", new Color(20, 30, 20), "Even verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag"));
-            
-            DataGraph dataGraph = XmlParser.deserialize();
+
+            DataGraph dataGraph = CsvParser.readCSV();
+            XmlParser.serialize(dataGraph);
+            dataGraph = XmlParser.deserialize();
+
             InitializeComponent();
 
 
@@ -768,6 +895,17 @@ namespace emlekmu
 
             Types = new ObservableCollection<Type>(dataGraph.types);
             Monuments = new ObservableCollection<Monument>(dataGraph.monuments);
+            Map1Monuments = new ObservableCollection<MonumentPosition>(dataGraph.map1Monuments);
+            Map2Monuments = new ObservableCollection<MonumentPosition>(dataGraph.map2Monuments);
+            Map3Monuments = new ObservableCollection<MonumentPosition>(dataGraph.map3Monuments);
+            Map4Monuments = new ObservableCollection<MonumentPosition>(dataGraph.map4Monuments);
+            Map1Monuments.Add(new MonumentPosition(100, 200, Monuments[0]));
+            Map1Monuments.Add(new MonumentPosition(1000, 250, Monuments[1]));
+            Map1Monuments.Add(new MonumentPosition(1100, 700, Monuments[2]));
+            Map1Monuments.Add(new MonumentPosition(505, 600, Monuments[3]));
+            Map1Monuments.Add(new MonumentPosition(900, 100, Monuments[4]));
+            Map1Monuments.Add(new MonumentPosition(600, 400, Monuments[5]));
+            Map1Monuments.Add(new MonumentPosition(300, 600, Monuments[6]));
 
             Monuments[0].Tags.Add(this.Tags[0]);
             Monuments[0].Tags.Add(this.Tags[7]);
@@ -835,6 +973,11 @@ namespace emlekmu
             this.findMonumentsCallback = new onFindMonuments(findMonuments);
             this.filterMonumentsCallback = new onFilterMonuments(filterMonuments);
 
+            // Dialog callback initialization
+            this.openEditMonumentCallback = new onOpenEditMonument(openEditMonument);
+
+            // pin click callback
+            this.pinClickedCallback = new onPinClicked(pinClicked);
         }
 
         private void EditFirstMonument_Click(object sender, RoutedEventArgs e)

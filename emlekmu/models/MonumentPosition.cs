@@ -40,6 +40,11 @@ namespace emlekmu.models
         public int Top { get; set; }
         public int Left { get; set; }
 
+        public MonumentPosition()
+        {
+
+        }
+
         public MonumentPosition(int top, int left)
         {
             Top = top;
