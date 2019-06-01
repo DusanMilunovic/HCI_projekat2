@@ -40,7 +40,7 @@ namespace emlekmu
 
         public void pinClicked(int monumentId)
         {
-            MTable.monumentClicked(monumentId);
+            MonumentTable.monumentClicked(monumentId);
         }
         #endregion
         #region Data

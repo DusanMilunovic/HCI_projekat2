@@ -8,7 +8,7 @@
              d:DesignHeight="1000" d:DesignWidth="1600">
     <Grid x:Name="Root" Background="#cceeff">
         <DockPanel>
-            <Menu DockPanel.Dock="Top" Height="40">
+            <Menu DockPanel.Dock="Top" Height="20">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Types" Click="types_Click"/>
                     <MenuItem Header="T_ags" Click="tags_Click"/>
@@ -23,12 +23,49 @@
                     <MenuItem Header="_Type" Click="typeAdd_Click"/>
                 </MenuItem>
             </Menu>
-            <StackPanel Orientation="Horizontal">
+            <StatusBar DockPanel.Dock="Bottom" Height="20">
+                <StatusBarItem>
+                    <TextBlock Name="lblCursorPositionX"/>
+                </StatusBarItem>
+                <StatusBarItem>
+                    <TextBlock Name="lblCursorPositionY"/>
+                </StatusBarItem>
+            </StatusBar>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TabControl x:Name="MapsContainer" MouseMove="UpdateStatusBar" Grid.Column="0" Grid.Row="1">
+                    <TabItem Header="Map1" Width="99">
+                        <local:Map Positions="{Binding Map1Monuments}"
+                               RemoveMonumentCallback="{Binding removeMonumentCallback}"
+                               OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
+                               PinClickedCallback="{Binding Path=pinClickedCallback}">
+
+                        </local:Map>
+                    </TabItem>
+                    <TabItem Header="Map2" Width="99">
+
+                    </TabItem>
+                    <TabItem Header="Map3" Width="99">
+
+                    </TabItem>
+                    <TabItem Header="Map4" Width="99">
+
+                    </TabItem>
+                </TabControl>
                 <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1" Grid.Row="1" Monuments="{Binding SearchedNFMonuments}" FilteredMonuments="{Binding FilteredMonuments}" RemoveMonumentCallback="{Binding removeMonumentCallback}" EditMonumentCallback="{Binding editMonumentCallback}"/>
                 <local:SearchFilterControl Types="{Binding Types}" Tags="{Binding Tags}" DialogType="Search" SearchCallback="{Binding findMonumentsCallback}" FilterCallback="{Binding filterMonumentsCallback}"></local:SearchFilterControl>
                 <local:SearchFilterControl Types="{Binding Types}" Tags="{Binding Tags}" DialogType="Filter" SearchCallback="{Binding findMonumentsCallback}" FilterCallback="{Binding filterMonumentsCallback}"></local:SearchFilterControl>
 
-            </StackPanel>
-            </DockPanel>
+            </Grid>
+        </DockPanel>
+        
     </Grid>
+    
+    
 </UserControl>
