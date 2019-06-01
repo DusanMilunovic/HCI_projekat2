@@ -216,5 +216,45 @@ namespace emlekmu
             this.Close();
         }
 
+        private void EditTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = this.EnlargenedTypes.Count > 0;
+        }
+
+        private void EditTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            int toEdit = EnlargenedTypes.First();
+            Type m = this.Types.First(x => x.Id == toEdit);
+            EditType dialog = new EditType(m, this.EditTypeCallback);
+            dialog.Width = 400;
+            dialog.Height = 400;
+            dialog.Show();
+        }
+
+        private void AddTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void AddTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            AddType dialog = new AddType(this.AddTypeCallback, this.Types);
+            dialog.Height = 400;
+            dialog.Width = 400;
+            dialog.Show();
+        }
+
+        private void DeleteTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = this.EnlargenedTypes.Count > 0;
+        }
+
+        private void DeleteTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            int toRemove = this.EnlargenedTypes.First();
+            Type t = this.Types.First(x => x.Id == toRemove);
+            this.RemoveTypeCallback(toRemove);
+            this.EnlargenedTypes.Remove(toRemove);
+        }
     }
 }

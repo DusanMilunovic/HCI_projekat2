@@ -2,10 +2,16 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:cmd="clr-namespace:emlekmu.commands"
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="740">
+    <Window.CommandBindings>
+        <CommandBinding x:Name="AddTypeCommand" Command="cmd:RoutedCommands.AddType" CanExecute="AddTypeCommand_CanExecute"  Executed="AddTypeCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="EditTypeCommand" Command="cmd:RoutedCommands.EditType" CanExecute="EditTypeCommand_CanExecute" Executed="EditTypeCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="DeleteTypeCommand" Command="cmd:RoutedCommands.DeleteType" CanExecute="DeleteTypeCommand_CanExecute" Executed="DeleteTypeCommand_Executed"></CommandBinding>
+    </Window.CommandBindings>
     <Window.Resources>
         <ContextMenu x:Key="cmTypeSection">
             <MenuItem Header="Add Type" Click="AddTypeButton_Click"></MenuItem>
