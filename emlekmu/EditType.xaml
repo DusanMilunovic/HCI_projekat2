@@ -32,7 +32,7 @@
                         </TextBox.Text>
                     </TextBox>
 
-                    <Label x:Name="DescriptionLabel"  FontSize="16" Margin="5 20 5 0">Description</Label>
+                    <Label x:Name="DescriptionLabel" FontSize="16" Margin="10 0">Description</Label>
                     <TextBox x:Name="DescriptionTextBox" Height="120" FontSize="16" Margin="10 0 10 10" TextWrapping="Wrap" Width="380">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
@@ -73,8 +73,6 @@
                         </TextBox>
                         <Button x:Name="BrowseButton" Width="100" Height="40" FontSize="16" Margin="0 0 10 10" Click="BrowseButton_Click">Browse...</Button>
                     </StackPanel>
-
-                    <Label x:Name="ValidationLabel" Height="30" FontSize="16" Foreground="Red" Margin="10 30 10 0"></Label>
                     <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="40" HorizontalAlignment="Center" Margin="0 30 0 10">
                         <Button x:Name="EditTypeButton" IsDefault="True" Width="100" Height="40" FontSize="16" Margin="10 0" Click="EditTypeButton_Click">Edit Type</Button>
                         <Button x:Name="CancelButton" IsCancel="True" Width="100" Height="40" FontSize="16" Margin="0 0 10 0">Cancel</Button>

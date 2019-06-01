@@ -351,7 +351,7 @@ namespace emlekmu
                     }
                 }
 
-                if (arch != -1)
+                if (arch != -1 && arch != null)
                 {
                     bool match = false;
                     if (arch == 1)
@@ -363,7 +363,7 @@ namespace emlekmu
 
                 }
 
-                if (unesco != -1)
+                if (unesco != -1 && unesco != null)
                 {
                     bool match = false;
                     if (unesco == 1)
@@ -374,7 +374,7 @@ namespace emlekmu
                     }
                 }
 
-                if (populated != -1)
+                if (populated != -1 && populated != null)
                 {
                     bool match = false;
                     if (populated == 1)
@@ -393,7 +393,7 @@ namespace emlekmu
                     }
                 }
 
-                if (min_income != -1)
+                if (min_income != -1 && min_income != null)
                 {
                     if (monument.Income < min_income)
                     {
@@ -401,7 +401,7 @@ namespace emlekmu
                     }
                 }
 
-                if (max_income != -1)
+                if (max_income != -1 && max_income != null)
                 {
                     if (monument.Income > max_income)
                     {
@@ -680,7 +680,7 @@ namespace emlekmu
         public void types_Click(object sender, RoutedEventArgs e)
         {
             TypeSection typeSectionDialog = new TypeSection(Types, addTypeCallback, editTypeCallback, removeTypeCallback);
-            typeSectionDialog.Width = 725;
+            typeSectionDialog.Width = 700;
             typeSectionDialog.Height = 800;
             typeSectionDialog.ShowDialog();
         }
@@ -689,6 +689,8 @@ namespace emlekmu
         {
             TagSection tagSectionDialog = new TagSection(Tags, addTagCallback, editTagCallback, removeTagCallback);
 
+            tagSectionDialog.Width = 750;
+            tagSectionDialog.Height = 775;
             tagSectionDialog.ShowDialog();
         }
 
@@ -726,21 +728,21 @@ namespace emlekmu
             this.Tags.Add(new Tag("GRoode9n", new Color(114, 20, 35), "Even verier besterederen tag"));
             this.Tags.Add(new Tag("Good0", new Color(66, 100, 200), "Even verier more grood beste tag"));
             this.Tags.Add(new Tag("GRood11", new Color(70, 100, 50), "Even verier more grooder beste tag"));
-            this.Tags.Add(new Tag("GRoode12n", new Color(20, 30, 20), "Even verier more grooderen bestere tagEven verier more groven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more oderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag"));
+            this.Tags.Add(new Tag("GRoode12nasdfghjklpoiiuytsadfghjklj", new Color(20, 30, 20), "Even verier more grooderen bestere tagEven verier more groven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more oderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag"));
             RESOURCES_PATH = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString() + "\\resources\\";
 
-            this.Tags.Add(new Tag("Good", new Color(0, 100, 166), "Very good tag"));
-            this.Tags.Add(new Tag("GRood", new Color(100, 0, 166), "Very grood tag"));
-            this.Tags.Add(new Tag("GRooden", new Color(100, 166, 0), "Very grooden tag"));
-            this.Tags.Add(new Tag("Good1", new Color(100, 100, 166), "Even verier good tag"));
-            this.Tags.Add(new Tag("GRood1", new Color(100, 100, 166), "Even verier grood tag"));
-            this.Tags.Add(new Tag("GRooden1", new Color(100, 166, 100), "Even verier grooden tag"));
-            this.Tags.Add(new Tag("Good2", new Color(45, 100, 166), "Even verier beste tag"));
-            this.Tags.Add(new Tag("GRood2", new Color(130, 207, 166), "Even verier bestere tag"));
-            this.Tags.Add(new Tag("GRooden2", new Color(114, 20, 35), "Even verier besterederen tag"));
-            this.Tags.Add(new Tag("Good3", new Color(66, 100, 200), "Even verier more grood beste tag"));
-            this.Tags.Add(new Tag("GRood3", new Color(70, 100, 50), "Even verier more grooder beste tag"));
-            this.Tags.Add(new Tag("GRooden3", new Color(20, 30, 20), "Even verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag"));
+            this.Tags.Add(new Tag("Good13", new Color(0, 100, 166), "Very good tag"));
+            this.Tags.Add(new Tag("GRood14", new Color(100, 0, 166), "Very grood tag"));
+            this.Tags.Add(new Tag("GRoode15n", new Color(100, 166, 0), "Very grooden tag"));
+            this.Tags.Add(new Tag("Good136", new Color(100, 100, 166), "Even verier good tag"));
+            this.Tags.Add(new Tag("GRood145", new Color(100, 100, 166), "Even verier grood tag"));
+            this.Tags.Add(new Tag("GRood453en1", new Color(100, 166, 100), "Even verier grooden tag"));
+            this.Tags.Add(new Tag("Goo453d2", new Color(45, 100, 166), "Even verier beste tag"));
+            this.Tags.Add(new Tag("GRo543od2", new Color(130, 207, 166), "Even verier bestere tag"));
+            this.Tags.Add(new Tag("GRoo123den2", new Color(114, 20, 35), "Even verier besterederen tag"));
+            this.Tags.Add(new Tag("Good3123", new Color(66, 100, 200), "Even verier more grood beste tag"));
+            this.Tags.Add(new Tag("GRo4537od3", new Color(70, 100, 50), "Even verier more grooder beste tag"));
+            this.Tags.Add(new Tag("GRoo789den3", new Color(20, 30, 20), "Even verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag"));
             InitializeComponent();
 
 
@@ -753,9 +755,40 @@ namespace emlekmu
             Monuments = new ObservableCollection<Monument>(dataGraph.monuments);
 
             Monuments[0].Tags.Add(this.Tags[0]);
-            Monuments[0].Tags.Add(this.Tags[1]);
-            Monuments[0].Tags.Add(this.Tags[2]);
-            Monuments[0].Tags.Add(this.Tags[3]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[11]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[11]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[11]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[11]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[11]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[11]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[11]);
+            Monuments[0].Tags.Add(this.Tags[7]);
+            Monuments[0].Tags.Add(this.Tags[10]);
+            Monuments[0].Tags.Add(this.Tags[11]);
             Monuments[0].Tags.Add(this.Tags[4]);
             Monuments[1].Tags.Add(this.Tags[1]);
             Monuments[1].Tags.Add(this.Tags[2]);
@@ -787,6 +820,6 @@ namespace emlekmu
             this.findMonumentsCallback = new onFindMonuments(findMonuments);
             this.filterMonumentsCallback = new onFilterMonuments(filterMonuments);
         }
-
+        
     }
 }

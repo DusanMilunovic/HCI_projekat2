@@ -200,5 +200,21 @@ namespace emlekmu
             addTypeDialog.ShowDialog();
         }
 
+        private void onRigthClick(object sender, MouseButtonEventArgs e)
+        {
+            // open context menu
+            if (((UIElement)sender).IsMouseDirectlyOver)
+            {
+                ContextMenu cm = this.FindResource("cmTypeSection") as ContextMenu;
+                cm.IsOpen = true;
+            }
+        }
+
+        public void CloseAction_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+            this.Close();
+        }
+
     }
 }

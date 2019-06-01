@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -135,9 +136,36 @@ namespace emlekmu
             editTagDialog.ShowDialog();
         }
 
-        private void DeleteTagButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteTagButton_Click(object s, RoutedEventArgs ea)
         {
-            RemoveTagCallback(Id);
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.To = 0;
+            //animation.From = 1;
+            animation.Duration = TimeSpan.FromMilliseconds(300);
+            animation.EasingFunction = new QuadraticEase();
+
+            Storyboard sb = new Storyboard();
+            sb.Children.Add(animation);
+
+            Root.Opacity = 1;
+            Root.Visibility = Visibility.Visible;
+
+            Storyboard.SetTarget(sb, Root);
+            Storyboard.SetTargetProperty(sb, new PropertyPath(Control.OpacityProperty));
+
+            sb.Completed += delegate (object sender, EventArgs e)
+            {
+                Root.Visibility = Visibility.Collapsed;
+                this.RemoveTagCallback(this.Id);
+            };
+            sb.Begin();
+        }
+
+        private void onRigthClick(object sender, MouseButtonEventArgs e)
+        {
+            // open context menu
+            ContextMenu cm = this.FindResource("cmTagRowDetail") as ContextMenu;
+            cm.IsOpen = true;
         }
     }
 }

@@ -10,9 +10,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static emlekmu.MainContent;
 using static emlekmu.TypeSection;
 using Type = emlekmu.models.Type;
 
@@ -99,7 +101,75 @@ namespace emlekmu
         public static readonly DependencyProperty TagClickedCallbackProperty =
             DependencyProperty.Register("TypeClickedCallback", typeof(onTypeClicked), typeof(TypeRow), new PropertyMetadata(null));
 
+        // Edit type function DependencyProperty
 
+
+        public onEditType EditTypeCallback
+        {
+            get { return (onEditType)GetValue(EditTypeCallbackProperty); }
+            set { SetValue(EditTypeCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for EditTypeCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EditTypeCallbackProperty =
+            DependencyProperty.Register("EditTypeCallback", typeof(onEditType), typeof(TypeRow), new PropertyMetadata(null));
+
+
+
+
+
+        public onRemoveType RemoveTypeCallback
+        {
+            get { return (onRemoveType)GetValue(RemoveTypeCallbackProperty); }
+            set { SetValue(RemoveTypeCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RemoveTypeCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RemoveTypeCallbackProperty =
+            DependencyProperty.Register("RemoveTypeCallback", typeof(onRemoveType), typeof(TypeRow), new PropertyMetadata(null));
+
+
+
+
+        private void onRigthClick(object sender, MouseButtonEventArgs e)
+        {
+            // open context menu
+            ContextMenu cm = this.FindResource("cmTypeRow") as ContextMenu;
+            cm.IsOpen = true;
+        }
+
+        private void editMenuAction(object sender, RoutedEventArgs e)
+        {
+            EditType editTypeDialog = new EditType(new Type(Id, TypeName, Icon, Description), EditTypeCallback);
+            editTypeDialog.Height = 600;
+            editTypeDialog.Width = 400;
+            editTypeDialog.ShowDialog();
+        }
+
+        private void deleteMenuAction(object s, RoutedEventArgs ea)
+        {
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.To = 0;
+            //animation.From = 1;
+            animation.Duration = TimeSpan.FromMilliseconds(300);
+            animation.EasingFunction = new QuadraticEase();
+
+            Storyboard sb = new Storyboard();
+            sb.Children.Add(animation);
+
+            Root.Opacity = 1;
+            Root.Visibility = Visibility.Visible;
+
+            Storyboard.SetTarget(sb, Root);
+            Storyboard.SetTargetProperty(sb, new PropertyPath(Control.OpacityProperty));
+
+            sb.Completed += delegate (object sender, EventArgs e)
+            {
+                Root.Visibility = Visibility.Collapsed;
+                this.RemoveTypeCallback(this.Id);
+            };
+            sb.Begin();
+        }
 
         private void OnMouseDown(object sender, MouseButtonEventArgs e)
         {
