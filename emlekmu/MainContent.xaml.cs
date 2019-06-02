@@ -41,6 +41,7 @@ namespace emlekmu
         public void pinClicked(int monumentId)
         {
             MonumentTable.monumentClicked(monumentId);
+            MonumentTable.ScrollToSelected();
         }
         #endregion
         #region Data
@@ -564,18 +565,22 @@ namespace emlekmu
 
                 }
 
-                if (tags.Count != 0)
+                if(tags != null)
                 {
-                    bool match = false;
-                    foreach (var t in tags)
+                    if (tags.Count != 0)
                     {
-                        if (monument.tags.IndexOf(t) != -1)
-                            match = true;
-                    }
+                        bool match = false;
+                        foreach (var t in tags)
+                        {
+                            if (monument.tags.IndexOf(t) != -1)
+                                match = true;
+                        }
 
-                    if (!match)
-                        sMonuments.Remove(monument);
+                        if (!match)
+                            sMonuments.Remove(monument);
+                    }
                 }
+                
             }
 
            
@@ -868,12 +873,22 @@ namespace emlekmu
 
         public void tagAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            AddTag addTagDialog = new AddTag(addTagCallback, Tags);
+            addTagDialog.Height = 535;
+            addTagDialog.MinHeight = 535;
+            addTagDialog.Width = 350;
+            addTagDialog.MinWidth = 250;
+            addTagDialog.ShowDialog();
         }
 
         public void typeAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            AddType addTypeDialog = new AddType(addTypeCallback, Types);
+            addTypeDialog.Height = 535;
+            addTypeDialog.MinHeight = 535;
+            addTypeDialog.Width = 350;
+            addTypeDialog.MinWidth = 250;
+            addTypeDialog.ShowDialog();
         }
 
         #endregion
@@ -981,6 +996,7 @@ namespace emlekmu
             Map1Monuments.Add(new MonumentPosition(900, 100, Monuments[4]));
             Map1Monuments.Add(new MonumentPosition(600, 400, Monuments[5]));
             Map1Monuments.Add(new MonumentPosition(300, 600, Monuments[6]));
+            Map1Monuments.Add(new MonumentPosition(700, 800, Monuments[23]));
 
             Monuments[0].Tags.Add(this.Tags[0]);
             Monuments[0].Tags.Add(this.Tags[7]);
@@ -988,36 +1004,6 @@ namespace emlekmu
             Monuments[0].Tags.Add(this.Tags[11]);
             Monuments[0].Tags.Add(this.Tags[7]);
             Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[11]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[11]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[11]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[11]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[11]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[11]);
-            Monuments[0].Tags.Add(this.Tags[7]);
-            Monuments[0].Tags.Add(this.Tags[10]);
-            Monuments[0].Tags.Add(this.Tags[11]);
-            Monuments[0].Tags.Add(this.Tags[4]);
             Monuments[1].Tags.Add(this.Tags[1]);
             Monuments[1].Tags.Add(this.Tags[2]);
             Monuments[6].Tags.Add(this.Tags[3]);

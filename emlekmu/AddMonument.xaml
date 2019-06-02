@@ -8,276 +8,347 @@
              mc:Ignorable="d" 
              d:DesignHeight="950" d:DesignWidth="400">
     <Grid x:Name="Root">
-        <StackPanel>
-            <Label Margin="10px"></Label>
-            <StackPanel Orientation="Horizontal">
-                <Label x:Name="IdLabel" Margin="5px" Width="70px">Id:</Label>
-                <TextBox x:Name="IdTextBox" Margin="5px" Width="200">
-                    <TextBox.Resources>
-                        <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
-                    </TextBox.Resources>
-                    <TextBox.Text>
-                        <Binding Path="Monument.Id">
-                            <Binding.ValidationRules>
-                                <local:MonumentIdValidation x:Name="MonumentIdValidation" ValidationStep="RawProposedValue">
-                                    <local:MonumentIdValidation.Wrapper>
-                                        <local:MonumentIdValidationWrapper Monuments="{Binding  Data.Monuments, Source={StaticResource proxy}}"></local:MonumentIdValidationWrapper>
-                                    </local:MonumentIdValidation.Wrapper>
-                                </local:MonumentIdValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="MonumentIdErrorText"/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+        <DockPanel Background="#cceeff">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
+                <Button x:Name="AddMonumentButton" Height="25" Width="100" Margin="40 5" IsDefault="True" Click="AddMonumentButton_Click">Add Monument</Button>
+                <Button x:Name="Cancel" Height="25" Width="100" Margin="40 5" IsCancel="True" Click="Cancel_Click">Cancel</Button>
+
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <StackPanel Grid.Column="0">
+                        <Label Margin="5 5 40 0">Id:</Label>
+                        <TextBox x:Name="IdTextBox"  FontSize="14" Margin="5 0 40 0"  Height="25">
+                            <TextBox.Resources>
+                                <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
+                            </TextBox.Resources>
+                            <TextBox.Text>
+                                <Binding Path="Monument.Id">
+                                    <Binding.ValidationRules>
+                                        <local:MonumentIdValidation x:Name="MonumentIdValidation" ValidationStep="RawProposedValue">
+                                            <local:MonumentIdValidation.Wrapper>
+                                                <local:MonumentIdValidationWrapper Monuments="{Binding  Data.Monuments, Source={StaticResource proxy}}"></local:MonumentIdValidationWrapper>
+                                            </local:MonumentIdValidation.Wrapper>
+                                        </local:MonumentIdValidation>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder x:Name="MonumentIdErrorText"/>
+                                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Column="0">
+                        <Label>Name:</Label>
+                        <TextBox x:Name="NameTextBox" FontSize="14" Margin="5 0 40 0"  Height="25">
+                            <TextBox.Text>
+                                <Binding Path="Monument.Name">
+                                    <Binding.ValidationRules>
+                                        <local:MonumentNameValidation x:Name="MonumentNameValidation" ValidationStep="RawProposedValue">
+                                        </local:MonumentNameValidation>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder/>
+                                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="0">
+                        <Label Margin="5 5 40 0">Description:</Label>
+                        <TextBox x:Name="DescriptionTextBox" FontSize="14" Margin="5 0 40 0"  Height="25">
+                            <TextBox.Text>
+                                <Binding Path="Monument.Description">
+                                    <Binding.ValidationRules>
+                                        <local:MonumentDescriptionValidation x:Name="MonumentDescriptionValidation" ValidationStep="RawProposedValue">
+                                        </local:MonumentDescriptionValidation>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder x:Name="MonumentDescriptionErrorBox"/>
+                                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="0">
+                        <Label Margin="5 5 40 0">Image:</Label>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="ImageTextBox" Grid.Column="0">
+                                <TextBox.Text>
+                                    <Binding Path="Monument.Image">
+                                        <Binding.ValidationRules>
+                                            <local:IconValidation x:Name="MonumentImageValidation" ValidationStep="RawProposedValue">
+                                            </local:IconValidation>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="MonumentImageErrorBox"/>
+                                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </TextBox>
+                            <Button x:Name="ImageButton" Grid.Column="1" Click="ImageButton_Click">Select file</Button>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="0">
+                        <Label Margin="5 5 40 0">Type:</Label>
+                        <DockPanel Margin="5 0 40 0">
+                            <Button x:Name="AddType" Click="AddType_Click" DockPanel.Dock="Right" Height="25" Width="75">Add type</Button>
+                            <ComboBox x:Name="TypesComboBox" Margin="0 0 20 0"  Height="25" ItemsSource="{Binding Types}" DisplayMemberPath="Name">
+                                <ComboBox.SelectedValue>
+                                    <Binding Path="Monument.Type">
+                                        <Binding.ValidationRules>
+                                            <local:MonumentTypeValidation x:Name="MonumentTypeValidation" ValidationStep="RawProposedValue">
+                                            </local:MonumentTypeValidation>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </ComboBox.SelectedValue>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="MonumentTypeErrorBox"/>
+                                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </ComboBox>
+                        </DockPanel>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Label Margin="40 0 0 0">Tags:</Label>
+                                <ListBox Height="140" x:Name="TagListBox" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="40 0 0 0" SelectionMode="Multiple" ItemsSource="{Binding Tags}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="{Binding Id}"></Label>
+                                                <Ellipse Fill="{Binding Color.Hex}" HorizontalAlignment="Right" Height="15" Width="15"></Ellipse>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <Button Margin="5px" x:Name="AddTag" Click="AddTag_Click">Add tag</Button>
                             </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Margin="5px" Width="70px">Name:</Label>
-                <TextBox x:Name="NameTextBox" Margin="5px" Width="200px">
-                    <TextBox.Text>
-                        <Binding Path="Monument.Name">
-                            <Binding.ValidationRules>
-                                <local:MonumentNameValidation x:Name="MonumentNameValidation" ValidationStep="RawProposedValue">
-                                </local:MonumentNameValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label  Width="70px" Content="Description:"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="DescriptionTextBox" Margin="5px" Width="280px" Height="75px">
-                    <TextBox.Text>
-                        <Binding Path="Monument.Description">
-                            <Binding.ValidationRules>
-                                <local:MonumentDescriptionValidation x:Name="MonumentDescriptionValidation" ValidationStep="RawProposedValue">
-                                </local:MonumentDescriptionValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="MonumentDescriptionErrorBox"/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label  Margin="10px" Width="70px">Image:</Label>
-                <TextBox x:Name="ImageTextBox" Width="130px" Margin="10px 10px 0px 10px">
-                    <TextBox.Text>
-                        <Binding Path="Monument.Image">
-                            <Binding.ValidationRules>
-                                <local:IconValidation x:Name="MonumentImageValidation" ValidationStep="RawProposedValue">
-                                </local:IconValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="MonumentImageErrorBox"/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-                <Button x:Name="ImageButton" Margin="0px 10px 10px 10px" Click="ImageButton_Click">Select file</Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Margin="10px" Width="70px">Type:</Label>
-                <ComboBox x:Name="TypesComboBox" Margin="10px" Width="115px" ItemsSource="{Binding Types}" DisplayMemberPath="Name">
-                    <ComboBox.SelectedValue>
-                        <Binding Path="Monument.Type">
-                            <Binding.ValidationRules>
-                                <local:MonumentTypeValidation x:Name="MonumentTypeValidation" ValidationStep="RawProposedValue">
-                                </local:MonumentTypeValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </ComboBox.SelectedValue>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="MonumentTypeErrorBox"/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </ComboBox>
-                <Button x:Name="AddType" Margin="10px" Click="AddType_Click"> Add type</Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Height="150px">
-                <Label Margin="10px" Width="70px">Tags:</Label>
-                <ListBox Width="150px" x:Name="TagListBox" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionMode="Multiple">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{Binding Id}"></Label>
-                                <Ellipse Fill="{Binding Color.Hex}" HorizontalAlignment="Right" Height="15" Width="15"></Ellipse>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                <Button Margin="5px" x:Name="AddTag" Click="AddTag_Click">Add tag</Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Margin="10px" Width="70px">Era:</Label>
-                <ComboBox x:Name="EraComboBox" Margin="10px" Width="115px" ItemsSource="{Binding Eras}">
-                    <ComboBox.SelectedValue>
-                        <Binding Path="Era">
-                            <Binding.ValidationRules>
-                                <local:MonumentEraValidation x:Name="MonumentEraValidation" ValidationStep="RawProposedValue">
-                                </local:MonumentEraValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </ComboBox.SelectedValue>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="MonumentEraErrorBox"/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </ComboBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label  Margin="10px" Width="70px">Icon:</Label>
-                <TextBox x:Name="IconTextBox" Width="145px" Margin="10px 10px 0px 10px">
-                    <TextBox.Text>
-                    <Binding Path="Monument.Icon">
-                        <Binding.ValidationRules>
-                            <local:IconValidation x:Name="MonumentIconValidation" ValidationStep="RawProposedValue">
-                            </local:IconValidation>
-                        </Binding.ValidationRules>
-                    </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-                <Button x:Name="SelectIcon" Margin="0px 10px 10px 10px" Click="SelectIcon_Click">Select file</Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label  Margin="10px" Width="85px">Archeological:</Label>
-                <CheckBox x:Name="ArcheologicalCheckBox" IsChecked="{Binding Monument.ArcheologicallyExplored}" Margin="15px"></CheckBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label  Margin="10px" Width="85px">Unesco:</Label>
-                <CheckBox x:Name="UnescoCheckBox" IsChecked="{Binding Monument.Unesco}" Margin="15px"></CheckBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Margin="10px" Width="85px">Populated:</Label>
-                <CheckBox x:Name="PopulatedCheckBox" IsChecked="{Binding Monument.PopulatedRegion}" Margin="15px"></CheckBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Margin="10px" Width="70px">Touristic:</Label>
-                <ComboBox x:Name="TouristicComboBox" Margin="10px" Width="115px" ItemsSource="{Binding Touristics}">
-                    <ComboBox.SelectedValue>
-                        <Binding Path="Touristic">
-                            <Binding.ValidationRules>
-                                <local:MonumentTouristicValidation x:Name="MonumentTouristicValidation" ValidationStep="RawProposedValue">
-                                </local:MonumentTouristicValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </ComboBox.SelectedValue>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </ComboBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Margin="10px" Width="70px">Income:</Label>
-                <TextBox x:Name="IncomeTextBox" Margin="10px" Width="115px">
-                    <TextBox.Text>
-                        <Binding Path="Monument.Income">
-                            <Binding.ValidationRules>
-                                <local:MonumentIncomeValidation x:Name="MonumentIncomeValidation" ValidationStep="RawProposedValue">
-                                </local:MonumentIncomeValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Margin="10px" Width="70px">Date:</Label>
-                <wpfTool:MaskedTextBox x:Name="DateTextBox" Width="200" Height="30" Mask="00/00/9990">
-                    <wpfTool:MaskedTextBox.Text>
-                        <Binding Path="DateString">
-                            <Binding.ValidationRules>
-                                <local:DateValidation x:Name="MonumentDateValidation" ValidationStep="RawProposedValue"></local:DateValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </wpfTool:MaskedTextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="DateErrorTextBox"/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </wpfTool:MaskedTextBox>
-                <ComboBox x:Name="DateComboBox" Margin="10px" Width="115px" ItemsSource="{Binding DateCollection}">
-                    <ComboBox.SelectedValue>
-                        <Binding Path="DateEra">
-                            <Binding.ValidationRules>
-                                <local:MonumentDateEraValidation x:Name="MonumentDateEraValidation" ValidationStep="RawProposedValue">
-                                </local:MonumentDateEraValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </ComboBox.SelectedValue>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder/>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </ComboBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="AddMonumentButton" IsDefault="True" Click="AddMonumentButton_Click">Add Monument</Button>
-                <Button x:Name="Cancel" IsCancel="True" Click="Cancel_Click">Cancel</Button>
-            </StackPanel>
-        </StackPanel>
+
+                        </Grid>
+                    </StackPanel>
+
+
+
+
+
+                    <StackPanel Grid.Column="0">
+                        <Label Margin="5 5 40 0">Era:</Label>
+                        <DockPanel Margin="5 0 4 0">
+                            <ComboBox FontSize="14" x:Name="EraComboBox" Margin="0 0 20 0"  Height="25" ItemsSource="{Binding Eras}">
+                                <ComboBox.SelectedValue>
+                                    <Binding Path="Era">
+                                        <Binding.ValidationRules>
+                                            <local:MonumentEraValidation x:Name="MonumentEraValidation" ValidationStep="RawProposedValue">
+                                            </local:MonumentEraValidation>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </ComboBox.SelectedValue>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="MonumentEraErrorBox"/>
+                                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </ComboBox>
+                        </DockPanel>
+
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Column="0">
+                        <Label Margin="5 5 40 0">Income:</Label>
+                        <wpfTool:MaskedTextBox x:Name="DateTextBox" Width="200" Height="30" Mask="00/00/9990">
+                            <wpfTool:MaskedTextBox.Text>
+                                <Binding Path="DateString">
+                                    <Binding.ValidationRules>
+                                        <local:DateValidation x:Name="MonumentDateValidation" ValidationStep="RawProposedValue"></local:DateValidation>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </wpfTool:MaskedTextBox.Text>
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder x:Name="DateErrorTextBox"/>
+                                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                        </wpfTool:MaskedTextBox>
+                        <ComboBox x:Name="DateComboBox" Margin="10px" Width="115px" ItemsSource="{Binding DateCollection}">
+                            <ComboBox.SelectedValue>
+                                <Binding Path="DateEra">
+                                    <Binding.ValidationRules>
+                                        <local:MonumentDateEraValidation x:Name="MonumentDateEraValidation" ValidationStep="RawProposedValue">
+                                        </local:MonumentDateEraValidation>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ComboBox.SelectedValue>
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder/>
+                                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                        </ComboBox>
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Column="0">
+                        <Label Margin="5 5 40 0">Income:</Label>
+                        <TextBox  x:Name="IncomeTextBox" FontSize="14" Margin="5 0 40 0"  Height="25">
+                            <TextBox.Text>
+                                <Binding Path="Monument.Income">
+                                    <Binding.ValidationRules>
+                                        <local:MonumentIncomeValidation x:Name="MonumentIncomeValidation" ValidationStep="RawProposedValue">
+                                        </local:MonumentIncomeValidation>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder/>
+                                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                        </TextBox>
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Column="0">
+                        <Label Margin="5 5 40 0">Icon:</Label>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="IconTextBox" Grid.Column="0">
+                                <TextBox.Text>
+                                    <Binding Path="Monument.Icon">
+                                        <Binding.ValidationRules>
+                                            <local:IconValidation x:Name="MonumentIconValidation" ValidationStep="RawProposedValue">
+                                            </local:IconValidation>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder/>
+                                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </TextBox>
+                            <Button x:Name="SelectIcon" Grid.Column="1" Click="SelectIcon_Click">Select file</Button>
+                        </Grid>
+                    </StackPanel>
+
+
+
+
+
+                    <StackPanel Grid.Column="1">
+                        <Label Margin="40 5 5 0">Touristic status:</Label>
+                        <DockPanel Margin="5 0 40 0">
+                            <ComboBox x:Name="TouristicComboBox" Margin="0 0 20 0" Height="25" ItemsSource="{Binding Touristics}">
+                                <ComboBox.SelectedValue>
+                                    <Binding Path="Touristic">
+                                        <Binding.ValidationRules>
+                                            <local:MonumentTouristicValidation x:Name="MonumentTouristicValidation" ValidationStep="RawProposedValue">
+                                            </local:MonumentTouristicValidation>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </ComboBox.SelectedValue>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder/>
+                                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </ComboBox>
+                        </DockPanel>
+
+                    </StackPanel>
+
+
+
+
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <Label Margin="40 5 5 0">Archeological:</Label>
+                            <CheckBox x:Name="ArcheologicalCheckBox" IsChecked="{Binding Monument.ArcheologicallyExplored}" Margin="15px"></CheckBox>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <Label Margin="40 5 5 0">Unesco:</Label>
+                            <CheckBox x:Name="UnescoCheckBox" IsChecked="{Binding Monument.Unesco}" Margin="15px"></CheckBox>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2">
+                            <Label Margin="40 5 5 0">Populated:</Label>
+                            <CheckBox x:Name="PopulatedCheckBox" IsChecked="{Binding Monument.PopulatedRegion}" Margin="15px"></CheckBox>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>

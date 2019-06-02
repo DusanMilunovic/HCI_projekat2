@@ -343,3 +343,12 @@ D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\WpfApplication1.pdb
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\emlekmu.csprojResolveAssemblyReference.cache
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\SerbiaMap.g.cs
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\SerbiaMap.baml
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csprojAssemblyReference.cache
+D:\Nikola\Bane\HCI_projekat2\emlekmu\obj\Debug\Map.g.cs
+D:\Nikola\Bane\HCI_projekat2\emlekmu\obj\Debug\MapWorld.g.cs
+D:\Nikola\Bane\HCI_projekat2\emlekmu\obj\Debug\MonumentPin.g.cs
+D:\Nikola\Bane\HCI_projekat2\emlekmu\obj\Debug\SearchFilterControl.g.cs
+D:\Nikola\Bane\HCI_projekat2\emlekmu\obj\Debug\Map.baml
+D:\Nikola\Bane\HCI_projekat2\emlekmu\obj\Debug\MapWorld.baml
+D:\Nikola\Bane\HCI_projekat2\emlekmu\obj\Debug\MonumentPin.baml
+D:\Nikola\Bane\HCI_projekat2\emlekmu\obj\Debug\SearchFilterControl.baml
