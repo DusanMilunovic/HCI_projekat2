@@ -429,3 +429,13 @@ D:\Nikola\HCIv3\HCI_projekat2\emlekmu\obj\Debug\WpfApplication1.exe
 D:\Nikola\HCIv3\HCI_projekat2\emlekmu\obj\Debug\WpfApplication1.pdb
 D:\Nikola\HCIv3\HCI_projekat2\emlekmu\obj\Debug\CheatSheet.g.cs
 D:\Nikola\HCIv3\HCI_projekat2\emlekmu\obj\Debug\CheatSheet.baml
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\CheatSheet.g.cs
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\MapAfrica.g.cs
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\MapEurope.g.cs
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\MonumentHover.g.cs
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\SerbiaMap.g.cs
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\CheatSheet.baml
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\MapAfrica.baml
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\MapEurope.baml
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\MonumentHover.baml
+C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\SerbiaMap.baml

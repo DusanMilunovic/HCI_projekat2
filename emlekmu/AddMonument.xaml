@@ -206,8 +206,8 @@
                                 <TextBox.Text>
                                     <Binding Path="Monument.Icon">
                                         <Binding.ValidationRules>
-                                            <local:IconValidation x:Name="MonumentIconValidation" ValidationStep="RawProposedValue">
-                                            </local:IconValidation>
+                                            <local:MonumentIconValidation x:Name="MonumentIconValidation" ValidationStep="RawProposedValue">
+                                            </local:MonumentIconValidation>
                                         </Binding.ValidationRules>
                                     </Binding>
                                 </TextBox.Text>

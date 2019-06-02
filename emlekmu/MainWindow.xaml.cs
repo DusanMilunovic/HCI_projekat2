@@ -42,7 +42,7 @@ namespace emlekmu
             MainContent.addMonumentCallback, MainContent.addTypeCallback, MainContent.addTagCallback);
             dialog.Height = 900;
             dialog.Width = 400;
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void AddTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
