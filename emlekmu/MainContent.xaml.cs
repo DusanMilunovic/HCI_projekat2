@@ -870,12 +870,22 @@ namespace emlekmu
 
         public void tagAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            AddTag addTagDialog = new AddTag(addTagCallback, Tags);
+            addTagDialog.Height = 535;
+            addTagDialog.MinHeight = 535;
+            addTagDialog.Width = 350;
+            addTagDialog.MinWidth = 250;
+            addTagDialog.ShowDialog();
         }
 
         public void typeAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            AddType addTypeDialog = new AddType(addTypeCallback, Types);
+            addTypeDialog.Height = 535;
+            addTypeDialog.MinHeight = 535;
+            addTypeDialog.Width = 350;
+            addTypeDialog.MinWidth = 250;
+            addTypeDialog.ShowDialog();
         }
 
         #endregion

@@ -444,12 +444,16 @@ namespace emlekmu
         }
         private void onRightClick(object sender, MouseButtonEventArgs e)
         {
-            CurrentMousePoint = e.GetPosition((IInputElement)sender);
+            if (e.Source.GetType().Name.Equals("MapWorld"))
+            {
+                CurrentMousePoint = e.GetPosition((IInputElement)sender);
 
-            // open context menu
-            
+                // open context menu
+
                 ContextMenu cm = this.FindResource("cmMap") as ContextMenu;
                 cm.IsOpen = true;
+            }
+            
         }
 
         private void AddMonumentAction(object sender, RoutedEventArgs e)
