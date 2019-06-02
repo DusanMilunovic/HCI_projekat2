@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="325" d:DesignWidth="800">
     <Grid x:Name="Root" Background="#cceeff">
-        <DockPanel Visibility="Hidden">
+        <DockPanel>
             <Menu DockPanel.Dock="Top" Height="20">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Types" Click="types_Click"/>
@@ -41,15 +41,16 @@
                 </Grid.ColumnDefinitions>
                 <TabControl x:Name="MapsContainer" MouseMove="UpdateStatusBar" Grid.Column="0" Grid.Row="1">
                     <TabItem Header="Map1" Width="99">
-                        <local:Map Positions="{Binding Map1Monuments}"
+                        <local:Map x:Name="Map1" Positions="{Binding Map1Monuments}"
+                               EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
                                RemoveMonumentCallback="{Binding removeMonumentCallback}"
                                OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
-                               PinClickedCallback="{Binding Path=pinClickedCallback}">
+                               PinClickedCallback="{Binding Path=pinClickedCallback}"
+                               >
 
                         </local:Map>
                     </TabItem>
                     <TabItem Header="Map2" Width="99">
-
                     </TabItem>
                     <TabItem Header="Map3" Width="99">
 
@@ -58,7 +59,14 @@
 
                     </TabItem>
                 </TabControl>
-                <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1" Grid.Row="1" SearchedMonuments="{Binding SearchedMonuments}" AllMonuments="{Binding AllMonuments}"  Monuments="{Binding SearchedNFMonuments}" FilteredMonuments="{Binding FilteredMonuments}" RemoveMonumentCallback="{Binding removeMonumentCallback}" EditMonumentCallback="{Binding editMonumentCallback}"/>
+                <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1" Grid.Row="1"
+                                      SearchedMonuments="{Binding SearchedMonuments}"
+                                      AllMonuments="{Binding AllMonuments}"
+                                      Monuments="{Binding SearchedNFMonuments}"
+                                      FilteredMonuments="{Binding FilteredMonuments}"
+                                      RemoveMonumentCallback="{Binding removeMonumentCallback}"
+                                      EditMonumentCallback="{Binding editMonumentCallback}"
+                                      MonumentSelectionChangedCallback="{Binding monumentSelectionChangedCallback}"/>
                 
             </Grid>
         </DockPanel>

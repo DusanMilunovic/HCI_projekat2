@@ -24,6 +24,20 @@ namespace emlekmu
     /// </summary>
     public partial class Map : UserControl, INotifyPropertyChanged
     {
+
+
+
+        public ObservableCollection<int> EnlargenedMonuments
+        {
+            get { return (ObservableCollection<int>)GetValue(EnlargenedMonumentsProperty); }
+            set { SetValue(EnlargenedMonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for EnlargenedMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EnlargenedMonumentsProperty =
+            DependencyProperty.Register("EnlargenedMonuments", typeof(ObservableCollection<int>), typeof(Map), new PropertyMetadata(new ObservableCollection<int>()));
+
+
         protected virtual void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
@@ -70,9 +84,37 @@ namespace emlekmu
             }
         }
 
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
 
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
+        }
 
-
+        public void updateSelection()
+        {
+            int id = -1;
+            if (EnlargenedMonuments.Count() == 1)
+                id = EnlargenedMonuments[0];
+            foreach (MonumentPin tb in FindVisualChildren<MonumentPin>(Root))
+            {
+                tb.UpdateColor(null, null);
+            }
+            
+        }
 
 
 
