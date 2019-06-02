@@ -96,35 +96,49 @@ namespace emlekmu.commands
         public static readonly RoutedUICommand PreviousTab = new RoutedUICommand("Previous Tab", "PreviousTab", typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.Tab, ModifierKeys.Control & ModifierKeys.Shift)
+                new KeyGesture(Key.Tab, (ModifierKeys.Control | ModifierKeys.Shift))
             }
             );
 
         public static readonly RoutedUICommand Tab1 = new RoutedUICommand("Tab1", "Tab1", typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.NumPad1, ModifierKeys.Control)
+                new KeyGesture(Key.D1, ModifierKeys.Control)
             }
             );
 
         public static readonly RoutedUICommand Tab2 = new RoutedUICommand("Tab2", "Tab2", typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.NumPad2, ModifierKeys.Control)
+                new KeyGesture(Key.D2, ModifierKeys.Control)
             }
             );
 
         public static readonly RoutedUICommand Tab3 = new RoutedUICommand("Tab3", "Tab3", typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.NumPad3, ModifierKeys.Control)
+                new KeyGesture(Key.D3, ModifierKeys.Control)
             }
             );
 
         public static readonly RoutedUICommand Tab4 = new RoutedUICommand("Tab4", "Tab4", typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.NumPad4, ModifierKeys.Control)
+                new KeyGesture(Key.D4, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand OpenCheatSheet = new RoutedUICommand("Shorcut cheatsheet", "ShorcutCheatSheet", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.S, ModifierKeys.Alt)
+            }
+            );
+
+        public static readonly RoutedUICommand OpenHelpDocumentation = new RoutedUICommand("Help documentation", "HelpDocumentation", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F1)
             }
             );
 

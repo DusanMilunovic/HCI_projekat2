@@ -98,5 +98,115 @@ namespace emlekmu
             this.MainContent.removeMonumentCallback(m.Id);
             MainContent.MonumentTable.EnlargenedMonuments.Remove(toRemove);
         }
+
+        private void ListTypesCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void ListTypesCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            TypeSection typeSectionDialog = new TypeSection(MainContent.Types, MainContent.addTypeCallback, MainContent.editTypeCallback, MainContent.removeTypeCallback);
+            typeSectionDialog.Width = 700;
+            typeSectionDialog.Height = 800;
+            typeSectionDialog.ShowDialog();
+        }
+
+
+        private void ListTagsCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void ListTagsCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            TagSection tagSectionDialog = new TagSection(MainContent.Tags, MainContent.addTagCallback, MainContent.editTagCallback, MainContent.removeTagCallback);
+            tagSectionDialog.Width = 750;
+            tagSectionDialog.Height = 775;
+            tagSectionDialog.ShowDialog();
+        }
+
+        private void NextTabCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void NextTabCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainContent.MapsContainer.SelectedIndex = (MainContent.MapsContainer.SelectedIndex + 1) % 4;
+        }
+
+        private void PreviousTabCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void PreviousTabCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainContent.MapsContainer.SelectedIndex = (MainContent.MapsContainer.SelectedIndex + 3) % 4;
+        }
+
+        private void Tab1Command_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void Tab1Command_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainContent.MapsContainer.SelectedIndex = 0;
+        }
+
+        private void Tab2Command_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void Tab2Command_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainContent.MapsContainer.SelectedIndex = 1;
+        }
+
+        private void Tab3Command_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void Tab3Command_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainContent.MapsContainer.SelectedIndex = 2;
+        }
+
+        private void Tab4Command_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void Tab4Command_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainContent.MapsContainer.SelectedIndex = 3;
+        }
+
+        private void CheatSheetCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void CheatSheetCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            CheatSheet dialog = new CheatSheet();
+            dialog.Width = 300;
+            dialog.Height = 300;
+            dialog.Show();
+        }
+
+        private void HelpDocumentationCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+        }
+
+        private void HelpDocumentationCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
     }
 }

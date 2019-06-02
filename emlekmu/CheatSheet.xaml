@@ -1,0 +1,169 @@
+﻿<Window x:Class="emlekmu.CheatSheet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:emlekmu"
+        mc:Ignorable="d"
+        Title="CheatSheet" Height="300" Width="300">
+    <Grid>
+        <ScrollViewer>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"
+                       FontWeight="Bold" FontSize="10">Main Window</Label>
+                
+                <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">View Types</Label>
+                <Label Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Alt+Y</Label>
+                
+                <Label Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">View Tags</Label>
+                <Label Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Alt+T</Label>
+
+                <Label Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Add Monument</Label>
+                <Label Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+M</Label>
+
+                <Label Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Edit Selected Monument</Label>
+                <Label Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+E</Label>
+
+                <Label Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Delete Selected Monument</Label>
+                <Label Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Delete</Label>
+
+                <Label Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Add Types</Label>
+                <Label Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+Y</Label>
+                
+                <Label Grid.Row="7" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Add Tags</Label>
+                <Label Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+T</Label>
+
+
+                <Label Grid.Row="8" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Switch to Following Tab on Map</Label>
+                <Label Grid.Row="8" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+Tab</Label>
+
+                <Label Grid.Row="9" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Switch to Previous Tab on Map</Label>
+                <Label Grid.Row="9" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+Shift+Tab</Label>
+
+                <Label Grid.Row="10" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Switch to Map 1</Label>
+                <Label Grid.Row="10" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+1</Label>
+
+                <Label Grid.Row="11" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Switch to Map 2</Label>
+                <Label Grid.Row="11" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+2</Label>
+
+                <Label Grid.Row="12" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Switch to Map 3</Label>
+                <Label Grid.Row="12" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+3</Label>
+
+                <Label Grid.Row="13" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Switch to Map 4</Label>
+                <Label Grid.Row="13" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+4</Label>
+
+                <Label Grid.Row="14" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Open Shorcut Cheatsheet</Label>
+                <Label Grid.Row="14" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Alt + S</Label>
+
+                <Label Grid.Row="15" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Open Help Documentation</Label>
+                <Label Grid.Row="15" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">F1</Label>
+
+                
+
+                <Label Grid.Row="16" Grid.Column="0" VerticalAlignment="Center"
+                       FontWeight="Bold" FontSize="12">Tag Window</Label>
+
+
+                <Label Grid.Row="17" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Add Tag</Label>
+                <Label Grid.Row="17" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl + T</Label>
+
+                <Label Grid.Row="18" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Edit Selected Tag</Label>
+                <Label Grid.Row="18" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl + E</Label>
+
+                <Label Grid.Row="19" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Delete Selected Tag</Label>
+                <Label Grid.Row="19" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Delete</Label>
+
+
+                
+                <Label Grid.Row="20" Grid.Column="0" VerticalAlignment="Center"
+                       FontWeight="Bold" FontSize="12">Type window</Label>
+
+                <Label Grid.Row="21" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Add Type</Label>
+                <Label Grid.Row="21" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl + Y</Label>
+
+                <Label Grid.Row="22" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Edit Selected Type</Label>
+                <Label Grid.Row="22" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl + E</Label>
+
+                <Label Grid.Row="23" Grid.Column="0" VerticalAlignment="Center"
+                       FontSize="10">Delete Selected Tag</Label>
+                <Label Grid.Row="23" Grid.Column="1" VerticalAlignment="Center"
+                       HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Delete</Label>
+
+
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
