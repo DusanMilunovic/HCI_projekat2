@@ -841,6 +841,55 @@
         </Tag>
       </Tags>
     </Monument>
+    <Monument>
+      <Id>30</Id>
+      <Name>Num</Name>
+      <Description>deskr</Description>
+      <Image>C:\Users\Nenad\Documents\v4-ml\img\kmeans_fail.png</Image>
+      <Type>
+        <Id>5</Id>
+        <Name>Column</Name>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type5.png</Icon>
+        <Description>Often topped with a statue</Description>
+        <DescriptionShort>Often topped with a statue</DescriptionShort>
+      </Type>
+      <Era>Ancient</Era>
+      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type5.png</Icon>
+      <ArcheologicallyExplored>false</ArcheologicallyExplored>
+      <Unesco>true</Unesco>
+      <PopulatedRegion>false</PopulatedRegion>
+      <TouristicStatus>Available</TouristicStatus>
+      <Income>220</Income>
+      <DiscoveryDate>11.11.1111 BCE</DiscoveryDate>
+      <Tags>
+        <Tag>
+          <Description>Very grooden tag</Description>
+          <DescriptionShort>Very grooden tag</DescriptionShort>
+          <Id>GRooden3</Id>
+          <Color>
+            <Red>100</Red>
+            <Green>166</Green>
+            <Blue>0</Blue>
+            <Hex>#64A600</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Even verier good tag</Description>
+          <DescriptionShort>Even verier good tag</DescriptionShort>
+          <Id>Good4</Id>
+          <Color>
+            <Red>100</Red>
+            <Green>100</Green>
+            <Blue>166</Blue>
+            <Hex>#6464A6</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
+    </Monument>
   </monuments>
   <tags>
     <Tag>

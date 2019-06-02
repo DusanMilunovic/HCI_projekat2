@@ -609,6 +609,8 @@ namespace emlekmu
         Monument editMonument(Monument t)
         {
             int idx = this.Monuments.IndexOf(t);
+            this.SearchedMonuments.Remove(t);
+            this.FilteredMonuments.Remove(t);
             if (idx == -1)
                 return null;
             this.Monuments[idx].Name = t.Name;
@@ -624,7 +626,7 @@ namespace emlekmu
             this.Monuments[idx].Income = t.Income;
             this.Monuments[idx].DiscoveryDate = t.DiscoveryDate;
             this.Monuments[idx].Tags = t.Tags;
-
+            
 
             this.SearchedMonuments.Add(t);
             if (id_s != -1)
@@ -1020,6 +1022,77 @@ namespace emlekmu
             this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
 
         }
+
+
+        //SLJUUUUN
+        private void removeTagFromMonuments(Tag t)
+        {
+            this.Tags.Remove(t);
+            foreach(Monument m in this.Monuments)
+            {
+                m.Tags.Remove(t);
+            }
+        }
+
+        public void cascadeRemoveTag(Tag t)
+        {
+            this.Tags.Remove(t);
+            List<Monument> toRemove = new List<Monument>();
+            foreach(Monument m in this.Monuments)
+            {
+                
+                if (m.Tags.Remove(t))
+                {
+                    toRemove.Add(m);
+                }
+            }
+            foreach(Monument m in toRemove)
+            {
+                this.Monuments.Remove(m);
+            }
+        }
+
+        private void removeTypeAndMonuments(Type t)
+        {
+            this.Types.Remove(t);
+            List<Monument> toRemove = new List<Monument>();
+            foreach (Monument m in this.Monuments)
+            {
+                if (m.Type == t)
+                {
+                    toRemove.Add(m);
+                }
+            }
+            foreach (Monument m in toRemove)
+            {
+                this.Monuments.Remove(m);
+            }
+        }
+
+        private bool checkIfTagReferenced(Tag t)
+        {
+            foreach(Monument m in this.Monuments)
+            {
+                if (m.Tags.Contains(t))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool checkIfTypeReferences(Type t)
+        {
+            foreach(Monument m in this.Monuments)
+            {
+                if (m.Type == t)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        //SLJUUUUUN OUT
 
         void filterMonuments(
             int id,
