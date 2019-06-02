@@ -61,6 +61,8 @@
                                                                MonumentType="{Binding Path=Type}"
                                                                BorderColor="#808080"
                                                                MonumentImage="{Binding Path=Icon}"
+                                                               RemoveMonumentCallback="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}"
+                                                               EditMonumentCallback="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
                                                                MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
                                                                EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}">
 

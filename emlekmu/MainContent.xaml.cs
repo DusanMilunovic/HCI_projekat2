@@ -360,30 +360,10 @@ namespace emlekmu
             }
 
             this.Monuments.Remove(mon);
-            this.findMonuments(
-                this.id_s,
-                this.name_s,
-                this.typeName_s,
-                this.era_s,
-                this.arch_s,
-                this.unesco_s,
-                this.populated_s,
-                this.touristicStatus_s,
-                this.min_income_s,
-                this.max_income_s,
-                this.tags_s);
-            this.filterMonuments(
-                this.id_f,
-                this.name_f,
-                this.typeName_f,
-                this.era_f,
-                this.arch_f,
-                this.unesco_f,
-                this.populated_f,
-                this.touristicStatus_f,
-                this.min_income_f,
-                this.max_income_f,
-                this.tags_f);
+            this.SearchedMonuments.Remove(mon);
+            this.FilteredMonuments.Remove(mon);
+            this.SearchedNFMonuments.Remove(mon);
+            
             return mon;
         }
 
@@ -406,31 +386,228 @@ namespace emlekmu
             this.Monuments[idx].DiscoveryDate = t.DiscoveryDate;
             this.Monuments[idx].Tags = t.Tags;
 
-            this.findMonuments(
-                    this.id_s,
-                    this.name_s,
-                    this.typeName_s,
-                    this.era_s,
-                    this.arch_s,
-                    this.unesco_s,
-                    this.populated_s,
-                    this.touristicStatus_s,
-                    this.min_income_s,
-                    this.max_income_s,
-                    this.tags_s);
-                this.filterMonuments(
-                    this.id_f,
-                    this.name_f,
-                    this.typeName_f,
-                    this.era_f,
-                    this.arch_f,
-                    this.unesco_f,
-                    this.populated_f,
-                    this.touristicStatus_f,
-                    this.min_income_f,
-                    this.max_income_f,
-                    this.tags_f);
-                return t;
+
+            this.SearchedMonuments.Add(t);
+            this.FilteredMonuments.Add(t);
+            if (id_s != -1)
+            {
+                if (t.Id != id_s)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (name_s != "" && name_s != null)
+            {
+                if (!t.Name.ToLower().Contains(name_s.ToLower()))
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (typeName_s != -1 && typeName_s != null)
+            {
+                if (!t.Type.Id.Equals(typeName_s))
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (era_s != "" && era_s != "--" && era_s != null)
+            {
+                if (!t.Era.ToString().ToLower().Contains(era_s.ToLower()))
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (arch_s != -1)
+            {
+                bool match = false;
+                if (arch_s == 1)
+                    match = true;
+                if (t.ArcheologicallyExplored != match)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+
+            }
+
+            if (unesco_s != -1)
+            {
+                bool match = false;
+                if (unesco_s == 1)
+                    match = true;
+                if (t.Unesco != match)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (populated_s != -1)
+            {
+                bool match = false;
+                if (populated_s == 1)
+                    match = true;
+                if (t.PopulatedRegion != match)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (touristicStatus_s != "" && touristicStatus_s != "--" && touristicStatus_s != null)
+            {
+                if (!t.TouristicStatus.ToString().ToLower().Contains(touristicStatus_s.ToLower()))
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (min_income_s != -1)
+            {
+                if (t.Income < min_income_s)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (max_income_s != -1)
+            {
+                if (t.Income > max_income_s)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+
+            }
+
+            if (tags_s != null)
+            {
+                if (tags_s.Count != 0)
+                {
+                    bool match = false;
+                    foreach (var tag in tags_s)
+                    {
+                        if (t.tags.IndexOf(tag) != -1)
+                            match = true;
+                    }
+
+                    if (!match)
+                        SearchedMonuments.Remove(t);
+                }
+            }
+
+
+            if (id_f != -1)
+            {
+                if (t.Id != id_f)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (name_f != "" && name_f != null)
+            {
+                if (!t.Name.ToLower().Contains(name_f.ToLower()))
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (typeName_f != -1 && typeName_f != null)
+            {
+                if (!t.Type.Id.Equals(typeName_f))
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (era_f != "" && era_f != "--" && era_f != null)
+            {
+                if (!t.Era.ToString().ToLower().Contains(era_f.ToLower()))
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (arch_f != -1)
+            {
+                bool match = false;
+                if (arch_f == 1)
+                    match = true;
+                if (t.ArcheologicallyExplored != match)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+
+            }
+
+            if (unesco_f != -1)
+            {
+                bool match = false;
+                if (unesco_f == 1)
+                    match = true;
+                if (t.Unesco != match)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (populated_f != -1)
+            {
+                bool match = false;
+                if (populated_f == 1)
+                    match = true;
+                if (t.PopulatedRegion != match)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (touristicStatus_f != "" && touristicStatus_f != "--" && touristicStatus_f != null)
+            {
+                if (!t.TouristicStatus.ToString().ToLower().Contains(touristicStatus_f.ToLower()))
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (min_income_f != -1)
+            {
+                if (t.Income < min_income_f)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (max_income_f != -1)
+            {
+                if (t.Income > max_income_f)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+
+            }
+
+            if (tags_f != null)
+            {
+                if (tags_f.Count != 0)
+                {
+                    bool match = false;
+                    foreach (var tag in tags_f)
+                    {
+                        if (t.tags.IndexOf(tag) != -1)
+                            match = true;
+                    }
+
+                    if (!match)
+                        FilteredMonuments.Remove(t);
+                }
+            }
+
+
+            this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
+
+            return t;
             
         }
 
@@ -894,11 +1071,13 @@ namespace emlekmu
         #endregion
 
         #region DialogCallbacks
-        public delegate void onOpenEditMonument(Monument monumentToEdit);
+        public delegate void onOpenEditMonument(int monumentId);
         public onOpenEditMonument openEditMonumentCallback { get; set; }
 
-        public void openEditMonument(Monument monumentToEdit)
+        public void openEditMonument(int monumentId)
         {
+            Monument monumentToEdit = Monuments.SingleOrDefault(x => x.Id == monumentId);
+
             EditMonument editMonumentDialog = new EditMonument(Types, Tags, editMonumentCallback, monumentToEdit, addTypeCallback, addTagCallback);
             editMonumentDialog.ShowDialog();
         }
@@ -980,7 +1159,21 @@ namespace emlekmu
 
             Root.DataContext = this;
             // data initialization
-            
+            this.id_s = -1;
+            this.min_income_s = -1;
+            this.max_income_s = -1;
+            this.typeName_s = -1;
+            this.arch_s = -1;
+            this.unesco_s = -1;
+            this.populated_s = -1;
+
+            this.id_f = -1;
+            this.min_income_f = -1;
+            this.max_income_f = -1;
+            this.typeName_f = -1;
+            this.arch_f = -1;
+            this.unesco_f = -1;
+            this.populated_f = -1;
 
 
             Types = new ObservableCollection<Type>(dataGraph.types);
