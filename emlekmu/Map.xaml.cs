@@ -158,7 +158,8 @@ namespace emlekmu
         public static readonly DependencyProperty PinClickedCallbackProperty =
             DependencyProperty.Register("PinClickedCallback", typeof(onPinClicked), typeof(Map), new PropertyMetadata(null));
 
-
+        public double PinContainerWidth { get; set; }
+        public double PinContainerHeight { get; set; }
 
 
         public Map()
@@ -167,6 +168,9 @@ namespace emlekmu
             Root.DataContext = this;
             EWidth = 80;
             EHeight = 80;
+            //ova dva namestiti na polovinu velicine grida koji sadrzi monument pinove. nisam uspeo da izvucem iz xamla
+            PinContainerWidth = 40;
+            PinContainerHeight = 40;
         }
 
         const double ScaleRate = 2;
@@ -251,34 +255,38 @@ namespace emlekmu
 
         private void ListView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            startPoint = e.GetPosition(null);
+            startPoint = e.GetPosition((IInputElement)sender);
         }
 
         private void ListView_MouseMove(object sender, MouseEventArgs e)
         {
-            Point mousePos = e.GetPosition(null);
-            Vector diff = startPoint - mousePos;
-
-            if (e.LeftButton == MouseButtonState.Pressed &&
-                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
-                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            if (this.Cursor != Cursors.ScrollAll)
             {
-                // Get the dragged ListViewItem
-                MonumentPin monumentPin = sender as MonumentPin;
-                Canvas listViewItem =
-                    FindAncestor<Canvas>((DependencyObject)e.OriginalSource);
-                Grid a = (Grid)monumentPin.Parent;
-                var b = a.Parent;
-                // Find the data behind the ListViewItem
-                Monument monument = monumentPin.MyMonument;
+                Point mousePos = e.GetPosition(null);
+                Vector diff = startPoint - mousePos;
+                e.Handled = true;
 
-                // Initialize the drag & drop operation
-                DataObject dragData = new DataObject("myFormat", monument);
-                DragDrop.DoDragDrop(listViewItem, dragData, DragDropEffects.Move);
+                if (e.LeftButton == MouseButtonState.Pressed &&
+                    (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                    Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+                {
+                    // Get the dragged ListViewItem
+                    MonumentPin monumentPin = sender as MonumentPin;
+                    Canvas listViewItem =
+                        FindAncestor<Canvas>((DependencyObject)e.OriginalSource);
+                    Grid a = (Grid)monumentPin.Parent;
+                    var b = a.Parent;
+                    // Find the data behind the ListViewItem
+                    Monument monument = monumentPin.MyMonument;
+
+                    // Initialize the drag & drop operation
+                    DataObject dragData = new DataObject("myFormat", monument);
+                    DragDrop.DoDragDrop(listViewItem, dragData, DragDropEffects.Move);
+                }
             }
         }
 
-        private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
+        public static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
         {
             do
             {
@@ -297,6 +305,7 @@ namespace emlekmu
             if (!e.Data.GetDataPresent("myFormat") || sender == e.Source)
             {
                 e.Effects = DragDropEffects.Move;
+                
             }
         }
 
@@ -311,13 +320,55 @@ namespace emlekmu
                     if (position.monument != null && position.monument.Id == monument.Id)
                     {
                         
-                        position.Left = (int)(a.Y - 10);
-                        position.Top = (int)(a.X - 10);
-                        
-                        break;
+                        position.Left = (a.Y - PinContainerWidth);
+                        position.Top = (a.X - PinContainerHeight);
+                        return;
                     }
                 }
+                MonumentPosition mp = new MonumentPosition(a.X - 40, a.Y - 40, monument);
+                Positions.Add(mp);
             }
+        }
+
+        private void Kartocka_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(Kartocka);
+            this.Cursor = Cursors.ScrollAll;
+        }
+
+        private void Kartocka_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePos = e.GetPosition(Kartocka);
+            Vector diff = startPoint - mousePos;
+            e.Handled = true;
+
+            if (ai > 1 && e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > 10/ai/ai ||
+                Math.Abs(diff.Y) > 10/ai/ai))
+            {
+                st.CenterX = Math.Max(0, st.CenterX + diff.X / 10 * ai);
+                st.CenterY = Math.Max(0, st.CenterY +  diff.Y / 10 * ai);
+                double maxWidth = Kartocka.Width;
+                double maxHeight = Kartocka.Height - Kartocka.Height / st.ScaleY + 50;
+                if (st.CenterX > maxWidth - diff.X / 10 / ai)
+                {
+                    st.CenterX = maxWidth;
+                }
+                if (st.CenterY > maxHeight - diff.Y / 10 / ai)
+                {
+                    st.CenterY = maxHeight;
+                }
+            }
+        }
+
+        private void Kartocka_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;
+        }
+
+        private void MonumentPin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

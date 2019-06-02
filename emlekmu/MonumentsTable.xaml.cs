@@ -191,5 +191,44 @@ namespace emlekmu
                 this.EnlargenedMonuments.Remove(id);
             }
         }
+
+        Point startPoint = new Point();
+        private void Root2_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(null);
+        }
+
+        private void Root2_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePos = e.GetPosition(null);
+            Vector diff = startPoint - mousePos;
+            e.Handled = true;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            {
+                // Get the dragged ListViewItem
+                ItemsControl itemControl = sender as ItemsControl;
+                MonumentRow itemControlItem1 =
+                    Map.FindAncestor<MonumentRow>((DependencyObject)e.OriginalSource);
+                Monument monument;
+                if (itemControlItem1 == null)
+                {
+                    MonumentRowDetail itemControlItem2 =
+                        Map.FindAncestor<MonumentRowDetail>((DependencyObject)e.OriginalSource);
+                    monument = (Monument)itemControlItem2.DataContext;
+                }
+                else
+                {
+                    monument = (Monument)itemControlItem1.DataContext;
+                }
+                // Find the data behind the ListViewItem
+
+                // Initialize the drag & drop operation
+                DataObject dragData = new DataObject("myFormat", monument);
+                DragDrop.DoDragDrop((DependencyObject)e.OriginalSource, dragData, DragDropEffects.Move);
+            }
+        }
     }
 }

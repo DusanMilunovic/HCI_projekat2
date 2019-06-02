@@ -259,7 +259,6 @@ C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\WpfApplicati
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csproj.GenerateResource.cache
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csproj.CoreCompileInputs.cache
 C:\Fakultet\6. semestar\HCI\Emlekmu\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csproj.CopyComplete
-D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\emlekmu.csprojResolveAssemblyReference.cache
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\EditMonument.g.cs
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\EditMonument.baml
 C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\AddMonument.g.cs
@@ -337,3 +336,5 @@ C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csp
 C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csproj.CopyComplete
 C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\WpfApplication1.exe
 C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\WpfApplication1.pdb
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\SearchFilterControl.g.cs
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\SearchFilterControl.baml

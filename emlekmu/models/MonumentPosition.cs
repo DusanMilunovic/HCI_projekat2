@@ -37,8 +37,8 @@ namespace emlekmu.models
             }
         }
 
-        public int top;
-        public int Top {
+        public double top;
+        public double Top {
             get
             {
                 return top;
@@ -53,8 +53,8 @@ namespace emlekmu.models
             }
         }
 
-        public int left;
-        public int Left {
+        public double left;
+        public double Left {
            get
             {
                 return left;
@@ -75,13 +75,13 @@ namespace emlekmu.models
 
         }
 
-        public MonumentPosition(int top, int left)
+        public MonumentPosition(double top, double left)
         {
             Top = top;
             Left = left;
         }
 
-        public MonumentPosition(int top, int left, Monument monument)
+        public MonumentPosition(double top, double left, Monument monument)
         {
             Top = top;
             Left = left;

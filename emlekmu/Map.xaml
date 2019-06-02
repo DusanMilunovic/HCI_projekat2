@@ -10,11 +10,14 @@
         <StackPanel>
             <Viewbox Stretch="Uniform">
             <Canvas x:Name="Kartocka" MouseWheel="Canvas_MouseWheel" Height="800" Width="1200" Background="PeachPuff"
-                    AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop">
+                    AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop"
+                    MouseLeftButtonDown="Kartocka_PreviewMouseLeftButtonDown"
+                    MouseMove="Kartocka_MouseMove"
+                    MouseLeftButtonUp="Kartocka_PreviewMouseLeftButtonUp">
                 <Canvas.RenderTransform>
                     <ScaleTransform x:Name="st"/>
                 </Canvas.RenderTransform>
-                <local:MapWorld Height="800" Width="1200"></local:MapWorld>
+                <local:MapWorld x:Name="World" Height="800" Width="1200"></local:MapWorld>
                 <TextBlock Canvas.Left="120" Canvas.Top="500" Foreground="Red">AKREP</TextBlock>
                 <ItemsControl ItemsSource="{Binding Positions}">
                     <ItemsControl.ItemsPanel>
@@ -23,19 +26,19 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <local:MonumentPin  Width="{Binding ElementName=Root, Path=DataContext.EWidth}"
+                            <DataTemplate>
+                                <Grid x:Name="PinContainer" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80">
+                                    <local:MonumentPin  Width="{Binding ElementName=Root, Path=DataContext.EWidth}"
                                           Height="{Binding ElementName=Root, Path=DataContext.EHeight}"
                                           MyMonument="{Binding Monument}"
                                           OpenEditMonumentCallback="{Binding ElementName=Root, Path=DataContext.OpenEditMonumentCallback}"
                                           RemoveMonumentCallback="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}"
                                           PinClickedCallback="{Binding ElementName=Root, Path=DataContext.PinClickedCallback}"
                                           PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" 
-                                          MouseMove="ListView_MouseMove">
-                                </local:MonumentPin>
-                            </Grid>
-                        </DataTemplate>
+                                          MouseMove="ListView_MouseMove" MouseLeftButtonDown="MonumentPin_MouseLeftButtonDown">
+                                    </local:MonumentPin>
+                                </Grid>
+                            </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemContainerStyle>
                         <Style>
