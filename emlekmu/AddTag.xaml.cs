@@ -125,7 +125,8 @@ namespace emlekmu
             }
             newTag.Color = new models.Color(TagColor);
             AddTagCallback(newTag);
-            AddTagButton.IsCancel = true;
+            this.DialogResult = true;
+            this.Close();
         }
 
         private bool ValidateForm()
