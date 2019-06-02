@@ -291,11 +291,11 @@ namespace emlekmu
             InitializeComponent();
 
             Root.DataContext = this;
-            EWidth = 80;
-            EHeight = 80;
+            EWidth = 160;
+            EHeight = 160;
             //ova dva namestiti na polovinu velicine grida koji sadrzi monument pinove. nisam uspeo da izvucem iz xamla
-            PinContainerWidth = 40;
-            PinContainerHeight = 40;
+            PinContainerWidth = 80;
+            PinContainerHeight = 80;
 
         }
 
@@ -626,6 +626,12 @@ namespace emlekmu
                     map = new SerbiaMap();
                     ((SerbiaMap)map).Width = 800;
                     ((SerbiaMap)map).Height = 500;
+                }
+                else if (MapName == "Africa")
+                {
+                    map = new MapAfrica();
+                    ((MapAfrica)map).Width = 800;
+                    ((MapAfrica)map).Height = 500;
                 }
                 Kartocka.Children.Insert(0, map);
             }

@@ -15,42 +15,56 @@
             <MenuItem Header="Remove From Map" Click="RemoveFromMapAction"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
+    <UserControl.ToolTip >
+        <ToolTip DataContext="{Binding Path=PlacementTarget,
+            RelativeSource={x:Static RelativeSource.Self}}"
+                 BorderBrush="#2299CC" BorderThickness="4">
+            <local:MonumentHover MyMonument="{Binding Path=MyMonument}"
+                                 Height="70" Width="350"></local:MonumentHover>
+        </ToolTip>
+    </UserControl.ToolTip>
     <Grid x:Name="Root">
         <Viewbox>
             <Grid>
-            <Grid x:Name="Selected" Visibility="Collapsed">
-                <Polygon  
+                <Grid x:Name="Selected" Visibility="Collapsed">
+                    <Polygon  
             Points="24,16 40,40 56,16"  
             Stroke="#FFFFFF"   
             StrokeThickness="0">
-                    <Polygon.Fill>
+                        <Polygon.Fill>
                             <SolidColorBrush Color="#2299CC" Opacity="100"/>
-                    </Polygon.Fill>
-                </Polygon>
+                        </Polygon.Fill>
+                    </Polygon>
                     <Ellipse x:Name="Ellipsey" Fill="#2299CC" Height="32" Width="32" Margin="24,0,24,50"/>
-                <Ellipse x:Name="ImageEllipse" Height="28" Width="28" Margin="26,0,26,50">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="{Binding MyMonument.Image}" Stretch="Fill"></ImageBrush>
-                    </Ellipse.Fill>
-                </Ellipse>
+                    <Ellipse x:Name="ImageEllipse" Height="28" Width="28" Margin="26,0,26,50">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding MyMonument.Image}" Stretch="Fill"></ImageBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
 
-            </Grid>
-            <Grid x:Name="NotSelected">
-                <Polygon  
-            Points="24,16 40,40 56,16"  
-            Stroke="#FFFFFF"   
-            StrokeThickness="0">
-                    <Polygon.Fill>
+                </Grid>
+                <Grid x:Name="NotSelected">
+                    <Polygon Points="24,16 40,40 56,16"  
+                             Stroke="#FFFFFF"   
+                             StrokeThickness="0">
+                        <Polygon.Fill>
                             <SolidColorBrush Color="#FFFFFF" Opacity="100"/>
-                    </Polygon.Fill>
-                </Polygon>
+                        </Polygon.Fill>
+                    </Polygon>
+
                     <Ellipse x:Name="EllipseyNS" Fill="#FFFFFF" Height="32" Width="32" Margin="24,0,24,50"/>
-                <Ellipse x:Name="ImageEllipseNS" Height="28" Width="28" Margin="26,0,26,50">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="{Binding MyMonument.Image}" Stretch="Fill"></ImageBrush>
-                    </Ellipse.Fill>
-                </Ellipse>
-            </Grid>
+                    
+                    <Ellipse x:Name="ImageEllipseNS" Height="28" Width="28" Margin="26,0,26,50">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding MyMonument.Image}" Stretch="Fill" Opacity="10"></ImageBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    
+                    <!--
+                    <TextBlock Height="28" Width="28" Margin="26,0,26,50" Foreground="Black"
+                               TextAlignment="Center" FontSize="24" Text="{Binding MyMonument.Id}"></TextBlock>
+                    -->
+                </Grid>
             </Grid>
         </Viewbox>
     </Grid>

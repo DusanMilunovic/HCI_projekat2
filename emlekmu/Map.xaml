@@ -38,7 +38,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                    <Grid Height="80" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Grid Height="160" Width="160" HorizontalAlignment="Center" VerticalAlignment="Center">
                                         <local:MonumentPin  Width="{Binding ElementName=Root, Path=DataContext.EWidth}"
                                                   Height="{Binding ElementName=Root, Path=DataContext.EHeight}"
                                                   MyMonument="{Binding Monument}"

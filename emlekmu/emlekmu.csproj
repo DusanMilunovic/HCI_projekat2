@@ -90,6 +90,9 @@
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MapAfrica.xaml.cs">
+      <DependentUpon>MapAfrica.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MapEurope.xaml.cs">
       <DependentUpon>MapEurope.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,9 @@
     <Compile Include="models\Tag.cs" />
     <Compile Include="models\Type.cs" />
     <Compile Include="models\Validators.cs" />
+    <Compile Include="MonumentHover.xaml.cs">
+      <DependentUpon>MonumentHover.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MonumentPin.xaml.cs">
       <DependentUpon>MonumentPin.xaml</DependentUpon>
     </Compile>
@@ -198,6 +204,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MapAfrica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MapEurope.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,6 +219,10 @@
     <Page Include="MonumentDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MonumentHover.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MonumentPin.xaml">
       <SubType>Designer</SubType>
