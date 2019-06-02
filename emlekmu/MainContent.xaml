@@ -63,7 +63,7 @@
                                       SearchedMonuments="{Binding SearchedMonuments}"
                                       AllMonuments="{Binding AllMonuments}"
                                       Monuments="{Binding SearchedNFMonuments}"
-                                      FilteredMonuments="{Binding FilteredMonuments}"
+                                      FilteredMonuments="{Binding FilteredMon uments}"
                                       RemoveMonumentCallback="{Binding removeMonumentCallback}"
                                       EditMonumentCallback="{Binding editMonumentCallback}"
                                       MonumentSelectionChangedCallback="{Binding monumentSelectionChangedCallback}"/>
