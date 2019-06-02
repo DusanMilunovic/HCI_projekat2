@@ -19,7 +19,7 @@ namespace emlekmu.models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int id;
+        private int id;
         public int Id
         {
             get
@@ -36,7 +36,7 @@ namespace emlekmu.models
             }
         }
 
-        public string name;
+        private string name;
         public string Name
         {
             get
@@ -53,7 +53,7 @@ namespace emlekmu.models
             }
         }
 
-        public string icon;
+        private string icon;
         public string Icon
         {
             get
@@ -70,7 +70,7 @@ namespace emlekmu.models
             }
         }
 
-        string description;
+        private string description;
         public string Description
         {
             get
@@ -92,7 +92,7 @@ namespace emlekmu.models
             }
         }
 
-        public string descriptionShort;
+        private string descriptionShort;
         public string DescriptionShort
         {
             get

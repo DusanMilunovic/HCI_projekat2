@@ -15,7 +15,7 @@
         </ContextMenu>
     </UserControl.Resources>
     <Grid x:Name="Root" Margin="5" Cursor="Hand">
-        <Border BorderBrush="Gray" BorderThickness="2">
+        <Border BorderBrush="{Binding BorderColor}" BorderThickness="2">
             <Grid Background="White">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>

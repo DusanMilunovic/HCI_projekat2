@@ -20,7 +20,7 @@ namespace emlekmu.models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Monument monument;
+        private Monument monument;
         public Monument Monument
         {
             get
@@ -37,7 +37,7 @@ namespace emlekmu.models
             }
         }
 
-        public double top;
+        private double top;
         public double Top {
             get
             {
@@ -53,7 +53,7 @@ namespace emlekmu.models
             }
         }
 
-        public double left;
+        private double left;
         public double Left {
            get
             {

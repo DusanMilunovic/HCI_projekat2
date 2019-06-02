@@ -106,6 +106,7 @@
     <Compile Include="models\Enumerations.cs" />
     <Compile Include="models\IO\CsvParser.cs" />
     <Compile Include="models\IO\DataGraph.cs" />
+    <Compile Include="models\IO\MapPosDG.cs" />
     <Compile Include="models\IO\XmlParser.cs" />
     <Compile Include="models\Monument.cs" />
     <Compile Include="models\MonumentPosition.cs" />

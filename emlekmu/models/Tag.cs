@@ -9,7 +9,7 @@ namespace emlekmu.models
 {
     public class Tag: INotifyPropertyChanged
     {
-        string description;
+        private string description;
         public string Description {
             get
             {
@@ -30,7 +30,7 @@ namespace emlekmu.models
             }
         }
 
-        public string descriptionShort;
+        private string descriptionShort;
         public string DescriptionShort
         {
             get
@@ -56,7 +56,7 @@ namespace emlekmu.models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string id;
+        private string id;
         public string Id {
             get
             {
@@ -72,7 +72,7 @@ namespace emlekmu.models
             }
         }
 
-        public Color color;
+        private Color color;
         public Color Color {
             get
             {
@@ -88,7 +88,7 @@ namespace emlekmu.models
             }
         }
 
-        public bool selected;
+        private bool selected;
         public bool Selected
         {
             get

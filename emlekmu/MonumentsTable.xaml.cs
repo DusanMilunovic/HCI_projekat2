@@ -143,7 +143,7 @@ namespace emlekmu
 
         private void AddMonumentButton_Click(object sender, RoutedEventArgs e)
         {
-            Console.Write("KURAC");
+            Console.Write("");
         }
 
 
