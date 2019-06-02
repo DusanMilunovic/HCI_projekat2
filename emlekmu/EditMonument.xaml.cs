@@ -120,7 +120,6 @@ namespace emlekmu
             setEraComboBoxValue();
             setTouristicComboBoxValue();
             setDiscoveryDate();
-            
         }
 
         private void copyOldMonument()
@@ -469,6 +468,7 @@ namespace emlekmu
                 this.formatDate();
                 this.connectTags();
                 this.EditMonumentCallback(this.NewMonument);
+                this.DialogResult = true;
                 this.Close();
             }
         }

@@ -132,6 +132,18 @@ namespace emlekmu
 
 
 
+        public onOpenAddMonument OpenAddMonumentCallback
+        {
+            get { return (onOpenAddMonument)GetValue(OpenAddMonumentCallbackProperty); }
+            set { SetValue(OpenAddMonumentCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OpenAddMonumentCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OpenAddMonumentCallbackProperty =
+            DependencyProperty.Register("OpenAddMonumentCallback", typeof(onOpenAddMonument), typeof(MonumentsTable), new PropertyMetadata(null));
+
+
+
         public MonumentsTable()
         {
             InitializeComponent();
@@ -143,7 +155,12 @@ namespace emlekmu
 
         private void AddMonumentButton_Click(object sender, RoutedEventArgs e)
         {
-            Console.Write("KURAC");
+            Monument m = OpenAddMonumentCallback();
+            if (m != null)
+            {
+                monumentClicked(m.Id);
+                ScrollToSelected();
+            }
         }
 
 
@@ -217,6 +234,7 @@ namespace emlekmu
 
         public void monumentClicked(int id)
         {
+            this.UpdateLayout();
             MonumentRow myMonumentUC = null;
             MonumentRowDetail myMonumentDUC = null;
             foreach (MonumentRow tb in FindVisualChildren<MonumentRow>(RootWoot))
@@ -258,12 +276,24 @@ namespace emlekmu
                 return;
             }
             int Id = EnlargenedMonuments[0];
-            Monument selectedMonument = Monuments.SingleOrDefault(x => x.Id == Id);
-            if (selectedMonument != null)
+
+            int idx;
+            Monument selectedMonument = FilteredMonuments.SingleOrDefault(x => x.Id == Id);
+            if (selectedMonument == null)
             {
-                int idx = Monuments.IndexOf(selectedMonument);
-                Scroller.ScrollToVerticalOffset(idx * 84);
+                selectedMonument = Monuments.SingleOrDefault(x => x.Id == Id);
+                if (selectedMonument == null)
+                {
+                    return;
+                }
+                idx = FilteredMonuments.Count + Monuments.IndexOf(selectedMonument);
+            } else
+            {
+                idx = FilteredMonuments.IndexOf(selectedMonument);
+
             }
+            Scroller.ScrollToVerticalOffset(idx * 84);
+            return;
         }
         
         Point startPoint = new Point();

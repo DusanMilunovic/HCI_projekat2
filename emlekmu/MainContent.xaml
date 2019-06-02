@@ -138,12 +138,13 @@
                         
                         <local:MonumentsTable Grid.Row="1" x:Name="MonumentTable"
                                       SearchedMonuments="{Binding SearchedMonuments}"
-                                      AllMonuments="{Binding AllMonuments}"
+                                      AllMonuments="{Binding Monuments}"
                                       Monuments="{Binding SearchedNFMonuments}"
                                       FilteredMonuments="{Binding FilteredMonuments}"
                                       RemoveMonumentCallback="{Binding removeMonumentCallback}"
                                       EditMonumentCallback="{Binding openEditMonumentCallback}"
-                                      MonumentSelectionChangedCallback="{Binding monumentSelectionChangedCallback}" />
+                                      MonumentSelectionChangedCallback="{Binding monumentSelectionChangedCallback}"
+                                      OpenAddMonumentCallback="{Binding openAddMonumentCallback}"/>
                     </Grid>
                 </DockPanel>
                 <GridSplitter Grid.Column="1" 
