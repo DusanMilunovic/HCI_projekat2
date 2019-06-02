@@ -198,6 +198,13 @@ namespace emlekmu
             addTypeDialog.Width = 400;
 
             addTypeDialog.ShowDialog();
+
+            if (addTypeDialog.DialogResult.HasValue && addTypeDialog.DialogResult.Value)
+            {
+                Scroller.ScrollToBottom();
+                this.UpdateLayout();
+                this.typeClicked(addTypeDialog.newType.Id);
+            }
         }
 
         private void onRigthClick(object sender, MouseButtonEventArgs e)

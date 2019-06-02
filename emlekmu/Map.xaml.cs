@@ -138,7 +138,7 @@ namespace emlekmu
                 }
             }
         }
-
+        
         public void updateSelection()
         {
             int id = -1;
@@ -167,7 +167,7 @@ namespace emlekmu
                 }
             }
         }
-
+        
 
 
 
