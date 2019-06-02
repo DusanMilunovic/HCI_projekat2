@@ -7,80 +7,99 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
             d:DesignHeight="600" d:DesignWidth="400">
-    <Grid x:Name="Root">
-        <Viewbox Stretch="Uniform">
-            <StackPanel Orientation="Vertical">
-                <Label x:Name="IdLabel" Height="40" FontSize="16" Margin="10 10 10 0">Id</Label>
-                <TextBox x:Name="IdTextBox" Height="40" FontSize="16" Margin="10">
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="TagIdErrorLabel"></AdornedElementPlaceholder>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                    <TextBox.Resources>
-                        <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
-                    </TextBox.Resources>
-                    <TextBox.Text>
-                        <Binding Path="NewTag.Id">
-                            <Binding.ValidationRules>
-                                <local:TagIdValidation x:Name="TagIdValidation" ValidationStep="RawProposedValue">
-                                    <local:TagIdValidation.Wrapper>
-                                        <local:TagIdValidationWrapper 
+    <Grid x:Name="Root" Background="#cceeff" MinHeight="500">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0">
+            <Label DockPanel.Dock="Top" x:Name="IdLabel" Height="40" FontSize="16"
+                       Margin="10 10 10 0">Id</Label>
+            <TextBox x:Name="IdTextBox" MinHeight="30" FontSize="16" Margin="10">
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <AdornedElementPlaceholder x:Name="TagIdErrorLabel"></AdornedElementPlaceholder>
+                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+                <TextBox.Resources>
+                    <local:BindingProxy x:Key="proxy" Data="{Binding}"/>
+                </TextBox.Resources>
+                <TextBox.Text>
+                    <Binding Path="NewTag.Id">
+                        <Binding.ValidationRules>
+                            <local:TagIdValidation x:Name="TagIdValidation" ValidationStep="RawProposedValue">
+                                <local:TagIdValidation.Wrapper>
+                                    <local:TagIdValidationWrapper 
                                                            Tags="{Binding  Data.Tags, Source={StaticResource proxy}}">
-                                        </local:TagIdValidationWrapper>
-                                    </local:TagIdValidation.Wrapper>
-                                </local:TagIdValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
+                                    </local:TagIdValidationWrapper>
+                                </local:TagIdValidation.Wrapper>
+                            </local:TagIdValidation>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
 
-                </TextBox>
-                <Label x:Name="DescriptionLabel" Height="40" FontSize="16" Margin="10 0">Description</Label>
-                <TextBox x:Name="DescriptionTextBox" Height="120" FontSize="16" Margin="10">
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="DescriptionErrorLabel"></AdornedElementPlaceholder>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                    <TextBox.Text>
-                        <Binding Path="NewTag.Description">
-                            <Binding.ValidationRules>
-                                <local:DescriptionValidation x:Name="DescriptionValidation" ValidationStep="RawProposedValue"></local:DescriptionValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
-                
-                <Label x:Name="ColorLabel" Height="40" FontSize="16" Margin="10 0">Color</Label>
-                <xctk:ColorPicker x:Name="ColorPickerCP" VerticalAlignment="Top" >
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="ColorErrorLabel"></AdornedElementPlaceholder>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                    <xctk:ColorPicker.SelectedColor>
-                        <Binding Path="TagColor">
-                            <Binding.ValidationRules>
-                                <local:ColorValidation x:Name="ColorValidation" ValidationStep="RawProposedValue"></local:ColorValidation>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </xctk:ColorPicker.SelectedColor>
-                </xctk:ColorPicker>
+            </TextBox>
+        </DockPanel>
 
-                <StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Right" Margin="0 20 0 0">
-                    <Button x:Name="AddTagButton" IsDefault="True" Width="100" Height="40" FontSize="16" Margin="10 0" Click="AddTagButton_Click">Add Tag</Button>
-                    <Button x:Name="CancelButton" IsCancel="True" Width="100" Height="40" FontSize="16" Margin="0 0 10 0">Cancel</Button>
-                </StackPanel>
-            </StackPanel>
-        </Viewbox>
+        <DockPanel Grid.Row="1">
+            <Label DockPanel.Dock="Top" x:Name="DescriptionLabel" Height="40" FontSize="16"
+                   Margin="10 0">Description</Label>
+            <TextBox x:Name="DescriptionTextBox" FontSize="16"
+                     Margin="10">
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <AdornedElementPlaceholder x:Name="DescriptionErrorLabel"></AdornedElementPlaceholder>
+                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+                <TextBox.Text>
+                    <Binding Path="NewTag.Description">
+                        <Binding.ValidationRules>
+                            <local:DescriptionValidation x:Name="DescriptionValidation" ValidationStep="RawProposedValue"></local:DescriptionValidation>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </DockPanel>
+
+        <DockPanel Grid.Row="2">
+            <Label DockPanel.Dock="Top" x:Name="ColorLabel" Height="40"
+                   FontSize="16" Margin="10 0">Color</Label>
+            <xctk:ColorPicker x:Name="ColorPickerCP" VerticalAlignment="Center"
+                              Height="30" Margin="10 0">
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <AdornedElementPlaceholder x:Name="ColorErrorLabel"></AdornedElementPlaceholder>
+                            <TextBlock Text="{Binding [0].ErrorContent}"
+                                       Foreground="Red"></TextBlock>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+                <xctk:ColorPicker.SelectedColor>
+                    <Binding Path="TagColor">
+                        <Binding.ValidationRules>
+                            <local:ColorValidation x:Name="ColorValidation"
+                                                   ValidationStep="RawProposedValue"></local:ColorValidation>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </xctk:ColorPicker.SelectedColor>
+            </xctk:ColorPicker>
+        </DockPanel>
+
+        
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal"  HorizontalAlignment="Center">
+            <Button x:Name="AddTagButton" IsDefault="True" Width="100" Height="40" FontSize="16" Margin="10 0" Click="AddTagButton_Click">Add Tag</Button>
+            <Button x:Name="CancelButton" IsCancel="True" Width="100" Height="40" FontSize="16" Margin="0 0 10 0">Cancel</Button>
+        </StackPanel>
     </Grid>
 </Window>

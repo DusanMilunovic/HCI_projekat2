@@ -420,6 +420,7 @@ namespace emlekmu
                 this.formatDate();
                 this.connectTags();
                 this.AddMonumentCallback(this.Monument);
+                this.DialogResult = true;
                 this.Close();
             }
             

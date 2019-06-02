@@ -104,6 +104,7 @@ namespace emlekmu
             }
         }
 
+<<<<<<< HEAD
         public void updateSelection()
         {
             int id = -1;
@@ -115,6 +116,26 @@ namespace emlekmu
             }
             
         }
+=======
+        public Point currentMousePoint;
+
+        public Point CurrentMousePoint
+        {
+            get
+            {
+                return currentMousePoint;
+            }
+            set
+            {
+                if (value != currentMousePoint)
+                {
+                    currentMousePoint = value;
+                    OnPropertyChanged("CurrentMousePoint");
+                }
+            }
+        }
+
+>>>>>>> master
 
 
 
@@ -164,6 +185,18 @@ namespace emlekmu
         // Using a DependencyProperty as the backing store for PinClickedCallback.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty PinClickedCallbackProperty =
             DependencyProperty.Register("PinClickedCallback", typeof(onPinClicked), typeof(Map), new PropertyMetadata(null));
+
+
+
+        public onOpenAddMonument OpenAddMonumentCallback
+        {
+            get { return (onOpenAddMonument)GetValue(OpenAddMonumentCallbackProperty); }
+            set { SetValue(OpenAddMonumentCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OpenAddMonumentCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OpenAddMonumentCallbackProperty =
+            DependencyProperty.Register("OpenAddMonumentCallback", typeof(onOpenAddMonument), typeof(Map), new PropertyMetadata(null));
 
 
 
@@ -335,6 +368,88 @@ namespace emlekmu
             {
                 Monument monument = e.Data.GetData("myFormat") as Monument;
             }
+        }
+
+        private void onRightClick(object sender, MouseButtonEventArgs e)
+        {
+            CurrentMousePoint = e.GetPosition((IInputElement)sender);
+
+            // open context menu
+            
+                ContextMenu cm = this.FindResource("cmMap") as ContextMenu;
+                cm.IsOpen = true;
+        }
+
+        private void AddMonumentAction(object sender, RoutedEventArgs e)
+        {
+            var monument = OpenAddMonumentCallback();
+            if (monument != null)
+            {
+                Positions.Add(new MonumentPosition(Convert.ToInt32(CurrentMousePoint.X), Convert.ToInt32(CurrentMousePoint.Y), monument));
+            }
+        }
+
+        private void ZoomInAction(object sender, RoutedEventArgs e)
+        {
+            double scaleDeltaX;
+            double scaleDeltaY;
+
+            if (ai > 10)
+            {
+                return;
+            }
+            scaleDeltaX = (1 / (st.ScaleX * ScaleRate) - 1 / st.ScaleX);
+            scaleDeltaY = (1 / (st.ScaleY * ScaleRate) - 1 / st.ScaleY);
+
+            st.ScaleX *= ScaleRate;
+            st.ScaleY *= ScaleRate;
+            if (ai <= 2)
+            {
+                st.CenterX = (st.CenterX - 4 * scaleDeltaX * CurrentMousePoint.X) / 2;
+                st.CenterY = (st.CenterY - 4 * scaleDeltaY * CurrentMousePoint.Y) / 2;
+            }
+            else
+            {
+                st.CenterX = (st.CenterX - Math.Pow(2, ai) * scaleDeltaX * CurrentMousePoint.X) / 2;
+                st.CenterY = (st.CenterY - Math.Pow(2, ai) * scaleDeltaY * CurrentMousePoint.Y) / 2;
+            }
+
+            ai++;
+
+            EWidth /= 2;
+            EHeight /= 2;
+
+        }
+
+        private void ZoomOutAction(object sender, RoutedEventArgs e)
+        {
+            double scaleDeltaX;
+            double scaleDeltaY;
+
+            if (ai <= 1)
+            {
+                return;
+            }
+            scaleDeltaX = (1 / (st.ScaleX / ScaleRate) - 1 / st.ScaleX);
+            scaleDeltaY = (1 / (st.ScaleY / ScaleRate) - 1 / st.ScaleY);
+
+            st.ScaleX /= ScaleRate;
+            st.ScaleY /= ScaleRate;
+            if (ai == 2)
+            {
+                st.CenterX = (st.CenterX - 2 * scaleDeltaX * CurrentMousePoint.X) / 2;
+                st.CenterY = (st.CenterY - 2 * scaleDeltaY * CurrentMousePoint.Y) / 2;
+            }
+            else
+            {
+                st.CenterX = (st.CenterX + Math.Pow(2, ai - 1) * scaleDeltaX * CurrentMousePoint.X) / 2;
+                st.CenterY = (st.CenterY + Math.Pow(2, ai - 1) * scaleDeltaY * CurrentMousePoint.Y) / 2;
+            }
+
+            ai--;
+
+            EWidth *= 2;
+            EHeight *= 2;
         }
     }
 }

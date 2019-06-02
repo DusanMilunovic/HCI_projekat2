@@ -275,8 +275,8 @@
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="AddMonumentButton" Click="AddMonumentButton_Click">Add Monument</Button>
-                <Button x:Name="Cancel" Click="Cancel_Click">Cancel</Button>
+                <Button x:Name="AddMonumentButton" IsDefault="True" Click="AddMonumentButton_Click">Add Monument</Button>
+                <Button x:Name="Cancel" IsCancel="True" Click="Cancel_Click">Cancel</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

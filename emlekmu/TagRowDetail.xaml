@@ -7,41 +7,63 @@
              mc:Ignorable="d"
              MouseRightButtonUp="onRigthClick"
              d:DesignHeight="280"
-             d:DesignWidth="800">
+             d:DesignWidth="840">
     <UserControl.Resources>
         <ContextMenu x:Key="cmTagRowDetail">
             <MenuItem Header="Edit" Click="EditTagButton_Click"></MenuItem>
             <MenuItem Header="Delete" Click="DeleteTagButton_Click"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
-    <Grid x:Name="Root" Margin="5">
-        <Viewbox Stretch="Uniform">
-            <Border CornerRadius="3" BorderBrush="#2299CC" BorderThickness="4">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Vertical" Cursor="Hand" Background="#FFFFFF" MouseLeftButtonUp="OnMouseDown">
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel>
-                            <Label Width="700" Margin="10 10 10 0" Height="25" FontSize="12">ID:</Label>
-                            <Label Width="700" Margin="10 0 10 10" Height="30" FontSize="16" Content="{Binding Id}"></Label>
-                        </StackPanel>
-                        <Ellipse Width="60" Height="60" Margin="20" Fill="{Binding Color}" HorizontalAlignment="Right"></Ellipse>
-                    </StackPanel>
-                    <Border BorderThickness="0 1 0 0" BorderBrush="LightGray">
-                        <StackPanel>
-                            <Label Width="780" Margin="10 10 10 0" Height="25" FontSize="12">Description:</Label>
-                            <TextBlock Margin="20 5 10 10" Width="780" MinHeight="80" FontSize="16" TextWrapping="WrapWithOverflow" TextAlignment="Justify" Text="{Binding Description}"></TextBlock>
-                        </StackPanel>
-                        </Border>
+    <Grid x:Name="Root" Margin="5" Background="White">
+        <Border CornerRadius="3" BorderBrush="#2299CC" BorderThickness="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="11*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0" Grid.Column="0"
+                           MouseLeftButtonUp="OnMouseDown"
+                           Cursor="Hand">
+                    <Label DockPanel.Dock="Top" Margin="10 10 10 0"
+                           Height="25" FontSize="12">ID:</Label>
+                    <Line DockPanel.Dock="Bottom" StrokeThickness="1"></Line>
+                    <Label Margin="10 0 10 10" Height="30"
+                           FontSize="16" Content="{Binding Id}"></Label>
+                </DockPanel>
+                <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                        BorderBrush="#aaaaaa" BorderThickness="0 1">
+                    
+                </Border>
+                <DockPanel Grid.Row="1" Grid.Column="0"
+                           MouseLeftButtonUp="OnMouseDown"
+                           Cursor="Hand">
+                    
 
+                    <Label DockPanel.Dock="Top" Margin="10 10 10 0" Height="25" FontSize="12">Description:</Label>
+                    <TextBlock Margin="20 5 10 10" MinHeight="80"
+                               FontSize="16" TextWrapping="WrapWithOverflow"
+                               TextAlignment="Justify" Text="{Binding Description}"></TextBlock>
+                </DockPanel>
+
+                <Ellipse Grid.Row="0" Grid.Column="1" Margin="0 0 5 0"
+                         Width="50" Height="50"  Fill="{Binding Color}"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                           MouseLeftButtonUp="OnMouseDown" Cursor="Hand"></Ellipse>
+                
+                <Grid  Background="AliceBlue" Grid.Row="2" Grid.ColumnSpan="2">
+                    <StackPanel  Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                        <Button x:Name="EditTagButton" Margin="20" Height="40" Width="80" Click="EditTagButton_Click">Edit tag</Button>
+                        <Button x:Name="DeleteTagButton" Margin="20" Height="40" Width="80" Click="DeleteTagButton_Click">Delete tag</Button>
                     </StackPanel>
-                    <Border BorderThickness="0 1 0 0" BorderBrush="LightGray"  Background="#F3FBFF">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                            <Button x:Name="EditTagButton" Margin="20" Height="40" Width="80" Click="EditTagButton_Click">Edit tag</Button>
-                            <Button x:Name="DeleteTagButton" Margin="20" Height="40" Width="80" Click="DeleteTagButton_Click">Delete tag</Button>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
-            </Border>
-        </Viewbox>
+
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>
