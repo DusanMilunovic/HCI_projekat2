@@ -80,6 +80,9 @@
     <Compile Include="AddMonument.xaml.cs">
       <DependentUpon>AddMonument.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CheatSheet.xaml.cs">
+      <DependentUpon>CheatSheet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditMonument.xaml.cs">
       <DependentUpon>EditMonument.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
     <Page Include="AddType.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CheatSheet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditMonument.xaml">
       <SubType>Designer</SubType>

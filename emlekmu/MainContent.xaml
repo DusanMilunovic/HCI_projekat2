@@ -4,23 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
+             xmlns:cmd="clr-namespace:emlekmu.commands"
              mc:Ignorable="d" 
              d:DesignHeight="325" d:DesignWidth="800">
     <Grid x:Name="Root" Background="#cceeff">
         <DockPanel>
             <Menu DockPanel.Dock="Top" Height="20">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Types" Click="types_Click"/>
-                    <MenuItem Header="T_ags" Click="tags_Click"/>
-                    <MenuItem Header="_Open" />
-                    <MenuItem Header="_Save" />
+                    <MenuItem Header="_Types" Command="cmd:RoutedCommands.ListTypes"/>
+                    <MenuItem Header="T_ags" Command="cmd:RoutedCommands.ListTags"/>
                     <Separator />
                     <MenuItem Header="_Exit" />
                 </MenuItem>
                 <MenuItem Header="_Add">
-                    <MenuItem Header="_Monument" Click="monumentAdd_Click"/>
-                    <MenuItem Header="_Tag" Click="tagAdd_Click"/>
-                    <MenuItem Header="_Type" Click="typeAdd_Click"/>
+                    <MenuItem Header="_Monument" Command="cmd:RoutedCommands.AddMonument"/>
+                    <MenuItem Header="_Tag" Command="cmd:RoutedCommands.AddTag"/>
+                    <MenuItem Header="_Type" Command="cmd:RoutedCommands.AddType"/>
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem Header="_Help documentation" Command="cmd:RoutedCommands.OpenHelpDocumentation"></MenuItem>
+                    <MenuItem Header="_Shorcut cheatsheet" Command="cmd:RoutedCommands.OpenCheatSheet"></MenuItem>
                 </MenuItem>
             </Menu>
             <StatusBar DockPanel.Dock="Bottom" Height="20">
