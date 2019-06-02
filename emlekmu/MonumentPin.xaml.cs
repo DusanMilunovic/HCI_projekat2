@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static emlekmu.MainContent;
+using static emlekmu.Map;
 
 namespace emlekmu
 {
@@ -118,6 +119,21 @@ namespace emlekmu
             DependencyProperty.Register("EnlargenedMonuments", typeof(ObservableCollection<int>), typeof(MonumentPin), new PropertyMetadata(new ObservableCollection<int>()));
 
 
+
+
+        public onRemovePin RemovePinCallback
+        {
+            get { return (onRemovePin)GetValue(RemovePinCallbackProperty); }
+            set { SetValue(RemovePinCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RemovePinCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RemovePinCallbackProperty =
+            DependencyProperty.Register("RemovePinCallback", typeof(onRemovePin), typeof(MonumentPin), new PropertyMetadata(null));
+
+
+
+
         public MonumentPin()
         {
             InitializeComponent();
@@ -130,6 +146,7 @@ namespace emlekmu
             // open context menu
             ContextMenu cm = this.FindResource("cmMonumentPin") as ContextMenu;
             cm.IsOpen = true;
+            e.Handled = true;
         }
 
         private void EditAction(object sender, RoutedEventArgs e)
@@ -160,6 +177,11 @@ namespace emlekmu
                 Selected.Visibility = Visibility.Collapsed;
                 NotSelected.Visibility = Visibility.Visible;
             }
+        }
+
+        public void RemoveFromMapAction(object sender, RoutedEventArgs e)
+        {
+            RemovePinCallback(MyMonument);
         }
     }
 }

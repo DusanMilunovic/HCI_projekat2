@@ -231,6 +231,9 @@ namespace emlekmu
                 }
             }
         }
+
+        public MapEurope MyMap { get; set; }
+
         #endregion
 
         #region Search parameters
@@ -922,6 +925,7 @@ namespace emlekmu
 
         public MainContent()
         {
+            MyMap = new MapEurope();
             Tags = new ObservableCollection<Tag>();
 
             this.Tags.Add(new Tag("Good1", new Color(0, 100, 166), "Very good tag"));
@@ -1069,5 +1073,27 @@ namespace emlekmu
             lblCursorPositionX.Text = "X: " + Convert.ToString(Mouse.GetPosition(MapsContainer).X);
             lblCursorPositionY.Text = "Y: " + Convert.ToString(Mouse.GetPosition(MapsContainer).Y);
         }
+
+        private void Map1Tab_PreviewDragEnter(object sender, DragEventArgs e)
+        {
+             MapsContainer.SelectedIndex = 0;
+        }
+
+        private void Map2Tab_PreviewDragEnter(object sender, DragEventArgs e)
+        {
+
+            MapsContainer.SelectedIndex = 1;
+        }
+
+        private void Map3Tab_PreviewDragEnter(object sender, DragEventArgs e)
+        {
+            MapsContainer.SelectedIndex = 2;
+        }
+
+        private void Map4Tab_PreviewDragEnter(object sender, DragEventArgs e)
+        {
+            MapsContainer.SelectedIndex = 3;
+        }
+
     }
 }

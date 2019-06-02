@@ -12,6 +12,7 @@
         <ContextMenu x:Key="cmMonumentPin">
             <MenuItem Header="Edit" Click="EditAction"></MenuItem>
             <MenuItem Header="Delete" Click="DeleteAction"></MenuItem>
+            <MenuItem Header="Remove From Map" Click="RemoveFromMapAction"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
     <Grid x:Name="Root">
