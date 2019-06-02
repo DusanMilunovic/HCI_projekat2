@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:emlekmu"
              MouseRightButtonUp="onRightClick"
              MouseLeftButtonUp="onLeftClick"
+             Cursor="Hand"
              mc:Ignorable="d" 
              d:DesignHeight="80" d:DesignWidth="80">
     <UserControl.Resources>
@@ -38,7 +39,7 @@
                     <Ellipse x:Name="Ellipsey" Fill="#2299CC" Height="32" Width="32" Margin="24,0,24,50"/>
                     <Ellipse x:Name="ImageEllipse" Height="28" Width="28" Margin="26,0,26,50">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="{Binding MyMonument.Image}" Stretch="Fill"></ImageBrush>
+                            <ImageBrush ImageSource="{Binding MyMonument.Icon}" Stretch="Fill"></ImageBrush>
                         </Ellipse.Fill>
                     </Ellipse>
 
@@ -56,7 +57,7 @@
                     
                     <Ellipse x:Name="ImageEllipseNS" Height="28" Width="28" Margin="26,0,26,50">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="{Binding MyMonument.Image}" Stretch="Fill" Opacity="10"></ImageBrush>
+                            <ImageBrush ImageSource="{Binding MyMonument.Icon}" Stretch="Fill" Opacity="10"></ImageBrush>
                         </Ellipse.Fill>
                     </Ellipse>
                     

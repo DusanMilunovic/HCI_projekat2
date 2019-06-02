@@ -322,9 +322,9 @@ namespace emlekmu
 
         public Map()
         {
-            RemovePinCallback = new onRemovePin(RemovePinFromMap);
             InitializeComponent();
 
+            RemovePinCallback = new onRemovePin(RemovePinFromMap);
             Root.DataContext = this;
             EWidth = 160;
             EHeight = 160;
@@ -574,6 +574,7 @@ namespace emlekmu
             var monument = OpenAddMonumentCallback();
             if (monument != null)
             {
+                PinClickedCallback(monument.Id);
                 Positions.Add(new MonumentPosition(Convert.ToInt32(CurrentMousePoint.X), Convert.ToInt32(CurrentMousePoint.Y), monument));
                 saveMapData();
             }

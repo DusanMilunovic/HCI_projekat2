@@ -170,7 +170,11 @@ namespace emlekmu
 
         private void editMenuAction(object sender, RoutedEventArgs e)
         {
-            EditMonumentCallback(MonumentId);
+            Monument m = EditMonumentCallback(MonumentId);
+            if (m != null)
+            {
+                MonumentClickedCallback(m.Id);
+            }
         }
 
         private void deleteMenuAction(object s, RoutedEventArgs ea)
