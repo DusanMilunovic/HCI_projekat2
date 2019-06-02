@@ -35,9 +35,6 @@
                 </StatusBarItem>
             </StatusBar>
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
@@ -145,11 +142,18 @@
                                       Monuments="{Binding SearchedNFMonuments}"
                                       FilteredMonuments="{Binding FilteredMonuments}"
                                       RemoveMonumentCallback="{Binding removeMonumentCallback}"
-                                      EditMonumentCallback="{Binding editMonumentCallback}"
+                                      EditMonumentCallback="{Binding openEditMonumentCallback}"
                                       MonumentSelectionChangedCallback="{Binding monumentSelectionChangedCallback}" />
                     </Grid>
                 </DockPanel>
-                
+                <GridSplitter Grid.Column="1" 
+                              HorizontalAlignment="Left" 
+                              VerticalAlignment="Stretch"
+                              Background="Gray" 
+                              ShowsPreview="true"
+                              Panel.ZIndex="1"
+                              Margin="6 0 2 0"
+                              Width="3"/>
 
             </Grid>
         </DockPanel>

@@ -39,15 +39,15 @@ namespace emlekmu
 
 
 
-        public onEditMonument EditMonumentCallback
+        public onOpenEditMonument EditMonumentCallback
         {
-            get { return (onEditMonument)GetValue(EditMonumentCallbackProperty); }
+            get { return (onOpenEditMonument)GetValue(EditMonumentCallbackProperty); }
             set { SetValue(EditMonumentCallbackProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for EditMonumentCallback.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty EditMonumentCallbackProperty =
-            DependencyProperty.Register("EditMonumentCallback", typeof(onEditMonument), typeof(MonumentsTable), new PropertyMetadata(null));
+            DependencyProperty.Register("EditMonumentCallback", typeof(onOpenEditMonument), typeof(MonumentsTable), new PropertyMetadata(null));
 
 
 

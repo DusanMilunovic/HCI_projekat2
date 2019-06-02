@@ -138,6 +138,12 @@ namespace emlekmu
 
         private void DeleteTagButton_Click(object s, RoutedEventArgs ea)
         {
+            MessageBoxResult result = MessageBox.Show("Delete Tag?", "delete", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
             DoubleAnimation animation = new DoubleAnimation();
             animation.To = 0;
             //animation.From = 1;

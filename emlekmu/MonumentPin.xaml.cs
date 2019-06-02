@@ -151,12 +151,18 @@ namespace emlekmu
 
         private void EditAction(object sender, RoutedEventArgs e)
         {
-            OpenEditMonumentCallback(MyMonument);
+            OpenEditMonumentCallback(MyMonument.Id);
 
         }
 
         private void DeleteAction(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("Delete Monument?", "delete", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
             RemoveMonumentCallback(MyMonument.Id);
         }
 

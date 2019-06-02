@@ -11,9 +11,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static emlekmu.MainContent;
 using static emlekmu.MonumentsTable;
 using Type = emlekmu.models.Type;
 
@@ -126,6 +128,33 @@ namespace emlekmu
 
 
 
+        public onOpenEditMonument EditMonumentCallback
+        {
+            get { return (onOpenEditMonument)GetValue(EditMonumentCallbackProperty); }
+            set { SetValue(EditMonumentCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for EditMonumentCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EditMonumentCallbackProperty =
+            DependencyProperty.Register("EditMonumentCallback", typeof(onOpenEditMonument), typeof(MonumentRow), new PropertyMetadata(null));
+
+
+
+
+        public onRemoveMonument RemoveMonumentCallback
+        {
+            get { return (onRemoveMonument)GetValue(RemoveMonumentCallbackProperty); }
+            set { SetValue(RemoveMonumentCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RemoveMonumentCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RemoveMonumentCallbackProperty =
+            DependencyProperty.Register("RemoveMonumentCallback", typeof(onRemoveMonument), typeof(MonumentRow), new PropertyMetadata(null));
+
+
+
+
+
         private void OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             MonumentClickedCallback(MonumentId);
@@ -133,14 +162,47 @@ namespace emlekmu
 
         private void onRigthClick(object sender, MouseButtonEventArgs e)
         {
-            // open context menu
+            // open context menus
+
+            ContextMenu cm = this.FindResource("cmMonumentRow") as ContextMenu;
+            cm.IsOpen = true;
         }
 
         private void editMenuAction(object sender, RoutedEventArgs e)
         {
-            
+            EditMonumentCallback(MonumentId);
         }
 
+        private void deleteMenuAction(object s, RoutedEventArgs ea)
+        {
+            MessageBoxResult result = MessageBox.Show("Delete Monument?", "delete", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.To = 0;
+            //animation.From = 1;
+            animation.Duration = TimeSpan.FromMilliseconds(300);
+            animation.EasingFunction = new QuadraticEase();
+
+            Storyboard sb = new Storyboard();
+            sb.Children.Add(animation);
+
+            Root.Opacity = 1;
+            Root.Visibility = Visibility.Visible;
+
+            Storyboard.SetTarget(sb, Root);
+            Storyboard.SetTargetProperty(sb, new PropertyPath(Control.OpacityProperty));
+
+            sb.Completed += delegate (object sender, EventArgs e)
+            {
+                Root.Visibility = Visibility.Collapsed;
+                RemoveMonumentCallback(MonumentId);
+            };
+            sb.Begin();
+        }
 
         public MonumentRow()
         {
