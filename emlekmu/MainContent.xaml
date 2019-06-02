@@ -42,24 +42,55 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TabControl x:Name="MapsContainer" MouseMove="UpdateStatusBar" Grid.Column="0" Grid.Row="1">
-                    <TabItem Header="Map1" Width="99">
-                        <local:Map x:Name="Map1" Positions="{Binding Map1Monuments}"
+                <TabControl x:Name="MapsContainer" MouseMove="UpdateStatusBar" Grid.Column="0" Grid.Row="1" Background="AliceBlue">
+                    <TabItem x:Name="Map1Tab" Header="Map1" Width="99" AllowDrop="True" PreviewDragEnter="Map1Tab_PreviewDragEnter">
+                        <Viewbox Stretch="Uniform">
+                            <local:Map x:Name="Map1" Positions="{Binding Map1Monuments}"
+                                   EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
+                                   RemoveMonumentCallback="{Binding removeMonumentCallback}"
+                                   OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
+                                   PinClickedCallback="{Binding Path=pinClickedCallback}"
+                                   OpenAddMonumentCallback="{Binding Path=openAddMonumentCallback}"
+                                   MapName="World" MyMapWidth="1200" MyMapHeight="800">
+                            </local:Map>
+                        </Viewbox>
+                    </TabItem>
+                    <TabItem x:Name="Map2Tab" Header="Map2" Width="99" AllowDrop="True" PreviewDragEnter="Map2Tab_PreviewDragEnter">
+                        <Viewbox Stretch="Uniform">
+                            <local:Map x:Name="Map2" Positions="{Binding Map2Monuments}"
                                EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
                                RemoveMonumentCallback="{Binding removeMonumentCallback}"
                                OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
                                PinClickedCallback="{Binding Path=pinClickedCallback}"
-                               OpenAddMonumentCallback="{Binding Path=openAddMonumentCallback}">
+                               OpenAddMonumentCallback="{Binding Path=openAddMonumentCallback}"
+                               MapName="Europe" MyMapWidth="800" MyMapHeight="800">
+
+                            </local:Map>
+                        </Viewbox>
+                    </TabItem>
+                    <TabItem x:Name="Map3Tab" Header="Map3" Width="99" AllowDrop="True" PreviewDragEnter="Map3Tab_PreviewDragEnter">
+                        <Viewbox Stretch="Uniform">
+                            <local:Map x:Name="Map3" Positions="{Binding Map3Monuments}"
+                               EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
+                               RemoveMonumentCallback="{Binding removeMonumentCallback}"
+                               OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
+                               PinClickedCallback="{Binding Path=pinClickedCallback}"
+                               OpenAddMonumentCallback="{Binding Path=openAddMonumentCallback}"
+                               MapName="Serbia" MyMapWidth="800" MyMapHeight="800">
+
+                            </local:Map>
+                        </Viewbox>
+                    </TabItem>
+                    <TabItem x:Name="Map4Tab" Header="Map4" Width="99" AllowDrop="True" PreviewDragEnter="Map4Tab_PreviewDragEnter">
+                        <local:Map x:Name="Map4" Positions="{Binding Map4Monuments}"
+                               EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
+                               RemoveMonumentCallback="{Binding removeMonumentCallback}"
+                               OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
+                               PinClickedCallback="{Binding Path=pinClickedCallback}"
+                               OpenAddMonumentCallback="{Binding Path=openAddMonumentCallback}"
+                               MapName="Africa" MyMapWidth="800" MyMapHeight="800">
 
                         </local:Map>
-                    </TabItem>
-                    <TabItem Header="Map2" Width="99">
-                    </TabItem>
-                    <TabItem Header="Map3" Width="99">
-
-                    </TabItem>
-                    <TabItem Header="Map4" Width="99">
-
                     </TabItem>
                 </TabControl>
                 <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1" Grid.Row="1"

@@ -93,6 +93,12 @@
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MapAfrica.xaml.cs">
+      <DependentUpon>MapAfrica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapEurope.xaml.cs">
+      <DependentUpon>MapEurope.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MapWorld.xaml.cs">
       <DependentUpon>MapWorld.xaml</DependentUpon>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="models\Tag.cs" />
     <Compile Include="models\Type.cs" />
     <Compile Include="models\Validators.cs" />
+    <Compile Include="MonumentHover.xaml.cs">
+      <DependentUpon>MonumentHover.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MonumentPin.xaml.cs">
       <DependentUpon>MonumentPin.xaml</DependentUpon>
     </Compile>
@@ -120,6 +129,9 @@
     </Compile>
     <Compile Include="SearchFilterControl.xaml.cs">
       <DependentUpon>SearchFilterControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SerbiaMap.xaml.cs">
+      <DependentUpon>SerbiaMap.xaml</DependentUpon>
     </Compile>
     <Compile Include="TagRow.xaml.cs">
       <DependentUpon>TagRow.xaml</DependentUpon>
@@ -199,6 +211,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MapAfrica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MapEurope.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MapWorld.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,6 +226,10 @@
     <Page Include="MonumentDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MonumentHover.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MonumentPin.xaml">
       <SubType>Designer</SubType>
@@ -224,6 +248,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SearchFilterControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SerbiaMap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -411,6 +439,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\type1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\Cursors\grabbing.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\Cursors\grab.cur" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

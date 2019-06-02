@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="emlekmu.MonumentHover"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:emlekmu"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="350">
+    <Grid x:Name="Root" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+            <Label Margin="5 0 0 0" VerticalAlignment="Center"
+                   FontSize="12">ID:</Label>
+            <Label VerticalAlignment="Center" 
+                   Content="{Binding MyMonument.Id}"></Label>
+        </StackPanel>
+
+        <DockPanel  Grid.Row="1" Grid.Column="0" Margin="10 0 0 0">
+            <TextBlock VerticalAlignment="Top" FontSize="12"
+                       Text="{Binding MyMonument.Name, StringFormat='Name: {0}'}"
+                       TextWrapping="WrapWithOverflow"></TextBlock>
+        </DockPanel>
+
+        <Image Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+               VerticalAlignment="Center" HorizontalAlignment="Center"
+               Width="50" Height="50"
+               Source="{Binding MyMonument.Image}"></Image>
+        
+    </Grid>
+</UserControl>
