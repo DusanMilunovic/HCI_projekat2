@@ -17,12 +17,16 @@
         <StackPanel>
             <Viewbox Stretch="Uniform">
             <Canvas x:Name="Kartocka" MouseWheel="Canvas_MouseWheel" Height="800" Width="1200" Background="PeachPuff"
-                    AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop" MouseRightButtonUp="onRightClick">
+                    AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop" MouseRightButtonUp="onRightClick"
+                    MouseLeftButtonDown="Kartocka_PreviewMouseLeftButtonDown"
+                    MouseMove="Kartocka_MouseMove"
+                    MouseLeftButtonUp="Kartocka_PreviewMouseLeftButtonUp">
                 <Canvas.RenderTransform>
                     <ScaleTransform x:Name="st"/>
                 </Canvas.RenderTransform>
-                    <local:MapWorld Height="800" Width="1200"></local:MapWorld>
-                    <ItemsControl ItemsSource="{Binding Positions}">
+                <local:MapWorld x:Name="World" Height="800" Width="1200"></local:MapWorld>
+                <TextBlock Canvas.Left="120" Canvas.Top="500" Foreground="Red">AKREP</TextBlock>
+                <ItemsControl ItemsSource="{Binding Positions}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <Canvas/>
@@ -38,7 +42,7 @@
                                           RemoveMonumentCallback="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}"
                                           PinClickedCallback="{Binding ElementName=Root, Path=DataContext.PinClickedCallback}"
                                           PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" 
-                                          MouseMove="ListView_MouseMove"
+                                          MouseMove="ListView_MouseMove" MouseLeftButtonDown="MonumentPin_MouseLeftButtonDown"
                                           EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}">
                                 </local:MonumentPin>
                             </Grid>

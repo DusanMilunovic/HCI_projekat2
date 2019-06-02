@@ -84,6 +84,41 @@ namespace emlekmu
             }
         }
 
+        public double scrollWidth;
+
+        public double ScrollWidth
+        {
+            get
+            {
+                return scrollWidth;
+            }
+            set
+            {
+                if (value != scrollWidth)
+                {
+                    scrollWidth = value;
+                    OnPropertyChanged("ScrollWidth");
+                }
+            }
+        }
+
+        public double scrollHeight;
+
+        public double ScrollHeight
+        {
+            get
+            {
+                return scrollHeight;
+            }
+            set
+            {
+                if (value != scrollHeight)
+                {
+                    scrollHeight = value;
+                    OnPropertyChanged("ScrollHeight");
+                }
+            }
+        }
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj != null)
@@ -183,7 +218,8 @@ namespace emlekmu
         public static readonly DependencyProperty PinClickedCallbackProperty =
             DependencyProperty.Register("PinClickedCallback", typeof(onPinClicked), typeof(Map), new PropertyMetadata(null));
 
-
+        public double PinContainerWidth { get; set; }
+        public double PinContainerHeight { get; set; }
 
         public onOpenAddMonument OpenAddMonumentCallback
         {
@@ -204,6 +240,9 @@ namespace emlekmu
             Root.DataContext = this;
             EWidth = 80;
             EHeight = 80;
+            //ova dva namestiti na polovinu velicine grida koji sadrzi monument pinove. nisam uspeo da izvucem iz xamla
+            PinContainerWidth = 40;
+            PinContainerHeight = 40;
         }
 
         const double ScaleRate = 2;
@@ -211,37 +250,12 @@ namespace emlekmu
         double ai = 1;
         private void Canvas_MouseWheel(object sender, MouseWheelEventArgs e)
         {
+            e.Handled = true;
             double scaleDeltaX;
             double scaleDeltaY;
             var a = e.GetPosition((IInputElement)sender);
             if (e.Delta > 0)
             {
-                //double ww = 500;
-                //double wh = 300;
-                //double tw = 500 - a.X;
-                //double th = a.Y;
-                //double v1 = Math.Sqrt(tw * tw + th * th);
-                //double v2 = Math.Sqrt((ww - tw) * (ww - tw) + (wh - th) * (wh - th));
-                //double wr = ww / ScaleRate;
-                //double hr = wh / ScaleRate;
-                //double md = Math.Sqrt(wr * wr + hr * hr);
-
-                //double m1 = md / ((v2 / v1) + 1);
-                //double m2 = (v2 / v1) * m1;
-
-                //double c = th / tw;
-
-                //double maliwidth = Math.Sqrt((md * md) / (c * c + 1));
-                //double maliheight = maliwidth * c;
-
-
-                //double actualX = tw + maliwidth - wr;
-                //double actualY = maliheight + th;
-
-                //st.ScaleX *= ScaleRate;
-                //st.ScaleY *= ScaleRate;
-                //st.CenterX = actualX;
-                //st.CenterY = actualY;
                 if (ai > 10)
                 {
                     return;
@@ -263,7 +277,8 @@ namespace emlekmu
                 }
 
                 ai++;
-
+                ScrollHeight *= 2;
+                ScrollWidth *= 2;
                 EWidth /= 2;
                 EHeight /= 2;
             }
@@ -301,6 +316,8 @@ namespace emlekmu
 
                 ai--;
 
+                ScrollHeight /= 2;
+                ScrollWidth /= 2;
                 EWidth *= 2;
                 EHeight *= 2;
             }
@@ -310,34 +327,38 @@ namespace emlekmu
 
         private void ListView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            startPoint = e.GetPosition(null);
+            startPoint = e.GetPosition((IInputElement)sender);
         }
 
         private void ListView_MouseMove(object sender, MouseEventArgs e)
         {
-            Point mousePos = e.GetPosition(null);
-            Vector diff = startPoint - mousePos;
-
-            if (e.LeftButton == MouseButtonState.Pressed &&
-                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
-                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            if (this.Cursor != Cursors.ScrollAll)
             {
-                // Get the dragged ListViewItem
-                MonumentPin monumentPin = sender as MonumentPin;
-                Canvas listViewItem =
-                    FindAncestor<Canvas>((DependencyObject)e.OriginalSource);
-                Grid a = (Grid)monumentPin.Parent;
-                var b = a.Parent;
-                // Find the data behind the ListViewItem
-                Monument monument = monumentPin.MyMonument;
+                Point mousePos = e.GetPosition(null);
+                Vector diff = startPoint - mousePos;
+                e.Handled = true;
 
-                // Initialize the drag & drop operation
-                DataObject dragData = new DataObject("myFormat", monument);
-                DragDrop.DoDragDrop(a, dragData, DragDropEffects.Move);
+                if (e.LeftButton == MouseButtonState.Pressed &&
+                    (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                    Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+                {
+                    // Get the dragged ListViewItem
+                    MonumentPin monumentPin = sender as MonumentPin;
+                    Canvas listViewItem =
+                        FindAncestor<Canvas>((DependencyObject)e.OriginalSource);
+                    Grid a = (Grid)monumentPin.Parent;
+                    var b = a.Parent;
+                    // Find the data behind the ListViewItem
+                    Monument monument = monumentPin.MyMonument;
+
+                    // Initialize the drag & drop operation
+                    DataObject dragData = new DataObject("myFormat", monument);
+                    DragDrop.DoDragDrop(listViewItem, dragData, DragDropEffects.Move);
+                }
             }
         }
 
-        private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
+        public static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
         {
             do
             {
@@ -355,7 +376,8 @@ namespace emlekmu
         {
             if (!e.Data.GetDataPresent("myFormat") || sender == e.Source)
             {
-                e.Effects = DragDropEffects.None;
+                e.Effects = DragDropEffects.Move;
+                
             }
         }
 
@@ -363,10 +385,63 @@ namespace emlekmu
         {
             if (e.Data.GetDataPresent("myFormat"))
             {
+                var a = e.GetPosition((IInputElement)sender);
                 Monument monument = e.Data.GetData("myFormat") as Monument;
+                foreach (MonumentPosition position in Positions)
+                {
+                    if (position.monument != null && position.monument.Id == monument.Id)
+                    {
+                        
+                        position.Left = (a.Y - PinContainerWidth);
+                        position.Top = (a.X - PinContainerHeight);
+                        return;
+                    }
+                }
+                MonumentPosition mp = new MonumentPosition(a.X - 40, a.Y - 40, monument);
+                Positions.Add(mp);
             }
         }
 
+        private void Kartocka_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(Kartocka);
+            this.Cursor = Cursors.ScrollAll;
+        }
+
+        private void Kartocka_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePos = e.GetPosition(Kartocka);
+            Vector diff = startPoint - mousePos;
+            e.Handled = true;
+
+            if (ai > 1 && e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > 10/ai/ai ||
+                Math.Abs(diff.Y) > 10/ai/ai))
+            {
+                st.CenterX = Math.Max(0, st.CenterX + diff.X / 10 * ai);
+                st.CenterY = Math.Max(0, st.CenterY +  diff.Y / 10 * ai);
+                double maxWidth = Kartocka.Width;
+                double maxHeight = Kartocka.Height - Kartocka.Height / st.ScaleY + 50;
+                if (st.CenterX > maxWidth - diff.X / 10 / ai)
+                {
+                    st.CenterX = maxWidth;
+                }
+                if (st.CenterY > maxHeight - diff.Y / 10 / ai)
+                {
+                    st.CenterY = maxHeight;
+                }
+            }
+        }
+
+        private void Kartocka_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;
+        }
+
+        private void MonumentPin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+        }
         private void onRightClick(object sender, MouseButtonEventArgs e)
         {
             CurrentMousePoint = e.GetPosition((IInputElement)sender);
