@@ -134,7 +134,7 @@ namespace emlekmu
 
         private void EditAction(object sender, RoutedEventArgs e)
         {
-            OpenEditMonumentCallback(MyMonument);
+            OpenEditMonumentCallback(MyMonument.Id);
 
         }
 

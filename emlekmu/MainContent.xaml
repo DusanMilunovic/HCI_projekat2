@@ -32,14 +32,11 @@
                 </StatusBarItem>
             </StatusBar>
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TabControl x:Name="MapsContainer" MouseMove="UpdateStatusBar" Grid.Column="0" Grid.Row="1">
+                <TabControl x:Name="MapsContainer" MouseMove="UpdateStatusBar" Grid.Column="0">
                     <TabItem Header="Map1" Width="99">
                         <local:Map x:Name="Map1" Positions="{Binding Map1Monuments}"
                                EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
@@ -59,13 +56,21 @@
 
                     </TabItem>
                 </TabControl>
-                <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1" Grid.Row="1"
+                <GridSplitter Grid.Column="1" 
+                              HorizontalAlignment="Left" 
+                              VerticalAlignment="Stretch"
+                              Background="Gray" 
+                              ShowsPreview="true"
+                              Panel.ZIndex="1"
+                              Margin="6 0 2 0"
+                              Width="3"/>
+                <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1"
                                       SearchedMonuments="{Binding SearchedMonuments}"
                                       AllMonuments="{Binding AllMonuments}"
                                       Monuments="{Binding SearchedNFMonuments}"
                                       FilteredMonuments="{Binding FilteredMon uments}"
                                       RemoveMonumentCallback="{Binding removeMonumentCallback}"
-                                      EditMonumentCallback="{Binding editMonumentCallback}"
+                                      EditMonumentCallback="{Binding openEditMonumentCallback}"
                                       MonumentSelectionChangedCallback="{Binding monumentSelectionChangedCallback}" />
 
             </Grid>

@@ -132,8 +132,8 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Label Content="{Binding Id}"></Label>
                                             <Ellipse Fill="{Binding Color.Hex}" HorizontalAlignment="Right" Height="15" Width="15"></Ellipse>
+                                            <Label Content="{Binding Id}"></Label>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
