@@ -73,6 +73,7 @@
                                                                      MonumentType="{Binding Path=Type}"
                                                                      MonumentImage="{Binding Path=Icon}"
                                                                      MonumentDescription="{Binding Path=Description}"
+                                                                     editMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
                                                                      MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
                                                                      EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments, Mode=TwoWay}"
                                                                      Visibility="Collapsed"

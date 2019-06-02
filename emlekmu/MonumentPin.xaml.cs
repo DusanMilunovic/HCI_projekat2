@@ -157,6 +157,12 @@ namespace emlekmu
 
         private void DeleteAction(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("Delete Monument?", "delete", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
             RemoveMonumentCallback(MyMonument.Id);
         }
 

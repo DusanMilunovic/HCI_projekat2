@@ -55,7 +55,7 @@ namespace emlekmu
             AddType dialog = new AddType(MainContent.addTypeCallback, MainContent.Types);
             dialog.Height = 400;
             dialog.Width = 400;
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void AddTagCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -68,7 +68,7 @@ namespace emlekmu
             AddTag dialog = new emlekmu.AddTag(MainContent.addTagCallback, MainContent.Tags);
             dialog.Height = 400;
             dialog.Width = 400;
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void EditMonumentCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -79,11 +79,11 @@ namespace emlekmu
         private void EditMonumentCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             int toEdit = MainContent.MonumentTable.EnlargenedMonuments.First();
-            Monument m = MainContent.Monuments.First(x => x.Id == toEdit);
+            Monument m = MainContent.Monuments.SingleOrDefault(x => x.Id == toEdit);
             EditMonument dialog = new EditMonument(MainContent.Types, MainContent.Tags, MainContent.editMonumentCallback, m, MainContent.addTypeCallback, MainContent.addTagCallback);
             dialog.Width = 400;
             dialog.Height = 950;
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void RemoveMonumentCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -93,8 +93,14 @@ namespace emlekmu
 
         private void RemoveMonumentCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("Delete Monument?", "delete", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
             int toRemove = MainContent.MonumentTable.EnlargenedMonuments.First();
-            Monument m = MainContent.Monuments.First(x => x.Id == toRemove);
+            Monument m = MainContent.Monuments.SingleOrDefault(x => x.Id == toRemove);
             this.MainContent.removeMonumentCallback(m.Id);
             MainContent.MonumentTable.EnlargenedMonuments.Remove(toRemove);
         }
