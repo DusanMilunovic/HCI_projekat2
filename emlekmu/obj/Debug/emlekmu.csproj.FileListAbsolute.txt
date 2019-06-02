@@ -354,3 +354,6 @@ D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\MapAfrica.g.cs
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\MapAfrica.baml
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\MonumentHover.g.cs
 D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\MonumentHover.baml
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\CheatSheet.g.cs
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\CheatSheet.baml
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\emlekmu.csprojResolveAssemblyReference.cache

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MapPosDG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <map1Monuments>
+    <MonumentPosition>
+      <Monument>
+        <Id>1</Id>
+        <Name> Angkor Wat, Cambodia</Name>
+        <Description>Eerie and majestic, Angkor Wat is a pilgrimage that must be taken by anyone venturing into Cambodia. The UNESCO World Heritage site is one of the finest preserved Ancient Cities and stretches over 400km2 in Angkor Archaeological Park. Highlights include the Temple of Angkor Wat and Angkor Thom, which isa Bayon temple.</Description>
+        <Image>D:\Dusan\1Faks\HCI\emlekmu\emlekmu\resources\monument1.png</Image>
+        <Type>
+          <Id>9</Id>
+          <Name>Mausoleum or tomb</Name>
+          <Icon>D:\Dusan\1Faks\HCI\emlekmu\emlekmu\resources\type9.png</Icon>
+          <Description>Honors the dead</Description>
+          <DescriptionShort>Honors the dead</DescriptionShort>
+        </Type>
+        <Era>Medieval</Era>
+        <Icon>D:\Dusan\1Faks\HCI\emlekmu\emlekmu\resources\type9.png</Icon>
+        <ArcheologicallyExplored>true</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>true</PopulatedRegion>
+        <TouristicStatus>Unavailable</TouristicStatus>
+        <Income>86000</Income>
+        <DiscoveryDate>11.1.265 BCE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Even verier good tag</Description>
+            <DescriptionShort>Even verier good tag</DescriptionShort>
+            <Id>Good4</Id>
+            <Color>
+              <Red>100</Red>
+              <Green>100</Green>
+              <Blue>166</Blue>
+              <Hex>#6464A6</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Very grooden tag</Description>
+            <DescriptionShort>Very grooden tag</DescriptionShort>
+            <Id>GRooden3</Id>
+            <Color>
+              <Red>100</Red>
+              <Green>166</Green>
+              <Blue>0</Blue>
+              <Hex>#64A600</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Very grood tag</Description>
+            <DescriptionShort>Very grood tag</DescriptionShort>
+            <Id>GRood2</Id>
+            <Color>
+              <Red>100</Red>
+              <Green>0</Green>
+              <Blue>166</Blue>
+              <Hex>#6400A6</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>628.0278481012657</Top>
+      <Left>231.78232911392411</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Monument>
+        <Id>2</Id>
+        <Name> Plaza de Espana, Spain</Name>
+        <Description>One of the most iconic landmarks in Seville, Spain the Plaza de Espana is best hailed for its architecture. Drawing inspiration from the Reconnaissance and Moorish revival periods, it features colourful tiles, fountains and ponds.Flowers bask in the open space, as do orange trees which Seville is particularly known for.Pro tip: Due to its location Sevillian summers can be quite harsh so if you'd prefer to enjoy cool sightseeing weather aim to arrive in April or May.</Description>
+        <Image>D:\Dusan\1Faks\HCI\emlekmu\emlekmu\resources\monument2.png</Image>
+        <Type>
+          <Id>10</Id>
+          <Name>Triumphal arch</Name>
+          <Icon>D:\Dusan\1Faks\HCI\emlekmu\emlekmu\resources\type10.png</Icon>
+          <Description>Almost always to commemorate military successes</Description>
+          <DescriptionShort>Almost always to commemorate m...</DescriptionShort>
+        </Type>
+        <Era>Medieval</Era>
+        <Icon>D:\Dusan\1Faks\HCI\emlekmu\emlekmu\resources\type10.png</Icon>
+        <ArcheologicallyExplored>true</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>true</PopulatedRegion>
+        <TouristicStatus>Unavailable</TouristicStatus>
+        <Income>66000</Income>
+        <DiscoveryDate>11.1.52 BCE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Even verier good tag</Description>
+            <DescriptionShort>Even verier good tag</DescriptionShort>
+            <Id>Good4</Id>
+            <Color>
+              <Red>100</Red>
+              <Green>100</Green>
+              <Blue>166</Blue>
+              <Hex>#6464A6</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Even verier grooden tag</Description>
+            <DescriptionShort>Even verier grooden tag</DescriptionShort>
+            <Id>GRoode6n</Id>
+            <Color>
+              <Red>100</Red>
+              <Green>166</Green>
+              <Blue>100</Blue>
+              <Hex>#64A664</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>768.00759493670887</Top>
+      <Left>306.33675949367091</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Monument>
+        <Id>25</Id>
+        <Name>asdasda</Name>
+        <Description>asdasdasda</Description>
+        <Image>C:\Users\Terra-LT\Desktop\Pepe2.png</Image>
+        <Type>
+          <Id>4</Id>
+          <Name>Church monument</Name>
+          <Icon>D:\Dusan\1Faks\HCI\emlekmu\emlekmu\resources\type4.png</Icon>
+          <Description>To commemorate the faithful dead, located above or near their grave, often featuring an effigy</Description>
+          <DescriptionShort>To commemorate the faithful de...</DescriptionShort>
+        </Type>
+        <Era>Neolithic</Era>
+        <Icon>C:\Users\Terra-LT\Desktop\Pepe2.png</Icon>
+        <ArcheologicallyExplored>false</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>false</PopulatedRegion>
+        <TouristicStatus>Unavailable</TouristicStatus>
+        <Income>123123</Income>
+        <DiscoveryDate>11.11.1111 CE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Very good tag</Description>
+            <DescriptionShort>Very good tag</DescriptionShort>
+            <Id>Good1</Id>
+            <Color>
+              <Red>0</Red>
+              <Green>100</Green>
+              <Blue>166</Blue>
+              <Hex>#0064A6</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>901.90126582278481</Top>
+      <Left>175.48612658227847</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Monument>
+        <Id>26</Id>
+        <Name>asdasdasdasdas</Name>
+        <Description>asdasdassdasda</Description>
+        <Image>C:\Users\Terra-LT\Desktop\slatko.PNG</Image>
+        <Type>
+          <Id>3</Id>
+          <Name>Cenotaph</Name>
+          <Icon>D:\Dusan\1Faks\HCI\emlekmu\emlekmu\resources\type3.png</Icon>
+          <Description>Intended to honor the dead who are buried elsewhere and other memorials to commemorate the dead, usually war casualties</Description>
+          <DescriptionShort>Intended to honor the dead who...</DescriptionShort>
+        </Type>
+        <Era>Paleolith</Era>
+        <Icon>C:\Users\Terra-LT\Desktop\slatko.PNG</Icon>
+        <ArcheologicallyExplored>false</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>false</PopulatedRegion>
+        <TouristicStatus>Available</TouristicStatus>
+        <Income>123124</Income>
+        <DiscoveryDate>11.11.1111 CE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Even verier grood tag</Description>
+            <DescriptionShort>Even verier grood tag</DescriptionShort>
+            <Id>GRood5</Id>
+            <Color>
+              <Red>100</Red>
+              <Green>100</Green>
+              <Blue>166</Blue>
+              <Hex>#6464A6</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Even verier good tag</Description>
+            <DescriptionShort>Even verier good tag</DescriptionShort>
+            <Id>Good4</Id>
+            <Color>
+              <Red>100</Red>
+              <Green>100</Green>
+              <Blue>166</Blue>
+              <Hex>#6464A6</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Very grood tag</Description>
+            <DescriptionShort>Very grood tag</DescriptionShort>
+            <Id>GRood2</Id>
+            <Color>
+              <Red>100</Red>
+              <Green>0</Green>
+              <Blue>166</Blue>
+              <Hex>#6400A6</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Very grooden tag</Description>
+            <DescriptionShort>Very grooden tag</DescriptionShort>
+            <Id>GRooden3</Id>
+            <Color>
+              <Red>100</Red>
+              <Green>166</Green>
+              <Blue>0</Blue>
+              <Hex>#64A600</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Very good tag</Description>
+            <DescriptionShort>Very good tag</DescriptionShort>
+            <Id>Good1</Id>
+            <Color>
+              <Red>0</Red>
+              <Green>100</Green>
+              <Blue>166</Blue>
+              <Hex>#0064A6</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Even verier more grooderen bestere tagEven verier more groven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more oderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag</Description>
+            <DescriptionShort>Even verier more grooderen bes...</DescriptionShort>
+            <Id>GRoode12nasdfghjklpoiiuytsadfghjklj</Id>
+            <Color>
+              <Red>20</Red>
+              <Green>30</Green>
+              <Blue>20</Blue>
+              <Hex>#141E14</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Very good tag</Description>
+            <DescriptionShort>Very good tag</DescriptionShort>
+            <Id>Good13</Id>
+            <Color>
+              <Red>0</Red>
+              <Green>100</Green>
+              <Blue>166</Blue>
+              <Hex>#0064A6</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>685</Top>
+      <Left>472</Left>
+    </MonumentPosition>
+  </map1Monuments>
+  <map2Monuments />
+  <map3Monuments />
+  <map4Monuments />
+</MapPosDG>

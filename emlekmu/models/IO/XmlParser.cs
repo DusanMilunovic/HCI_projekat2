@@ -19,6 +19,42 @@ namespace emlekmu.models.IO
             writer.Close();
         }
 
+        public static void serMapPog(MapPosDG mpdg)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(MapPosDG));
+            TextWriter writer = new StreamWriter(@"../../resources/mappos.xml");
+            ser.Serialize(writer, mpdg);
+            writer.Close();
+        }
+        public static MapPosDG desMapPog(List<Monument> monuments)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(MapPosDG));
+            StreamReader reader = new StreamReader(@"../../resources/mappos.xml");
+            MapPosDG mpdg = (MapPosDG)ser.Deserialize(reader);
+            reader.Close();
+
+            foreach (Monument monument in monuments)
+            {
+                foreach (MonumentPosition mp in mpdg.map1Monuments)
+                {
+                    mp.Monument = monuments.Find(x => x.Id == mp.Monument.Id);
+                }
+                foreach (MonumentPosition mp in mpdg.map2Monuments)
+                {
+                    mp.Monument = monuments.Find(x => x.Id == mp.Monument.Id);
+                }
+                foreach (MonumentPosition mp in mpdg.map3Monuments)
+                {
+                    mp.Monument = monuments.Find(x => x.Id == mp.Monument.Id);
+                }
+                foreach (MonumentPosition mp in mpdg.map4Monuments)
+                {
+                    mp.Monument = monuments.Find(x => x.Id == mp.Monument.Id);
+                }
+            }
+
+            return mpdg;
+        }
         public static DataGraph deserialize()
         {
             XmlSerializer ser = new XmlSerializer(typeof(DataGraph));
@@ -35,23 +71,7 @@ namespace emlekmu.models.IO
                     newTags.Add(ds.tags.Find(x => x.Id == tag.Id));
                 }
                 monument.Tags = new ObservableCollection<Tag>(newTags);
-
-                foreach(MonumentPosition mp in ds.map1Monuments)
-                {
-                    mp.Monument = ds.monuments.Find(x => x.Id == mp.Monument.Id);
-                }
-                foreach (MonumentPosition mp in ds.map2Monuments)
-                {
-                    mp.Monument = ds.monuments.Find(x => x.Id == mp.Monument.Id);
-                }
-                foreach (MonumentPosition mp in ds.map3Monuments)
-                {
-                    mp.Monument = ds.monuments.Find(x => x.Id == mp.Monument.Id);
-                }
-                foreach (MonumentPosition mp in ds.map4Monuments)
-                {
-                    mp.Monument = ds.monuments.Find(x => x.Id == mp.Monument.Id);
-                }
+                
             }
             return ds;
         }

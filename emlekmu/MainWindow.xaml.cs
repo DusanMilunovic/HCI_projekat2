@@ -42,7 +42,7 @@ namespace emlekmu
             MainContent.addMonumentCallback, MainContent.addTypeCallback, MainContent.addTagCallback);
             dialog.Height = 900;
             dialog.Width = 400;
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void AddTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -83,7 +83,7 @@ namespace emlekmu
             EditMonument dialog = new EditMonument(MainContent.Types, MainContent.Tags, MainContent.editMonumentCallback, m, MainContent.addTypeCallback, MainContent.addTagCallback);
             dialog.Width = 400;
             dialog.Height = 950;
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void RemoveMonumentCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)

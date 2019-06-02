@@ -18,7 +18,7 @@ namespace emlekmu.models
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        int red;
+        private int red;
         public int Red
         {
             get
@@ -36,7 +36,7 @@ namespace emlekmu.models
                 }
             }
         }
-        int green;
+        private int green;
         public int Green
         {
             get
@@ -54,7 +54,7 @@ namespace emlekmu.models
                 }
             }
         }
-        int blue;
+        private int blue;
         public int Blue
         {
             get
@@ -73,7 +73,7 @@ namespace emlekmu.models
             }
         }
 
-        string hex;
+        private string hex;
         public string Hex
         {
             get
@@ -90,7 +90,7 @@ namespace emlekmu.models
             }
         }
 
-        string hexi;
+        private string hexi;
         public string Hexi
         {
             get
