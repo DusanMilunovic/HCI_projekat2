@@ -18,7 +18,7 @@
                     <Grid>
                         <ItemsControl x:Name="Root" ItemsSource="{Binding FilteredMonuments}"
                                           PreviewMouseLeftButtonDown="Root2_PreviewMouseLeftButtonDown"
-                                          MouseMove="Root2_MouseMove">>
+                                          MouseMove="Root2_MouseMove">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>
