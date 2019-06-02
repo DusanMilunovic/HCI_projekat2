@@ -175,6 +175,12 @@ namespace emlekmu
 
         private void deleteMenuAction(object s, RoutedEventArgs ea)
         {
+            MessageBoxResult result = MessageBox.Show("Delete Monument?", "delete", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
             DoubleAnimation animation = new DoubleAnimation();
             animation.To = 0;
             //animation.From = 1;

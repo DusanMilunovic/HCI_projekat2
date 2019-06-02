@@ -260,11 +260,11 @@ namespace emlekmu
         private void EditTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             string toEdit = EnlargenedTags.First();
-            Tag t = this.Tags.First(x => x.Id == toEdit);
+            Tag t = this.Tags.SingleOrDefault(x => x.Id == toEdit);
             EditTag dialog = new EditTag(t, this.EditTagCallback);
             dialog.Width = 400;
             dialog.Height = 400;
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void AddTagCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -277,18 +277,24 @@ namespace emlekmu
             AddTag dialog = new AddTag(this.AddTagCallback, this.Tags);
             dialog.Height = 400;
             dialog.Width = 400;
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void DeleteTagCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("Delete Tag?", "delete", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
             e.CanExecute = this.EnlargenedTags.Count > 0;
         }
 
         private void DeleteTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             string toRemove = this.EnlargenedTags.First();
-            Tag t = this.Tags.First(x => x.Id == toRemove);
+            Tag t = this.Tags.SingleOrDefault(x => x.Id == toRemove);
             this.RemoveTagCallback(toRemove);
             this.EnlargenedTags.Remove(toRemove);
         }

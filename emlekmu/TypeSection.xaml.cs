@@ -231,11 +231,11 @@ namespace emlekmu
         private void EditTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             int toEdit = EnlargenedTypes.First();
-            Type m = this.Types.First(x => x.Id == toEdit);
+            Type m = this.Types.SingleOrDefault(x => x.Id == toEdit);
             EditType dialog = new EditType(m, this.EditTypeCallback);
             dialog.Width = 400;
             dialog.Height = 400;
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void AddTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -248,18 +248,24 @@ namespace emlekmu
             AddType dialog = new AddType(this.AddTypeCallback, this.Types);
             dialog.Height = 400;
             dialog.Width = 400;
-            dialog.Show();
+            dialog.ShowDialog();
         }
 
         private void DeleteTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("Delete Type?", "delete", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
             e.CanExecute = this.EnlargenedTypes.Count > 0;
         }
 
         private void DeleteTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             int toRemove = this.EnlargenedTypes.First();
-            Type t = this.Types.First(x => x.Id == toRemove);
+            Type t = this.Types.SingleOrDefault(x => x.Id == toRemove);
             this.RemoveTypeCallback(toRemove);
             this.EnlargenedTypes.Remove(toRemove);
         }

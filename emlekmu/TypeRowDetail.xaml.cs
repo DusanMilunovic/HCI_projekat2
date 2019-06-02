@@ -148,6 +148,12 @@ namespace emlekmu
         
         private void DeleteBtn_Click(object s, RoutedEventArgs ea)
         {
+            MessageBoxResult result = MessageBox.Show("Delete Type?", "delete", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
             DoubleAnimation animation = new DoubleAnimation();
             animation.To = 0;
             //animation.From = 1;

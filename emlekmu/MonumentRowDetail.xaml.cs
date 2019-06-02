@@ -43,15 +43,15 @@ namespace emlekmu
 
 
 
-        public onEditMonument editMonumentCallbackFun
+        public onOpenEditMonument editMonumentCallbackFun
         {
-            get { return (onEditMonument)GetValue(editMonumentCallbackFunProperty); }
+            get { return (onOpenEditMonument)GetValue(editMonumentCallbackFunProperty); }
             set { SetValue(editMonumentCallbackFunProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for editMonumentCallbackFun.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty editMonumentCallbackFunProperty =
-            DependencyProperty.Register("editMonumentCallbackFun", typeof(onEditMonument), typeof(MonumentRowDetail), new PropertyMetadata(null));
+            DependencyProperty.Register("editMonumentCallbackFun", typeof(onOpenEditMonument), typeof(MonumentRowDetail), new PropertyMetadata(null));
 
 
 
@@ -172,6 +172,11 @@ namespace emlekmu
 
         private void DeleteBtn_Click(object s, RoutedEventArgs ea)
         {
+            MessageBoxResult result = MessageBox.Show("Delete Monument?", "delete", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                return;
+            }
             DoubleAnimation animation = new DoubleAnimation();
             animation.To = 0;
             //animation.From = 1;
@@ -197,7 +202,15 @@ namespace emlekmu
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
+            editMonumentCallbackFun(MonumentId);
+        }
 
+        private void onRigthClick(object sender, MouseButtonEventArgs e)
+        {
+            // open context menus
+
+            ContextMenu cm = this.FindResource("cmMonumentRowDetail") as ContextMenu;
+            cm.IsOpen = true;
         }
     }
 }
