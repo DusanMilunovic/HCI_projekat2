@@ -39,7 +39,7 @@
                     <Label Margin="5 5 40 0">Era:</Label>
                     <DockPanel Margin="5 0 40 0">
                         <Button IsEnabled="False" DockPanel.Dock="Right" Height="25" Width="25" x:Name="Reset_era" Click="Reset_era_Click">✕</Button>
-                        <ComboBox FontSize="14" x:Name="input_era" Margin="0 0 20 0"  Height="25" ItemsSource="{Binding Eras}" SelectionChanged="Input_era_SelectionChanged">
+                        <ComboBox FontSize="14" x:Name="input_era" Margin="0 0 20 0"  Height="25" SelectionChanged="Input_era_SelectionChanged">
                             <ComboBoxItem>Paleolith</ComboBoxItem>
                             <ComboBoxItem>Neolithic</ComboBoxItem>
                             <ComboBoxItem>Ancient</ComboBoxItem>
@@ -54,7 +54,7 @@
                         <Label Margin="40 5 5 0">Touristic status:</Label>
                         <DockPanel Margin="5 0 40 0">
                             <Button IsEnabled="False" DockPanel.Dock="Right" Height="25" Width="25" x:Name="Reset_touristic" Click="Reset_touristic_Click">✕</Button>
-                            <ComboBox Margin="0 0 20 0" x:Name="input_touristic" Height="25" ItemsSource="{Binding Touristics}">
+                            <ComboBox Margin="0 0 20 0" x:Name="input_touristic" Height="25">
                                 <ComboBoxItem>Exploited</ComboBoxItem>
                                 <ComboBoxItem>Available</ComboBoxItem>
                                 <ComboBoxItem>Unavailable</ComboBoxItem>
