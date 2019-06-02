@@ -286,7 +286,6 @@ namespace emlekmu
             this.Tags = tags;
             this.AddMonumentCallback = addMonumentCallback;
             this.AddTypeCallBack = addTypeCallback;
-            this.TagListBox.ItemsSource = this.Tags;
             this.AddTagCallback = addTagCallback;
         }
 
