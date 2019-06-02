@@ -207,7 +207,20 @@ namespace emlekmu
                 }
             }
         }
-        
+
+
+
+        public onMapSave saveMapData
+        {
+            get { return (onMapSave)GetValue(saveMapDataProperty); }
+            set { SetValue(saveMapDataProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for saveMapData.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty saveMapDataProperty =
+            DependencyProperty.Register("saveMapData", typeof(onMapSave), typeof(Map), new PropertyMetadata(null));
+
+
 
         public delegate void onRemovePin(Monument m);
         public onRemovePin RemovePinCallback { get; set; }
@@ -218,6 +231,7 @@ namespace emlekmu
             if (mp != null)
             {
                 Positions.Remove(mp);
+                saveMapData();
             }
         } 
 
@@ -283,6 +297,27 @@ namespace emlekmu
             DependencyProperty.Register("OpenAddMonumentCallback", typeof(onOpenAddMonument), typeof(Map), new PropertyMetadata(null));
 
 
+
+        public string MousePositionXText
+        {
+            get { return (string)GetValue(MousePositionXTextProperty); }
+            set { SetValue(MousePositionXTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MousePositionText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MousePositionXTextProperty =
+            DependencyProperty.Register("MousePositionXText", typeof(string), typeof(Map), new PropertyMetadata(""));
+
+
+        public string MousePositionYText
+        {
+            get { return (string)GetValue(MousePositionYTextProperty); }
+            set { SetValue(MousePositionYTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MousePositionText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MousePositionYTextProperty =
+            DependencyProperty.Register("MousePositionYText", typeof(string), typeof(Map), new PropertyMetadata(""));
 
 
         public Map()
@@ -450,7 +485,7 @@ namespace emlekmu
                     positionConflict = false;
                     foreach (MonumentPosition position in Positions)
                     {
-                        if (position.monument.Id != monument.Id)
+                        if (position.Monument.Id != monument.Id)
                         {
                             double diffX = position.Top - (a.X - PinContainerWidth);
                             double diffY = position.Left - (a.Y - PinContainerHeight);
@@ -464,7 +499,7 @@ namespace emlekmu
                 }
                 foreach (MonumentPosition position in Positions)
                 {
-                    if (position.monument != null && position.monument.Id == monument.Id)
+                    if (position.Monument != null && position.Monument.Id == monument.Id)
                     {
                         
                         position.Left = (a.Y - PinContainerWidth);
@@ -474,6 +509,7 @@ namespace emlekmu
                 }
                 MonumentPosition mp = new MonumentPosition(a.X - PinContainerHeight, a.Y - PinContainerWidth, monument);
                 Positions.Add(mp);
+                saveMapData();
             }
         }
 
@@ -486,6 +522,8 @@ namespace emlekmu
         private void Kartocka_MouseMove(object sender, MouseEventArgs e)
         {
             Point mousePos = e.GetPosition(Kartocka);
+            MousePositionXText = "X: " + Convert.ToString(mousePos.X);
+            MousePositionYText = "Y: " + Convert.ToString(mousePos.Y);
             Vector diff = startPoint - mousePos;
             e.Handled = true;
 
@@ -537,6 +575,7 @@ namespace emlekmu
             if (monument != null)
             {
                 Positions.Add(new MonumentPosition(Convert.ToInt32(CurrentMousePoint.X), Convert.ToInt32(CurrentMousePoint.Y), monument));
+                saveMapData();
             }
         }
 

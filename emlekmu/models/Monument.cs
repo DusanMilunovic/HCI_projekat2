@@ -20,7 +20,7 @@ namespace emlekmu.models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int id;
+        private int id;
         public int Id
         {
             get
@@ -37,7 +37,7 @@ namespace emlekmu.models
             }
         }
 
-        public string name;
+        private string name;
         public string Name
         {
             get
@@ -54,7 +54,7 @@ namespace emlekmu.models
             }
         }
 
-        public string description;
+        private string description;
         public string Description
         {
             get
@@ -71,7 +71,7 @@ namespace emlekmu.models
             }
         }
 
-        public string image;
+        private string image;
         public string Image
         {
             get
@@ -88,7 +88,7 @@ namespace emlekmu.models
             }
         }
 
-        public Type type;
+        private Type type;
         public Type Type
         {
             get
@@ -105,7 +105,7 @@ namespace emlekmu.models
             }
         }
 
-        public Era era;
+        private Era era;
         public Era Era
         {
             get
@@ -122,7 +122,7 @@ namespace emlekmu.models
             }
         }
 
-        public string icon;
+        private string icon;
         public string Icon
         {
             get
@@ -139,7 +139,7 @@ namespace emlekmu.models
             }
         }
 
-        public bool archeologicallyExplored;
+        private bool archeologicallyExplored;
         public bool ArcheologicallyExplored
         {
             get
@@ -156,7 +156,7 @@ namespace emlekmu.models
             }
         }
 
-        public bool unesco;
+        private bool unesco;
         public bool Unesco
         {
             get
@@ -173,7 +173,7 @@ namespace emlekmu.models
             }
         }
 
-        public bool populatedRegion;
+        private bool populatedRegion;
         public bool PopulatedRegion
         {
             get
@@ -190,7 +190,7 @@ namespace emlekmu.models
             }
         }
 
-        public TouristicStatus touristicStatus;
+        private TouristicStatus touristicStatus;
         public TouristicStatus TouristicStatus
         {
             get
@@ -207,7 +207,7 @@ namespace emlekmu.models
             }
         }
 
-        public int income;
+        private int income;
         public int Income
         {
             get
@@ -224,7 +224,7 @@ namespace emlekmu.models
             }
         }
 
-        public string discoveryDate;
+        private string discoveryDate;
         public string DiscoveryDate
         {
             get
@@ -241,7 +241,7 @@ namespace emlekmu.models
             }
         }
 
-        public ObservableCollection<Tag> tags;
+        private ObservableCollection<Tag> tags;
         public ObservableCollection<Tag> Tags
         {
             get

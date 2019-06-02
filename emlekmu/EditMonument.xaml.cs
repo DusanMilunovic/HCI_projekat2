@@ -125,24 +125,24 @@ namespace emlekmu
 
         private void copyOldMonument()
         {
-            this.NewMonument.ArcheologicallyExplored = this.oldMonument.archeologicallyExplored;
-            this.NewMonument.Description = this.oldMonument.description;
-            this.NewMonument.DiscoveryDate = this.oldMonument.discoveryDate;
-            this.NewMonument.Era = this.oldMonument.era;
-            this.NewMonument.Icon = this.oldMonument.icon;
-            this.NewMonument.Id = this.oldMonument.id;
-            this.NewMonument.Image = this.oldMonument.image;
-            this.NewMonument.Income = this.oldMonument.income;
-            this.NewMonument.Name = this.OldMonument.name;
-            this.NewMonument.PopulatedRegion = this.oldMonument.populatedRegion;
+            this.NewMonument.ArcheologicallyExplored = this.oldMonument.ArcheologicallyExplored;
+            this.NewMonument.Description = this.oldMonument.Description;
+            this.NewMonument.DiscoveryDate = this.oldMonument.DiscoveryDate;
+            this.NewMonument.Era = this.oldMonument.Era;
+            this.NewMonument.Icon = this.oldMonument.Icon;
+            this.NewMonument.Id = this.oldMonument.Id;
+            this.NewMonument.Image = this.oldMonument.Image;
+            this.NewMonument.Income = this.oldMonument.Income;
+            this.NewMonument.Name = this.OldMonument.Name;
+            this.NewMonument.PopulatedRegion = this.oldMonument.PopulatedRegion;
             this.NewMonument.Tags = new ObservableCollection<emlekmu.models.Tag>();
             foreach(Tag t in this.oldMonument.Tags)
             {
                 this.NewMonument.Tags.Add(t);
             }
-            this.NewMonument.TouristicStatus = this.oldMonument.touristicStatus;
-            this.NewMonument.Type = this.oldMonument.type;
-            this.NewMonument.Unesco = this.oldMonument.unesco;
+            this.NewMonument.TouristicStatus = this.oldMonument.TouristicStatus;
+            this.NewMonument.Type = this.oldMonument.Type;
+            this.NewMonument.Unesco = this.oldMonument.Unesco;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

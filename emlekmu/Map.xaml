@@ -22,8 +22,10 @@
         <StackPanel>
             <Viewbox Stretch="Uniform">
                 <Border BorderThickness="1" BorderBrush="Black">
-                    <Canvas x:Name="Kartocka" MouseWheel="Canvas_MouseWheel" Height="{Binding MyMapHeight}" Width="{Binding MyMapWidth}" Background="AliceBlue"
-                    AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop" MouseRightButtonUp="onRightClick"
+                    <Canvas x:Name="Kartocka" MouseWheel="Canvas_MouseWheel"
+                            Height="{Binding MyMapHeight}" Width="{Binding MyMapWidth}"
+                            Background="AliceBlue" AllowDrop="True" DragEnter="ListView_DragEnter"
+                            Drop="ListView_Drop" MouseRightButtonUp="onRightClick"
                     MouseLeftButtonDown="Kartocka_PreviewMouseLeftButtonDown"
                     MouseMove="Kartocka_MouseMove"
                     MouseLeftButtonUp="Kartocka_PreviewMouseLeftButtonUp">

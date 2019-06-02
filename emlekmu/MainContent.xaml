@@ -14,7 +14,7 @@
                     <MenuItem Header="_Types" Command="cmd:RoutedCommands.ListTypes"/>
                     <MenuItem Header="T_ags" Command="cmd:RoutedCommands.ListTags"/>
                     <Separator />
-                    <MenuItem Header="_Exit" />
+                    <MenuItem Header="_Exit" Click="CloseWindow"/>
                 </MenuItem>
                 <MenuItem Header="_Add">
                     <MenuItem Header="_Monument" Command="cmd:RoutedCommands.AddMonument"/>
@@ -28,10 +28,10 @@
             </Menu>
             <StatusBar DockPanel.Dock="Bottom" Height="20">
                 <StatusBarItem>
-                    <TextBlock Name="lblCursorPositionX"/>
+                    <TextBlock x:Name="lblCursorPositionX" Text="{Binding MousePositionXText}"/>
                 </StatusBarItem>
                 <StatusBarItem>
-                    <TextBlock Name="lblCursorPositionY"/>
+                    <TextBlock x:Name="lblCursorPositionY" Text="{Binding MousePositionYText}"/>
                 </StatusBarItem>
             </StatusBar>
             <Grid>
@@ -39,8 +39,8 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TabControl x:Name="MapsContainer" MouseMove="UpdateStatusBar" Grid.Column="0" Grid.Row="1" Background="AliceBlue">
-                    <TabItem x:Name="Map1Tab" Header="Map1" Width="99" AllowDrop="True" PreviewDragEnter="Map1Tab_PreviewDragEnter">
+                <TabControl x:Name="MapsContainer" Grid.Column="0" Grid.Row="1" Background="AliceBlue">
+                    <TabItem x:Name="Map1Tab" Header="World" Width="70" AllowDrop="True" PreviewDragEnter="Map1Tab_PreviewDragEnter">
                         <Viewbox Stretch="Uniform">
                             <local:Map x:Name="Map1" Positions="{Binding Map1Monuments}"
                                    EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
@@ -48,11 +48,14 @@
                                    OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
                                    PinClickedCallback="{Binding Path=pinClickedCallback}"
                                    OpenAddMonumentCallback="{Binding Path=openAddMonumentCallback}"
-                                   MapName="World" MyMapWidth="1200" MyMapHeight="800">
+                                       MousePositionXText="{Binding Path=MousePositionXText, Mode=TwoWay}"
+                                       MousePositionYText="{Binding Path=MousePositionYText, Mode=TwoWay}"
+                                   MapName="World" MyMapWidth="1200" MyMapHeight="800"
+                                       saveMapData="{Binding mapSaveCallback}">
                             </local:Map>
                         </Viewbox>
                     </TabItem>
-                    <TabItem x:Name="Map2Tab" Header="Map2" Width="99" AllowDrop="True" PreviewDragEnter="Map2Tab_PreviewDragEnter">
+                    <TabItem x:Name="Map2Tab" Header="Europe" Width="70" AllowDrop="True" PreviewDragEnter="Map2Tab_PreviewDragEnter">
                         <Viewbox Stretch="Uniform">
                             <local:Map x:Name="Map2" Positions="{Binding Map2Monuments}"
                                EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
@@ -60,12 +63,15 @@
                                OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
                                PinClickedCallback="{Binding Path=pinClickedCallback}"
                                OpenAddMonumentCallback="{Binding Path=openAddMonumentCallback}"
-                               MapName="Europe" MyMapWidth="800" MyMapHeight="800">
+                                       MousePositionXText="{Binding Path=MousePositionXText, Mode=TwoWay}"
+                                       MousePositionYText="{Binding Path=MousePositionYText, Mode=TwoWay}"
+                               MapName="Europe" MyMapWidth="800" MyMapHeight="800"
+                                       saveMapData="{Binding mapSaveCallback}">
 
                             </local:Map>
                         </Viewbox>
                     </TabItem>
-                    <TabItem x:Name="Map3Tab" Header="Map3" Width="99" AllowDrop="True" PreviewDragEnter="Map3Tab_PreviewDragEnter">
+                    <TabItem x:Name="Map3Tab" Header="Serbia" Width="70" AllowDrop="True" PreviewDragEnter="Map3Tab_PreviewDragEnter">
                         <Viewbox Stretch="Uniform">
                             <local:Map x:Name="Map3" Positions="{Binding Map3Monuments}"
                                EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
@@ -73,23 +79,73 @@
                                OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
                                PinClickedCallback="{Binding Path=pinClickedCallback}"
                                OpenAddMonumentCallback="{Binding Path=openAddMonumentCallback}"
-                               MapName="Serbia" MyMapWidth="800" MyMapHeight="800">
+                                       MousePositionXText="{Binding Path=MousePositionXText, Mode=TwoWay}"
+                                       MousePositionYText="{Binding Path=MousePositionYText, Mode=TwoWay}"
+                               MapName="Serbia" MyMapWidth="800" MyMapHeight="800"
+                                       saveMapData="{Binding mapSaveCallback}">
 
                             </local:Map>
                         </Viewbox>
                     </TabItem>
-                    <TabItem x:Name="Map4Tab" Header="Map4" Width="99" AllowDrop="True" PreviewDragEnter="Map4Tab_PreviewDragEnter">
+                    <TabItem x:Name="Map4Tab" Header="Africa" Width="70" AllowDrop="True" PreviewDragEnter="Map4Tab_PreviewDragEnter">
                         <local:Map x:Name="Map4" Positions="{Binding Map4Monuments}"
                                EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
                                RemoveMonumentCallback="{Binding removeMonumentCallback}"
                                OpenEditMonumentCallback="{Binding Path=openEditMonumentCallback}"
                                PinClickedCallback="{Binding Path=pinClickedCallback}"
                                OpenAddMonumentCallback="{Binding Path=openAddMonumentCallback}"
-                               MapName="Africa" MyMapWidth="800" MyMapHeight="800">
+                                       MousePositionXText="{Binding Path=MousePositionXText, Mode=TwoWay}"
+                                       MousePositionYText="{Binding Path=MousePositionYText, Mode=TwoWay}"
+                               MapName="Africa" MyMapWidth="800" MyMapHeight="800"
+                                   saveMapData="{Binding mapSaveCallback}">
 
                         </local:Map>
                     </TabItem>
                 </TabControl>
+                <DockPanel Grid.Column="1" Grid.Row="1">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                                DockPanel.Dock="Top">
+                        <Button x:Name="Search" Width="100" Height="25" Click="Search_Click">Search
+                            <Button.ToolTip>
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold">Search monuments</TextBlock>
+                                    <TextBlock>Display only searched monuments</TextBlock>
+                                </StackPanel>
+                            </Button.ToolTip>
+                        </Button>
+                        <Button x:Name="Filter" Width="100" Height="25" Click="Filter_Click">Filter
+                            <Button.ToolTip>
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold">Filter monuments</TextBlock>
+                                    <TextBlock>Highlight filtered monuments</TextBlock>
+                                </StackPanel>
+                            </Button.ToolTip>
+                        </Button>
+                    </StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition ></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <local:SearchFilterControl x:Name="SFControl" Grid.Row="0" Visibility="Collapsed"
+                                                   Margin="10"
+                                                   DialogType="{Binding SearchFilter}"
+                                                   SearchCallback="{Binding findMonumentsCallback}"
+                                                   FilterCallback="{Binding filterMonumentsCallback}"
+                                                   Tags="{Binding Tags}"
+                                                   Types="{Binding Types}"></local:SearchFilterControl>
+                        
+                        <local:MonumentsTable Grid.Row="1" x:Name="MonumentTable"
+                                      SearchedMonuments="{Binding SearchedMonuments}"
+                                      AllMonuments="{Binding AllMonuments}"
+                                      Monuments="{Binding SearchedNFMonuments}"
+                                      FilteredMonuments="{Binding FilteredMonuments}"
+                                      RemoveMonumentCallback="{Binding removeMonumentCallback}"
+                                      EditMonumentCallback="{Binding openEditMonumentCallback}"
+                                      MonumentSelectionChangedCallback="{Binding monumentSelectionChangedCallback}" />
+                    </Grid>
+                </DockPanel>
                 <GridSplitter Grid.Column="1" 
                               HorizontalAlignment="Left" 
                               VerticalAlignment="Stretch"
@@ -98,14 +154,6 @@
                               Panel.ZIndex="1"
                               Margin="6 0 2 0"
                               Width="3"/>
-                <local:MonumentsTable x:Name="MonumentTable" Grid.Column="1"
-                                      SearchedMonuments="{Binding SearchedMonuments}"
-                                      AllMonuments="{Binding AllMonuments}"
-                                      Monuments="{Binding SearchedNFMonuments}"
-                                      FilteredMonuments="{Binding FilteredMon uments}"
-                                      RemoveMonumentCallback="{Binding removeMonumentCallback}"
-                                      EditMonumentCallback="{Binding openEditMonumentCallback}"
-                                      MonumentSelectionChangedCallback="{Binding monumentSelectionChangedCallback}" />
 
             </Grid>
         </DockPanel>
