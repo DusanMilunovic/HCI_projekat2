@@ -13,6 +13,16 @@
         <CommandBinding x:Name="AddTagCommand" Command="cmd:RoutedCommands.AddTag" CanExecute="AddTagCommand_CanExecute" Executed="AddTagCommand_Executed"></CommandBinding>
         <CommandBinding x:Name="EditMonumentCommand" Command="cmd:RoutedCommands.EditMonument" CanExecute="EditMonumentCommand_CanExecute" Executed="EditMonumentCommand_Executed"></CommandBinding>
         <CommandBinding x:Name="RemoveMonumentCommand" Command="cmd:RoutedCommands.DeleteMonument" CanExecute="RemoveMonumentCommand_CanExecute" Executed="RemoveMonumentCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="ListTypesCommand" Command="cmd:RoutedCommands.ListTypes" CanExecute="ListTypesCommand_CanExecute" Executed="ListTypesCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="ListTagsCommand" Command="cmd:RoutedCommands.ListTags" CanExecute="ListTagsCommand_CanExecute" Executed="ListTagsCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="NextTabCommand" Command="cmd:RoutedCommands.NextTab" CanExecute="NextTabCommand_CanExecute" Executed="NextTabCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="PreviousTabCommand" Command="cmd:RoutedCommands.PreviousTab" CanExecute="PreviousTabCommand_CanExecute" Executed="PreviousTabCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="Tab1Command" Command="cmd:RoutedCommands.Tab1" CanExecute="Tab1Command_CanExecute" Executed="Tab1Command_Executed"></CommandBinding>
+        <CommandBinding x:Name="Tab2Command" Command="cmd:RoutedCommands.Tab2" CanExecute="Tab2Command_CanExecute" Executed="Tab2Command_Executed"></CommandBinding>
+        <CommandBinding x:Name="Tab3Command" Command="cmd:RoutedCommands.Tab3" CanExecute="Tab3Command_CanExecute" Executed="Tab3Command_Executed"></CommandBinding>
+        <CommandBinding x:Name="Tab4Command" Command="cmd:RoutedCommands.Tab4" CanExecute="Tab4Command_CanExecute" Executed="Tab4Command_Executed"></CommandBinding>
+        <CommandBinding x:Name="CheatSheetCommand" Command="cmd:RoutedCommands.OpenCheatSheet" CanExecute="CheatSheetCommand_CanExecute" Executed="CheatSheetCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="HelpDocumentationCommand" Command="cmd:RoutedCommands.OpenHelpDocumentation" CanExecute="HelpDocumentationCommand_CanExecute" Executed="HelpDocumentationCommand_Executed"></CommandBinding>
     </Window.CommandBindings>
     <Grid>
         <local:MainContent x:Name="MainContent"></local:MainContent>
