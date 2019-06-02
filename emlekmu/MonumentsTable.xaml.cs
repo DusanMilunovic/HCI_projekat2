@@ -83,6 +83,32 @@ namespace emlekmu
 
 
 
+
+        public ObservableCollection<Monument> SearchedMonuments
+        {
+            get { return (ObservableCollection<Monument>)GetValue(SearchedMonumentsProperty); }
+            set { SetValue(SearchedMonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SearchedMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SearchedMonumentsProperty =
+            DependencyProperty.Register("SearchedMonuments", typeof(ObservableCollection<Monument>), typeof(MonumentsTable), new PropertyMetadata(new ObservableCollection<Monument>()));
+
+
+
+        public ObservableCollection<Monument> AllMonuments
+        {
+            get { return (ObservableCollection<Monument>)GetValue(AllMonumentsProperty); }
+            set { SetValue(AllMonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AllMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AllMonumentsProperty =
+            DependencyProperty.Register("AllMonuments", typeof(ObservableCollection<Monument>), typeof(MonumentsTable), new PropertyMetadata(new ObservableCollection<Monument>()));
+
+
+
+
         public ObservableCollection<Monument> FilteredMonuments
         {
             get { return (ObservableCollection<Monument>)GetValue(FilteredMonumentsProperty); }
@@ -120,6 +146,37 @@ namespace emlekmu
             Console.Write("KURAC");
         }
 
+
+
+        public ObservableCollection<int> enMon
+        {
+            get { return (ObservableCollection<int>)GetValue(enMonProperty); }
+            set { SetValue(enMonProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for enMon.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty enMonProperty =
+            DependencyProperty.Register("enMon", typeof(ObservableCollection<int>), typeof(MonumentsTable), new PropertyMetadata(new ObservableCollection<int>()));
+
+
+
+
+
+        public onMonumentSelectionChanged MonumentSelectionChangedCallback
+        {
+            get { return (onMonumentSelectionChanged)GetValue(MonumentSelectionChangedCallbackProperty); }
+            set { SetValue(MonumentSelectionChangedCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MonumentSelectionChangedCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MonumentSelectionChangedCallbackProperty =
+            DependencyProperty.Register("MonumentSelectionChangedCallback", typeof(onMonumentSelectionChanged), typeof(MonumentsTable), new PropertyMetadata(null));
+
+
+
+
+
+
         ObservableCollection<int> enlargenedMonuments;
         public ObservableCollection<int> EnlargenedMonuments
         {
@@ -132,6 +189,7 @@ namespace emlekmu
                 if (value != enlargenedMonuments)
                 {
                     enlargenedMonuments = value;
+                    enMon = enlargenedMonuments;
                     OnPropertyChanged("EnlargenedMonuments");
                 }
             }
@@ -190,6 +248,7 @@ namespace emlekmu
                 myMonumentUC.Visibility = Visibility.Visible;
                 this.EnlargenedMonuments.Remove(id);
             }
+            MonumentSelectionChangedCallback();
         }
     }
 }
