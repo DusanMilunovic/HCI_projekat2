@@ -44,7 +44,9 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
-                            <ItemsControl x:Name="Root2" ItemsSource="{Binding Monuments}">
+                            <ItemsControl x:Name="Root2" ItemsSource="{Binding Monuments}"
+                                          PreviewMouseLeftButtonDown="Root2_PreviewMouseLeftButtonDown"
+                                          MouseMove="Root2_MouseMove">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel>

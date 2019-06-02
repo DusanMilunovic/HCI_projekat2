@@ -172,7 +172,6 @@
       <Id>4</Id>
       <Name> St Peter's Basilica, Italy</Name>
       <Description>According to Catholicism, St Peter's Basilica houses the body of the disciple, St Peter, who is also known as the guardian of the gates to heaven. As an architectural piece, it is majestic, the domes stretch high above and may be climbed all the way, or can be accessed (half the way) via elevator.Pro tip: Arrive in the early afternoon, this way you avoid the tour group crowds, or you may be in line for a while.</Description>
-      <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument4.png</Image>
       <Type>
         <id>10</id>
         <name>Triumphal arch</name>
@@ -182,13 +181,6 @@
         <Name>Triumphal arch</Name>
         <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
         <Description>Almost always to commemorate military successes</Description>
-        <DescriptionShort>Almost always to commemorate m...</DescriptionShort>
-      </Type>
-      <Era>Paleolith</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>true</PopulatedRegion>
       <TouristicStatus>Unavailable</TouristicStatus>
       <Income>52000</Income>
       <DiscoveryDate>20.10.131 BCE</DiscoveryDate>
