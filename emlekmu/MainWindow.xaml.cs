@@ -39,7 +39,7 @@ namespace emlekmu
         private void AddMonumentCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             AddMonument dialog = new AddMonument(MainContent.Monuments, MainContent.Types, MainContent.Tags,
-                MainContent.addMonumentCallback, MainContent.addTypeCallback, MainContent.addTagCallback);
+            MainContent.addMonumentCallback, MainContent.addTypeCallback, MainContent.addTagCallback);
             dialog.Height = 900;
             dialog.Width = 400;
             dialog.Show();

@@ -6,47 +6,71 @@
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
              MouseLeftButtonUp="OnMouseDown"
-             d:DesignHeight="94" d:DesignWidth="904">
-    <Grid x:Name="Root" Margin="5">
-        <Viewbox Stretch="Uniform">
-            <Border BorderBrush="Gray" BorderThickness="2">
-                <StackPanel Orientation="Horizontal" Cursor="Hand" Background="#FFFFFF">
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Width="95" Margin="5 0 0 0" Height="25" FontSize="12">ID:</TextBlock>
-                        <TextBlock Width="95" Margin="5 0 0 0" Height="65" FontSize="16" HorizontalAlignment="Left" Text="{Binding MonumentId}"></TextBlock>
+             d:DesignHeight="90" d:DesignWidth="900">
+    <Grid x:Name="Root" Margin="5" Cursor="Hand">
+        <Border BorderBrush="Gray" BorderThickness="2">
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical" Margin="5 0">
-                        <TextBlock Width="250" Height="25" FontSize="12">Name:</TextBlock>
-                        <TextBlock Width="250" Height="65" FontSize="16" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Text="{Binding MonumentName}"></TextBlock>
 
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Width="195" Height="25" FontSize="12">Type:</TextBlock>
-                        <TextBlock Width="195" Height="65" FontSize="16" HorizontalAlignment="Left" Text="{Binding MonumentType.Name}"></TextBlock>
-                    </StackPanel>
+                <Label Grid.Row="0" Grid.Column="0"
+               FontSize="12" VerticalAlignment="Center">ID:</Label>
+                <Label Grid.Row="0" Grid.Column="1"
+               FontSize="12" VerticalAlignment="Center">Name</Label>
+                <Label Grid.Row="0" Grid.Column="2"
+               FontSize="12" VerticalAlignment="Center">Type</Label>
+                <Label Grid.Row="0" Grid.Column="3"
+               FontSize="12" VerticalAlignment="Center">Tags</Label>
 
-                    <StackPanel Orientation="Vertical">
-                        <Label Width="245" Height="25" FontSize="12">Tags:</Label>
-                        <StackPanel Orientation="Horizontal" Margin="5">
-                            <ItemsControl ItemsSource="{Binding MonumentTags}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Ellipse Width="15" Height="15" Margin="3" Fill="{Binding Color.Hex}" HorizontalAlignment="Right"></Ellipse>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <UniformGrid Rows="1" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
-                        </StackPanel>
-                    </StackPanel>
 
-                    <Image Width="70" Height="70" Margin="10" Source="{Binding MonumentImage}"></Image>
+                <TextBlock Grid.Row="1" Grid.Column="0" FontSize="16"
+                           Margin="10 0 0 0" Text="{Binding MonumentId}"></TextBlock>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <TextBlock  FontSize="16"
+                           Margin="10 0 0 0" Text="{Binding MonumentName}"
+                           TextWrapping="WrapWithOverflow" 
+                           MaxWidth="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                           AncestorType=Grid}, Path=ActualWidth}"></TextBlock>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="2">
+                <TextBlock  FontSize="16"
+                           Margin="10 0 0 0" TextWrapping="WrapWithOverflow"
+                           MaxWidth="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                           AncestorType=Grid}, Path=ActualWidth}"
+                           Text="{Binding MonumentType.Name}"></TextBlock>
+                </Grid>
+                <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" Margin="5">
+                    <ItemsControl ItemsSource="{Binding MonumentTags}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Ellipse Width="15" Height="15" Margin="3"
+                                 Fill="{Binding Color.Hex}"
+                                 HorizontalAlignment="Right"></Ellipse>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Rows="1" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
                 </StackPanel>
-            </Border>
-        </Viewbox>
+
+                <Image Grid.Row="0" Grid.Column="4" Grid.RowSpan="2"
+               Width="50" Height="50" Margin="10"
+               VerticalAlignment="Center" HorizontalAlignment="Center"
+               Source="{Binding MonumentImage}"></Image>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

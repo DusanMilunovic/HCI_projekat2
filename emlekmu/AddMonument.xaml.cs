@@ -288,16 +288,8 @@ namespace emlekmu
             this.AddTypeCallBack = addTypeCallback;
             this.TagListBox.ItemsSource = this.Tags;
             this.AddTagCallback = addTagCallback;
-            this.resetTagFlags();
         }
 
-        public void resetTagFlags()
-        {
-            foreach (Tag t in this.Tags)
-            {
-                t.Selected = false;
-            }
-        }
 
         public int findNextId()
         {
@@ -410,12 +402,10 @@ namespace emlekmu
         private void connectTags()
         {
             this.Monument.Tags = new ObservableCollection<models.Tag>();
-            foreach(Tag t in this.Tags)
+
+            foreach (Tag t in this.TagListBox.SelectedItems)
             {
-                if (t.Selected)
-                {
-                    this.Monument.Tags.Add(t);
-                }
+                this.Monument.Tags.Add(t);
             }
         }
 
@@ -430,6 +420,7 @@ namespace emlekmu
                 this.formatDate();
                 this.connectTags();
                 this.AddMonumentCallback(this.Monument);
+                this.DialogResult = true;
                 this.Close();
             }
             

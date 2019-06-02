@@ -26,6 +26,18 @@ namespace emlekmu
     {
 
 
+
+        public string BorderColor
+        {
+            get { return (string)GetValue(BorderColorProperty); }
+            set { SetValue(BorderColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for BorderColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BorderColorProperty =
+            DependencyProperty.Register("BorderColor", typeof(string), typeof(MonumentRow), new PropertyMetadata("#006699"));
+
+
         public ObservableCollection<int> EnlargenedMonuments
         {
             get { return (ObservableCollection<int>)GetValue(EnlargenedMonumentsProperty); }

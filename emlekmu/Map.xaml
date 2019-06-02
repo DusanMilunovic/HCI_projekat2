@@ -6,15 +6,25 @@
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200">
+    <UserControl.Resources>
+        <ContextMenu x:Key="cmMap">
+            <MenuItem Header="Add Monument" Click="AddMonumentAction"></MenuItem>
+            <MenuItem Header="Zoom In" Click="ZoomInAction"></MenuItem>
+            <MenuItem Header="Zoom Out" Click="ZoomOutAction"></MenuItem>
+        </ContextMenu>
+    </UserControl.Resources>
     <Grid x:Name="Root">
         <StackPanel>
             <Viewbox Stretch="Uniform">
             <Canvas x:Name="Kartocka" MouseWheel="Canvas_MouseWheel" Height="800" Width="1200" Background="PeachPuff"
-                    AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop">
+                    AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop" MouseRightButtonUp="onRightClick"
+                    MouseLeftButtonDown="Kartocka_PreviewMouseLeftButtonDown"
+                    MouseMove="Kartocka_MouseMove"
+                    MouseLeftButtonUp="Kartocka_PreviewMouseLeftButtonUp">
                 <Canvas.RenderTransform>
                     <ScaleTransform x:Name="st"/>
                 </Canvas.RenderTransform>
-                <local:MapWorld Height="800" Width="1200"></local:MapWorld>
+                <local:MapWorld x:Name="World" Height="800" Width="1200"></local:MapWorld>
                 <TextBlock Canvas.Left="120" Canvas.Top="500" Foreground="Red">AKREP</TextBlock>
                 <ItemsControl ItemsSource="{Binding Positions}">
                     <ItemsControl.ItemsPanel>
@@ -24,12 +34,16 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid Height="80" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <local:MonumentPin  Width="{Binding ElementName=Root, Path=DataContext.EWidth}"
                                           Height="{Binding ElementName=Root, Path=DataContext.EHeight}"
                                           MyMonument="{Binding Monument}"
+                                          OpenEditMonumentCallback="{Binding ElementName=Root, Path=DataContext.OpenEditMonumentCallback}"
+                                          RemoveMonumentCallback="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}"
+                                          PinClickedCallback="{Binding ElementName=Root, Path=DataContext.PinClickedCallback}"
                                           PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" 
-                                          MouseMove="ListView_MouseMove">
+                                          MouseMove="ListView_MouseMove" MouseLeftButtonDown="MonumentPin_MouseLeftButtonDown"
+                                          EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}">
                                 </local:MonumentPin>
                             </Grid>
                         </DataTemplate>

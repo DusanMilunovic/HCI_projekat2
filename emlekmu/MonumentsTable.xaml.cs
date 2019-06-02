@@ -81,6 +81,45 @@ namespace emlekmu
             }
         }
 
+
+
+
+        public ObservableCollection<Monument> SearchedMonuments
+        {
+            get { return (ObservableCollection<Monument>)GetValue(SearchedMonumentsProperty); }
+            set { SetValue(SearchedMonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SearchedMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SearchedMonumentsProperty =
+            DependencyProperty.Register("SearchedMonuments", typeof(ObservableCollection<Monument>), typeof(MonumentsTable), new PropertyMetadata(new ObservableCollection<Monument>()));
+
+
+
+        public ObservableCollection<Monument> AllMonuments
+        {
+            get { return (ObservableCollection<Monument>)GetValue(AllMonumentsProperty); }
+            set { SetValue(AllMonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AllMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AllMonumentsProperty =
+            DependencyProperty.Register("AllMonuments", typeof(ObservableCollection<Monument>), typeof(MonumentsTable), new PropertyMetadata(new ObservableCollection<Monument>()));
+
+
+
+
+        public ObservableCollection<Monument> FilteredMonuments
+        {
+            get { return (ObservableCollection<Monument>)GetValue(FilteredMonumentsProperty); }
+            set { SetValue(FilteredMonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for FilteredMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty FilteredMonumentsProperty =
+            DependencyProperty.Register("FilteredMonuments", typeof(ObservableCollection<Monument>), typeof(MonumentsTable), new PropertyMetadata(new ObservableCollection<Monument>()));
+
+
         public ObservableCollection<Monument> Monuments
         {
             get { return (ObservableCollection<Monument>)GetValue(MonumentsProperty); }
@@ -107,6 +146,37 @@ namespace emlekmu
             Console.Write("KURAC");
         }
 
+
+
+        public ObservableCollection<int> enMon
+        {
+            get { return (ObservableCollection<int>)GetValue(enMonProperty); }
+            set { SetValue(enMonProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for enMon.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty enMonProperty =
+            DependencyProperty.Register("enMon", typeof(ObservableCollection<int>), typeof(MonumentsTable), new PropertyMetadata(new ObservableCollection<int>()));
+
+
+
+
+
+        public onMonumentSelectionChanged MonumentSelectionChangedCallback
+        {
+            get { return (onMonumentSelectionChanged)GetValue(MonumentSelectionChangedCallbackProperty); }
+            set { SetValue(MonumentSelectionChangedCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MonumentSelectionChangedCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MonumentSelectionChangedCallbackProperty =
+            DependencyProperty.Register("MonumentSelectionChangedCallback", typeof(onMonumentSelectionChanged), typeof(MonumentsTable), new PropertyMetadata(null));
+
+
+
+
+
+
         ObservableCollection<int> enlargenedMonuments;
         public ObservableCollection<int> EnlargenedMonuments
         {
@@ -119,6 +189,7 @@ namespace emlekmu
                 if (value != enlargenedMonuments)
                 {
                     enlargenedMonuments = value;
+                    enMon = enlargenedMonuments;
                     OnPropertyChanged("EnlargenedMonuments");
                 }
             }
@@ -176,6 +247,61 @@ namespace emlekmu
                 myMonumentDUC.Visibility = Visibility.Collapsed;
                 myMonumentUC.Visibility = Visibility.Visible;
                 this.EnlargenedMonuments.Remove(id);
+            }
+            MonumentSelectionChangedCallback();
+        }
+
+        public void ScrollToSelected()
+        {
+            if (EnlargenedMonuments.Count == 0)
+            {
+                return;
+            }
+            int Id = EnlargenedMonuments[0];
+            Monument selectedMonument = Monuments.SingleOrDefault(x => x.Id == Id);
+            if (selectedMonument != null)
+            {
+                int idx = Monuments.IndexOf(selectedMonument);
+                Scroller.ScrollToVerticalOffset(idx * 84);
+            }
+        }
+        
+        Point startPoint = new Point();
+        private void Root2_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(null);
+        }
+
+        private void Root2_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePos = e.GetPosition(null);
+            Vector diff = startPoint - mousePos;
+            e.Handled = true;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            {
+                // Get the dragged ListViewItem
+                ItemsControl itemControl = sender as ItemsControl;
+                MonumentRow itemControlItem1 =
+                    Map.FindAncestor<MonumentRow>((DependencyObject)e.OriginalSource);
+                Monument monument;
+                if (itemControlItem1 == null)
+                {
+                    MonumentRowDetail itemControlItem2 =
+                        Map.FindAncestor<MonumentRowDetail>((DependencyObject)e.OriginalSource);
+                    monument = (Monument)itemControlItem2.DataContext;
+                }
+                else
+                {
+                    monument = (Monument)itemControlItem1.DataContext;
+                }
+                // Find the data behind the ListViewItem
+
+                // Initialize the drag & drop operation
+                DataObject dragData = new DataObject("myFormat", monument);
+                DragDrop.DoDragDrop((DependencyObject)e.OriginalSource, dragData, DragDropEffects.Move);
             }
         }
     }
