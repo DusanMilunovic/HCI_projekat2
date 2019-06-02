@@ -25,9 +25,21 @@ namespace emlekmu.models.IO
                     retVal.types.Add(new Type(id, values[1], image, values[2]));
                 }
             }
+            using (var reader = new StreamReader(@"../../resources/tags.txt"))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split('|');
+                    string id = values[0];
+                    string image = ABSOLUTE_PATH + "type" + values[0] + ".png";
+                    retVal.tags.Add(new Tag(id, new Color(255, 255, 255), values[1]));
+                }
+            }
             using (var reader = new StreamReader(@"../../resources/monuments.txt"))
             {
                 //skip first
+                Random r = new Random();
                 reader.ReadLine();
                 while (!reader.EndOfStream)
                 {
@@ -48,7 +60,16 @@ namespace emlekmu.models.IO
                     var touristic = Enumerations.stringToTouristic(values[10]);
                     var income = Convert.ToInt32(values[11]);
                     var date = values[12];
-                    retVal.monuments.Add(new Monument(id, name, description, image, type, era, icon, archeological, unesco, populated, touristic, income, date));
+
+                    int numoftags = r.Next(1, 3);
+                    List<Tag> tagzzz = new List<Tag>();
+                    for (int i = 0; i < numoftags; i++)
+                    {
+                        Tag t = retVal.tags.ElementAt(r.Next(0, retVal.tags.Count() - 1));
+                        if (tagzzz.IndexOf(t) == -1)
+                            tagzzz.Add(t);
+                    }
+                    retVal.monuments.Add(new Monument(id, name, description, image, type, era, icon, archeological, unesco, populated, touristic, income, date, tagzzz));
 
 
                 }

@@ -265,7 +265,7 @@ namespace emlekmu.models
         }
 
         public Monument(int Id, string Name, string Description,string Image, Type Type, Era Era, string Icon, bool ArcheologicallyExplored, bool Unesco, bool PopulatedRegion,
-            TouristicStatus TouristicStatus, int Income, string DiscoveryDate)
+            TouristicStatus TouristicStatus, int Income, string DiscoveryDate, List<Tag> tags)
         {
             this.Id = Id;
             this.Name = Name;
@@ -273,6 +273,7 @@ namespace emlekmu.models
             this.Description = Description;
             this.Type = Type;
             this.Era = Era;
+            this.Tags = new ObservableCollection<Tag>(tags);
             this.Icon = Icon;
             this.ArcheologicallyExplored = ArcheologicallyExplored;
             this.Unesco = Unesco;

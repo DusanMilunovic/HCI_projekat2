@@ -1419,15 +1419,23 @@ namespace emlekmu
         #endregion
 
         #region DialogCallbacks
-        public delegate void onOpenEditMonument(int monumentId);
+        public delegate Monument onOpenEditMonument(int monumentId);
         public onOpenEditMonument openEditMonumentCallback { get; set; }
 
-        public void openEditMonument(int monumentId)
+        public Monument openEditMonument(int monumentId)
         {
             Monument monumentToEdit = Monuments.SingleOrDefault(x => x.Id == monumentId);
 
             EditMonument editMonumentDialog = new EditMonument(Types, Tags, editMonumentCallback, monumentToEdit, addTypeCallback, addTagCallback);
             editMonumentDialog.ShowDialog();
+
+            if (editMonumentDialog.DialogResult.HasValue && editMonumentDialog.DialogResult.Value)
+            {
+                return editMonumentDialog.NewMonument;
+            } else
+            {
+                return null;
+            }
         }
 
         public delegate Monument onOpenAddMonument();
@@ -1539,7 +1547,7 @@ namespace emlekmu
 
             //DataGraph dataGraph = CsvParser.readCSV();
             //XmlParser.serialize(dataGraph);
-            MapPosDG mp = new MapPosDG();
+            //MapPosDG mp = new MapPosDG();
             //XmlParser.serMapPog(mp);
 
             DataGraph dataGraph = XmlParser.deserialize();

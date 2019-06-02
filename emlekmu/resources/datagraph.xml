@@ -23,41 +23,28 @@
       <DiscoveryDate>11.1.265 BCE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Even verier good tag</Description>
-          <DescriptionShort>Even verier good tag</DescriptionShort>
-          <Id>Good4</Id>
+          <Description>Simple and effective, massive and powerful</Description>
+          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+          <Id>Stone</Id>
           <Color>
-            <Red>100</Red>
-            <Green>100</Green>
-            <Blue>166</Blue>
-            <Hex>#6464A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Very grooden tag</Description>
-          <DescriptionShort>Very grooden tag</DescriptionShort>
-          <Id>GRooden3</Id>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
           <Color>
-            <Red>100</Red>
-            <Green>166</Green>
-            <Blue>0</Blue>
-            <Hex>#64A600</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Very grood tag</Description>
-          <DescriptionShort>Very grood tag</DescriptionShort>
-          <Id>GRood2</Id>
-          <Color>
-            <Red>100</Red>
-            <Green>0</Green>
-            <Blue>166</Blue>
-            <Hex>#6400A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -85,28 +72,28 @@
       <DiscoveryDate>11.1.52 BCE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Even verier good tag</Description>
-          <DescriptionShort>Even verier good tag</DescriptionShort>
-          <Id>Good4</Id>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
           <Color>
-            <Red>100</Red>
-            <Green>100</Green>
-            <Blue>166</Blue>
-            <Hex>#6464A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Even verier grooden tag</Description>
-          <DescriptionShort>Even verier grooden tag</DescriptionShort>
-          <Id>GRoode6n</Id>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
           <Color>
-            <Red>100</Red>
-            <Green>166</Green>
-            <Blue>100</Blue>
-            <Hex>#64A664</Hex>
-            <Hexi>#FFFFFF</Hexi>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -132,7 +119,21 @@
       <TouristicStatus>Exploited</TouristicStatus>
       <Income>56000</Income>
       <DiscoveryDate>11.2.726 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Carved from pure marble</Description>
+          <DescriptionShort>Carved from pure marble</DescriptionShort>
+          <Id>Marble</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>4</Id>
@@ -154,7 +155,34 @@
       <TouristicStatus>Unavailable</TouristicStatus>
       <Income>52000</Income>
       <DiscoveryDate>20.10.131 BCE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Heave bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>5</Id>
@@ -176,7 +204,21 @@
       <TouristicStatus>Unavailable</TouristicStatus>
       <Income>193000</Income>
       <DiscoveryDate>14.6.227 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>6</Id>
@@ -198,7 +240,21 @@
       <TouristicStatus>Available</TouristicStatus>
       <Income>174000</Income>
       <DiscoveryDate>15.9.914 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Carved from pure marble</Description>
+          <DescriptionShort>Carved from pure marble</DescriptionShort>
+          <Id>Marble</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>7</Id>
@@ -220,7 +276,21 @@
       <TouristicStatus>Exploited</TouristicStatus>
       <Income>232000</Income>
       <DiscoveryDate>17.3.1110 BCE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Simple and effective, massive and powerful</Description>
+          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+          <Id>Stone</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>8</Id>
@@ -242,7 +312,21 @@
       <TouristicStatus>Unavailable</TouristicStatus>
       <Income>133000</Income>
       <DiscoveryDate>1.10.413 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Simple and effective, massive and powerful</Description>
+          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+          <Id>Stone</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>9</Id>
@@ -264,7 +348,21 @@
       <TouristicStatus>Unavailable</TouristicStatus>
       <Income>37000</Income>
       <DiscoveryDate>6.3.156 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Refined iron, indicator of rich war winners</Description>
+          <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
+          <Id>Steel</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>10</Id>
@@ -286,7 +384,21 @@
       <TouristicStatus>Available</TouristicStatus>
       <Income>119000</Income>
       <DiscoveryDate>23.2.1201 BCE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Hard metal material used during war periods</Description>
+          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+          <Id>Iron</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>11</Id>
@@ -308,7 +420,21 @@
       <TouristicStatus>Available</TouristicStatus>
       <Income>45000</Income>
       <DiscoveryDate>3.4.1084 BCE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>12</Id>
@@ -330,7 +456,21 @@
       <TouristicStatus>Exploited</TouristicStatus>
       <Income>101000</Income>
       <DiscoveryDate>1.4.767 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Simple and effective, massive and powerful</Description>
+          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+          <Id>Stone</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>13</Id>
@@ -352,7 +492,34 @@
       <TouristicStatus>Unavailable</TouristicStatus>
       <Income>66000</Income>
       <DiscoveryDate>17.12.13 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Carved from pure marble</Description>
+          <DescriptionShort>Carved from pure marble</DescriptionShort>
+          <Id>Marble</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Hard metal material used during war periods</Description>
+          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+          <Id>Iron</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>14</Id>
@@ -374,7 +541,21 @@
       <TouristicStatus>Available</TouristicStatus>
       <Income>98000</Income>
       <DiscoveryDate>4.4.6 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>15</Id>
@@ -396,7 +577,34 @@
       <TouristicStatus>Unavailable</TouristicStatus>
       <Income>186000</Income>
       <DiscoveryDate>6.1.130 BCE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Carved from pure marble</Description>
+          <DescriptionShort>Carved from pure marble</DescriptionShort>
+          <Id>Marble</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>16</Id>
@@ -418,7 +626,34 @@
       <TouristicStatus>Exploited</TouristicStatus>
       <Income>72000</Income>
       <DiscoveryDate>8.4.406 BCE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Heave bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Simple and effective, massive and powerful</Description>
+          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+          <Id>Stone</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>17</Id>
@@ -440,7 +675,21 @@
       <TouristicStatus>Exploited</TouristicStatus>
       <Income>185000</Income>
       <DiscoveryDate>18.6.336 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>18</Id>
@@ -462,7 +711,21 @@
       <TouristicStatus>Unavailable</TouristicStatus>
       <Income>20000</Income>
       <DiscoveryDate>1.12.1087 BCE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Carved from pure marble</Description>
+          <DescriptionShort>Carved from pure marble</DescriptionShort>
+          <Id>Marble</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>19</Id>
@@ -484,7 +747,21 @@
       <TouristicStatus>Unavailable</TouristicStatus>
       <Income>195000</Income>
       <DiscoveryDate>6.7.1227 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>20</Id>
@@ -506,7 +783,21 @@
       <TouristicStatus>Exploited</TouristicStatus>
       <Income>136000</Income>
       <DiscoveryDate>5.1.1498 BCE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>21</Id>
@@ -528,7 +819,21 @@
       <TouristicStatus>Available</TouristicStatus>
       <Income>222000</Income>
       <DiscoveryDate>11.2.44 BCE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>22</Id>
@@ -550,7 +855,21 @@
       <TouristicStatus>Exploited</TouristicStatus>
       <Income>132000</Income>
       <DiscoveryDate>26.8.720 CE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Carved from pure marble</Description>
+          <DescriptionShort>Carved from pure marble</DescriptionShort>
+          <Id>Marble</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>23</Id>
@@ -572,7 +891,34 @@
       <TouristicStatus>Exploited</TouristicStatus>
       <Income>218000</Income>
       <DiscoveryDate>1.1.1431 BCE</DiscoveryDate>
-      <Tags />
+      <Tags>
+        <Tag>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Heave bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
     </Monument>
     <Monument>
       <Id>24</Id>
@@ -594,297 +940,30 @@
       <TouristicStatus>Exploited</TouristicStatus>
       <Income>100000</Income>
       <DiscoveryDate>16.1.839 CE</DiscoveryDate>
-      <Tags />
-    </Monument>
-    <Monument>
-      <Id>27</Id>
-      <Name>asfsdfg</Name>
-      <Description>gsdgfsdfgsdg</Description>
-      <Image>C:\Users\Nenad\Documents\v4-ml\img\kmeans_fail.png</Image>
-      <Type>
-        <Id>2</Id>
-        <Name>Building</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type2.png</Icon>
-        <Description>Designed as landmarks, usually built with an extraordinary feature, such being designed as the tallest, largest, or most distinctive design</Description>
-        <DescriptionShort>Designed as landmarks, usually...</DescriptionShort>
-      </Type>
-      <Era>Neolithic</Era>
-      <Icon>C:\Users\Nenad\Documents\v4-ml\img\iris.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>true</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Available</TouristicStatus>
-      <Income>123123</Income>
-      <DiscoveryDate>11.11.1111 BCE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Very good tag</Description>
-          <DescriptionShort>Very good tag</DescriptionShort>
-          <Id>Good1</Id>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
           <Color>
-            <Red>0</Red>
-            <Green>100</Green>
-            <Blue>166</Blue>
-            <Hex>#0064A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Very grooden tag</Description>
-          <DescriptionShort>Very grooden tag</DescriptionShort>
-          <Id>GRooden3</Id>
+          <Description>Hard metal material used during war periods</Description>
+          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+          <Id>Iron</Id>
           <Color>
-            <Red>100</Red>
-            <Green>166</Green>
-            <Blue>0</Blue>
-            <Hex>#64A600</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Even verier good tag</Description>
-          <DescriptionShort>Even verier good tag</DescriptionShort>
-          <Id>Good4</Id>
-          <Color>
-            <Red>100</Red>
-            <Green>100</Green>
-            <Blue>166</Blue>
-            <Hex>#6464A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Even verier grooden tag</Description>
-          <DescriptionShort>Even verier grooden tag</DescriptionShort>
-          <Id>GRoode6n</Id>
-          <Color>
-            <Red>100</Red>
-            <Green>166</Green>
-            <Blue>100</Blue>
-            <Hex>#64A664</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>25</Id>
-      <Name>safsdf</Name>
-      <Description>sfdfsdfsd</Description>
-      <Image>C:\Users\Nenad\Documents\v4-ml\img\dbscan.png</Image>
-      <Type>
-        <Id>2</Id>
-        <Name>Building</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type2.png</Icon>
-        <Description>Designed as landmarks, usually built with an extraordinary feature, such being designed as the tallest, largest, or most distinctive design</Description>
-        <DescriptionShort>Designed as landmarks, usually...</DescriptionShort>
-      </Type>
-      <Era>Neolithic</Era>
-      <Icon>C:\Users\Nenad\Documents\v4-ml\img\dbscan.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>true</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Exploited</TouristicStatus>
-      <Income>12312</Income>
-      <DiscoveryDate>11.11.1111 BCE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Very good tag</Description>
-          <DescriptionShort>Very good tag</DescriptionShort>
-          <Id>Good1</Id>
-          <Color>
-            <Red>0</Red>
-            <Green>100</Green>
-            <Blue>166</Blue>
-            <Hex>#0064A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Very grood tag</Description>
-          <DescriptionShort>Very grood tag</DescriptionShort>
-          <Id>GRood2</Id>
-          <Color>
-            <Red>100</Red>
-            <Green>0</Green>
-            <Blue>166</Blue>
-            <Hex>#6400A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>26</Id>
-      <Name>112</Name>
-      <Description>123</Description>
-      <Image>C:\Users\Nenad\Documents\v4-ml\img\sse.png</Image>
-      <Type>
-        <Id>2</Id>
-        <Name>Building</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type2.png</Icon>
-        <Description>Designed as landmarks, usually built with an extraordinary feature, such being designed as the tallest, largest, or most distinctive design</Description>
-        <DescriptionShort>Designed as landmarks, usually...</DescriptionShort>
-      </Type>
-      <Era>Ancient</Era>
-      <Icon>C:\Users\Nenad\Documents\v4-ml\img\sse.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Available</TouristicStatus>
-      <Income>121230</Income>
-      <DiscoveryDate>11.11.1111 CE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Very good tag</Description>
-          <DescriptionShort>Very good tag</DescriptionShort>
-          <Id>Good1</Id>
-          <Color>
-            <Red>0</Red>
-            <Green>100</Green>
-            <Blue>166</Blue>
-            <Hex>#0064A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Very grood tag</Description>
-          <DescriptionShort>Very grood tag</DescriptionShort>
-          <Id>GRood2</Id>
-          <Color>
-            <Red>100</Red>
-            <Green>0</Green>
-            <Blue>166</Blue>
-            <Hex>#6400A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>28</Id>
-      <Name>dsgfds</Name>
-      <Description>gsdgdfgd</Description>
-      <Image>C:\Users\Nenad\Documents\v4-ml\img\iris.png</Image>
-      <Type>
-        <Id>1</Id>
-        <Name>Benchmark</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type1.png</Icon>
-        <Description>Placed by a government agency or private survey firm.</Description>
-        <DescriptionShort>Placed by a government agency ...</DescriptionShort>
-      </Type>
-      <Era>Neolithic</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type1.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Available</TouristicStatus>
-      <Income>124235</Income>
-      <DiscoveryDate>11.11.1111 BCE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Very grooden tag</Description>
-          <DescriptionShort>Very grooden tag</DescriptionShort>
-          <Id>GRooden3</Id>
-          <Color>
-            <Red>100</Red>
-            <Green>166</Green>
-            <Blue>0</Blue>
-            <Hex>#64A600</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>29</Id>
-      <Name>sdgdsf</Name>
-      <Description>dfgdfg</Description>
-      <Image>C:\Users\Nenad\Documents\v4-ml\img\iris.png</Image>
-      <Type>
-        <Id>1</Id>
-        <Name>Benchmark</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type1.png</Icon>
-        <Description>Placed by a government agency or private survey firm.</Description>
-        <DescriptionShort>Placed by a government agency ...</DescriptionShort>
-      </Type>
-      <Era>Neolithic</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type1.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Exploited</TouristicStatus>
-      <Income>12432354</Income>
-      <DiscoveryDate>11.11.1111 CE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Very good tag</Description>
-          <DescriptionShort>Very good tag</DescriptionShort>
-          <Id>Good1</Id>
-          <Color>
-            <Red>0</Red>
-            <Green>100</Green>
-            <Blue>166</Blue>
-            <Hex>#0064A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>30</Id>
-      <Name>Num</Name>
-      <Description>deskr</Description>
-      <Image>C:\Users\Nenad\Documents\v4-ml\img\kmeans_fail.png</Image>
-      <Type>
-        <Id>5</Id>
-        <Name>Column</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type5.png</Icon>
-        <Description>Often topped with a statue</Description>
-        <DescriptionShort>Often topped with a statue</DescriptionShort>
-      </Type>
-      <Era>Ancient</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type5.png</Icon>
-      <ArcheologicallyExplored>false</ArcheologicallyExplored>
-      <Unesco>true</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Available</TouristicStatus>
-      <Income>220</Income>
-      <DiscoveryDate>11.11.1111 BCE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Very grooden tag</Description>
-          <DescriptionShort>Very grooden tag</DescriptionShort>
-          <Id>GRooden3</Id>
-          <Color>
-            <Red>100</Red>
-            <Green>166</Green>
-            <Blue>0</Blue>
-            <Hex>#64A600</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Even verier good tag</Description>
-          <DescriptionShort>Even verier good tag</DescriptionShort>
-          <Id>Good4</Id>
-          <Color>
-            <Red>100</Red>
-            <Green>100</Green>
-            <Blue>166</Blue>
-            <Hex>#6464A6</Hex>
-            <Hexi>#FFFFFF</Hexi>
+            <Red>255</Red>
+            <Green>255</Green>
+            <Blue>255</Blue>
+            <Hex>#FFFFFF</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -893,314 +972,119 @@
   </monuments>
   <tags>
     <Tag>
-      <Description>Very good tag</Description>
-      <DescriptionShort>Very good tag</DescriptionShort>
-      <Id>Good1</Id>
+      <Description>Carved from pure marble</Description>
+      <DescriptionShort>Carved from pure marble</DescriptionShort>
+      <Id>Marble</Id>
       <Color>
-        <Red>0</Red>
-        <Green>100</Green>
-        <Blue>166</Blue>
-        <Hex>#0064A6</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Very grood tag</Description>
-      <DescriptionShort>Very grood tag</DescriptionShort>
-      <Id>GRood2</Id>
-      <Color>
-        <Red>100</Red>
-        <Green>0</Green>
-        <Blue>166</Blue>
-        <Hex>#6400A6</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Very grooden tag</Description>
-      <DescriptionShort>Very grooden tag</DescriptionShort>
-      <Id>GRooden3</Id>
-      <Color>
-        <Red>100</Red>
-        <Green>166</Green>
-        <Blue>0</Blue>
-        <Hex>#64A600</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier good tag</Description>
-      <DescriptionShort>Even verier good tag</DescriptionShort>
-      <Id>Good4</Id>
-      <Color>
-        <Red>100</Red>
-        <Green>100</Green>
-        <Blue>166</Blue>
-        <Hex>#6464A6</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier grood tag</Description>
-      <DescriptionShort>Even verier grood tag</DescriptionShort>
-      <Id>GRood5</Id>
-      <Color>
-        <Red>100</Red>
-        <Green>100</Green>
-        <Blue>166</Blue>
-        <Hex>#6464A6</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier grooden tag</Description>
-      <DescriptionShort>Even verier grooden tag</DescriptionShort>
-      <Id>GRoode6n</Id>
-      <Color>
-        <Red>100</Red>
-        <Green>166</Green>
-        <Blue>100</Blue>
-        <Hex>#64A664</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier beste tag</Description>
-      <DescriptionShort>Even verier beste tag</DescriptionShort>
-      <Id>Good7</Id>
-      <Color>
-        <Red>45</Red>
-        <Green>100</Green>
-        <Blue>166</Blue>
-        <Hex>#2D64A6</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier bestere tag</Description>
-      <DescriptionShort>Even verier bestere tag</DescriptionShort>
-      <Id>GRood8</Id>
-      <Color>
-        <Red>130</Red>
-        <Green>207</Green>
-        <Blue>166</Blue>
-        <Hex>#82CFA6</Hex>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
         <Hexi>#000000</Hexi>
       </Color>
       <Selected>false</Selected>
     </Tag>
     <Tag>
-      <Description>Even verier besterederen tag</Description>
-      <DescriptionShort>Even verier besterederen tag</DescriptionShort>
-      <Id>GRoode9n</Id>
+      <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+      <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+      <Id>Black Marble</Id>
       <Color>
-        <Red>114</Red>
-        <Green>20</Green>
-        <Blue>35</Blue>
-        <Hex>#721423</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier more grood beste tag</Description>
-      <DescriptionShort>Even verier more grood beste t...</DescriptionShort>
-      <Id>Good0</Id>
-      <Color>
-        <Red>66</Red>
-        <Green>100</Green>
-        <Blue>200</Blue>
-        <Hex>#4264C8</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier more grooder beste tag</Description>
-      <DescriptionShort>Even verier more grooder beste...</DescriptionShort>
-      <Id>GRood11</Id>
-      <Color>
-        <Red>70</Red>
-        <Green>100</Green>
-        <Blue>50</Blue>
-        <Hex>#466432</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier more grooderen bestere tagEven verier more groven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more oderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag</Description>
-      <DescriptionShort>Even verier more grooderen bes...</DescriptionShort>
-      <Id>GRoode12nasdfghjklpoiiuytsadfghjklj</Id>
-      <Color>
-        <Red>20</Red>
-        <Green>30</Green>
-        <Blue>20</Blue>
-        <Hex>#141E14</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Very good tag</Description>
-      <DescriptionShort>Very good tag</DescriptionShort>
-      <Id>Good13</Id>
-      <Color>
-        <Red>0</Red>
-        <Green>100</Green>
-        <Blue>166</Blue>
-        <Hex>#0064A6</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Very grood tag</Description>
-      <DescriptionShort>Very grood tag</DescriptionShort>
-      <Id>GRood14</Id>
-      <Color>
-        <Red>100</Red>
-        <Green>0</Green>
-        <Blue>166</Blue>
-        <Hex>#6400A6</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Very grooden tag</Description>
-      <DescriptionShort>Very grooden tag</DescriptionShort>
-      <Id>GRoode15n</Id>
-      <Color>
-        <Red>100</Red>
-        <Green>166</Green>
-        <Blue>0</Blue>
-        <Hex>#64A600</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier good tag</Description>
-      <DescriptionShort>Even verier good tag</DescriptionShort>
-      <Id>Good136</Id>
-      <Color>
-        <Red>100</Red>
-        <Green>100</Green>
-        <Blue>166</Blue>
-        <Hex>#6464A6</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier grood tag</Description>
-      <DescriptionShort>Even verier grood tag</DescriptionShort>
-      <Id>GRood145</Id>
-      <Color>
-        <Red>100</Red>
-        <Green>100</Green>
-        <Blue>166</Blue>
-        <Hex>#6464A6</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier grooden tag</Description>
-      <DescriptionShort>Even verier grooden tag</DescriptionShort>
-      <Id>GRood453en1</Id>
-      <Color>
-        <Red>100</Red>
-        <Green>166</Green>
-        <Blue>100</Blue>
-        <Hex>#64A664</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier beste tag</Description>
-      <DescriptionShort>Even verier beste tag</DescriptionShort>
-      <Id>Goo453d2</Id>
-      <Color>
-        <Red>45</Red>
-        <Green>100</Green>
-        <Blue>166</Blue>
-        <Hex>#2D64A6</Hex>
-        <Hexi>#FFFFFF</Hexi>
-      </Color>
-      <Selected>false</Selected>
-    </Tag>
-    <Tag>
-      <Description>Even verier bestere tag</Description>
-      <DescriptionShort>Even verier bestere tag</DescriptionShort>
-      <Id>GRo543od2</Id>
-      <Color>
-        <Red>130</Red>
-        <Green>207</Green>
-        <Blue>166</Blue>
-        <Hex>#82CFA6</Hex>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
         <Hexi>#000000</Hexi>
       </Color>
       <Selected>false</Selected>
     </Tag>
     <Tag>
-      <Description>Even verier besterederen tag</Description>
-      <DescriptionShort>Even verier besterederen tag</DescriptionShort>
-      <Id>GRoo123den2</Id>
+      <Description>Heavy bronze work</Description>
+      <DescriptionShort>Heavy bronze work</DescriptionShort>
+      <Id>Bronze</Id>
       <Color>
-        <Red>114</Red>
-        <Green>20</Green>
-        <Blue>35</Blue>
-        <Hex>#721423</Hex>
-        <Hexi>#FFFFFF</Hexi>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
       </Color>
       <Selected>false</Selected>
     </Tag>
     <Tag>
-      <Description>Even verier more grood beste tag</Description>
-      <DescriptionShort>Even verier more grood beste t...</DescriptionShort>
-      <Id>Good3123</Id>
+      <Description>Heave bronze work surviving the test of time with honour</Description>
+      <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
+      <Id>Green bronze</Id>
       <Color>
-        <Red>66</Red>
-        <Green>100</Green>
-        <Blue>200</Blue>
-        <Hex>#4264C8</Hex>
-        <Hexi>#FFFFFF</Hexi>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
       </Color>
       <Selected>false</Selected>
     </Tag>
     <Tag>
-      <Description>Even verier more grooder beste tag</Description>
-      <DescriptionShort>Even verier more grooder beste...</DescriptionShort>
-      <Id>GRo4537od3</Id>
+      <Description>Hard metal material used during war periods</Description>
+      <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+      <Id>Iron</Id>
       <Color>
-        <Red>70</Red>
-        <Green>100</Green>
-        <Blue>50</Blue>
-        <Hex>#466432</Hex>
-        <Hexi>#FFFFFF</Hexi>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
       </Color>
       <Selected>false</Selected>
     </Tag>
     <Tag>
-      <Description>Even verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag</Description>
-      <DescriptionShort>Even verier more grooderen bes...</DescriptionShort>
-      <Id>GRoo789den3</Id>
+      <Description>Refined iron, indicator of rich war winners</Description>
+      <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
+      <Id>Steel</Id>
       <Color>
-        <Red>20</Red>
-        <Green>30</Green>
-        <Blue>20</Blue>
-        <Hex>#141E14</Hex>
-        <Hexi>#FFFFFF</Hexi>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Selected>false</Selected>
+    </Tag>
+    <Tag>
+      <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+      <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+      <Id>Plastic</Id>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Selected>false</Selected>
+    </Tag>
+    <Tag>
+      <Description>Simple and effective, massive and powerful</Description>
+      <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+      <Id>Stone</Id>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Selected>false</Selected>
+    </Tag>
+    <Tag>
+      <Description>Brick by brick, the most magnificent art is built in steps</Description>
+      <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
+      <Id>Brick</Id>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
       </Color>
       <Selected>false</Selected>
     </Tag>
