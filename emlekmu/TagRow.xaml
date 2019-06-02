@@ -7,28 +7,43 @@
              mc:Ignorable="d" 
              MouseRightButtonUp="onRigthClick"
              MouseLeftButtonUp="OnMouseDown"
-             d:DesignHeight="74" d:DesignWidth="844">
+             d:DesignHeight="75" d:DesignWidth="900">
     <UserControl.Resources>
         <ContextMenu x:Key="cmTagRow">
             <MenuItem Header="Edit" Click="EditAction_Click"></MenuItem>
             <MenuItem Header="Delete" Click="DeleteAction_Click"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
-    <Grid x:Name="Root" Margin="5">
-
+    <Grid x:Name="Root" Margin="5" Background="White" Cursor="Hand">
         <Border BorderBrush="Gray" BorderThickness="2">
-            <StackPanel Orientation="Horizontal"  Cursor="Hand" Background="#FFFFFF" >
-                <StackPanel>
-                    <Label Width="250" Height="25" FontSize="12">Id:</Label>
-                    <Label Width="250" Height="35" FontSize="16" VerticalContentAlignment="Center" Content="{Binding Id}"></Label>
-                </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
 
-                <StackPanel>
-                    <Label Width="475" Height="25" FontSize="12">Description:</Label>
-                    <Label Width="475" Height="35" FontSize="16" VerticalContentAlignment="Center" Content="{Binding Description}"></Label>
-                </StackPanel>
-                <Ellipse Width="50" Height="50" Margin="5" Fill="{Binding Color.Hex}" HorizontalAlignment="Right"></Ellipse>
-            </StackPanel>
+                <Label FontSize="12" Grid.Row="0" Grid.Column="0"
+                       VerticalContentAlignment="Center">Id:</Label>
+                <Label FontSize="12" Grid.Row="0" Grid.Column="1"
+                       VerticalContentAlignment="Center">Description:</Label>
+
+                <Label FontSize="16" Grid.Row="1" Grid.Column="0"
+                       VerticalContentAlignment="Center" Content="{Binding Id}"></Label>
+                <Label FontSize="16" Grid.Row="1" Grid.Column="1"
+                       VerticalContentAlignment="Center" Content="{Binding Description}"></Label>
+
+
+                <Ellipse Width="35" Height="35"
+                         Fill="{Binding Color.Hex}"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                         Grid.Column="2" Grid.RowSpan="2" Grid.Row="0"></Ellipse>
+            </Grid>
+            
         </Border>
     </Grid>
 </UserControl>

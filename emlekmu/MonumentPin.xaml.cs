@@ -1,6 +1,7 @@
 ﻿using emlekmu.models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,9 @@ namespace emlekmu
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -102,10 +106,18 @@ namespace emlekmu
             DependencyProperty.Register("PinClickedCallback", typeof(onPinClicked), typeof(MonumentPin), new PropertyMetadata(null));
 
 
-        public void MouseClicked(object sender, MouseButtonEventArgs e)
+
+        public ObservableCollection<int> EnlargenedMonuments
         {
-            this.Color = "#5577CC";
+            get { return (ObservableCollection<int>)GetValue(EnlargenedMonumentsProperty); }
+            set { SetValue(EnlargenedMonumentsProperty, value); }
         }
+
+        // Using a DependencyProperty as the backing store for EnlargenedMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EnlargenedMonumentsProperty =
+            DependencyProperty.Register("EnlargenedMonuments", typeof(ObservableCollection<int>), typeof(MonumentPin), new PropertyMetadata(new ObservableCollection<int>()));
+
+
         public MonumentPin()
         {
             InitializeComponent();
@@ -134,6 +146,20 @@ namespace emlekmu
         private void onLeftClick(object sender, MouseButtonEventArgs e)
         {
             PinClickedCallback(MyMonument.Id);
+        }
+
+        public void UpdateColor(object sender, MouseButtonEventArgs e)
+        {
+            if (!(this.EnlargenedMonuments.IndexOf(this.MyMonument.Id) == -1))
+            {
+                Selected.Visibility = Visibility.Visible;
+                NotSelected.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Selected.Visibility = Visibility.Collapsed;
+                NotSelected.Visibility = Visibility.Visible;
+            }
         }
     }
 }

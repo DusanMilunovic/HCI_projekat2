@@ -278,6 +278,14 @@ namespace emlekmu
         public onFindMonuments findMonumentsCallback { get; set; }
         public onFilterMonuments filterMonumentsCallback { get; set; }
 
+        public delegate void onMonumentSelectionChanged();
+        public onMonumentSelectionChanged monumentSelectionChangedCallback { get; set; }
+
+        public void MonumentSelectionChanged()
+        {
+            Map1.updateSelection();
+        }
+
         Monument addMonument(Monument t)
         {
             this.Monuments.Add(t);
@@ -876,7 +884,41 @@ namespace emlekmu
             EditMonument editMonumentDialog = new EditMonument(Types, Tags, editMonumentCallback, monumentToEdit, addTypeCallback, addTagCallback);
             editMonumentDialog.ShowDialog();
         }
+
+        public delegate Monument onOpenAddMonument();
+        public onOpenAddMonument openAddMonumentCallback { get; set; }
+
+        public Monument openAddMonument()
+        {
+            AddMonument addMonumentDialog = new AddMonument(Monuments,
+                Types, Tags, addMonumentCallback, addTypeCallback, addTagCallback);
+
+            addMonumentDialog.ShowDialog();
+
+            if (addMonumentDialog.DialogResult.HasValue && addMonumentDialog.DialogResult.Value)
+            {
+                return addMonumentDialog.Monument;
+            } else
+            {
+                return null;
+            }
+            
+        }
+
         #endregion
+
+
+
+        public ObservableCollection<int> EnlargenedMonuments
+        {
+            get { return (ObservableCollection<int>)GetValue(EnlargenedMonumentsProperty); }
+            set { SetValue(EnlargenedMonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for EnlargenedMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EnlargenedMonumentsProperty =
+            DependencyProperty.Register("EnlargenedMonuments", typeof(ObservableCollection<int>), typeof(MainContent), new PropertyMetadata(new ObservableCollection<int>()));
+
 
         public MainContent()
         {
@@ -1004,9 +1046,11 @@ namespace emlekmu
             this.findMonumentCallback = new onFindMonument(findMonument);
             this.findMonumentsCallback = new onFindMonuments(findMonuments);
             this.filterMonumentsCallback = new onFilterMonuments(filterMonuments);
+            this.monumentSelectionChangedCallback = new onMonumentSelectionChanged(MonumentSelectionChanged);
 
             // Dialog callback initialization
             this.openEditMonumentCallback = new onOpenEditMonument(openEditMonument);
+            this.openAddMonumentCallback = new onOpenAddMonument(openAddMonument);
 
             // pin click callback
             this.pinClickedCallback = new onPinClicked(pinClicked);

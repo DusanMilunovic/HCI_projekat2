@@ -24,6 +24,20 @@ namespace emlekmu
     /// </summary>
     public partial class Map : UserControl, INotifyPropertyChanged
     {
+
+
+
+        public ObservableCollection<int> EnlargenedMonuments
+        {
+            get { return (ObservableCollection<int>)GetValue(EnlargenedMonumentsProperty); }
+            set { SetValue(EnlargenedMonumentsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for EnlargenedMonuments.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty EnlargenedMonumentsProperty =
+            DependencyProperty.Register("EnlargenedMonuments", typeof(ObservableCollection<int>), typeof(Map), new PropertyMetadata(new ObservableCollection<int>()));
+
+
         protected virtual void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
@@ -105,8 +119,54 @@ namespace emlekmu
                 }
             }
         }
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
 
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
+        }
 
+        public void updateSelection()
+        {
+            int id = -1;
+            if (EnlargenedMonuments.Count() == 1)
+                id = EnlargenedMonuments[0];
+            foreach (MonumentPin tb in FindVisualChildren<MonumentPin>(Root))
+            {
+                tb.UpdateColor(null, null);
+            }
+            
+        }
+        public Point currentMousePoint;
+
+        public Point CurrentMousePoint
+        {
+            get
+            {
+                return currentMousePoint;
+            }
+            set
+            {
+                if (value != currentMousePoint)
+                {
+                    currentMousePoint = value;
+                    OnPropertyChanged("CurrentMousePoint");
+                }
+            }
+        }
 
 
 
@@ -160,6 +220,18 @@ namespace emlekmu
 
         public double PinContainerWidth { get; set; }
         public double PinContainerHeight { get; set; }
+
+        public onOpenAddMonument OpenAddMonumentCallback
+        {
+            get { return (onOpenAddMonument)GetValue(OpenAddMonumentCallbackProperty); }
+            set { SetValue(OpenAddMonumentCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OpenAddMonumentCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OpenAddMonumentCallbackProperty =
+            DependencyProperty.Register("OpenAddMonumentCallback", typeof(onOpenAddMonument), typeof(Map), new PropertyMetadata(null));
+
+
 
 
         public Map()
@@ -369,6 +441,87 @@ namespace emlekmu
         private void MonumentPin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
+        }
+        private void onRightClick(object sender, MouseButtonEventArgs e)
+        {
+            CurrentMousePoint = e.GetPosition((IInputElement)sender);
+
+            // open context menu
+            
+                ContextMenu cm = this.FindResource("cmMap") as ContextMenu;
+                cm.IsOpen = true;
+        }
+
+        private void AddMonumentAction(object sender, RoutedEventArgs e)
+        {
+            var monument = OpenAddMonumentCallback();
+            if (monument != null)
+            {
+                Positions.Add(new MonumentPosition(Convert.ToInt32(CurrentMousePoint.X), Convert.ToInt32(CurrentMousePoint.Y), monument));
+            }
+        }
+
+        private void ZoomInAction(object sender, RoutedEventArgs e)
+        {
+            double scaleDeltaX;
+            double scaleDeltaY;
+
+            if (ai > 10)
+            {
+                return;
+            }
+            scaleDeltaX = (1 / (st.ScaleX * ScaleRate) - 1 / st.ScaleX);
+            scaleDeltaY = (1 / (st.ScaleY * ScaleRate) - 1 / st.ScaleY);
+
+            st.ScaleX *= ScaleRate;
+            st.ScaleY *= ScaleRate;
+            if (ai <= 2)
+            {
+                st.CenterX = (st.CenterX - 4 * scaleDeltaX * CurrentMousePoint.X) / 2;
+                st.CenterY = (st.CenterY - 4 * scaleDeltaY * CurrentMousePoint.Y) / 2;
+            }
+            else
+            {
+                st.CenterX = (st.CenterX - Math.Pow(2, ai) * scaleDeltaX * CurrentMousePoint.X) / 2;
+                st.CenterY = (st.CenterY - Math.Pow(2, ai) * scaleDeltaY * CurrentMousePoint.Y) / 2;
+            }
+
+            ai++;
+
+            EWidth /= 2;
+            EHeight /= 2;
+
+        }
+
+        private void ZoomOutAction(object sender, RoutedEventArgs e)
+        {
+            double scaleDeltaX;
+            double scaleDeltaY;
+
+            if (ai <= 1)
+            {
+                return;
+            }
+            scaleDeltaX = (1 / (st.ScaleX / ScaleRate) - 1 / st.ScaleX);
+            scaleDeltaY = (1 / (st.ScaleY / ScaleRate) - 1 / st.ScaleY);
+
+            st.ScaleX /= ScaleRate;
+            st.ScaleY /= ScaleRate;
+            if (ai == 2)
+            {
+                st.CenterX = (st.CenterX - 2 * scaleDeltaX * CurrentMousePoint.X) / 2;
+                st.CenterY = (st.CenterY - 2 * scaleDeltaY * CurrentMousePoint.Y) / 2;
+            }
+            else
+            {
+                st.CenterX = (st.CenterX + Math.Pow(2, ai - 1) * scaleDeltaX * CurrentMousePoint.X) / 2;
+                st.CenterY = (st.CenterY + Math.Pow(2, ai - 1) * scaleDeltaY * CurrentMousePoint.Y) / 2;
+            }
+
+            ai--;
+
+            EWidth *= 2;
+            EHeight *= 2;
         }
     }
 }
