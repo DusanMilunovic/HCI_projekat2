@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using emlekmu.models;
 using static emlekmu.MainContent;
+using System.Windows.Threading;
 
 namespace emlekmu
 {
@@ -36,6 +37,45 @@ namespace emlekmu
         // Using a DependencyProperty as the backing store for EnlargenedMonuments.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty EnlargenedMonumentsProperty =
             DependencyProperty.Register("EnlargenedMonuments", typeof(ObservableCollection<int>), typeof(Map), new PropertyMetadata(new ObservableCollection<int>()));
+
+
+
+        public string MapName
+        {
+            get { return (string)GetValue(MapNameProperty); }
+            set { SetValue(MapNameProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MapName.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MapNameProperty =
+            DependencyProperty.Register("MapName", typeof(string), typeof(Map), new PropertyMetadata(""));
+
+
+        public int MyMapHeight
+        {
+            get { return (int)GetValue(MyMapHeightProperty); }
+            set { SetValue(MyMapHeightProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyMapHeight.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MyMapHeightProperty =
+            DependencyProperty.Register("MyMapHeight", typeof(int), typeof(Map), new PropertyMetadata(800));
+
+
+
+        public int MyMapWidth
+        {
+            get { return (int)GetValue(MyMapWidthProperty); }
+            set { SetValue(MyMapWidthProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyMapWidth.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MyMapWidthProperty =
+            DependencyProperty.Register("MyMapWidth", typeof(int), typeof(Map), new PropertyMetadata(1200));
+
+
+
+
 
 
         protected virtual void OnPropertyChanged(string name)
@@ -169,6 +209,17 @@ namespace emlekmu
         }
         
 
+        public delegate void onRemovePin(Monument m);
+        public onRemovePin RemovePinCallback { get; set; }
+
+        public void RemovePinFromMap(Monument monument)
+        {
+            MonumentPosition mp = Positions.SingleOrDefault(x => x.Monument.Id == monument.Id);
+            if (mp != null)
+            {
+                Positions.Remove(mp);
+            }
+        } 
 
 
         public ObservableCollection<MonumentPosition> Positions
@@ -236,14 +287,18 @@ namespace emlekmu
 
         public Map()
         {
+            RemovePinCallback = new onRemovePin(RemovePinFromMap);
             InitializeComponent();
+
             Root.DataContext = this;
-            EWidth = 80;
-            EHeight = 80;
+            EWidth = 160;
+            EHeight = 160;
             //ova dva namestiti na polovinu velicine grida koji sadrzi monument pinove. nisam uspeo da izvucem iz xamla
-            PinContainerWidth = 40;
-            PinContainerHeight = 40;
+            PinContainerWidth = 80;
+            PinContainerHeight = 80;
+
         }
+
 
         const double ScaleRate = 2;
         const double Diff = ScaleRate - 1;
@@ -332,7 +387,7 @@ namespace emlekmu
 
         private void ListView_MouseMove(object sender, MouseEventArgs e)
         {
-            if (this.Cursor != Cursors.ScrollAll)
+            if (this.Cursor != ((TextBlock)((ResourceDictionary)Resources["resourceDictionary"])["CursorGrabbing"]).Cursor)
             {
                 Point mousePos = e.GetPosition(null);
                 Vector diff = startPoint - mousePos;
@@ -387,6 +442,26 @@ namespace emlekmu
             {
                 var a = e.GetPosition((IInputElement)sender);
                 Monument monument = e.Data.GetData("myFormat") as Monument;
+                bool positionConflict = true;
+                int i = 0;
+                while (positionConflict)
+                {
+                    i++;
+                    positionConflict = false;
+                    foreach (MonumentPosition position in Positions)
+                    {
+                        if (position.monument.Id != monument.Id)
+                        {
+                            double diffX = position.Top - (a.X - PinContainerWidth);
+                            double diffY = position.Left - (a.Y - PinContainerHeight);
+                            if (Math.Sqrt(Math.Pow(diffX, 2) + Math.Pow(diffY, 2)) < 0.1)
+                            {
+                                a.X -= Math.Sign(diffX) * 0.1 * i;
+                                a.Y -= Math.Sign(diffY) * 0.1 * i;
+                            }
+                        }
+                    }
+                }
                 foreach (MonumentPosition position in Positions)
                 {
                     if (position.monument != null && position.monument.Id == monument.Id)
@@ -397,7 +472,7 @@ namespace emlekmu
                         return;
                     }
                 }
-                MonumentPosition mp = new MonumentPosition(a.X - 40, a.Y - 40, monument);
+                MonumentPosition mp = new MonumentPosition(a.X - PinContainerHeight, a.Y - PinContainerWidth, monument);
                 Positions.Add(mp);
             }
         }
@@ -405,7 +480,7 @@ namespace emlekmu
         private void Kartocka_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             startPoint = e.GetPosition(Kartocka);
-            this.Cursor = Cursors.ScrollAll;
+            this.Cursor = ((TextBlock)((ResourceDictionary)Resources["resourceDictionary"])["CursorGrabbing"]).Cursor;
         }
 
         private void Kartocka_MouseMove(object sender, MouseEventArgs e)
@@ -414,21 +489,21 @@ namespace emlekmu
             Vector diff = startPoint - mousePos;
             e.Handled = true;
 
-            if (ai > 1 && e.LeftButton == MouseButtonState.Pressed &&
-                (Math.Abs(diff.X) > 10/ai/ai ||
-                Math.Abs(diff.Y) > 10/ai/ai))
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > 20/ai/ai ||
+                Math.Abs(diff.Y) > 20/ai/ai))
             {
                 st.CenterX = Math.Max(0, st.CenterX + diff.X / 10 * ai);
                 st.CenterY = Math.Max(0, st.CenterY +  diff.Y / 10 * ai);
                 double maxWidth = Kartocka.Width;
                 double maxHeight = Kartocka.Height - Kartocka.Height / st.ScaleY + 50;
-                if (st.CenterX > maxWidth - diff.X / 10 / ai)
+                if (st.CenterX > maxWidth - diff.X / 20 / ai)
                 {
                     st.CenterX = maxWidth;
                 }
-                if (st.CenterY > maxHeight - diff.Y / 10 / ai)
+                if (st.CenterY > Kartocka.Height - diff.Y / 20 / ai)
                 {
-                    st.CenterY = maxHeight;
+                    st.CenterY = Kartocka.Height;
                 }
             }
         }
@@ -526,6 +601,40 @@ namespace emlekmu
 
             EWidth *= 2;
             EHeight *= 2;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!(Kartocka.Children[0] is MapEurope || Kartocka.Children[0] is MapWorld || Kartocka.Children[0] is SerbiaMap))
+            {
+
+                UIElement map = null;
+                if (MapName == "World")
+                {
+                    map = new MapWorld();
+                    ((MapWorld)map).Width = 1200;
+                    ((MapWorld)map).Height = 800;
+                }
+                else if (MapName == "Europe")
+                {
+                    map = new MapEurope();
+                    ((MapEurope)map).Width = 800;
+                    ((MapEurope)map).Height = 800;
+                }
+                else if (MapName == "Serbia")
+                {
+                    map = new SerbiaMap();
+                    ((SerbiaMap)map).Width = 800;
+                    ((SerbiaMap)map).Height = 500;
+                }
+                else if (MapName == "Africa")
+                {
+                    map = new MapAfrica();
+                    ((MapAfrica)map).Width = 800;
+                    ((MapAfrica)map).Height = 500;
+                }
+                Kartocka.Children.Insert(0, map);
+            }
         }
     }
 }

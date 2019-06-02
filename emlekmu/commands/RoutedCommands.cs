@@ -71,5 +71,78 @@ namespace emlekmu.commands
                 new KeyGesture(Key.Delete)
             }
             );
+
+        public static readonly RoutedUICommand ListTypes = new RoutedUICommand("List Types", "ListTypes", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.Y, ModifierKeys.Alt)
+            }
+            );
+
+        public static readonly RoutedUICommand ListTags = new RoutedUICommand("List Tags", "ListTags", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.T, ModifierKeys.Alt)
+            }
+            );
+
+        public static readonly RoutedUICommand NextTab = new RoutedUICommand("Next Tab", "NextTab", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.Tab, ModifierKeys.Control)
+            }
+            );
+        
+        public static readonly RoutedUICommand PreviousTab = new RoutedUICommand("Previous Tab", "PreviousTab", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.Tab, (ModifierKeys.Control | ModifierKeys.Shift))
+            }
+            );
+
+        public static readonly RoutedUICommand Tab1 = new RoutedUICommand("Tab1", "Tab1", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.D1, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand Tab2 = new RoutedUICommand("Tab2", "Tab2", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.D2, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand Tab3 = new RoutedUICommand("Tab3", "Tab3", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.D3, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand Tab4 = new RoutedUICommand("Tab4", "Tab4", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.D4, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand OpenCheatSheet = new RoutedUICommand("Shorcut cheatsheet", "ShorcutCheatSheet", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.S, ModifierKeys.Alt)
+            }
+            );
+
+        public static readonly RoutedUICommand OpenHelpDocumentation = new RoutedUICommand("Help documentation", "HelpDocumentation", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F1)
+            }
+            );
+
+
+
     }
 }
