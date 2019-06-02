@@ -103,8 +103,7 @@ namespace emlekmu
                 }
             }
         }
-
-<<<<<<< HEAD
+        
         public void updateSelection()
         {
             int id = -1;
@@ -116,7 +115,6 @@ namespace emlekmu
             }
             
         }
-=======
         public Point currentMousePoint;
 
         public Point CurrentMousePoint
@@ -134,8 +132,7 @@ namespace emlekmu
                 }
             }
         }
-
->>>>>>> master
+        
 
 
 

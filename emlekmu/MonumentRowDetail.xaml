@@ -5,91 +5,118 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
-             d:DesignHeight="385"
-             d:DesignWidth="800"
+             d:DesignHeight="360"
+             d:DesignWidth="840"
              >
-    <Grid x:Name="Root" Margin="5">
-        <Viewbox Stretch="Uniform">
-            <Border CornerRadius="3" BorderBrush="#2299CC" BorderThickness="4">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Vertical" Cursor="Hand" Background="#FFFFFF"  MouseLeftButtonUp="OnMouseDown">
-                        <StackPanel Orientation="Horizontal">
+    <Grid x:Name="Root" Margin="5" Background="White">
+        <Border CornerRadius="3" BorderBrush="#2299CC" BorderThickness="4">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <DockPanel Grid.Row="0" Grid.Column="0"
+                           MouseLeftButtonUp="OnMouseDown"
+                           Cursor="Hand">
+                    <Label DockPanel.Dock="Top" FontSize="12"
+                           Height="25" VerticalAlignment="Center"
+                           Margin="5 0 0 0">ID: </Label>
+                    <TextBlock FontSize="16" Margin="10"
+                               Text="{Binding MonumentId}"></TextBlock>
+                </DockPanel>
 
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="630"></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
+                <Border Grid.Row="1" Grid.Column="0"
+                        BorderBrush="#aaaaaa" BorderThickness="0 1"></Border>
 
-                                <StackPanel Grid.Column="0">
-                                    <StackPanel>
-                                        <Label Width="590" Margin="10 10 10 0" HorizontalAlignment="Left" Height="25" FontSize="12">ID:</Label>
-                                        <Label Width="590" Margin="10 0 10 10" HorizontalAlignment="Left" Height="30" FontSize="16" Content="{Binding MonumentId}"></Label>
-                                    </StackPanel>
-                                    <Border Width="630" HorizontalAlignment="Left" BorderThickness="0 1 0 0" BorderBrush="LightGray">
-                                        <StackPanel Width="590" HorizontalAlignment="Left">
-                                            <TextBlock Width="590" Margin="10 10 10 0" HorizontalAlignment="Left" Height="25" FontSize="12" TextWrapping="WrapWithOverflow">Name:</TextBlock>
-                                            <Label Width="590" Margin="10 0 10 10" Height="30" HorizontalAlignment="Left" FontSize="16" Content="{Binding MonumentName}"></Label>
-                                        </StackPanel>
-                                    </Border>
-                                    <Border BorderThickness="0 1 0 0" BorderBrush="LightGray">
-                                        <StackPanel>
-                                            <Label Width="590" HorizontalAlignment="Left" Margin="10 10 10 0" Height="25" FontSize="12">Type:</Label>
-                                            <Label Width="590" Margin="10 0 10 10" HorizontalAlignment="Left" Height="30" FontSize="16" Content="{Binding MonumentType.Name}"></Label>
-                                        </StackPanel>
-                                    </Border>
+                <DockPanel Grid.Row="1" Grid.Column="0"
+                           MouseLeftButtonUp="OnMouseDown"
+                           Cursor="Hand">
+                    <Label DockPanel.Dock="Top" FontSize="12"
+                           Height="25" VerticalAlignment="Center"
+                           Margin="5 0 0 0">Name:</Label>
+                    <TextBlock FontSize="16" Margin="10"
+                               Text="{Binding MonumentName}"></TextBlock>
+                </DockPanel>
 
-                                    <Border BorderThickness="0 1 0 0" BorderBrush="LightGray">
-                                        <StackPanel>
-                                            <Label Width="590" HorizontalAlignment="Left" Margin="10 10 10 0" Height="25" FontSize="12">Description:</Label>
-                                            <TextBlock HorizontalAlignment="Left" Width="590" Margin="10 0 10 10" MinHeight="80" FontSize="16" TextWrapping="WrapWithOverflow" TextAlignment="Justify" Text="{Binding MonumentDescription}"></TextBlock>
-                                        </StackPanel>
-                                    </Border>
-                                </StackPanel>
+                <Border Grid.Row="2" Grid.Column="0"
+                        BorderBrush="#aaaaaa" BorderThickness="0 0 0 1"></Border>
 
+                <DockPanel Grid.Row="2" Grid.Column="0"
+                           MouseLeftButtonUp="OnMouseDown"
+                           Cursor="Hand">
+                    <Label DockPanel.Dock="Top" FontSize="12"
+                           Height="25" VerticalAlignment="Center"
+                           Margin="5 0 0 0">Type:</Label>
+                    <TextBlock FontSize="16" Margin="10"
+                               Text="{Binding MonumentType.Name}"></TextBlock>
+                </DockPanel>
 
-                                <StackPanel Grid.Column="1" Orientation="Vertical">
-                                    <Image  Width="140" Height="140" Margin="10" Source="{Binding MonumentImage}"></Image>
-                                    <Border Width="140" MinHeight="100" Margin="10" BorderBrush="#FFFFFF" BorderThickness="1">
-                                        <StackPanel Orientation="Vertical">
-                                            <Label HorizontalAlignment="Center">Tags</Label>
-                                            <StackPanel Orientation="Horizontal" Margin="5">
-                                                <ItemsControl ItemsSource="{Binding MonumentTags}">
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <Grid>
-                                                                <Rectangle Fill="{Binding Color.Hex}" Height="20" Margin="3 5" RadiusX="10" RadiusY="10"></Rectangle>
-                                                                <TextBlock Text="{Binding Id}" Foreground="{Binding Color.Hexi}" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                            </Grid>
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
+                <Border Grid.Row="2" Grid.Column="0"
+                        BorderBrush="#aaaaaa" BorderThickness="0 0 0 1"></Border>
 
-                                                    <ItemsControl.ItemsPanel>
-                                                        <ItemsPanelTemplate>
-                                                            <StackPanel Width="130"/>
-                                                        </ItemsPanelTemplate>
-                                                    </ItemsControl.ItemsPanel>
-                                                </ItemsControl>
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Border>
+                <DockPanel Grid.Row="3" Grid.Column="0"
+                           MouseLeftButtonUp="OnMouseDown"
+                           Cursor="Hand">
+                    <Label DockPanel.Dock="Top" FontSize="12"
+                           Height="25" VerticalAlignment="Center"
+                           Margin="5 0 0 0">Desription:</Label>
+                    <TextBlock FontSize="16" Margin="10 5 -10 5"
+                               TextWrapping="WrapWithOverflow"
+                               MaxWidth="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                               AncestorType=DockPanel}, Path=ActualWidth}"
+                               Text="{Binding MonumentDescription}"></TextBlock>
+                </DockPanel>
 
-                                </StackPanel>
-                            </Grid>
-
-                        </StackPanel>
-
-                        
-
+                <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                        BorderBrush="#aaaaaa" BorderThickness="0 1 0 0"></Border>
+                
+                <Grid Grid.Row="4" Grid.ColumnSpan="2" Background="AliceBlue">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <Button x:Name="EditButton" Margin="20" Height="40" Width="120" Click="EditButton_Click">Edit monument</Button>
+                        <Button x:Name="DeleteBtn" Margin="20"  Height="40" Width="120" Click="DeleteBtn_Click">Delete monument</Button>
                     </StackPanel>
-                    <Border BorderThickness="0 1 0 0" BorderBrush="LightGray" Background="#F3FBFF">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button x:Name="EditButton" Margin="20" Height="40" Width="120" Click="EditButton_Click">Edit monument</Button>
-                            <Button x:Name="DeleteBtn" Margin="20" Height="40" Width="120" Click="DeleteBtn_Click">Delete monument</Button>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
-            </Border>
-        </Viewbox>
+                </Grid>
+
+
+                <Image  Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"
+                        Width="100" Height="100" Margin="10"
+                        Source="{Binding MonumentImage}"></Image>
+
+                <DockPanel Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
+                    <Label DockPanel.Dock="Top" HorizontalAlignment="Center">Tags</Label>
+                    <Grid Margin="5">
+                        <ItemsControl ItemsSource="{Binding MonumentTags}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Rectangle Fill="{Binding Color.Hex}" Height="20" Margin="3 5" RadiusX="10" RadiusY="10"></Rectangle>
+                                        <TextBlock Text="{Binding Id}" Foreground="{Binding Color.Hexi}" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Width="130"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </Grid>
+
+                </DockPanel>
+
+            </Grid>
+        </Border>
+        
+        
     </Grid>
 </UserControl>
