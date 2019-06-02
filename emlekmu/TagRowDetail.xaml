@@ -47,7 +47,9 @@
                     <Label DockPanel.Dock="Top" Margin="10 10 10 0" Height="25" FontSize="12">Description:</Label>
                     <TextBlock Margin="20 5 10 10" MinHeight="80"
                                FontSize="16" TextWrapping="WrapWithOverflow"
-                               TextAlignment="Justify" Text="{Binding Description}"></TextBlock>
+                               TextAlignment="Justify" Text="{Binding Description}"
+                               MaxWidth="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                               AncestorType=DockPanel}, Path=ActualWidth}"></TextBlock>
                 </DockPanel>
 
                 <Ellipse Grid.Row="0" Grid.Column="1" Margin="0 0 5 0"

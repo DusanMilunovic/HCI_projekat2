@@ -129,7 +129,8 @@ namespace emlekmu
                 return;
             }
             AddTypeCallback(newType);
-            AddTypeButton.IsCancel = true;
+            this.DialogResult = true;
+            this.Close();
         }
 
         private int findNextId()

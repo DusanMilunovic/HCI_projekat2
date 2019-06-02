@@ -251,6 +251,21 @@ namespace emlekmu
             MonumentSelectionChangedCallback();
         }
 
+        public void ScrollToSelected()
+        {
+            if (EnlargenedMonuments.Count == 0)
+            {
+                return;
+            }
+            int Id = EnlargenedMonuments[0];
+            Monument selectedMonument = Monuments.SingleOrDefault(x => x.Id == Id);
+            if (selectedMonument != null)
+            {
+                int idx = Monuments.IndexOf(selectedMonument);
+                Scroller.ScrollToVerticalOffset(idx * 84);
+            }
+        }
+        
         Point startPoint = new Point();
         private void Root2_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
