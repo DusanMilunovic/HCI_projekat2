@@ -108,6 +108,49 @@ namespace emlekmu
                 if (value != searchedMonuments)
                 {
                     searchedMonuments = value;
+                    foreach (var item in Map1Monuments)
+                    {
+                        if(searchedMonuments.IndexOf(item.Monument) != -1)
+                        {
+                            item.Showable = Visibility.Visible;
+                        } else
+                        {
+                            item.Showable = Visibility.Collapsed;
+                        }
+                    }
+                    foreach (var item in Map2Monuments)
+                    {
+                        if (searchedMonuments.IndexOf(item.Monument) != -1)
+                        {
+                            item.Showable = Visibility.Visible;
+                        }
+                        else
+                        {
+                            item.Showable = Visibility.Collapsed;
+                        }
+                    }
+                    foreach (var item in Map3Monuments)
+                    {
+                        if (searchedMonuments.IndexOf(item.Monument) != -1)
+                        {
+                            item.Showable = Visibility.Visible;
+                        }
+                        else
+                        {
+                            item.Showable = Visibility.Collapsed;
+                        }
+                    }
+                    foreach (var item in Map4Monuments)
+                    {
+                        if (searchedMonuments.IndexOf(item.Monument) != -1)
+                        {
+                            item.Showable = Visibility.Visible;
+                        }
+                        else
+                        {
+                            item.Showable = Visibility.Collapsed;
+                        }
+                    }
                     OnPropertyChanged("SearchedMonuments");
                 }
             }
@@ -142,7 +185,50 @@ namespace emlekmu
                 if (value != filteredMonuments)
                 {
                     filteredMonuments = value;
-
+                    foreach (var item in Map1Monuments)
+                    {
+                        if (filteredMonuments.IndexOf(item.Monument) != -1)
+                        {
+                            item.Color = new Color(220, 20, 60);
+                        }
+                        else
+                        {
+                            item.Color = new Color(255, 255, 255);
+                        }
+                    }
+                    foreach (var item in Map2Monuments)
+                    {
+                        if (filteredMonuments.IndexOf(item.Monument) != -1)
+                        {
+                            item.Color = new Color(220, 20, 60);
+                        }
+                        else
+                        {
+                            item.Color = new Color(255, 255, 255);
+                        }
+                    }
+                    foreach (var item in Map3Monuments)
+                    {
+                        if (filteredMonuments.IndexOf(item.Monument) != -1)
+                        {
+                            item.Color = new Color(220, 20, 60);
+                        }
+                        else
+                        {
+                            item.Color = new Color(255, 255, 255);
+                        }
+                    }
+                    foreach (var item in Map4Monuments)
+                    {
+                        if (filteredMonuments.IndexOf(item.Monument) != -1)
+                        {
+                            item.Color = new Color(220, 20, 60);
+                        }
+                        else
+                        {
+                            item.Color = new Color(255, 255, 255);
+                        }
+                    }
                     OnPropertyChanged("FilteredMonuments");
                 }
             }
@@ -178,6 +264,25 @@ namespace emlekmu
                 if (value != map1Monumets)
                 {
                     map1Monumets = value;
+                    foreach (var item in map1Monumets)
+                    {
+                        if(this.searchedMonuments != null)
+                        {
+                            if (this.searchedMonuments.IndexOf(item.Monument) != -1)
+                                item.Showable = Visibility.Visible;
+                            else
+                                item.Showable = Visibility.Collapsed;
+                        }
+                        
+                        if(this.filteredMonuments != null)
+                        {
+                            if (this.filteredMonuments.IndexOf(item.Monument) != -1)
+                                item.Color = new Color(220, 20, 60);
+                            else
+                                item.Color = new Color(255, 255, 255);
+                        }
+                        
+                    }
                     OnPropertyChanged("Map1Monuments");
                 }
             }
@@ -196,6 +301,25 @@ namespace emlekmu
                 if (value != map2Monumets)
                 {
                     map2Monumets = value;
+                    foreach (var item in map2Monumets)
+                    {
+                        if (this.searchedMonuments != null)
+                        {
+                            if (this.searchedMonuments.IndexOf(item.Monument) != -1)
+                                item.Showable = Visibility.Visible;
+                            else
+                                item.Showable = Visibility.Collapsed;
+                        }
+
+                        if (this.filteredMonuments != null)
+                        {
+                            if (this.filteredMonuments.IndexOf(item.Monument) != -1)
+                                item.Color = new Color(220, 20, 60);
+                            else
+                                item.Color = new Color(255, 255, 255);
+                        }
+
+                    }
                     OnPropertyChanged("Map2Monuments");
                 }
             }
@@ -214,6 +338,25 @@ namespace emlekmu
                 if (value != map3Monumets)
                 {
                     map3Monumets = value;
+                    foreach (var item in map3Monumets)
+                    {
+                        if (this.searchedMonuments != null)
+                        {
+                            if (this.searchedMonuments.IndexOf(item.Monument) != -1)
+                                item.Showable = Visibility.Visible;
+                            else
+                                item.Showable = Visibility.Collapsed;
+                        }
+
+                        if (this.filteredMonuments != null)
+                        {
+                            if (this.filteredMonuments.IndexOf(item.Monument) != -1)
+                                item.Color = new Color(220, 20, 60);
+                            else
+                                item.Color = new Color(255, 255, 255);
+                        }
+
+                    }
                     OnPropertyChanged("Map3Monuments");
                 }
             }
@@ -232,6 +375,25 @@ namespace emlekmu
                 if (value != map4Monumets)
                 {
                     map4Monumets = value;
+                    foreach (var item in map4Monumets)
+                    {
+                        if (this.searchedMonuments != null)
+                        {
+                            if (this.searchedMonuments.IndexOf(item.Monument) != -1)
+                                item.Showable = Visibility.Visible;
+                            else
+                                item.Showable = Visibility.Collapsed;
+                        }
+
+                        if (this.filteredMonuments != null)
+                        {
+                            if (this.filteredMonuments.IndexOf(item.Monument) != -1)
+                                item.Color = new Color(220, 20, 60);
+                            else
+                                item.Color = new Color(255, 255, 255);
+                        }
+
+                    }
                     OnPropertyChanged("Map4Monuments");
                 }
             }
@@ -312,6 +474,9 @@ namespace emlekmu
         public void MonumentSelectionChanged()
         {
             Map1.updateSelection();
+            Map2.updateSelection();
+            Map3.updateSelection();
+            Map4.updateSelection();
         }
 
         Monument addMonument(Monument t)
@@ -427,12 +592,13 @@ namespace emlekmu
             }
 
             bool anyfilter = false;
+            bool flag = true;
             if (id_f != -1)
             {
                 anyfilter = true;
                 if (t.Id != id_f)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -441,7 +607,7 @@ namespace emlekmu
                 anyfilter = true;
                 if (!t.Name.ToLower().Contains(name_f.ToLower()))
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -450,7 +616,7 @@ namespace emlekmu
                 anyfilter = true;
                 if (!t.Type.Id.Equals(typeName_f))
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -459,7 +625,7 @@ namespace emlekmu
                 anyfilter = true;
                 if (!t.Era.ToString().ToLower().Contains(era_f.ToLower()))
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -471,7 +637,7 @@ namespace emlekmu
                     match = true;
                 if (t.ArcheologicallyExplored != match)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
 
             }
@@ -484,7 +650,7 @@ namespace emlekmu
                     match = true;
                 if (t.Unesco != match)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -496,7 +662,7 @@ namespace emlekmu
                     match = true;
                 if (t.PopulatedRegion != match)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -505,7 +671,7 @@ namespace emlekmu
                 anyfilter = true;
                 if (!t.TouristicStatus.ToString().ToLower().Contains(touristicStatus_f.ToLower()))
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -514,7 +680,7 @@ namespace emlekmu
                 anyfilter = true;
                 if (t.Income < min_income_f)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -523,16 +689,16 @@ namespace emlekmu
                 anyfilter = true;
                 if (t.Income > max_income_f)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
 
             }
 
             if (tags_f != null)
             {
-                anyfilter = true;
                 if (tags_f.Count != 0)
                 {
+                    anyfilter = true;
                     bool match = false;
                     foreach (var tag in tags_f)
                     {
@@ -541,13 +707,13 @@ namespace emlekmu
                     }
 
                     if (!match)
-                        FilteredMonuments.Remove(t);
+                        flag = false;
                 }
             }
 
-            if (anyfilter)
+            if (anyfilter && flag)
                 this.FilteredMonuments.Add(t);
-            else
+            else if(!anyfilter)
                 this.FilteredMonuments = new ObservableCollection<Monument>();
 
             this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
@@ -737,12 +903,13 @@ namespace emlekmu
             }
 
             bool anyfilter = false;
+            bool flag = true;
             if (id_f != -1)
             {
                 anyfilter = true;
                 if (t.Id != id_f)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -751,7 +918,7 @@ namespace emlekmu
                 anyfilter = true;
                 if (!t.Name.ToLower().Contains(name_f.ToLower()))
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -760,7 +927,7 @@ namespace emlekmu
                 anyfilter = true;
                 if (!t.Type.Id.Equals(typeName_f))
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -769,7 +936,7 @@ namespace emlekmu
                 anyfilter = true;
                 if (!t.Era.ToString().ToLower().Contains(era_f.ToLower()))
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -781,7 +948,7 @@ namespace emlekmu
                     match = true;
                 if (t.ArcheologicallyExplored != match)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
 
             }
@@ -794,7 +961,7 @@ namespace emlekmu
                     match = true;
                 if (t.Unesco != match)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -806,7 +973,7 @@ namespace emlekmu
                     match = true;
                 if (t.PopulatedRegion != match)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -815,7 +982,7 @@ namespace emlekmu
                 anyfilter = true;
                 if (!t.TouristicStatus.ToString().ToLower().Contains(touristicStatus_f.ToLower()))
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -824,7 +991,7 @@ namespace emlekmu
                 anyfilter = true;
                 if (t.Income < min_income_f)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
             }
 
@@ -833,16 +1000,16 @@ namespace emlekmu
                 anyfilter = true;
                 if (t.Income > max_income_f)
                 {
-                    FilteredMonuments.Remove(t);
+                    flag = false;
                 }
 
             }
 
             if (tags_f != null)
             {
-                anyfilter = true;
                 if (tags_f.Count != 0)
                 {
+                    anyfilter = true;
                     bool match = false;
                     foreach (var tag in tags_f)
                     {
@@ -851,13 +1018,13 @@ namespace emlekmu
                     }
 
                     if (!match)
-                        FilteredMonuments.Remove(t);
+                        flag = false;
                 }
             }
 
-            if (anyfilter)
+            if (anyfilter && flag)
                 this.FilteredMonuments.Add(t);
-            else
+            else if (!anyfilter)
                 this.FilteredMonuments = new ObservableCollection<Monument>();
 
             this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
@@ -1020,6 +1187,21 @@ namespace emlekmu
             this.SearchedMonuments = new ObservableCollection<Monument>(sMonuments);
             filterMonuments(id_f, name_f, typeName_f, era_f, arch_f, unesco_f, populated_f, touristicStatus_f, min_income_f, max_income_f, tags_f);
             this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
+            
+            if (MonumentTable.EnlargenedMonuments.Count > 0)
+            {
+                int monumentId = MonumentTable.EnlargenedMonuments[0];
+                MonumentTable.monumentClicked(monumentId);
+                MonumentTable.monumentClicked(monumentId);
+
+                if (!MonumentTable.ScrollToSelected())
+                {
+                    MonumentTable.ScrollToTop();
+                }
+            } else
+            {
+                MonumentTable.ScrollToTop();
+            }
 
         }
 
@@ -1227,9 +1409,9 @@ namespace emlekmu
 
                 if (tags != null)
                 {
-                    anyfilter = true;
                     if (tags.Count != 0)
                     {
+                        anyfilter = true;
                         bool match = false;
                         foreach (var t in tags)
                         {
@@ -1249,6 +1431,23 @@ namespace emlekmu
             else
                 this.FilteredMonuments = new ObservableCollection<Monument>();
             this.SearchedNFMonuments = new ObservableCollection<Monument>( this.SearchedMonuments.Except(this.FilteredMonuments));
+
+
+            if (MonumentTable.EnlargenedMonuments.Count > 0)
+            {
+                int monumentId = MonumentTable.EnlargenedMonuments[0];
+                MonumentTable.monumentClicked(monumentId);
+                MonumentTable.monumentClicked(monumentId);
+
+                if (!MonumentTable.ScrollToSelected())
+                {
+                    MonumentTable.ScrollToTop();
+                }
+            }
+            else
+            {
+                MonumentTable.ScrollToTop();
+            }
         }
 
         #endregion
@@ -1418,7 +1617,7 @@ namespace emlekmu
 
         #endregion
 
-        #region DialogCallbacks
+        #region DialogCallback
         public delegate Monument onOpenEditMonument(int monumentId);
         public onOpenEditMonument openEditMonumentCallback { get; set; }
 

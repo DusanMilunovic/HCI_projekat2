@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using emlekmu.models.IO;
 using emlekmu.models;
 using System.Windows.Media.Animation;
+using System.Diagnostics;
 
 namespace emlekmu
 {
@@ -207,12 +208,12 @@ namespace emlekmu
 
         private void HelpDocumentationCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            e.CanExecute = true;
         }
 
         private void HelpDocumentationCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
+            Process.Start(@"..\..\resources\Emlekmu.chm");
         }
     }
 }

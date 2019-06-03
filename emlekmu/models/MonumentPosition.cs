@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace emlekmu.models
 {
@@ -19,6 +20,40 @@ namespace emlekmu.models
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private Visibility showable;
+        public Visibility Showable
+        {
+            get
+            {
+                return showable;
+            }
+            set
+            {
+                if (value != showable)
+                {
+                    showable = value;
+                    OnPropertyChanged("Showable");
+                }
+            }
+        }
+
+        private models.Color color;
+        public models.Color Color
+        {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                if (value != color)
+                {
+                    color = value;
+                    OnPropertyChanged("Color");
+                }
+            }
+        }
 
         private Monument monument;
         public Monument Monument
