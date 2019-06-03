@@ -21,6 +21,7 @@ using WpfApplication1;
 using Type = emlekmu.models.Type;
 using Color = emlekmu.models.Color;
 using emlekmu.models.IO;
+using System.Threading;
 
 namespace emlekmu
 {
@@ -1669,6 +1670,7 @@ namespace emlekmu
             }
         }
 
+        public AddMonument AddMonumentDemonDialog { get; set; }
         public delegate Monument onOpenAddMonument();
         public onOpenAddMonument openAddMonumentCallback { get; set; }
 
@@ -1676,6 +1678,8 @@ namespace emlekmu
         {
             AddMonument addMonumentDialog = new AddMonument(Monuments,
                 Types, Tags, addMonumentCallback, addTypeCallback, addTagCallback);
+
+            this.AddMonumentDemonDialog = addMonumentDialog;
 
             addMonumentDialog.ShowDialog();
 
@@ -1754,6 +1758,10 @@ namespace emlekmu
         // Using a DependencyProperty as the backing store for EnlargenedMonuments.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty EnlargenedMonumentsProperty =
             DependencyProperty.Register("EnlargenedMonuments", typeof(ObservableCollection<int>), typeof(MainContent), new PropertyMetadata(new ObservableCollection<int>()));
+
+
+        public Thread Demon { get; set; }
+        public bool Alive { get; set; }
 
 
         public MainContent()
@@ -1973,6 +1981,54 @@ namespace emlekmu
             mpdg.map4Monuments = new List<MonumentPosition>(Map4Monuments);
 
             XmlParser.serMapPog(mpdg);
+        }
+
+        private void SearchDemon_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Alive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.SearchDemon(Search, SFControl.input_id, SFControl.SearchFilterButton);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.Demon = t;
+            this.Alive = true;
+        }
+
+        private void MapDemon_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Alive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.MapDemon(this);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.Demon = t;
+            this.Alive = true;
+        }
+
+        private void MonumentDemon_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Alive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.MonumentDemon(this);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.Demon = t;
+            this.Alive = true;
         }
     }
 }

@@ -19,7 +19,8 @@ namespace emlekmu
 
     class DemonFramework
     {
-        public static bool isAlive = false;
+
+       
 
         [Flags]
         public enum MouseEventFlags
@@ -153,6 +154,10 @@ namespace emlekmu
                 MouseEvent(MouseEventFlags.LeftDown);
                 Thread.Sleep(200);
                 MouseEvent(MouseEventFlags.LeftUp);
+                Thread.Sleep(400);
+                System.Windows.Forms.SendKeys.SendWait("{TAB}");
+                Thread.Sleep(400);
+                System.Windows.Forms.SendKeys.SendWait("{ENTER}");
 
             }
 
@@ -161,7 +166,6 @@ namespace emlekmu
 
         public static void SearchDemon(Button searchButton, TextBox idTextBox, Button finalizeButton)
         {
-            /*
             while (true)
             {
                 System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
@@ -170,7 +174,10 @@ namespace emlekmu
                 clickButton(searchButton);
                 Thread.Sleep(1500);
                 absolutePos = getElementPos(idTextBox);
-                MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y);
+                MoveCursorSlowly((int)absolutePos.X + 40, (int)absolutePos.Y);
+                MouseEvent(MouseEventFlags.LeftDown);
+                Thread.Sleep(100);
+                MouseEvent(MouseEventFlags.LeftUp);
                 fillTextBox(idTextBox, "15");
                 absolutePos = getElementPos(finalizeButton);
                 MoveCursorSlowly((int)absolutePos.X + 15, (int)absolutePos.Y + 10);
@@ -181,8 +188,34 @@ namespace emlekmu
                 clickButton(finalizeButton);
                 clickButton(searchButton);
             }
-            */
-            
+        }
+
+        public static void MonumentDemon(MainContent mainContent)
+        {
+            System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
+            absolutePos = getElementPos(mainContent.MonumentTable.AddMonumentButton);
+            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
+            clickButton(mainContent.MonumentTable.AddMonumentButton);
+            Thread.Sleep(1000);
+            absolutePos = getElementPos(mainContent.AddMonumentDemonDialog.IdTextBox);
+           
+
+
+
+            /*bool done = false;
+            element.Dispatcher.Invoke(() =>
+            {
+                retVal = element.PointToScreen(new System.Windows.Point(0, 0));
+                done = true;
+            });
+            while (!done) { }
+            return retVal;*/
+
+
+            MoveCursorSlowly((int)absolutePos.X + 50, (int)absolutePos.Y + 20);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+
         }
 
         public static void resetTextBox(TextBox textBox)
@@ -198,17 +231,15 @@ namespace emlekmu
 
         public static void fillTextBox(TextBox textBox, string text)
         {
-            bool done = false;
-            textBox.Dispatcher.Invoke(() =>
+            foreach (char c in text)
             {
-                foreach (char c in text)
+                textBox.Dispatcher.Invoke(() =>
                 {
                     textBox.Text += c;
-                    Thread.Sleep(600);
-                }
-                done = true;
-            });
-            while (!done) { }
+                });
+                Thread.Sleep(300);
+            }
+            
         }
 
         public static System.Windows.Point getElementPos(System.Windows.Media.Visual element)
