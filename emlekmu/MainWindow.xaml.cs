@@ -15,12 +15,10 @@ using System.Windows.Shapes;
 using emlekmu.models.IO;
 using emlekmu.models;
 using System.Windows.Media.Animation;
-<<<<<<< HEAD
 using System.Threading;
 using System.Windows.Controls.Primitives;
-=======
 using System.Diagnostics;
->>>>>>> master
+
 
 namespace emlekmu
 {
