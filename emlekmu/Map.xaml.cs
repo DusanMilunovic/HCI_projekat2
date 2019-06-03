@@ -520,7 +520,10 @@ namespace emlekmu
                     }
                 }
                 MonumentPosition mp = new MonumentPosition(a.X - PinContainerHeight, a.Y - PinContainerWidth, monument);
-                Positions.Add(mp);
+                var tmp = new List<MonumentPosition>(Positions);
+                tmp.Add(mp);
+
+                Positions = new ObservableCollection<MonumentPosition>(tmp);
                 saveMapData();
             }
         }
@@ -532,7 +535,7 @@ namespace emlekmu
         }
 
         private void Kartocka_MouseMove(object sender, MouseEventArgs e)
-        {
+       {
             Point mousePos = e.GetPosition(Kartocka);
             MousePositionXText = "X: " + Convert.ToString(mousePos.X);
             MousePositionYText = "Y: " + Convert.ToString(mousePos.Y);
@@ -587,7 +590,10 @@ namespace emlekmu
             if (monument != null)
             {
                 PinClickedCallback(monument.Id);
-                Positions.Add(new MonumentPosition(Convert.ToInt32(CurrentMousePoint.X), Convert.ToInt32(CurrentMousePoint.Y), monument));
+                var tmp = new List<MonumentPosition>(Positions);
+                tmp.Add(new MonumentPosition(Convert.ToInt32(CurrentMousePoint.X - PinContainerWidth),
+                    Convert.ToInt32(CurrentMousePoint.Y - PinContainerWidth), monument));
+                Positions = new ObservableCollection<MonumentPosition>(tmp);
                 saveMapData();
             }
         }

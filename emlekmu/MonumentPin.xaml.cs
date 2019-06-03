@@ -40,23 +40,18 @@ namespace emlekmu
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        public string color;
 
-        public string Color
+
+        public models.Color Color
         {
-            get
-            {
-                return color;
-            }
-            set
-            {
-                if (value != color)
-                {
-                    color = value;
-                    OnPropertyChanged("Color");
-                }
-            }
+            get { return (models.Color)GetValue(ColorProperty); }
+            set { SetValue(ColorProperty, value); }
         }
+
+        // Using a DependencyProperty as the backing store for Color.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ColorProperty =
+            DependencyProperty.Register("Color", typeof(models.Color), typeof(MonumentPin), new PropertyMetadata(new models.Color(255,255,255)));
+
 
         public Monument MyMonument
         {
@@ -150,7 +145,6 @@ namespace emlekmu
         {
             InitializeComponent();
             Root.DataContext = this;
-            this.Color = "#FFFFFF";
         }
 
         private void onRightClick(object sender, MouseButtonEventArgs e)

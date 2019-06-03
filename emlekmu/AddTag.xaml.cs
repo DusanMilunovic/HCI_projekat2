@@ -18,6 +18,7 @@ using emlekmu.models;
 using static emlekmu.MainContent;
 using System.Globalization;
 using Xceed.Wpf.Toolkit;
+using System.Threading;
 
 namespace emlekmu
 {
@@ -33,6 +34,9 @@ namespace emlekmu
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+
+        public Thread Demon { get; set; }
+        public bool DemonAlive { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -108,7 +112,12 @@ namespace emlekmu
             NewTag = new models.Tag();
             InitializeComponent();
             Root.DataContext = this;
+            TextCompositionManager.AddTextInputHandler(this,
+               new TextCompositionEventHandler(OnTextComposition));
+
         }
+
+        
 
         private void AddTagButton_Click(object sender, RoutedEventArgs e)
         {
@@ -145,6 +154,16 @@ namespace emlekmu
             }
             return true;
         }
+
+        private void OnTextComposition(object sender, TextCompositionEventArgs e)
+        {
+            if (this.DemonAlive)
+            {
+                this.Demon.Abort();
+                this.DemonAlive = false;
+            }
+        }
+
     }
 
     public class TagIdValidationWrapper : DependencyObject

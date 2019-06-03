@@ -111,7 +111,7 @@
                        HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Ctrl+4</Label>
 
                 <Label Grid.Row="14" Grid.Column="0" VerticalAlignment="Center"
-                       FontSize="10">Open Shorcut Cheatsheet</Label>
+                       FontSize="10">Open Shortcut Cheatsheet</Label>
                 <Label Grid.Row="14" Grid.Column="1" VerticalAlignment="Center"
                        HorizontalAlignment="Right" Margin="0 0 5 0" FontSize="10">Alt + S</Label>
 

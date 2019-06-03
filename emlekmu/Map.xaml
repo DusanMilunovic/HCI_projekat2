@@ -44,6 +44,8 @@
                                         <local:MonumentPin  Width="{Binding ElementName=Root, Path=DataContext.EWidth}"
                                                   Height="{Binding ElementName=Root, Path=DataContext.EHeight}"
                                                   MyMonument="{Binding Monument}"
+                                                  Color="{Binding Color}"
+                                                  Visibility="{Binding Showable}"
                                                   OpenEditMonumentCallback="{Binding ElementName=Root, Path=DataContext.OpenEditMonumentCallback}"
                                                   RemoveMonumentCallback="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}"
                                                   PinClickedCallback="{Binding ElementName=Root, Path=DataContext.PinClickedCallback}"

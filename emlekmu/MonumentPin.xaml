@@ -50,11 +50,11 @@
                              Stroke="#FFFFFF"   
                              StrokeThickness="0">
                         <Polygon.Fill>
-                            <SolidColorBrush Color="#FFFFFF" Opacity="100"/>
+                            <SolidColorBrush Color="{Binding Color.Hex}" Opacity="100"/>
                         </Polygon.Fill>
                     </Polygon>
 
-                    <Ellipse x:Name="EllipseyNS" Fill="#FFFFFF" Height="32" Width="32" Margin="24,0,24,50"/>
+                    <Ellipse x:Name="EllipseyNS" Fill="{Binding Color.Hex}" Height="32" Width="32" Margin="24,0,24,50"/>
                     
                     <Ellipse x:Name="ImageEllipseNS" Height="28" Width="28" Margin="26,0,26,50">
                         <Ellipse.Fill>

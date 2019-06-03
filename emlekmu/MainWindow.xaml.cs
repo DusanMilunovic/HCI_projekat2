@@ -15,6 +15,10 @@ using System.Windows.Shapes;
 using emlekmu.models.IO;
 using emlekmu.models;
 using System.Windows.Media.Animation;
+using System.Threading;
+using System.Windows.Controls.Primitives;
+using System.Diagnostics;
+
 
 namespace emlekmu
 {
@@ -29,7 +33,12 @@ namespace emlekmu
         public MainWindow()
         {
             InitializeComponent();
+            TextCompositionManager.AddTextInputHandler(this,
+                new TextCompositionEventHandler(OnTextComposition));
         }
+
+        private Thread demon;
+        private bool isAlive;
 
         private void AddMonumentCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -207,12 +216,66 @@ namespace emlekmu
 
         private void HelpDocumentationCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            e.CanExecute = true;
         }
 
         private void HelpDocumentationCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
+            Process.Start(@"..\..\resources\Emlekmu.chm");
         }
+
+        private void DemonModeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void DemonModeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+            //Search demon
+            /*
+            ThreadStart ts = delegate
+            {
+
+                DemonFramework.SearchDemon(MainContent.Search, MainContent.SFControl.input_id, MainContent.SFControl.SearchFilterButton);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.demon = t;
+            this.isAlive = true;
+            
+            */
+
+            //Add tag demon
+            if (this.isAlive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.MapDemon(MainContent);
+            };
+            Thread t = new Thread(ts);
+            t.Start();
+            this.demon = t;
+            this.isAlive = true;
+            
+
+
+
+
+            //MainContent.Search.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+        }
+
+        private void OnTextComposition(object sender, TextCompositionEventArgs e)
+        {
+            if (isAlive)
+            {
+                this.demon.Abort();
+                isAlive = false;
+            }
+            
+        }
+
     }
 }
