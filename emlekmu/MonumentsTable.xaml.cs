@@ -144,6 +144,18 @@ namespace emlekmu
 
 
 
+        public onOpenMonumentDetail OpenMonumentDetailCallback
+        {
+            get { return (onOpenMonumentDetail)GetValue(OpenMonumentDetailCallbackProperty); }
+            set { SetValue(OpenMonumentDetailCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OpenMonumentDetailCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OpenMonumentDetailCallbackProperty =
+            DependencyProperty.Register("OpenMonumentDetailCallback", typeof(onOpenMonumentDetail), typeof(MonumentsTable), new PropertyMetadata(null));
+
+
+
         public MonumentsTable()
         {
             InitializeComponent();
@@ -253,27 +265,29 @@ namespace emlekmu
                 else
                     this.EnlargenedMonuments.Remove(tb.MonumentId);
             }
-
-            if (this.EnlargenedMonuments.IndexOf(id) == -1)
+            if (myMonumentUC != null && myMonumentDUC != null)
             {
-                myMonumentUC.Visibility = Visibility.Collapsed;
-                myMonumentDUC.Visibility = Visibility.Visible;
-                this.EnlargenedMonuments.Add(id);
+                if (this.EnlargenedMonuments.IndexOf(id) == -1)
+                {
+                    myMonumentUC.Visibility = Visibility.Collapsed;
+                    myMonumentDUC.Visibility = Visibility.Visible;
+                    this.EnlargenedMonuments.Add(id);
+                }
+                else
+                {
+                    myMonumentDUC.Visibility = Visibility.Collapsed;
+                    myMonumentUC.Visibility = Visibility.Visible;
+                    this.EnlargenedMonuments.Remove(id);
+                }
+                MonumentSelectionChangedCallback();
             }
-            else
-            {
-                myMonumentDUC.Visibility = Visibility.Collapsed;
-                myMonumentUC.Visibility = Visibility.Visible;
-                this.EnlargenedMonuments.Remove(id);
-            }
-            MonumentSelectionChangedCallback();
         }
 
-        public void ScrollToSelected()
+        public bool ScrollToSelected()
         {
             if (EnlargenedMonuments.Count == 0)
             {
-                return;
+                return false;
             }
             int Id = EnlargenedMonuments[0];
 
@@ -284,7 +298,7 @@ namespace emlekmu
                 selectedMonument = Monuments.SingleOrDefault(x => x.Id == Id);
                 if (selectedMonument == null)
                 {
-                    return;
+                    return false;
                 }
                 idx = FilteredMonuments.Count + Monuments.IndexOf(selectedMonument);
             } else
@@ -293,7 +307,12 @@ namespace emlekmu
 
             }
             Scroller.ScrollToVerticalOffset(idx * 84);
-            return;
+            return true;
+        }
+
+        public void ScrollToTop()
+        {
+            Scroller.ScrollToTop();
         }
         
         Point startPoint = new Point();

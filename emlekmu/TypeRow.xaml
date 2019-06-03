@@ -31,19 +31,19 @@
                 <Label Grid.Row="0" Grid.Column="0"
                        FontSize="12">ID:</Label>
                 <Label Grid.Row="1" Grid.Column="0"
-                       FontSize="16" HorizontalAlignment="Left"
+                       FontSize="14" HorizontalAlignment="Left"
                        Content="{Binding Id}"></Label>
 
                 <Label Grid.Row="0" Grid.Column="1"
                        FontSize="12">Name</Label>
-                <Label Grid.Row="1" Grid.Column="1" FontSize="16"
+                <Label Grid.Row="1" Grid.Column="1" FontSize="14"
                        HorizontalAlignment="Left"
                        Content="{Binding TypeName}"></Label>
 
                 <Label Grid.Row="0" Grid.Column="2"
                        FontSize="12">Description</Label>
                 <Label Grid.Row="1" Grid.Column="2"
-                       FontSize="16" HorizontalAlignment="Left"
+                       FontSize="14" HorizontalAlignment="Left"
                        Content="{Binding Description}"></Label>
 
                 <Image  Grid.RowSpan="2" Grid.Column="3"

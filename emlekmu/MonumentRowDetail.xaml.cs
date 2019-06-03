@@ -54,8 +54,18 @@ namespace emlekmu
             DependencyProperty.Register("editMonumentCallbackFun", typeof(onOpenEditMonument), typeof(MonumentRowDetail), new PropertyMetadata(null));
 
 
+        public onOpenMonumentDetail OpenMonumentDetailCallback
+        {
+            get { return (onOpenMonumentDetail)GetValue(OpenMonumentDetailCallbackProperty); }
+            set { SetValue(OpenMonumentDetailCallbackProperty, value); }
+        }
 
-       
+        // Using a DependencyProperty as the backing store for OpenMonumentDetailCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OpenMonumentDetailCallbackProperty =
+            DependencyProperty.Register("OpenMonumentDetailCallback", typeof(onOpenMonumentDetail), typeof(MonumentRowDetail), new PropertyMetadata(null));
+
+
+
 
         public ObservableCollection<int> EnlargenedMonuments
         {
@@ -211,6 +221,11 @@ namespace emlekmu
 
             ContextMenu cm = this.FindResource("cmMonumentRowDetail") as ContextMenu;
             cm.IsOpen = true;
+        }
+
+        private void DetailsButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenMonumentDetailCallback(MonumentId);
         }
     }
 }

@@ -189,6 +189,8 @@ namespace emlekmu
             
             else
                 FilterCallback(id, name, typeId, era, arch, unesco, populated, touristicStatus, min_income, max_income, tags);
+
+
         }
 
         private void Reset_era_Click(object sender, RoutedEventArgs e)

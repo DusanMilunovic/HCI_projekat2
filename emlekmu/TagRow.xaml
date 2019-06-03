@@ -32,9 +32,9 @@
                 <Label FontSize="12" Grid.Row="0" Grid.Column="1"
                        VerticalContentAlignment="Center">Description:</Label>
 
-                <Label FontSize="16" Grid.Row="1" Grid.Column="0"
+                <Label FontSize="14" Grid.Row="1" Grid.Column="0"
                        VerticalContentAlignment="Center" Content="{Binding Id}"></Label>
-                <Label FontSize="16" Grid.Row="1" Grid.Column="1"
+                <Label FontSize="14" Grid.Row="1" Grid.Column="1"
                        VerticalContentAlignment="Center" Content="{Binding Description}"></Label>
 
 

@@ -40,23 +40,18 @@ namespace emlekmu
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        public string color;
 
-        public string Color
+
+        public models.Color Color
         {
-            get
-            {
-                return color;
-            }
-            set
-            {
-                if (value != color)
-                {
-                    color = value;
-                    OnPropertyChanged("Color");
-                }
-            }
+            get { return (models.Color)GetValue(ColorProperty); }
+            set { SetValue(ColorProperty, value); }
         }
+
+        // Using a DependencyProperty as the backing store for Color.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ColorProperty =
+            DependencyProperty.Register("Color", typeof(models.Color), typeof(MonumentPin), new PropertyMetadata(new models.Color(255,255,255)));
+
 
         public Monument MyMonument
         {
@@ -83,6 +78,18 @@ namespace emlekmu
         public static readonly DependencyProperty OpenEditMonumentCallbackProperty =
             DependencyProperty.Register("OpenEditMonumentCallback", typeof(onOpenEditMonument), typeof(MonumentPin), new PropertyMetadata(null));
 
+
+
+
+        public onOpenMonumentDetail OpenMonumentDetailCallback
+        {
+            get { return (onOpenMonumentDetail)GetValue(OpenMonumentDetailCallbackProperty); }
+            set { SetValue(OpenMonumentDetailCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OpenMonumentDetailsCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OpenMonumentDetailCallbackProperty =
+            DependencyProperty.Register("OpenMonumentDetailCallback", typeof(onOpenMonumentDetail), typeof(MonumentPin), new PropertyMetadata(null));
 
 
 
@@ -138,7 +145,6 @@ namespace emlekmu
         {
             InitializeComponent();
             Root.DataContext = this;
-            this.Color = "#FFFFFF";
         }
 
         private void onRightClick(object sender, MouseButtonEventArgs e)
@@ -188,6 +194,11 @@ namespace emlekmu
         public void RemoveFromMapAction(object sender, RoutedEventArgs e)
         {
             RemovePinCallback(MyMonument);
+        }
+
+        public void detailAction(object sender, RoutedEventArgs e)
+        {
+            OpenMonumentDetailCallback(MyMonument.Id);
         }
     }
 }

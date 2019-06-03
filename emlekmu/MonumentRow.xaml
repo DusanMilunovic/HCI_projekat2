@@ -10,6 +10,7 @@
              d:DesignHeight="90" d:DesignWidth="900">
     <UserControl.Resources>
         <ContextMenu x:Key="cmMonumentRow">
+            <MenuItem Header="Details" Click="DetailsAction"></MenuItem>
             <MenuItem Header="Edit" Click="editMenuAction"></MenuItem>
             <MenuItem Header="Delete" Click="deleteMenuAction"></MenuItem>
         </ContextMenu>
@@ -40,17 +41,17 @@
                FontSize="12" VerticalAlignment="Center">Tags</Label>
 
 
-                <TextBlock Grid.Row="1" Grid.Column="0" FontSize="16"
+                <TextBlock Grid.Row="1" Grid.Column="0" FontSize="14"
                            Margin="10 0 0 0" Text="{Binding MonumentId}"></TextBlock>
                 <Grid Grid.Row="1" Grid.Column="1">
-                    <TextBlock  FontSize="16"
+                    <TextBlock  FontSize="14"
                            Margin="10 0 0 0" Text="{Binding MonumentName}"
                            TextWrapping="WrapWithOverflow" 
                            MaxWidth="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
                            AncestorType=Grid}, Path=ActualWidth}"></TextBlock>
                 </Grid>
                 <Grid Grid.Row="1" Grid.Column="2">
-                <TextBlock  FontSize="16"
+                <TextBlock  FontSize="14"
                            Margin="10 0 0 0" TextWrapping="WrapWithOverflow"
                            MaxWidth="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
                            AncestorType=Grid}, Path=ActualWidth}"
