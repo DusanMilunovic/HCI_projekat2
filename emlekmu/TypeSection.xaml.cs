@@ -1,4 +1,5 @@
-﻿using System;
+﻿using emlekmu.models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -264,11 +265,6 @@ namespace emlekmu
 
         private void DeleteTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Delete Type?", "delete", MessageBoxButton.OKCancel);
-            if (result == MessageBoxResult.Cancel)
-            {
-                return;
-            }
 
             e.CanExecute = this.EnlargenedTypes.Count > 0;
         }
@@ -276,6 +272,37 @@ namespace emlekmu
         private void DeleteTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             int toRemove = this.EnlargenedTypes.First();
+
+            MainContent mc = ((MainWindow)Application.Current.MainWindow).MainContent;
+
+            List<Monument> conflicting = mc.typeConflictingMonuments(toRemove);
+            if (conflicting == null)
+            {
+
+                AreYouSure ars = new AreYouSure("Are you sure you want to delete this type?");
+                ars.ShowDialog();
+
+                if (ars.DialogResult.HasValue && !ars.DialogResult.Value)
+                {
+                    return;
+                }
+            }
+            else
+            {
+
+                DeleteTypeDialog dtDialog = new DeleteTypeDialog(new ObservableCollection<Monument>(conflicting));
+
+                dtDialog.ShowDialog();
+                if (dtDialog.DialogResult.HasValue && dtDialog.DialogResult.Value)
+                {
+                    mc.removeTypeAndMonuments(toRemove);
+                }
+                else
+                {
+                    return;
+                }
+            }
+
             Type t = this.Types.SingleOrDefault(x => x.Id == toRemove);
             this.RemoveTypeCallback(toRemove);
             this.EnlargenedTypes.Remove(toRemove);

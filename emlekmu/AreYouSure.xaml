@@ -4,14 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
+        Width="400" Height="200" MinWidth="400" MinHeight="200"
              mc:Ignorable="d" 
         Title="Are you sure?"
-             d:DesignHeight="200" d:DesignWidth="300">
+             d:DesignHeight="200" d:DesignWidth="400">
     <DockPanel x:Name="Root">
         <Label DockPanel.Dock="Top" Margin="20" HorizontalAlignment="Center" FontSize="14" Content="{Binding TextContent}"></Label>
 
         <StackPanel DockPanel.Dock="Bottom">
-            <Button IsDefault="True" Width="180" Margin="5">Delete</Button>
+            <Button IsDefault="True" Width="180" Margin="5" Click="Button_Click">Delete</Button>
             <Button IsCancel="True" Width="180" Margin="5">Cancel</Button>
         </StackPanel>
         <Rectangle></Rectangle>

@@ -294,11 +294,6 @@ namespace emlekmu
 
         private void DeleteTagCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Delete Tag?", "delete", MessageBoxButton.OKCancel);
-            if (result == MessageBoxResult.Cancel)
-            {
-                return;
-            }
 
             e.CanExecute = this.EnlargenedTags.Count > 0;
         }
@@ -306,6 +301,41 @@ namespace emlekmu
         private void DeleteTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             string toRemove = this.EnlargenedTags.First();
+
+            MainContent mc = ((MainWindow)Application.Current.MainWindow).MainContent;
+
+            List<Monument> conflicting = mc.tagConflictingMonuments(toRemove);
+            if (conflicting == null)
+            {
+
+                AreYouSure ars = new AreYouSure("Are you sure you want to delete this tag?");
+                ars.Owner = Application.Current.MainWindow;
+                ars.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                ars.ShowDialog();
+
+                if (ars.DialogResult.HasValue && !ars.DialogResult.Value)
+                {
+                    return;
+                }
+            }
+            else
+            {
+
+                DeleteTagDialog dtDialog = new DeleteTagDialog(new ObservableCollection<Monument>(conflicting));
+
+                dtDialog.Owner = Application.Current.MainWindow;
+                dtDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                dtDialog.ShowDialog();
+                if (dtDialog.DialogResult.HasValue && dtDialog.DialogResult.Value)
+                {
+                    mc.removeTagFromMonuments(toRemove);
+                }
+                else
+                {
+                    return;
+                }
+            }
+
             Tag t = this.Tags.SingleOrDefault(x => x.Id == toRemove);
             this.RemoveTagCallback(toRemove);
             this.EnlargenedTags.Remove(toRemove);
