@@ -163,8 +163,12 @@ namespace emlekmu
 
         private void DeleteAction(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Delete Monument?", "delete", MessageBoxButton.OKCancel);
-            if (result == MessageBoxResult.Cancel)
+            AreYouSure ars = new AreYouSure("Are you sure you want to delete this tag?");
+            ars.Owner = Application.Current.MainWindow;
+            ars.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            ars.ShowDialog();
+
+            if (ars.DialogResult.HasValue && !ars.DialogResult.Value)
             {
                 return;
             }
