@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="300">
     <DockPanel x:Name="Root">
-        <Label DockPanel.Dock="Top" Margin="20" HorizontalAlignment="Center" FontSize="16">Are you sure you want to delete?</Label>
+        <Label DockPanel.Dock="Top" Margin="20" HorizontalAlignment="Center" FontSize="14" Content="{Binding TextContent}"></Label>
 
         <StackPanel DockPanel.Dock="Bottom">
             <Button IsDefault="True" Width="180" Margin="5">Delete</Button>

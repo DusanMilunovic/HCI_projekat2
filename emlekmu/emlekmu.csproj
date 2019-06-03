@@ -80,8 +80,17 @@
     <Compile Include="AddMonument.xaml.cs">
       <DependentUpon>AddMonument.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AreYouSure.xaml.cs">
+      <DependentUpon>AreYouSure.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CheatSheet.xaml.cs">
       <DependentUpon>CheatSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteTagDialog.xaml.cs">
+      <DependentUpon>DeleteTagDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteTypeDialog.xaml.cs">
+      <DependentUpon>DeleteTypeDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditMonument.xaml.cs">
       <DependentUpon>EditMonument.xaml</DependentUpon>
@@ -164,7 +173,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="AreYouSure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CheatSheet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteTagDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteTypeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

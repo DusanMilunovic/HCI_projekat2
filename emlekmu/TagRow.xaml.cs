@@ -140,8 +140,8 @@ namespace emlekmu
         private void EditAction_Click(object sender, RoutedEventArgs e)
         {
             EditTag editTagDialog = new EditTag(new Tag(Id, Color, Description), EditTagCallback);
-            editTagDialog.Height = 600;
-            editTagDialog.Width = 400;
+            editTagDialog.Height = 590;
+            editTagDialog.Width = 450;
             editTagDialog.ShowDialog();
         }
 

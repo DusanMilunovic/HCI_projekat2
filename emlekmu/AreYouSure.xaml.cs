@@ -23,6 +23,26 @@ namespace emlekmu
         public AreYouSure()
         {
             InitializeComponent();
+            Root.DataContext = this;
         }
+
+        public AreYouSure(string text)
+        {
+            InitializeComponent();
+            Root.DataContext = this;
+            TextContent = text;
+        }
+
+        public string TextContent
+        {
+            get { return (string)GetValue(TextContentProperty); }
+            set { SetValue(TextContentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TextContent.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextContentProperty =
+            DependencyProperty.Register("TextContent", typeof(string), typeof(AreYouSure), new PropertyMetadata("Are you sure you want to delete?"));
+
+
     }
 }

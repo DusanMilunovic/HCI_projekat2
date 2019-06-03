@@ -1383,35 +1383,33 @@ namespace emlekmu
         {
             TagSection tagSectionDialog = new TagSection(Tags, addTagCallback, editTagCallback, removeTagCallback);
 
-            tagSectionDialog.Width = 750;
-            tagSectionDialog.Height = 775;
+            tagSectionDialog.Width = 700;
+            tagSectionDialog.Height = 800;
             tagSectionDialog.ShowDialog();
         }
 
         public void monumentAdd_Click(object sender, RoutedEventArgs e)
         {
             AddMonument addMonumentDialog = new emlekmu.AddMonument(Monuments, Types, Tags, addMonumentCallback, addTypeCallback, addTagCallback);
-            addMonumentDialog.Height = 750;
-            addMonumentDialog.Width = 400;
+            addMonumentDialog.Height = 610;
+            addMonumentDialog.Width = 800;
             addMonumentDialog.ShowDialog();
         }
 
         public void tagAdd_Click(object sender, RoutedEventArgs e)
         {
             AddTag addTagDialog = new AddTag(addTagCallback, Tags);
-            addTagDialog.Height = 535;
-            addTagDialog.MinHeight = 535;
-            addTagDialog.Width = 350;
-            addTagDialog.MinWidth = 250;
+            addTagDialog.Height = 590;
+            addTagDialog.Width = 450;
             addTagDialog.ShowDialog();
         }
 
         public void typeAdd_Click(object sender, RoutedEventArgs e)
         {
             AddType addTypeDialog = new AddType(addTypeCallback, Types);
-            addTypeDialog.Height = 535;
+            addTypeDialog.Height = 590;
             addTypeDialog.MinHeight = 535;
-            addTypeDialog.Width = 350;
+            addTypeDialog.Width = 450;
             addTypeDialog.MinWidth = 250;
             addTypeDialog.ShowDialog();
         }
@@ -1465,8 +1463,8 @@ namespace emlekmu
         {
             Monument monument = Monuments.SingleOrDefault(x => x.Id == monumentId);
             MonumentDetail mdDialog = new MonumentDetail(monument);
-            mdDialog.Height = 640;
-            mdDialog.Width = 960;
+            mdDialog.Height = 590;
+            mdDialog.Width = 890;
             mdDialog.ShowDialog();
         }
 
@@ -1654,8 +1652,8 @@ namespace emlekmu
         private void EditFirstMonument_Click(object sender, RoutedEventArgs e)
         {
             EditMonument dialog = new EditMonument(Types, Tags, this.editMonumentCallback, this.Monuments.First(), addTypeCallback, addTagCallback);
-            dialog.Height = 750;
-            dialog.Width = 400;
+            dialog.Height = 610;
+            dialog.Width = 800;
             dialog.ShowDialog();
         }
         

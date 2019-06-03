@@ -140,8 +140,8 @@ namespace emlekmu
             var obj = new models.Type(this.Id, this.TypeName, this.Icon, this.Description);
             EditType editTypeDialog = new emlekmu.EditType(obj, this.editTypeCallbackFun);
 
-            editTypeDialog.Height = 600;
-            editTypeDialog.Width = 400;
+            editTypeDialog.Height = 590;
+            editTypeDialog.Width = 450;
             editTypeDialog.ShowDialog();
         }
 

@@ -40,8 +40,8 @@ namespace emlekmu
         {
             AddMonument dialog = new AddMonument(MainContent.Monuments, MainContent.Types, MainContent.Tags,
             MainContent.addMonumentCallback, MainContent.addTypeCallback, MainContent.addTagCallback);
-            dialog.Height = 900;
-            dialog.Width = 400;
+            dialog.Height = 610;
+            dialog.Width = 800;
             dialog.ShowDialog();
         }
 
@@ -53,8 +53,8 @@ namespace emlekmu
         private void AddTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             AddType dialog = new AddType(MainContent.addTypeCallback, MainContent.Types);
-            dialog.Height = 400;
-            dialog.Width = 400;
+            dialog.Height = 590;
+            dialog.Width = 450;
             dialog.ShowDialog();
         }
 
@@ -66,8 +66,8 @@ namespace emlekmu
         private void AddTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             AddTag dialog = new emlekmu.AddTag(MainContent.addTagCallback, MainContent.Tags);
-            dialog.Height = 400;
-            dialog.Width = 400;
+            dialog.Height = 590;
+            dialog.Width = 450;
             dialog.ShowDialog();
         }
 
@@ -81,8 +81,8 @@ namespace emlekmu
             int toEdit = MainContent.MonumentTable.EnlargenedMonuments.First();
             Monument m = MainContent.Monuments.SingleOrDefault(x => x.Id == toEdit);
             EditMonument dialog = new EditMonument(MainContent.Types, MainContent.Tags, MainContent.editMonumentCallback, m, MainContent.addTypeCallback, MainContent.addTagCallback);
-            dialog.Width = 400;
-            dialog.Height = 950;
+            dialog.Width = 610;
+            dialog.Height = 800;
             dialog.ShowDialog();
         }
 
@@ -127,8 +127,8 @@ namespace emlekmu
         private void ListTagsCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             TagSection tagSectionDialog = new TagSection(MainContent.Tags, MainContent.addTagCallback, MainContent.editTagCallback, MainContent.removeTagCallback);
-            tagSectionDialog.Width = 750;
-            tagSectionDialog.Height = 775;
+            tagSectionDialog.Width = 700;
+            tagSectionDialog.Height = 800;
             tagSectionDialog.ShowDialog();
         }
 

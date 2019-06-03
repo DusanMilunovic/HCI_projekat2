@@ -221,8 +221,8 @@ namespace emlekmu
         private void AddTagButton_Click(object sender, RoutedEventArgs e)
         {
             AddTag addTagDialog = new emlekmu.AddTag(AddTagCallback, Tags);
-            addTagDialog.Height = 600;
-            addTagDialog.Width = 400;
+            addTagDialog.Height = 590;
+            addTagDialog.Width = 450;
 
             addTagDialog.ShowDialog();
 
@@ -262,8 +262,8 @@ namespace emlekmu
             string toEdit = EnlargenedTags.First();
             Tag t = this.Tags.SingleOrDefault(x => x.Id == toEdit);
             EditTag dialog = new EditTag(t, this.EditTagCallback);
-            dialog.Width = 400;
-            dialog.Height = 400;
+            dialog.Width = 590;
+            dialog.Height = 450;
             dialog.ShowDialog();
         }
 
@@ -275,8 +275,8 @@ namespace emlekmu
         private void AddTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             AddTag dialog = new AddTag(this.AddTagCallback, this.Tags);
-            dialog.Height = 400;
-            dialog.Width = 400;
+            dialog.Height = 590;
+            dialog.Width = 450;
             dialog.ShowDialog();
         }
 

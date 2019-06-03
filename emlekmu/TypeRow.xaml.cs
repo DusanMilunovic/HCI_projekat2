@@ -141,8 +141,8 @@ namespace emlekmu
         private void editMenuAction(object sender, RoutedEventArgs e)
         {
             EditType editTypeDialog = new EditType(new Type(Id, TypeName, Icon, Description), EditTypeCallback);
-            editTypeDialog.Height = 600;
-            editTypeDialog.Width = 400;
+            editTypeDialog.Height = 590;
+            editTypeDialog.Width = 450;
             editTypeDialog.ShowDialog();
         }
 

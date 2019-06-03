@@ -367,3 +367,9 @@ C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\MapAfrica.b
 C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\MapEurope.baml
 C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\MonumentHover.baml
 C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\obj\Debug\SerbiaMap.baml
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\AreYouSure.g.cs
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\DeleteTagDialog.g.cs
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\DeleteTypeDialog.g.cs
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\AreYouSure.baml
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\DeleteTagDialog.baml
+D:\Dusan\1Faks\HCI\emlekmu\emlekmu\obj\Debug\DeleteTypeDialog.baml

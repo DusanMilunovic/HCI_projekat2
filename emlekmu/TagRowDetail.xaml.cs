@@ -131,8 +131,8 @@ namespace emlekmu
         private void EditTagButton_Click(object sender, RoutedEventArgs e)
         {
             EditTag editTagDialog = new emlekmu.EditTag(new models.Tag(Id, new models.Color(Color), Description), EditTagCallback);
-            editTagDialog.Height = 600;
-            editTagDialog.Width = 400;
+            editTagDialog.Height = 590;
+            editTagDialog.Width = 450;
             editTagDialog.ShowDialog();
         }
 

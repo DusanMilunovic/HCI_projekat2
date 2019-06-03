@@ -194,8 +194,8 @@ namespace emlekmu
         {
             AddType addTypeDialog = new AddType(AddTypeCallback, Types);
 
-            addTypeDialog.Height = 600;
-            addTypeDialog.Width = 400;
+            addTypeDialog.Height = 590;
+            addTypeDialog.Width = 450;
 
             addTypeDialog.ShowDialog();
 
@@ -233,8 +233,8 @@ namespace emlekmu
             int toEdit = EnlargenedTypes.First();
             Type m = this.Types.SingleOrDefault(x => x.Id == toEdit);
             EditType dialog = new EditType(m, this.EditTypeCallback);
-            dialog.Width = 400;
-            dialog.Height = 400;
+            dialog.Width = 590;
+            dialog.Height = 450;
             dialog.ShowDialog();
         }
 
@@ -246,8 +246,8 @@ namespace emlekmu
         private void AddTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             AddType dialog = new AddType(this.AddTypeCallback, this.Types);
-            dialog.Height = 400;
-            dialog.Width = 400;
+            dialog.Height = 590;
+            dialog.Width = 450;
             dialog.ShowDialog();
         }
 
