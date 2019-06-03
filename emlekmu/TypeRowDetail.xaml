@@ -15,7 +15,7 @@
         </ContextMenu>
     </UserControl.Resources>
     <Grid x:Name="Root" Margin="5" Background="White">
-        <Border CornerRadius="3" BorderBrush="#2299CC" BorderThickness="4">
+        <Border CornerRadius="3" BorderBrush="#DC143C" BorderThickness="4">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*"></ColumnDefinition>
@@ -78,10 +78,10 @@
                     <StackPanel  Orientation="Horizontal"
                             HorizontalAlignment="Center">
                         <Button x:Name="EditTagButton" Margin="20"
-                                Height="40" Width="80"
+                                Height="25" Width="100"
                                 Click="EditButton_Click">Edit tag</Button>
                         <Button x:Name="DeleteTagButton"
-                                Margin="20" Height="40" Width="80"
+                                Margin="20" Height="25" Width="100"
                                 Click="DeleteBtn_Click">Delete tag</Button>
                     </StackPanel>
 

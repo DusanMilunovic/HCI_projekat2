@@ -36,6 +36,93 @@
             <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
             <Id>Stone</Id>
             <Color>
+              <Red>220</Red>
+              <Green>20</Green>
+              <Blue>60</Blue>
+              <Hex>#DC143C</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>356.98951781970652</Top>
+      <Left>428.88368972746332</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>25</Id>
+        <Name>hlebic</Name>
+        <Description>askdj</Description>
+        <Image>C:\Users\Ivan\Desktop\Untitled.png</Image>
+        <Type>
+          <Id>4</Id>
+          <Name>Church monument</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type4.png</Icon>
+          <Description>To commemorate the faithful dead, located above or near their grave, often featuring an effigy</Description>
+          <DescriptionShort>To commemorate the faithful de...</DescriptionShort>
+        </Type>
+        <Era>Paleolith</Era>
+        <Icon>C:\Users\Ivan\Desktop\Untitled.png</Icon>
+        <ArcheologicallyExplored>true</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>false</PopulatedRegion>
+        <TouristicStatus>Exploited</TouristicStatus>
+        <Income>10</Income>
+        <DiscoveryDate>11.11.1111 BCE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+            <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+            <Id>Black Marble</Id>
+            <Color>
+              <Red>147</Red>
+              <Green>112</Green>
+              <Blue>219</Blue>
+              <Hex>#9370DB</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Hard metal material used during war periods</Description>
+            <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+            <Id>Iron</Id>
+            <Color>
+              <Red>255</Red>
+              <Green>255</Green>
+              <Blue>255</Blue>
+              <Hex>#FFFFFF</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Heave bronze work surviving the test of time with honour</Description>
+            <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
+            <Id>Green bronze</Id>
+            <Color>
+              <Red>173</Red>
+              <Green>255</Green>
+              <Blue>47</Blue>
+              <Hex>#ADFF2F</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Simple and effective, massive and powerful</Description>
+            <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+            <Id>Stone</Id>
+            <Color>
               <Red>255</Red>
               <Green>255</Green>
               <Blue>255</Blue>
@@ -49,8 +136,7 @@
       <Top>526.15358361774747</Top>
       <Left>452.34307167235488</Left>
     </MonumentPosition>
-  </map1Monuments>
-  <map2Monuments />
+  </map2Monuments>
   <map3Monuments />
   <map4Monuments />
 </MapPosDG>

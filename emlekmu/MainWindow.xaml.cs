@@ -35,6 +35,8 @@ namespace emlekmu
             InitializeComponent();
             TextCompositionManager.AddTextInputHandler(this,
                 new TextCompositionEventHandler(OnTextComposition));
+            this.WindowState = WindowState.Maximized;
+            this.Title = "Emlekmu";
         }
 
         
@@ -48,8 +50,12 @@ namespace emlekmu
         {
             AddMonument dialog = new AddMonument(MainContent.Monuments, MainContent.Types, MainContent.Tags,
             MainContent.addMonumentCallback, MainContent.addTypeCallback, MainContent.addTagCallback);
-            dialog.Height = 610;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 560;
             dialog.Width = 800;
+            dialog.MinHeight = 560;
+            dialog.MinWidth = 800;
             dialog.ShowDialog();
         }
 
@@ -61,8 +67,12 @@ namespace emlekmu
         private void AddTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             AddType dialog = new AddType(MainContent.addTypeCallback, MainContent.Types);
-            dialog.Height = 590;
-            dialog.Width = 450;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 490;
+            dialog.Width = 350;
+            dialog.MinHeight = 420;
+            dialog.MinWidth = 280;
             dialog.ShowDialog();
         }
 
@@ -74,8 +84,12 @@ namespace emlekmu
         private void AddTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             AddTag dialog = new emlekmu.AddTag(MainContent.addTagCallback, MainContent.Tags);
-            dialog.Height = 590;
-            dialog.Width = 450;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 490;
+            dialog.Width = 350;
+            dialog.MinHeight = 420;
+            dialog.MinWidth = 280;
             dialog.ShowDialog();
         }
 
@@ -89,8 +103,12 @@ namespace emlekmu
             int toEdit = MainContent.MonumentTable.EnlargenedMonuments.First();
             Monument m = MainContent.Monuments.SingleOrDefault(x => x.Id == toEdit);
             EditMonument dialog = new EditMonument(MainContent.Types, MainContent.Tags, MainContent.editMonumentCallback, m, MainContent.addTypeCallback, MainContent.addTagCallback);
-            dialog.Width = 610;
-            dialog.Height = 800;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 560;
+            dialog.Width = 800;
+            dialog.MinHeight = 560;
+            dialog.MinWidth = 800;
             dialog.ShowDialog();
         }
 
@@ -121,8 +139,12 @@ namespace emlekmu
         private void ListTypesCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             TypeSection typeSectionDialog = new TypeSection(MainContent.Types, MainContent.addTypeCallback, MainContent.editTypeCallback, MainContent.removeTypeCallback);
-            typeSectionDialog.Width = 700;
-            typeSectionDialog.Height = 800;
+            typeSectionDialog.Owner = Application.Current.MainWindow;
+            typeSectionDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            typeSectionDialog.Height = 700;
+            typeSectionDialog.Width = 800;
+            typeSectionDialog.MinHeight = 560;
+            typeSectionDialog.MinWidth = 600;
             typeSectionDialog.ShowDialog();
         }
 
@@ -135,8 +157,12 @@ namespace emlekmu
         private void ListTagsCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             TagSection tagSectionDialog = new TagSection(MainContent.Tags, MainContent.addTagCallback, MainContent.editTagCallback, MainContent.removeTagCallback);
-            tagSectionDialog.Width = 700;
-            tagSectionDialog.Height = 800;
+            tagSectionDialog.Owner = Application.Current.MainWindow;
+            tagSectionDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            tagSectionDialog.Height = 700;
+            tagSectionDialog.Width = 800;
+            tagSectionDialog.MinHeight = 560;
+            tagSectionDialog.MinWidth = 600;
             tagSectionDialog.ShowDialog();
         }
 
@@ -208,8 +234,12 @@ namespace emlekmu
         private void CheatSheetCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             CheatSheet dialog = new CheatSheet();
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             dialog.Width = 300;
             dialog.Height = 300;
+            dialog.MinWidth = 300;
+            dialog.MinHeight = 300;
             dialog.Show();
         }
 

@@ -282,6 +282,11 @@ namespace emlekmu
                 MonumentSelectionChangedCallback();
             }
         }
+        private void onRightClick(object sender, MouseButtonEventArgs e)
+        {
+            ContextMenu cm = this.FindResource("cmMonumentTable") as ContextMenu;
+            cm.IsOpen = true;
+        }
 
         public bool ScrollToSelected()
         {

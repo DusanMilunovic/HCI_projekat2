@@ -18,7 +18,7 @@
         </ContextMenu>
     </UserControl.Resources>
     <Grid x:Name="Root" Margin="5" Background="White">
-        <Border CornerRadius="3" BorderBrush="#2299CC" BorderThickness="4">
+        <Border CornerRadius="3" BorderBrush="#DC143C" BorderThickness="4">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
