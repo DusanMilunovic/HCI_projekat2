@@ -1274,6 +1274,40 @@ namespace emlekmu
             }
             return false;
         }
+
+        private List<Monument> tagConflictingMonuments(Tag t)
+        {
+            List<Monument> retVal = new List<Monument>();
+            foreach(Monument m in this.Monuments)
+            {
+                if (m.Tags.Contains(t))
+                {
+                    retVal.Add(m);
+                }
+            }
+            if (retVal.Count == 0)
+            {
+                retVal = null;
+            }
+            return retVal;
+        }
+
+        private List<Monument> typeConflictingMonuments(Type t)
+        {
+            List<Monument> retVal = new List<Monument>();
+            foreach(Monument m in this.Monuments)
+            {
+                if (m.Type == t)
+                {
+                    retVal.Add(m);
+                }
+            }
+            if (retVal.Count == 0)
+            {
+                retVal = null;
+            }
+            return retVal;
+        }
         //SLJUUUUUN OUT
 
         void filterMonuments(
