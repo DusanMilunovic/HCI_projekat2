@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:emlekmu"
         mc:Ignorable="d"
+        xmlns:help="clr-namespace:emlekmu.models"
+        help:HelpProvider.HelpTopic="Shortcuts"
         Title="CheatSheet" Height="300" Width="300">
     <Grid>
         <ScrollViewer>

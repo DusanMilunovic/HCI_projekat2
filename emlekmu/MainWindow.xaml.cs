@@ -19,7 +19,6 @@ using System.Threading;
 using System.Windows.Controls.Primitives;
 using System.Diagnostics;
 
-
 namespace emlekmu
 {
     /// <summary>
@@ -221,7 +220,7 @@ namespace emlekmu
 
         private void HelpDocumentationCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            Process.Start(@"..\..\resources\Emlekmu.chm");
+            HelpProvider.ShowHelpTopic("Emlekmu");
         }
 
         private void DemonModeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)

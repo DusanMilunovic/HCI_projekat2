@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="models\Color.cs" />
     <Compile Include="models\Enumerations.cs" />
+    <Compile Include="models\HelpProvider.cs" />
     <Compile Include="models\IO\CsvParser.cs" />
     <Compile Include="models\IO\DataGraph.cs" />
     <Compile Include="models\IO\MapPosDG.cs" />

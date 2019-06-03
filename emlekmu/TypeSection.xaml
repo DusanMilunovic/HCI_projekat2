@@ -6,6 +6,8 @@
              xmlns:cmd="clr-namespace:emlekmu.commands"
              xmlns:local="clr-namespace:emlekmu"
              mc:Ignorable="d" 
+             xmlns:help="clr-namespace:emlekmu.models"
+             help:HelpProvider.HelpTopic="Types"
              d:DesignHeight="800" d:DesignWidth="740">
     <Window.CommandBindings>
         <CommandBinding x:Name="AddTypeCommand" Command="cmd:RoutedCommands.AddType" CanExecute="AddTypeCommand_CanExecute"  Executed="AddTypeCommand_Executed"></CommandBinding>

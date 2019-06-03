@@ -8,6 +8,8 @@
              MouseLeftButtonUp="onLeftClick"
              Cursor="Hand"
              mc:Ignorable="d" 
+             xmlns:help="clr-namespace:emlekmu.models"
+             help:HelpProvider.HelpTopic="Maps"
              d:DesignHeight="80" d:DesignWidth="80">
     <UserControl.Resources>
         <ContextMenu x:Key="cmMonumentPin">

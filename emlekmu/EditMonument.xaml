@@ -7,6 +7,8 @@
         xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
         mc:Ignorable="d"
+        xmlns:help="clr-namespace:emlekmu.models"
+        help:HelpProvider.HelpTopic="Editing monuments"
         d:DesignHeight="560" d:DesignWidth="750">
     <Grid x:Name="Root">
         <DockPanel Background="#cceeff">
