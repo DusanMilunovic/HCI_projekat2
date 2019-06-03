@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -83,6 +84,7 @@
     <Compile Include="CheatSheet.xaml.cs">
       <DependentUpon>CheatSheet.xaml</DependentUpon>
     </Compile>
+    <Compile Include="demon\DemonFramework.cs" />
     <Compile Include="EditMonument.xaml.cs">
       <DependentUpon>EditMonument.xaml</DependentUpon>
     </Compile>

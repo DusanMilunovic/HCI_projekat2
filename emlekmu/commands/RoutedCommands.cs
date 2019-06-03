@@ -142,6 +142,12 @@ namespace emlekmu.commands
             }
             );
 
+        public static readonly RoutedUICommand DemonMode = new RoutedUICommand("Demon Mode", "DemonMode", typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.D, ModifierKeys.Control)
+            });
+
 
 
     }

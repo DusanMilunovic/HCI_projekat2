@@ -23,6 +23,7 @@
         <CommandBinding x:Name="Tab4Command" Command="cmd:RoutedCommands.Tab4" CanExecute="Tab4Command_CanExecute" Executed="Tab4Command_Executed"></CommandBinding>
         <CommandBinding x:Name="CheatSheetCommand" Command="cmd:RoutedCommands.OpenCheatSheet" CanExecute="CheatSheetCommand_CanExecute" Executed="CheatSheetCommand_Executed"></CommandBinding>
         <CommandBinding x:Name="HelpDocumentationCommand" Command="cmd:RoutedCommands.OpenHelpDocumentation" CanExecute="HelpDocumentationCommand_CanExecute" Executed="HelpDocumentationCommand_Executed"></CommandBinding>
+        <CommandBinding x:Name="DemonModeCommand" Command="cmd:RoutedCommands.DemonMode" CanExecute="DemonModeCommand_CanExecute" Executed="DemonModeCommand_Executed"></CommandBinding>
     </Window.CommandBindings>
     <Grid>
         <local:MainContent x:Name="MainContent"></local:MainContent>

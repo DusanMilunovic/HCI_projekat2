@@ -10,9 +10,9 @@
     <Grid x:Name="Root" Background="#cceeff">
         <DockPanel>
             <Menu DockPanel.Dock="Top" Height="20">
-                <MenuItem Header="_File">
+                <MenuItem x:Name="FileMenu" Header="_File">
                     <MenuItem Header="_Types" Command="cmd:RoutedCommands.ListTypes"/>
-                    <MenuItem Header="T_ags" Command="cmd:RoutedCommands.ListTags"/>
+                    <MenuItem x:Name="TagsMenu" Header="T_ags" Command="cmd:RoutedCommands.ListTags"/>
                     <Separator />
                     <MenuItem Header="_Exit" Click="CloseWindow"/>
                 </MenuItem>
@@ -41,7 +41,7 @@
                 </Grid.ColumnDefinitions>
                 <TabControl x:Name="MapsContainer" Grid.Column="0" Grid.Row="1" Background="AliceBlue">
                     <TabItem x:Name="Map1Tab" Header="World" Width="70" AllowDrop="True" PreviewDragEnter="Map1Tab_PreviewDragEnter">
-                        <Viewbox Stretch="Uniform">
+                        <Viewbox x:Name="Map1Viewbox" Stretch="Uniform">
                             <local:Map x:Name="Map1" Positions="{Binding Map1Monuments}"
                                    EnlargenedMonuments="{Binding Path=EnlargenedMonuments, ElementName=MonumentTable}"
                                    RemoveMonumentCallback="{Binding removeMonumentCallback}"
