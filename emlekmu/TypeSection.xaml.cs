@@ -193,9 +193,12 @@ namespace emlekmu
         private void AddTypeButton_Click(object sender, RoutedEventArgs e)
         {
             AddType addTypeDialog = new AddType(AddTypeCallback, Types);
-
-            addTypeDialog.Height = 590;
-            addTypeDialog.Width = 450;
+            addTypeDialog.Owner = Application.Current.MainWindow;
+            addTypeDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            addTypeDialog.Height = 490;
+            addTypeDialog.Width = 350;
+            addTypeDialog.MinHeight = 420;
+            addTypeDialog.MinWidth = 280;
 
             addTypeDialog.ShowDialog();
 
@@ -233,8 +236,12 @@ namespace emlekmu
             int toEdit = EnlargenedTypes.First();
             Type m = this.Types.SingleOrDefault(x => x.Id == toEdit);
             EditType dialog = new EditType(m, this.EditTypeCallback);
-            dialog.Width = 590;
-            dialog.Height = 450;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 490;
+            dialog.Width = 350;
+            dialog.MinHeight = 420;
+            dialog.MinWidth = 280;
             dialog.ShowDialog();
         }
 
@@ -246,8 +253,12 @@ namespace emlekmu
         private void AddTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             AddType dialog = new AddType(this.AddTypeCallback, this.Types);
-            dialog.Height = 590;
-            dialog.Width = 450;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 490;
+            dialog.Width = 350;
+            dialog.MinHeight = 420;
+            dialog.MinWidth = 280;
             dialog.ShowDialog();
         }
 

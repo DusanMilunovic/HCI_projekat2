@@ -318,8 +318,12 @@ namespace emlekmu
         private void AddType_Click(object sender, RoutedEventArgs e)
         {
             emlekmu.AddType dialog = new emlekmu.AddType(this.AddTypeCallBack, this.Types);
-            dialog.Height = 750;
-            dialog.Width = 400;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 490;
+            dialog.Width = 350;
+            dialog.MinHeight = 420;
+            dialog.MinWidth = 280;
             dialog.ShowDialog();
         }
 
@@ -437,8 +441,12 @@ namespace emlekmu
         private void AddTag_Click(object sender, RoutedEventArgs e)
         {
             emlekmu.AddTag dialog = new emlekmu.AddTag(this.AddTagCallback, this.Tags);
-            dialog.Height = 750;
-            dialog.Width = 400;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 490;
+            dialog.Width = 350;
+            dialog.MinHeight = 420;
+            dialog.MinWidth = 280;
             dialog.Show();
         }
 

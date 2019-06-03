@@ -189,7 +189,7 @@ namespace emlekmu
                     {
                         if (filteredMonuments.IndexOf(item.Monument) != -1)
                         {
-                            item.Color = new Color(220, 20, 60);
+                            item.Color = new Color("#2299CC");
                         }
                         else
                         {
@@ -200,7 +200,7 @@ namespace emlekmu
                     {
                         if (filteredMonuments.IndexOf(item.Monument) != -1)
                         {
-                            item.Color = new Color(220, 20, 60);
+                            item.Color = new Color("#2299CC");
                         }
                         else
                         {
@@ -211,7 +211,7 @@ namespace emlekmu
                     {
                         if (filteredMonuments.IndexOf(item.Monument) != -1)
                         {
-                            item.Color = new Color(220, 20, 60);
+                            item.Color = new Color("#2299CC");
                         }
                         else
                         {
@@ -222,7 +222,7 @@ namespace emlekmu
                     {
                         if (filteredMonuments.IndexOf(item.Monument) != -1)
                         {
-                            item.Color = new Color(220, 20, 60);
+                            item.Color = new Color("#2299CC");
                         }
                         else
                         {
@@ -277,7 +277,7 @@ namespace emlekmu
                         if(this.filteredMonuments != null)
                         {
                             if (this.filteredMonuments.IndexOf(item.Monument) != -1)
-                                item.Color = new Color(220, 20, 60);
+                                item.Color = new Color("#2299CC");
                             else
                                 item.Color = new Color(255, 255, 255);
                         }
@@ -314,7 +314,7 @@ namespace emlekmu
                         if (this.filteredMonuments != null)
                         {
                             if (this.filteredMonuments.IndexOf(item.Monument) != -1)
-                                item.Color = new Color(220, 20, 60);
+                                item.Color = new Color("#2299CC");
                             else
                                 item.Color = new Color(255, 255, 255);
                         }
@@ -351,7 +351,7 @@ namespace emlekmu
                         if (this.filteredMonuments != null)
                         {
                             if (this.filteredMonuments.IndexOf(item.Monument) != -1)
-                                item.Color = new Color(220, 20, 60);
+                                item.Color = new Color("#2299CC");
                             else
                                 item.Color = new Color(255, 255, 255);
                         }
@@ -388,7 +388,7 @@ namespace emlekmu
                         if (this.filteredMonuments != null)
                         {
                             if (this.filteredMonuments.IndexOf(item.Monument) != -1)
-                                item.Color = new Color(220, 20, 60);
+                                item.Color = new Color("#2299CC");
                             else
                                 item.Color = new Color(255, 255, 255);
                         }
@@ -1218,7 +1218,6 @@ namespace emlekmu
 
         public void cascadeRemoveTag(Tag t)
         {
-            this.Tags.Remove(t);
             List<Monument> toRemove = new List<Monument>();
             foreach(Monument m in this.Monuments)
             {
@@ -1230,13 +1229,14 @@ namespace emlekmu
             }
             foreach(Monument m in toRemove)
             {
-                this.Monuments.Remove(m);
+                this.removeMonument(m.Id);
+                //this.Monuments.Remove(m);
             }
+            this.Tags.Remove(t);
         }
 
         private void removeTypeAndMonuments(Type t)
         {
-            this.Types.Remove(t);
             List<Monument> toRemove = new List<Monument>();
             foreach (Monument m in this.Monuments)
             {
@@ -1247,8 +1247,9 @@ namespace emlekmu
             }
             foreach (Monument m in toRemove)
             {
-                this.Monuments.Remove(m);
+                this.removeMonument(m.Id);
             }
+            this.Types.Remove(t);
         }
 
         private bool checkIfTagReferenced(Tag t)
@@ -1658,6 +1659,12 @@ namespace emlekmu
             Monument monumentToEdit = Monuments.SingleOrDefault(x => x.Id == monumentId);
 
             EditMonument editMonumentDialog = new EditMonument(Types, Tags, editMonumentCallback, monumentToEdit, addTypeCallback, addTagCallback);
+            editMonumentDialog.Owner = Application.Current.MainWindow;
+            editMonumentDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            editMonumentDialog.Height = 560;
+            editMonumentDialog.Width = 800;
+            editMonumentDialog.MinHeight = 560;
+            editMonumentDialog.MinWidth = 800;
             editMonumentDialog.ShowDialog();
 
             if (editMonumentDialog.DialogResult.HasValue && editMonumentDialog.DialogResult.Value)
@@ -1676,6 +1683,12 @@ namespace emlekmu
         {
             AddMonument addMonumentDialog = new AddMonument(Monuments,
                 Types, Tags, addMonumentCallback, addTypeCallback, addTagCallback);
+            addMonumentDialog.Owner = Application.Current.MainWindow;
+            addMonumentDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            addMonumentDialog.Height = 560;
+            addMonumentDialog.Width = 800;
+            addMonumentDialog.MinHeight = 560;
+            addMonumentDialog.MinWidth = 800;
 
             addMonumentDialog.ShowDialog();
 
@@ -1696,8 +1709,12 @@ namespace emlekmu
         {
             Monument monument = Monuments.SingleOrDefault(x => x.Id == monumentId);
             MonumentDetail mdDialog = new MonumentDetail(monument);
+            mdDialog.Owner = Application.Current.MainWindow;
+            mdDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             mdDialog.Height = 590;
             mdDialog.Width = 890;
+            mdDialog.MinHeight = 590;
+            mdDialog.MinWidth = 890;
             mdDialog.ShowDialog();
         }
 
