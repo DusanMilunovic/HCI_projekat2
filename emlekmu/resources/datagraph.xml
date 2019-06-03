@@ -2,235 +2,6 @@
 <DataGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <monuments>
     <Monument>
-      <Id>3</Id>
-      <Name> Sheikh Zayed Grand Mosque Center, Abu Dhabi</Name>
-      <Description>An absolute gem of the modern world, Sheikh Zayed Grand Mosque Center may have only been completed in 2007, but it has already garnered much media attention (remember that controversial photograph of Rihanna posing in front of it? Yeah, you do). It's wonders include 82 domes of seven different sizes and a library pregnant with classic Islamic books and publications.Pro tip: This is a place of worship, so be respectful and follow custom or you may end up like Rihanna and be asked to leave the premises.</Description>
-      <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument3.png</Image>
-      <Type>
-        <Id>10</Id>
-        <Name>Triumphal arch</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
-        <Description>Almost always to commemorate military successes</Description>
-        <DescriptionShort>Almost always to commemorate m...</DescriptionShort>
-      </Type>
-      <Era>Renaissance</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
-      <ArcheologicallyExplored>false</ArcheologicallyExplored>
-      <Unesco>true</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Exploited</TouristicStatus>
-      <Income>56000</Income>
-      <DiscoveryDate>11.2.726 CE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Carved from pure marble</Description>
-          <DescriptionShort>Carved from pure marble</DescriptionShort>
-          <Id>Marble</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>4</Id>
-      <Name> St Peter's Basilica, Italy</Name>
-      <Description>According to Catholicism, St Peter's Basilica houses the body of the disciple, St Peter, who is also known as the guardian of the gates to heaven. As an architectural piece, it is majestic, the domes stretch high above and may be climbed all the way, or can be accessed (half the way) via elevator.Pro tip: Arrive in the early afternoon, this way you avoid the tour group crowds, or you may be in line for a while.</Description>
-      <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument4.png</Image>
-      <Type>
-        <Id>10</Id>
-        <Name>Triumphal arch</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
-        <Description>Almost always to commemorate military successes</Description>
-        <DescriptionShort>Almost always to commemorate m...</DescriptionShort>
-      </Type>
-      <Era>Paleolith</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>true</PopulatedRegion>
-      <TouristicStatus>Unavailable</TouristicStatus>
-      <Income>52000</Income>
-      <DiscoveryDate>20.10.131 BCE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Heave bronze work surviving the test of time with honour</Description>
-          <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
-          <Id>Green bronze</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Heavy bronze work</Description>
-          <DescriptionShort>Heavy bronze work</DescriptionShort>
-          <Id>Bronze</Id>
-          <Color>
-            <Red>220</Red>
-            <Green>20</Green>
-            <Blue>60</Blue>
-            <Hex>#DC143C</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>5</Id>
-      <Name> Mezquita Catedral de Cordoba, Spain</Name>
-      <Description>Instantly Insta-worthy and candy for the eyes, the Mezquita Catedral de Cordoba is a heady mix of Gothic and Islamic architecture.The architecture reflects its history, having served as both an Islamic mosque and a Catholic cathedral.</Description>
-      <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument5.png</Image>
-      <Type>
-        <Id>8</Id>
-        <Name>Gravestone</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type8.png</Icon>
-        <Description>Small monuments to the deceased, placed at their gravesites</Description>
-        <DescriptionShort>Small monuments to the decease...</DescriptionShort>
-      </Type>
-      <Era>Ancient</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type8.png</Icon>
-      <ArcheologicallyExplored>false</ArcheologicallyExplored>
-      <Unesco>true</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Unavailable</TouristicStatus>
-      <Income>193000</Income>
-      <DiscoveryDate>14.6.227 CE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Heavy bronze work</Description>
-          <DescriptionShort>Heavy bronze work</DescriptionShort>
-          <Id>Bronze</Id>
-          <Color>
-            <Red>220</Red>
-            <Green>20</Green>
-            <Blue>60</Blue>
-            <Hex>#DC143C</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>6</Id>
-      <Name> Taj Mahal, India</Name>
-      <Description>A constant on the Seven Wonders of World lists, the Taj Mahal is so highly acclaimed that one TripAdvisor user has been bold enough to claim that "you haven't lived until you've visited it." Built in 1632, the white marble mausoleum houses the tomb of the Mughal emperor Shah Jahan's favourite wife, Mumtaz Mahal.</Description>
-      <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument6.png</Image>
-      <Type>
-        <Id>14</Id>
-        <Name>Palace</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type14.png</Icon>
-        <Description>Imposing royal residences designed to impress people with their grandeur and greatness</Description>
-        <DescriptionShort>Imposing royal residences desi...</DescriptionShort>
-      </Type>
-      <Era>Renaissance</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type14.png</Icon>
-      <ArcheologicallyExplored>false</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Available</TouristicStatus>
-      <Income>174000</Income>
-      <DiscoveryDate>15.9.914 CE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Carved from pure marble</Description>
-          <DescriptionShort>Carved from pure marble</DescriptionShort>
-          <Id>Marble</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>7</Id>
-      <Name> Milan Cathedral, Italy</Name>
-      <Description>Milan may be the capital of Italian fashion, but it also holds a capital "duomo" Cathedral in its square. An immense construction, it's best viewed and photographed on the outside with its brilliant white facade leaving you absolutely flawed. Make sure you make the climb up to the top of the Cathedral for pristine views over the city.Pro tip: Be careful in the square / forecourt: there are pigeons EVERYWHERE.</Description>
-      <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument7.png</Image>
-      <Type>
-        <Id>9</Id>
-        <Name>Mausoleum or tomb</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type9.png</Icon>
-        <Description>Honors the dead</Description>
-        <DescriptionShort>Honors the dead</DescriptionShort>
-      </Type>
-      <Era>Paleolith</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type9.png</Icon>
-      <ArcheologicallyExplored>false</ArcheologicallyExplored>
-      <Unesco>true</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Exploited</TouristicStatus>
-      <Income>232000</Income>
-      <DiscoveryDate>17.3.1110 BCE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Simple and effective, massive and powerful</Description>
-          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
-          <Id>Stone</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>8</Id>
-      <Name> Alcatraz, USA</Name>
-      <Description>The infamous prison island off the coast of San Francisco is an undisputed "must visit" when in San Fran. It's a completely alternate feeling from the other winners on this list, harbouring a more eerie and haunted atmosphere. Its journeyed from being a military garrison to a military prison to being the home of Native American activists and now remains abandoned and open for tourists.</Description>
-      <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument8.png</Image>
-      <Type>
-        <Id>8</Id>
-        <Name>Gravestone</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type8.png</Icon>
-        <Description>Small monuments to the deceased, placed at their gravesites</Description>
-        <DescriptionShort>Small monuments to the decease...</DescriptionShort>
-      </Type>
-      <Era>Renaissance</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type8.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>true</Unesco>
-      <PopulatedRegion>true</PopulatedRegion>
-      <TouristicStatus>Unavailable</TouristicStatus>
-      <Income>133000</Income>
-      <DiscoveryDate>1.10.413 CE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Simple and effective, massive and powerful</Description>
-          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
-          <Id>Stone</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
       <Id>9</Id>
       <Name> Hungarian Parliament Building, Hungary</Name>
       <Description>No landmark commands the waterfront the way the Hungarian Parliament Building in Budapest does.Opened in 1904, this century-old site still stands strong as the seat of the National Assembly of Hungary. It takes tourists on guided tours to marvel at its Neo-Gothic architecture and the historical relics that lie within, including the Hungarian Crown Jewels.</Description>
@@ -449,10 +220,10 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -485,10 +256,10 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -534,10 +305,10 @@
           <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
           <Id>Green bronze</Id>
           <Color>
-            <Red>255</Red>
+            <Red>173</Red>
             <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Blue>47</Blue>
+            <Hex>#ADFF2F</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -691,10 +462,10 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -799,10 +570,10 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -812,10 +583,10 @@
           <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
           <Id>Green bronze</Id>
           <Color>
-            <Red>255</Red>
+            <Red>173</Red>
             <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Blue>47</Blue>
+            <Hex>#ADFF2F</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -848,10 +619,10 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -860,55 +631,6 @@
           <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
           <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
           <Id>Plastic</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>27</Id>
-      <Name>lkhoijhjk</Name>
-      <Description>lkhjlk</Description>
-      <Image>C:\Users\Terra-LT\Desktop\Pepe2.png</Image>
-      <Type>
-        <Id>6</Id>
-        <Name>Eternal flame</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type6.png</Icon>
-        <Description>Kept burning continuously, usually lit to honor unknown soldiers</Description>
-        <DescriptionShort>Kept burning continuously, usu...</DescriptionShort>
-      </Type>
-      <Era>Ancient</Era>
-      <Icon>C:\Users\Terra-LT\Desktop\Pepe2.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Unavailable</TouristicStatus>
-      <Income>1111</Income>
-      <DiscoveryDate>11.12.311 BCE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Heavy bronze work</Description>
-          <DescriptionShort>Heavy bronze work</DescriptionShort>
-          <Id>Bronze</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Hard metal material used during war periods</Description>
-          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
-          <Id>Iron</Id>
           <Color>
             <Red>255</Red>
             <Green>255</Green>
@@ -946,10 +668,10 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -972,10 +694,10 @@
           <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
           <Id>Green bronze</Id>
           <Color>
-            <Red>255</Red>
+            <Red>173</Red>
             <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Blue>47</Blue>
+            <Hex>#ADFF2F</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -1021,109 +743,15 @@
           <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
           <Id>Green bronze</Id>
           <Color>
-            <Red>255</Red>
+            <Red>173</Red>
             <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Blue>47</Blue>
+            <Hex>#ADFF2F</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
       </Tags>
-    </Monument>
-    <Monument>
-      <Id>27</Id>
-      <Name>a</Name>
-      <Description>a</Description>
-      <Image>C:\Users\Ivan\Desktop\Untitled.png</Image>
-      <Type>
-        <Id>8</Id>
-        <Name>Gravestone</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type8.png</Icon>
-        <Description>Small monuments to the deceased, placed at their gravesites</Description>
-        <DescriptionShort>Small monuments to the decease...</DescriptionShort>
-      </Type>
-      <Era>Ancient</Era>
-      <Icon>C:\Users\Ivan\Desktop\Untitled.png</Icon>
-      <ArcheologicallyExplored>false</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Unavailable</TouristicStatus>
-      <Income>21</Income>
-      <DiscoveryDate>11.11.2222 CE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Carved from pure marble</Description>
-          <DescriptionShort>Carved from pure marble</DescriptionShort>
-          <Id>Marble</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>28</Id>
-      <Name>a</Name>
-      <Description>a</Description>
-      <Image>C:\Users\Ivan\Desktop\Untitled.png</Image>
-      <Type>
-        <Id>4</Id>
-        <Name>Church monument</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type4.png</Icon>
-        <Description>To commemorate the faithful dead, located above or near their grave, often featuring an effigy</Description>
-        <DescriptionShort>To commemorate the faithful de...</DescriptionShort>
-      </Type>
-      <Era>Neolithic</Era>
-      <Icon>C:\Users\Ivan\Desktop\Untitled.png</Icon>
-      <ArcheologicallyExplored>false</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Unavailable</TouristicStatus>
-      <Income>0</Income>
-      <DiscoveryDate>11.11.1111 BCE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Heave bronze work surviving the test of time with honour</Description>
-          <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
-          <Id>Green bronze</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>29</Id>
-      <Name>bro</Name>
-      <Description>bro</Description>
-      <Image>C:\Users\Ivan\Desktop\Untitled.png</Image>
-      <Type>
-        <Id>1</Id>
-        <Name>Benchmark</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type1.png</Icon>
-        <Description>Placed by a government agency or private survey firm.</Description>
-        <DescriptionShort>Placed by a government agency ...</DescriptionShort>
-      </Type>
-      <Era>Paleolith</Era>
-      <Icon>C:\Users\Ivan\Desktop\Untitled.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Exploited</TouristicStatus>
-      <Income>10</Income>
-      <DiscoveryDate>11.11.1111 BCE</DiscoveryDate>
-      <Tags />
     </Monument>
     <Monument>
       <Id>30</Id>
@@ -1187,10 +815,10 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -1223,10 +851,10 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -1272,10 +900,10 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -1321,46 +949,10 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>35</Id>
-      <Name>asdas</Name>
-      <Description>sadasd</Description>
-      <Image>C:\Users\Ivan\Desktop\Untitled.png</Image>
-      <Type>
-        <Id>1</Id>
-        <Name>Benchmark</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type1.png</Icon>
-        <Description>Placed by a government agency or private survey firm.</Description>
-        <DescriptionShort>Placed by a government agency ...</DescriptionShort>
-      </Type>
-      <Era>Paleolith</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type1.png</Icon>
-      <ArcheologicallyExplored>true</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>false</PopulatedRegion>
-      <TouristicStatus>Exploited</TouristicStatus>
-      <Income>111</Income>
-      <DiscoveryDate>11.11.1111 BCE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Heave bronze work surviving the test of time with honour</Description>
-          <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
-          <Id>Green bronze</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -1406,10 +998,10 @@
           <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
           <Id>Green bronze</Id>
           <Color>
-            <Red>255</Red>
+            <Red>173</Red>
             <Green>255</Green>
-            <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
+            <Blue>47</Blue>
+            <Hex>#ADFF2F</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -1465,6 +1057,68 @@
         </Tag>
       </Tags>
     </Monument>
+    <Monument>
+      <Id>1</Id>
+      <Name>asda</Name>
+      <Description>asdassd</Description>
+      <Image>C:\Users\Nenad\Documents\v4-ml\img\iris.png</Image>
+      <Type>
+        <Id>2</Id>
+        <Name>Building</Name>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type2.png</Icon>
+        <Description>Designed as landmarks, usually built with an extraordinary feature, such being designed as the tallest, largest, or most distinctive design</Description>
+        <DescriptionShort>Designed as landmarks, usually...</DescriptionShort>
+      </Type>
+      <Era>Neolithic</Era>
+      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type2.png</Icon>
+      <ArcheologicallyExplored>true</ArcheologicallyExplored>
+      <Unesco>false</Unesco>
+      <PopulatedRegion>false</PopulatedRegion>
+      <TouristicStatus>Exploited</TouristicStatus>
+      <Income>1234</Income>
+      <DiscoveryDate>11.11.1111 BCE</DiscoveryDate>
+      <Tags>
+        <Tag>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
+          <Color>
+            <Red>147</Red>
+            <Green>112</Green>
+            <Blue>219</Blue>
+            <Hex>#9370DB</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
+          <Color>
+            <Red>220</Red>
+            <Green>20</Green>
+            <Blue>60</Blue>
+            <Hex>#DC143C</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Heave bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
+          <Color>
+            <Red>173</Red>
+            <Green>255</Green>
+            <Blue>47</Blue>
+            <Hex>#ADFF2F</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
+    </Monument>
   </monuments>
   <tags>
     <Tag>
@@ -1485,10 +1139,10 @@
       <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
       <Id>Black Marble</Id>
       <Color>
-        <Red>255</Red>
-        <Green>255</Green>
-        <Blue>255</Blue>
-        <Hex>#FFFFFF</Hex>
+        <Red>147</Red>
+        <Green>112</Green>
+        <Blue>219</Blue>
+        <Hex>#9370DB</Hex>
         <Hexi>#000000</Hexi>
       </Color>
       <Selected>false</Selected>
@@ -1511,10 +1165,10 @@
       <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
       <Id>Green bronze</Id>
       <Color>
-        <Red>255</Red>
+        <Red>173</Red>
         <Green>255</Green>
-        <Blue>255</Blue>
-        <Hex>#FFFFFF</Hex>
+        <Blue>47</Blue>
+        <Hex>#ADFF2F</Hex>
         <Hexi>#000000</Hexi>
       </Color>
       <Selected>false</Selected>
@@ -1586,13 +1240,6 @@
     </Tag>
   </tags>
   <types>
-    <Type>
-      <Id>1</Id>
-      <Name>Benchmark</Name>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type1.png</Icon>
-      <Description>Placed by a government agency or private survey firm.</Description>
-      <DescriptionShort>Placed by a government agency ...</DescriptionShort>
-    </Type>
     <Type>
       <Id>2</Id>
       <Name>Building</Name>

@@ -221,6 +221,7 @@ namespace emlekmu
 
             ContextMenu cm = this.FindResource("cmMonumentRowDetail") as ContextMenu;
             cm.IsOpen = true;
+            e.Handled = true;
         }
 
         private void DetailsButton_Click(object sender, RoutedEventArgs e)
