@@ -1,9 +1,9 @@
-Marble|Carved from pure marble|#ffffff
-Black Marble|Carved from pure blacked marbe, rarest mineral in Africa|#ffffff
-Bronze|Heavy bronze work|#ffffff
-Green bronze|Heave bronze work surviving the test of time with honour|#ffffff
-Iron|Hard metal material used during war periods|#ffffff
-Steel|Refined iron, indicator of rich war winners|#ffffff
-Plastic|Creation of modern times, non-conventional material, indicator of a spiritually embraced artist|#ffffff
-Stone|Simple and effective, massive and powerful|#ffffff
-Brick|Brick by brick, the most magnificent art is built in steps|#ffffff
+Marble|Carved from pure marble|#E6E6FA
+Black Marble|Carved from pure blacked marbe, rarest mineral in Africa|#212020
+Bronze|Heavy bronze work|#1C7D41
+Green bronze|Heavy bronze work surviving the test of time with honour|#1C7D41
+Iron|Hard metal material used during war periods|#808080
+Steel|Refined iron, indicator of rich war winners|#B0C4DE
+Plastic|Creation of modern times, non-conventional material, indicator of a spiritually embraced artist|#0000FF
+Stone|Simple and effective, massive and powerful|#808080
+Brick|Brick by brick, the most magnificent art is built in steps|#FF3D00

@@ -946,11 +946,60 @@
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>255</Green>
+            <Red>33</Red>
+            <Green>32</Green>
+            <Blue>32</Blue>
+            <Hex>#212020</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
+          <Color>
+            <Red>0</Red>
+            <Green>0</Green>
             <Blue>255</Blue>
-            <Hex>#FFFFFF</Hex>
-            <Hexi>#000000</Hexi>
+            <Hex>#0000FF</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
+    </Monument>
+    <Monument>
+      <Id>27</Id>
+      <Name>lkhoijhjk</Name>
+      <Description>lkhjlk</Description>
+      <Image>C:\Users\Terra-LT\Desktop\Pepe2.png</Image>
+      <Type>
+        <Id>6</Id>
+        <Name>Eternal flame</Name>
+        <Icon>D:\Dusan\1Faks\HCI\emlekmu\emlekmu\resources\type6.png</Icon>
+        <Description>Kept burning continuously, usually lit to honor unknown soldiers</Description>
+        <DescriptionShort>Kept burning continuously, usu...</DescriptionShort>
+      </Type>
+      <Era>Ancient</Era>
+      <Icon>C:\Users\Terra-LT\Desktop\Pepe2.png</Icon>
+      <ArcheologicallyExplored>true</ArcheologicallyExplored>
+      <Unesco>false</Unesco>
+      <PopulatedRegion>false</PopulatedRegion>
+      <TouristicStatus>Unavailable</TouristicStatus>
+      <Income>1111</Income>
+      <DiscoveryDate>11.12.311 BCE</DiscoveryDate>
+      <Tags>
+        <Tag>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
+          <Color>
+            <Red>168</Red>
+            <Green>65</Green>
+            <Blue>17</Blue>
+            <Hex>#A84111</Hex>
+            <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>

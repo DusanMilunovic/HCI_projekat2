@@ -12,6 +12,7 @@
              >
     <UserControl.Resources>
         <ContextMenu x:Key="cmMonumentRowDetail">
+            <MenuItem Header="Details" Click="DetailsButton_Click"></MenuItem>
             <MenuItem Header="Edit" Click="EditButton_Click"></MenuItem>
             <MenuItem Header="Delete" Click="DeleteBtn_Click"></MenuItem>
         </ContextMenu>
@@ -37,7 +38,7 @@
                     <Label DockPanel.Dock="Top" FontSize="12"
                            Height="25" VerticalAlignment="Center"
                            Margin="5 0 0 0">ID: </Label>
-                    <TextBlock FontSize="16" Margin="10"
+                    <TextBlock FontSize="14" Margin="10"
                                Text="{Binding MonumentId}"></TextBlock>
                 </DockPanel>
 
@@ -50,7 +51,7 @@
                     <Label DockPanel.Dock="Top" FontSize="12"
                            Height="25" VerticalAlignment="Center"
                            Margin="5 0 0 0">Name:</Label>
-                    <TextBlock FontSize="16" Margin="10"
+                    <TextBlock FontSize="14" Margin="10"
                                Text="{Binding MonumentName}"></TextBlock>
                 </DockPanel>
 
@@ -63,7 +64,7 @@
                     <Label DockPanel.Dock="Top" FontSize="12"
                            Height="25" VerticalAlignment="Center"
                            Margin="5 0 0 0">Type:</Label>
-                    <TextBlock FontSize="16" Margin="10"
+                    <TextBlock FontSize="14" Margin="10"
                                Text="{Binding MonumentType.Name}"></TextBlock>
                 </DockPanel>
 
@@ -76,7 +77,7 @@
                     <Label DockPanel.Dock="Top" FontSize="12"
                            Height="25" VerticalAlignment="Center"
                            Margin="5 0 0 0">Desription:</Label>
-                    <TextBlock FontSize="16" Margin="10 5 -10 5"
+                    <TextBlock FontSize="14" Margin="10 5 -10 5"
                                TextWrapping="WrapWithOverflow"
                                MaxWidth="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
                                AncestorType=DockPanel}, Path=ActualWidth}"
@@ -89,8 +90,9 @@
                 <Grid Grid.Row="4" Grid.ColumnSpan="2" Background="AliceBlue">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
                                 VerticalAlignment="Center">
-                        <Button x:Name="EditButton" Margin="20" Height="40" Width="120" Click="EditButton_Click">Edit monument</Button>
-                        <Button x:Name="DeleteBtn" Margin="20"  Height="40" Width="120" Click="DeleteBtn_Click">Delete monument</Button>
+                        <Button x:Name="DetailsButton" Margin="20" Height="25" Width="100" Click="DetailsButton_Click">Details</Button>
+                        <Button x:Name="EditButton" Margin="20" Height="25" Width="100" Click="EditButton_Click">Edit monument</Button>
+                        <Button x:Name="DeleteBtn" Margin="20"  Height="25" Width="100" Click="DeleteBtn_Click">Delete monument</Button>
                     </StackPanel>
                 </Grid>
 

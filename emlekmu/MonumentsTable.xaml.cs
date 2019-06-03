@@ -144,6 +144,18 @@ namespace emlekmu
 
 
 
+        public onOpenMonumentDetail OpenMonumentDetailCallback
+        {
+            get { return (onOpenMonumentDetail)GetValue(OpenMonumentDetailCallbackProperty); }
+            set { SetValue(OpenMonumentDetailCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OpenMonumentDetailCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OpenMonumentDetailCallbackProperty =
+            DependencyProperty.Register("OpenMonumentDetailCallback", typeof(onOpenMonumentDetail), typeof(MonumentsTable), new PropertyMetadata(null));
+
+
+
         public MonumentsTable()
         {
             InitializeComponent();

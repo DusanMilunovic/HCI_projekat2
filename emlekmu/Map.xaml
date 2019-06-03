@@ -50,7 +50,8 @@
                                                   PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" 
                                                   MouseMove="ListView_MouseMove" MouseLeftButtonDown="MonumentPin_MouseLeftButtonDown"
                                                   EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}"
-                                                  RemovePinCallback="{Binding ElementName=Root, Path=DataContext.RemovePinCallback}">
+                                                  RemovePinCallback="{Binding ElementName=Root, Path=DataContext.RemovePinCallback}"
+                                                  OpenMonumentDetailCallback="{Binding ElementName=Root, Path=DataContext.OpenMonumentDetailCallback}">
                                         </local:MonumentPin>
                                     </Grid>
                             </DataTemplate>
