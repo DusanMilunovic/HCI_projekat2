@@ -51,7 +51,8 @@
                                        MousePositionXText="{Binding Path=MousePositionXText, Mode=TwoWay}"
                                        MousePositionYText="{Binding Path=MousePositionYText, Mode=TwoWay}"
                                    MapName="World" MyMapWidth="1200" MyMapHeight="800"
-                                       saveMapData="{Binding mapSaveCallback}">
+                                       saveMapData="{Binding mapSaveCallback}"
+                                      OpenMonumentDetailCallback="{Binding openMonumentDetailCallback}">
                             </local:Map>
                         </Viewbox>
                     </TabItem>
@@ -66,7 +67,8 @@
                                        MousePositionXText="{Binding Path=MousePositionXText, Mode=TwoWay}"
                                        MousePositionYText="{Binding Path=MousePositionYText, Mode=TwoWay}"
                                MapName="Europe" MyMapWidth="800" MyMapHeight="800"
-                                       saveMapData="{Binding mapSaveCallback}">
+                                       saveMapData="{Binding mapSaveCallback}"
+                                      OpenMonumentDetailCallback="{Binding openMonumentDetailCallback}">
 
                             </local:Map>
                         </Viewbox>
@@ -82,7 +84,8 @@
                                        MousePositionXText="{Binding Path=MousePositionXText, Mode=TwoWay}"
                                        MousePositionYText="{Binding Path=MousePositionYText, Mode=TwoWay}"
                                MapName="Serbia" MyMapWidth="800" MyMapHeight="800"
-                                       saveMapData="{Binding mapSaveCallback}">
+                                       saveMapData="{Binding mapSaveCallback}"
+                                      OpenMonumentDetailCallback="{Binding openMonumentDetailCallback}">
 
                             </local:Map>
                         </Viewbox>
@@ -97,7 +100,8 @@
                                        MousePositionXText="{Binding Path=MousePositionXText, Mode=TwoWay}"
                                        MousePositionYText="{Binding Path=MousePositionYText, Mode=TwoWay}"
                                MapName="Africa" MyMapWidth="800" MyMapHeight="800"
-                                   saveMapData="{Binding mapSaveCallback}">
+                                   saveMapData="{Binding mapSaveCallback}"
+                                      OpenMonumentDetailCallback="{Binding openMonumentDetailCallback}">
 
                         </local:Map>
                     </TabItem>
@@ -135,7 +139,7 @@
                                                    FilterCallback="{Binding filterMonumentsCallback}"
                                                    Tags="{Binding Tags}"
                                                    Types="{Binding Types}"></local:SearchFilterControl>
-                        
+
                         <local:MonumentsTable Grid.Row="1" x:Name="MonumentTable"
                                       SearchedMonuments="{Binding SearchedMonuments}"
                                       AllMonuments="{Binding Monuments}"
@@ -144,7 +148,8 @@
                                       RemoveMonumentCallback="{Binding removeMonumentCallback}"
                                       EditMonumentCallback="{Binding openEditMonumentCallback}"
                                       MonumentSelectionChangedCallback="{Binding monumentSelectionChangedCallback}"
-                                      OpenAddMonumentCallback="{Binding openAddMonumentCallback}"/>
+                                      OpenAddMonumentCallback="{Binding openAddMonumentCallback}"
+                                      OpenMonumentDetailCallback="{Binding openMonumentDetailCallback}"/>
                     </Grid>
                 </DockPanel>
                 <GridSplitter Grid.Column="1" 

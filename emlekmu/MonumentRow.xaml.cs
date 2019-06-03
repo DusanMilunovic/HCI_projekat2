@@ -139,6 +139,15 @@ namespace emlekmu
             DependencyProperty.Register("EditMonumentCallback", typeof(onOpenEditMonument), typeof(MonumentRow), new PropertyMetadata(null));
 
 
+        public onOpenMonumentDetail OpenMonumentDetailCallback
+        {
+            get { return (onOpenMonumentDetail)GetValue(OpenMonumentDetailCallbackProperty); }
+            set { SetValue(OpenMonumentDetailCallbackProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OpenMonumentDetailsCallback.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OpenMonumentDetailCallbackProperty =
+            DependencyProperty.Register("OpenMonumentDetailCallback", typeof(onOpenMonumentDetail), typeof(MonumentRow), new PropertyMetadata(null));
 
 
         public onRemoveMonument RemoveMonumentCallback
@@ -212,6 +221,11 @@ namespace emlekmu
         {
             InitializeComponent();
             Root.DataContext = this;
+        }
+
+        public void DetailsAction(object sender, RoutedEventArgs e)
+        {
+            OpenMonumentDetailCallback(MonumentId);
         }
     }
 }

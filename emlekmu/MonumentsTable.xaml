@@ -64,20 +64,22 @@
                                                                RemoveMonumentCallback="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}"
                                                                EditMonumentCallback="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
                                                                MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
-                                                               EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}">
+                                                               EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}"
+                                                                 OpenMonumentDetailCallback="{Binding ElementName=Root, Path=DataContext.OpenMonumentDetailCallback}">
 
                                         </local:MonumentRow>
                                         <local:MonumentRowDetail Tag="{Binding Path=Id}" MonumentId="{Binding Path=Id}"
-                                                                     MonumentName="{Binding Path=Name}"
-                                                                     MonumentTags="{Binding Path=Tags}"
-                                                                     MonumentType="{Binding Path=Type}"
-                                                                     MonumentImage="{Binding Path=Icon}"
-                                                                     MonumentDescription="{Binding Path=Description}"
-                                                                     editMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
-                                                                     MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
-                                                                     EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments, Mode=TwoWay}"
-                                                                     Visibility="Collapsed"
-                                                                     removeMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}">
+                                                                 MonumentName="{Binding Path=Name}"
+                                                                 MonumentTags="{Binding Path=Tags}"
+                                                                 MonumentType="{Binding Path=Type}"
+                                                                 MonumentImage="{Binding Path=Icon}"
+                                                                 MonumentDescription="{Binding Path=Description}"
+                                                                 editMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
+                                                                 MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
+                                                                 EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments, Mode=TwoWay}"
+                                                                 Visibility="Collapsed"
+                                                                 removeMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}"
+                                                                 OpenMonumentDetailCallback="{Binding ElementName=Root, Path=DataContext.OpenMonumentDetailCallback}">
 
                                         </local:MonumentRowDetail>
 

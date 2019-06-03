@@ -28,7 +28,7 @@ namespace emlekmu
     /// Interaction logic for MainContent.xaml
     /// </summary>
     /// 
-   
+
     public partial class MainContent : UserControl, INotifyPropertyChanged
     {
 
@@ -125,7 +125,7 @@ namespace emlekmu
                 if (value != searchedNFMonuments)
                 {
                     searchedNFMonuments = value;
-                    
+
                     OnPropertyChanged("SearchedNFMonuments");
                 }
             }
@@ -142,7 +142,7 @@ namespace emlekmu
                 if (value != filteredMonuments)
                 {
                     filteredMonuments = value;
-                    
+
                     OnPropertyChanged("FilteredMonuments");
                 }
             }
@@ -388,8 +388,8 @@ namespace emlekmu
             this.SearchedMonuments.Remove(mon);
             this.FilteredMonuments.Remove(mon);
             this.SearchedNFMonuments.Remove(mon);
-            
-            
+
+
             SaveData();
             SaveMapData();
             return mon;
@@ -637,7 +637,7 @@ namespace emlekmu
 
             SaveData();
             return t;
-            
+
         }
 
         Monument findMonument(int id)
@@ -704,7 +704,7 @@ namespace emlekmu
                     }
                 }
 
-                if (era != "--" && era!="" && era != null)
+                if (era != "--" && era != "" && era != null)
                 {
                     if (!monument.Era.ToString().ToLower().Contains(era.ToLower()))
                     {
@@ -771,7 +771,7 @@ namespace emlekmu
 
                 }
 
-                if(tags != null)
+                if (tags != null)
                 {
                     if (tags.Count != 0)
                     {
@@ -786,10 +786,10 @@ namespace emlekmu
                             sMonuments.Remove(monument);
                     }
                 }
-                
+
             }
 
-           
+
             this.SearchedMonuments = new ObservableCollection<Monument>(sMonuments);
             filterMonuments(id_f, name_f, typeName_f, era_f, arch_f, unesco_f, populated_f, touristicStatus_f, min_income_f, max_income_f, tags_f);
             this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
@@ -821,7 +821,7 @@ namespace emlekmu
             this.min_income_f = min_income;
             this.max_income_f = max_income;
             this.tags_f = tags;
-           
+
             List<Monument> fMonuments = new List<Monument>(this.SearchedMonuments);
             foreach (var monument in this.SearchedMonuments)
             {
@@ -891,7 +891,7 @@ namespace emlekmu
                     }
                 }
 
-                if (touristicStatus != ""  && touristicStatus != "--" && touristicStatus != null)
+                if (touristicStatus != "" && touristicStatus != "--" && touristicStatus != null)
                 {
                     if (!monument.TouristicStatus.ToString().ToLower().Contains(touristicStatus.ToLower()))
                     {
@@ -916,7 +916,7 @@ namespace emlekmu
 
                 }
 
-                if(tags != null)
+                if (tags != null)
                 {
                     if (tags.Count != 0)
                     {
@@ -931,11 +931,11 @@ namespace emlekmu
                             fMonuments.Remove(monument);
                     }
                 }
-                
+
             }
 
             this.FilteredMonuments = new ObservableCollection<Monument>(fMonuments);
-            this.SearchedNFMonuments = new ObservableCollection<Monument>( this.SearchedMonuments.Except(this.FilteredMonuments));
+            this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
         }
 
         #endregion
@@ -1053,7 +1053,7 @@ namespace emlekmu
             return null;
         }
 
-        
+
         #endregion
 
         #region MenuActions
@@ -1142,7 +1142,19 @@ namespace emlekmu
             {
                 return null;
             }
-            
+
+        }
+
+        public delegate void onOpenMonumentDetail(int monumentId);
+        public onOpenMonumentDetail openMonumentDetailCallback { get; set;}
+
+        public void openMonumentDetail(int monumentId)
+        {
+            Monument monument = Monuments.SingleOrDefault(x => x.Id == monumentId);
+            MonumentDetail mdDialog = new MonumentDetail(monument);
+            mdDialog.Height = 640;
+            mdDialog.Width = 960;
+            mdDialog.ShowDialog();
         }
 
         #endregion
@@ -1317,7 +1329,7 @@ namespace emlekmu
             // Dialog callback initialization
             this.openEditMonumentCallback = new onOpenEditMonument(openEditMonument);
             this.openAddMonumentCallback = new onOpenAddMonument(openAddMonument);
-
+            this.openMonumentDetailCallback = new onOpenMonumentDetail(openMonumentDetail);
             // pin click callback
             this.pinClickedCallback = new onPinClicked(pinClicked);
 
