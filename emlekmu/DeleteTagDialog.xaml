@@ -1,0 +1,35 @@
+﻿<Window x:Class="emlekmu.DeleteTagDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:emlekmu"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel x:Name="Root">
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="16">Are you sure you want to delete?</Label>
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="14">Some monuments have that tag assigned.</Label>
+
+        <StackPanel DockPanel.Dock="Bottom">
+            <Button x:Name="removeTags" Width="180" Margin="5">Remove tags from monuments</Button>
+            <Button IsCancel="True" Width="180" Margin="5">Cancel</Button>
+        </StackPanel>
+
+        <ListBox x:Name="MonumentsListBox" Margin="5" IsEnabled="False" ItemsSource="{Binding Monuments}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse HorizontalAlignment="Left" Height="15" Width="15">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding Image}" Stretch="Fill"></ImageBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Label Content="{Binding Id}"></Label>
+                        <Label Content=". "></Label>
+                        <Label Content="{Binding Name}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</Window>
