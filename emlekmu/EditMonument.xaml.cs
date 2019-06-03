@@ -467,9 +467,18 @@ namespace emlekmu
                 this.newMonument.TouristicStatus = (TouristicStatus)Enum.Parse(typeof(TouristicStatus), this.Touristic);
                 this.formatDate();
                 this.connectTags();
+                fixIcon();
                 this.EditMonumentCallback(this.NewMonument);
                 this.DialogResult = true;
                 this.Close();
+            }
+        }
+
+        private void fixIcon()
+        {
+            if (this.NewMonument.Icon == null || this.NewMonument.Icon == "")
+            {
+                this.NewMonument.Icon = this.NewMonument.Type.Icon;
             }
         }
 

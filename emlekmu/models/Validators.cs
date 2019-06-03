@@ -302,6 +302,22 @@ namespace emlekmu
         }
     }
 
+    public class MonumentIconValidation : ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            if (value == null || value.ToString() == "")
+            {
+                return new ValidationResult(true, null);
+            }
+            if (!File.Exists(value.ToString()))
+            {
+                return new ValidationResult(false, "File does not exist");
+            }
+            return new ValidationResult(true, null);
+        }
+    }
+
     public class TagIdValidation : ValidationRule
     {
         public TagIdValidationWrapper Wrapper { get; set; }

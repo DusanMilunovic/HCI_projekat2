@@ -317,106 +317,8 @@ namespace emlekmu
         Monument addMonument(Monument t)
         {
             this.Monuments.Add(t);
-            this.findMonuments(
-                this.id_s,
-                this.name_s,
-                this.typeName_s,
-                this.era_s,
-                this.arch_s,
-                this.unesco_s,
-                this.populated_s,
-                this.touristicStatus_s,
-                this.min_income_s,
-                this.max_income_s,
-                this.tags_s);
-            this.filterMonuments(
-                this.id_f,
-                this.name_f,
-                this.typeName_f,
-                this.era_f,
-                this.arch_f,
-                this.unesco_f,
-                this.populated_f,
-                this.touristicStatus_f,
-                this.min_income_f,
-                this.max_income_f,
-                this.tags_f);
-            SaveData();
-            return t;
-        }
-
-        Monument removeMonument(int id)
-        {
-            Monument mon = null;
-
-            foreach (var m in this.Monuments)
-            {
-                if (m.Id == id)
-                {
-                    mon = m;
-                    break;
-                }
-            }
-
-            if (mon == null)
-            {
-                return null;
-            }
-
-            MonumentPosition mp1 = Map1Monuments.SingleOrDefault(x => x.Monument.Id == id);
-            if (mp1 != null)
-            {
-                Map1Monuments.Remove(mp1);
-            }
-            MonumentPosition mp2 = Map2Monuments.SingleOrDefault(x => x.Monument.Id == id);
-            if (mp2 != null)
-            {
-                Map2Monuments.Remove(mp2);
-            }
-            MonumentPosition mp3 = Map3Monuments.SingleOrDefault(x => x.Monument.Id == id);
-            if (mp3 != null)
-            {
-                Map3Monuments.Remove(mp3);
-            }
-            MonumentPosition mp4 = Map4Monuments.SingleOrDefault(x => x.Monument.Id == id);
-            if (mp4 != null)
-            {
-                Map4Monuments.Remove(mp4);
-            }
-
-            this.Monuments.Remove(mon);
-            this.SearchedMonuments.Remove(mon);
-            this.FilteredMonuments.Remove(mon);
-            this.SearchedNFMonuments.Remove(mon);
-
-
-            SaveData();
-            SaveMapData();
-            return mon;
-        }
-
-        Monument editMonument(Monument t)
-        {
-            int idx = this.Monuments.IndexOf(t);
-            if (idx == -1)
-                return null;
-            this.Monuments[idx].Name = t.Name;
-            this.Monuments[idx].Description = t.Description;
-            this.Monuments[idx].Image = t.Image;
-            this.Monuments[idx].Type = t.Type;
-            this.Monuments[idx].Era = t.Era;
-            this.Monuments[idx].Icon = t.Icon;
-            this.Monuments[idx].ArcheologicallyExplored = t.ArcheologicallyExplored;
-            this.Monuments[idx].Unesco = t.Unesco;
-            this.Monuments[idx].PopulatedRegion = t.PopulatedRegion;
-            this.Monuments[idx].TouristicStatus = t.TouristicStatus;
-            this.Monuments[idx].Income = t.Income;
-            this.Monuments[idx].DiscoveryDate = t.DiscoveryDate;
-            this.Monuments[idx].Tags = t.Tags;
-
 
             this.SearchedMonuments.Add(t);
-            this.FilteredMonuments.Add(t);
             if (id_s != -1)
             {
                 if (t.Id != id_s)
@@ -524,9 +426,10 @@ namespace emlekmu
                 }
             }
 
-
+            bool anyfilter = false;
             if (id_f != -1)
             {
+                anyfilter = true;
                 if (t.Id != id_f)
                 {
                     FilteredMonuments.Remove(t);
@@ -535,6 +438,7 @@ namespace emlekmu
 
             if (name_f != "" && name_f != null)
             {
+                anyfilter = true;
                 if (!t.Name.ToLower().Contains(name_f.ToLower()))
                 {
                     FilteredMonuments.Remove(t);
@@ -543,6 +447,7 @@ namespace emlekmu
 
             if (typeName_f != -1 && typeName_f != null)
             {
+                anyfilter = true;
                 if (!t.Type.Id.Equals(typeName_f))
                 {
                     FilteredMonuments.Remove(t);
@@ -551,6 +456,7 @@ namespace emlekmu
 
             if (era_f != "" && era_f != "--" && era_f != null)
             {
+                anyfilter = true;
                 if (!t.Era.ToString().ToLower().Contains(era_f.ToLower()))
                 {
                     FilteredMonuments.Remove(t);
@@ -559,6 +465,7 @@ namespace emlekmu
 
             if (arch_f != -1)
             {
+                anyfilter = true;
                 bool match = false;
                 if (arch_f == 1)
                     match = true;
@@ -571,6 +478,7 @@ namespace emlekmu
 
             if (unesco_f != -1)
             {
+                anyfilter = true;
                 bool match = false;
                 if (unesco_f == 1)
                     match = true;
@@ -582,6 +490,7 @@ namespace emlekmu
 
             if (populated_f != -1)
             {
+                anyfilter = true;
                 bool match = false;
                 if (populated_f == 1)
                     match = true;
@@ -593,6 +502,7 @@ namespace emlekmu
 
             if (touristicStatus_f != "" && touristicStatus_f != "--" && touristicStatus_f != null)
             {
+                anyfilter = true;
                 if (!t.TouristicStatus.ToString().ToLower().Contains(touristicStatus_f.ToLower()))
                 {
                     FilteredMonuments.Remove(t);
@@ -601,6 +511,7 @@ namespace emlekmu
 
             if (min_income_f != -1)
             {
+                anyfilter = true;
                 if (t.Income < min_income_f)
                 {
                     FilteredMonuments.Remove(t);
@@ -609,6 +520,7 @@ namespace emlekmu
 
             if (max_income_f != -1)
             {
+                anyfilter = true;
                 if (t.Income > max_income_f)
                 {
                     FilteredMonuments.Remove(t);
@@ -618,6 +530,7 @@ namespace emlekmu
 
             if (tags_f != null)
             {
+                anyfilter = true;
                 if (tags_f.Count != 0)
                 {
                     bool match = false;
@@ -632,6 +545,320 @@ namespace emlekmu
                 }
             }
 
+            if (anyfilter)
+                this.FilteredMonuments.Add(t);
+            else
+                this.FilteredMonuments = new ObservableCollection<Monument>();
+
+            this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
+
+            SaveData();
+            return t;
+        }
+
+        Monument removeMonument(int id)
+        {
+            Monument mon = null;
+
+            foreach (var m in this.Monuments)
+            {
+                if (m.Id == id)
+                {
+                    mon = m;
+                    break;
+                }
+            }
+
+            if (mon == null)
+            {
+                return null;
+            }
+
+            MonumentPosition mp1 = Map1Monuments.SingleOrDefault(x => x.Monument.Id == id);
+            if (mp1 != null)
+            {
+                Map1Monuments.Remove(mp1);
+            }
+            MonumentPosition mp2 = Map2Monuments.SingleOrDefault(x => x.Monument.Id == id);
+            if (mp2 != null)
+            {
+                Map2Monuments.Remove(mp2);
+            }
+            MonumentPosition mp3 = Map3Monuments.SingleOrDefault(x => x.Monument.Id == id);
+            if (mp3 != null)
+            {
+                Map3Monuments.Remove(mp3);
+            }
+            MonumentPosition mp4 = Map4Monuments.SingleOrDefault(x => x.Monument.Id == id);
+            if (mp4 != null)
+            {
+                Map4Monuments.Remove(mp4);
+            }
+
+            this.Monuments.Remove(mon);
+            this.SearchedMonuments.Remove(mon);
+            this.FilteredMonuments.Remove(mon);
+            this.SearchedNFMonuments.Remove(mon);
+
+
+            SaveData();
+            SaveMapData();
+            return mon;
+        }
+
+        Monument editMonument(Monument t)
+        {
+            int idx = this.Monuments.IndexOf(t);
+            this.SearchedMonuments.Remove(t);
+            this.FilteredMonuments.Remove(t);
+            if (idx == -1)
+                return null;
+            this.Monuments[idx].Name = t.Name;
+            this.Monuments[idx].Description = t.Description;
+            this.Monuments[idx].Image = t.Image;
+            this.Monuments[idx].Type = t.Type;
+            this.Monuments[idx].Era = t.Era;
+            this.Monuments[idx].Icon = t.Icon;
+            this.Monuments[idx].ArcheologicallyExplored = t.ArcheologicallyExplored;
+            this.Monuments[idx].Unesco = t.Unesco;
+            this.Monuments[idx].PopulatedRegion = t.PopulatedRegion;
+            this.Monuments[idx].TouristicStatus = t.TouristicStatus;
+            this.Monuments[idx].Income = t.Income;
+            this.Monuments[idx].DiscoveryDate = t.DiscoveryDate;
+            this.Monuments[idx].Tags = t.Tags;
+            
+
+            this.SearchedMonuments.Add(t);
+            if (id_s != -1)
+            {
+                if (t.Id != id_s)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (name_s != "" && name_s != null)
+            {
+                if (!t.Name.ToLower().Contains(name_s.ToLower()))
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (typeName_s != -1 && typeName_s != null)
+            {
+                if (!t.Type.Id.Equals(typeName_s))
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (era_s != "" && era_s != "--" && era_s != null)
+            {
+                if (!t.Era.ToString().ToLower().Contains(era_s.ToLower()))
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (arch_s != -1)
+            {
+                bool match = false;
+                if (arch_s == 1)
+                    match = true;
+                if (t.ArcheologicallyExplored != match)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+
+            }
+
+            if (unesco_s != -1)
+            {
+                bool match = false;
+                if (unesco_s == 1)
+                    match = true;
+                if (t.Unesco != match)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (populated_s != -1)
+            {
+                bool match = false;
+                if (populated_s == 1)
+                    match = true;
+                if (t.PopulatedRegion != match)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (touristicStatus_s != "" && touristicStatus_s != "--" && touristicStatus_s != null)
+            {
+                if (!t.TouristicStatus.ToString().ToLower().Contains(touristicStatus_s.ToLower()))
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (min_income_s != -1)
+            {
+                if (t.Income < min_income_s)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+            }
+
+            if (max_income_s != -1)
+            {
+                if (t.Income > max_income_s)
+                {
+                    SearchedMonuments.Remove(t);
+                }
+
+            }
+
+            if (tags_s != null)
+            {
+                if (tags_s.Count != 0)
+                {
+                    bool match = false;
+                    foreach (var tag in tags_s)
+                    {
+                        if (t.Tags.IndexOf(tag) != -1)
+                            match = true;
+                    }
+
+                    if (!match)
+                        SearchedMonuments.Remove(t);
+                }
+            }
+
+            bool anyfilter = false;
+            if (id_f != -1)
+            {
+                anyfilter = true;
+                if (t.Id != id_f)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (name_f != "" && name_f != null)
+            {
+                anyfilter = true;
+                if (!t.Name.ToLower().Contains(name_f.ToLower()))
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (typeName_f != -1 && typeName_f != null)
+            {
+                anyfilter = true;
+                if (!t.Type.Id.Equals(typeName_f))
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (era_f != "" && era_f != "--" && era_f != null)
+            {
+                anyfilter = true;
+                if (!t.Era.ToString().ToLower().Contains(era_f.ToLower()))
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (arch_f != -1)
+            {
+                anyfilter = true;
+                bool match = false;
+                if (arch_f == 1)
+                    match = true;
+                if (t.ArcheologicallyExplored != match)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+
+            }
+
+            if (unesco_f != -1)
+            {
+                anyfilter = true;
+                bool match = false;
+                if (unesco_f == 1)
+                    match = true;
+                if (t.Unesco != match)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (populated_f != -1)
+            {
+                anyfilter = true;
+                bool match = false;
+                if (populated_f == 1)
+                    match = true;
+                if (t.PopulatedRegion != match)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (touristicStatus_f != "" && touristicStatus_f != "--" && touristicStatus_f != null)
+            {
+                anyfilter = true;
+                if (!t.TouristicStatus.ToString().ToLower().Contains(touristicStatus_f.ToLower()))
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (min_income_f != -1)
+            {
+                anyfilter = true;
+                if (t.Income < min_income_f)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (max_income_f != -1)
+            {
+                anyfilter = true;
+                if (t.Income > max_income_f)
+                {
+                    FilteredMonuments.Remove(t);
+                }
+
+            }
+
+            if (tags_f != null)
+            {
+                anyfilter = true;
+                if (tags_f.Count != 0)
+                {
+                    bool match = false;
+                    foreach (var tag in tags_f)
+                    {
+                        if (t.Tags.IndexOf(tag) != -1)
+                            match = true;
+                    }
+
+                    if (!match)
+                        FilteredMonuments.Remove(t);
+                }
+            }
+
+            if (anyfilter)
+                this.FilteredMonuments.Add(t);
+            else
+                this.FilteredMonuments = new ObservableCollection<Monument>();
 
             this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
 
@@ -796,6 +1023,77 @@ namespace emlekmu
 
         }
 
+
+        //SLJUUUUN
+        private void removeTagFromMonuments(Tag t)
+        {
+            this.Tags.Remove(t);
+            foreach(Monument m in this.Monuments)
+            {
+                m.Tags.Remove(t);
+            }
+        }
+
+        public void cascadeRemoveTag(Tag t)
+        {
+            this.Tags.Remove(t);
+            List<Monument> toRemove = new List<Monument>();
+            foreach(Monument m in this.Monuments)
+            {
+                
+                if (m.Tags.Remove(t))
+                {
+                    toRemove.Add(m);
+                }
+            }
+            foreach(Monument m in toRemove)
+            {
+                this.Monuments.Remove(m);
+            }
+        }
+
+        private void removeTypeAndMonuments(Type t)
+        {
+            this.Types.Remove(t);
+            List<Monument> toRemove = new List<Monument>();
+            foreach (Monument m in this.Monuments)
+            {
+                if (m.Type == t)
+                {
+                    toRemove.Add(m);
+                }
+            }
+            foreach (Monument m in toRemove)
+            {
+                this.Monuments.Remove(m);
+            }
+        }
+
+        private bool checkIfTagReferenced(Tag t)
+        {
+            foreach(Monument m in this.Monuments)
+            {
+                if (m.Tags.Contains(t))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool checkIfTypeReferences(Type t)
+        {
+            foreach(Monument m in this.Monuments)
+            {
+                if (m.Type == t)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        //SLJUUUUUN OUT
+
         void filterMonuments(
             int id,
             string name,
@@ -823,10 +1121,12 @@ namespace emlekmu
             this.tags_f = tags;
 
             List<Monument> fMonuments = new List<Monument>(this.SearchedMonuments);
+            bool anyfilter = false;
             foreach (var monument in this.SearchedMonuments)
             {
                 if (id != -1)
                 {
+                    anyfilter = true;
                     if (monument.Id != id)
                     {
                         fMonuments.Remove(monument);
@@ -835,6 +1135,7 @@ namespace emlekmu
 
                 if (name != "" && name != null)
                 {
+                    anyfilter = true;
                     if (!monument.Name.ToLower().Contains(name.ToLower()))
                     {
                         fMonuments.Remove(monument);
@@ -843,6 +1144,7 @@ namespace emlekmu
 
                 if (typeName != -1 && typeName != null)
                 {
+                    anyfilter = true;
                     if (!monument.Type.Id.Equals(typeName))
                     {
                         fMonuments.Remove(monument);
@@ -851,6 +1153,7 @@ namespace emlekmu
 
                 if (era != "" && era != "--" && era != null)
                 {
+                    anyfilter = true;
                     if (!monument.Era.ToString().ToLower().Contains(era.ToLower()))
                     {
                         fMonuments.Remove(monument);
@@ -859,6 +1162,7 @@ namespace emlekmu
 
                 if (arch != -1)
                 {
+                    anyfilter = true;
                     bool match = false;
                     if (arch == 1)
                         match = true;
@@ -871,6 +1175,7 @@ namespace emlekmu
 
                 if (unesco != -1)
                 {
+                    anyfilter = true;
                     bool match = false;
                     if (unesco == 1)
                         match = true;
@@ -882,6 +1187,7 @@ namespace emlekmu
 
                 if (populated != -1)
                 {
+                    anyfilter = true;
                     bool match = false;
                     if (populated == 1)
                         match = true;
@@ -893,6 +1199,7 @@ namespace emlekmu
 
                 if (touristicStatus != "" && touristicStatus != "--" && touristicStatus != null)
                 {
+                    anyfilter = true;
                     if (!monument.TouristicStatus.ToString().ToLower().Contains(touristicStatus.ToLower()))
                     {
                         fMonuments.Remove(monument);
@@ -901,6 +1208,7 @@ namespace emlekmu
 
                 if (min_income != -1)
                 {
+                    anyfilter = true;
                     if (monument.Income < min_income)
                     {
                         fMonuments.Remove(monument);
@@ -909,6 +1217,7 @@ namespace emlekmu
 
                 if (max_income != -1)
                 {
+                    anyfilter = true;
                     if (monument.Income > max_income)
                     {
                         fMonuments.Remove(monument);
@@ -918,6 +1227,7 @@ namespace emlekmu
 
                 if (tags != null)
                 {
+                    anyfilter = true;
                     if (tags.Count != 0)
                     {
                         bool match = false;
@@ -934,8 +1244,11 @@ namespace emlekmu
 
             }
 
-            this.FilteredMonuments = new ObservableCollection<Monument>(fMonuments);
-            this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
+            if (anyfilter)
+                this.FilteredMonuments = new ObservableCollection<Monument>(fMonuments);
+            else
+                this.FilteredMonuments = new ObservableCollection<Monument>();
+            this.SearchedNFMonuments = new ObservableCollection<Monument>( this.SearchedMonuments.Except(this.FilteredMonuments));
         }
 
         #endregion

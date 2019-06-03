@@ -15,7 +15,7 @@
                 <ScrollViewer x:Name="Scroller" VerticalScrollBarVisibility="Auto"
                               HorizontalScrollBarVisibility="Auto"
                               Margin="5 10">
-                    <Grid>
+                    <StackPanel>
                         <ItemsControl x:Name="Root" ItemsSource="{Binding FilteredMonuments}"
                                           PreviewMouseLeftButtonDown="Root2_PreviewMouseLeftButtonDown"
                                           MouseMove="Root2_MouseMove">
@@ -27,6 +27,8 @@
                                                                MonumentTags="{Binding Path=Tags}"
                                                                MonumentType="{Binding Path=Type}"
                                                                MonumentImage="{Binding Path=Icon}"
+                                                               RemoveMonumentCallback="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}"
+                                                               EditMonumentCallback="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
                                                                MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
                                                                EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}"
                                                                BorderColor="#ef5656">
@@ -38,6 +40,7 @@
                                                                      MonumentType="{Binding Path=Type}"
                                                                      MonumentImage="{Binding Path=Icon}"
                                                                      MonumentDescription="{Binding Path=Description}"
+                                                                     editMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
                                                                      MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
                                                                      EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments, Mode=TwoWay}"
                                                                      Visibility="Collapsed"
@@ -49,13 +52,13 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                            <ItemsControl x:Name="Root2" ItemsSource="{Binding Monuments}"
+                        <ItemsControl x:Name="Root2" ItemsSource="{Binding Monuments}"
                                           PreviewMouseLeftButtonDown="Root2_PreviewMouseLeftButtonDown"
                                           MouseMove="Root2_MouseMove">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel>
-                                            <local:MonumentRow Tag="{Binding Path=Id}" MonumentId="{Binding Path=Id}"
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <local:MonumentRow Tag="{Binding Path=Id}" MonumentId="{Binding Path=Id}"
                                                                MonumentName="{Binding Path=Name}"
                                                                MonumentTags="{Binding Path=Tags}"
                                                                MonumentType="{Binding Path=Type}"
@@ -87,7 +90,7 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                    </Grid>
+                    </StackPanel>
 
                 </ScrollViewer>
             </Border>
