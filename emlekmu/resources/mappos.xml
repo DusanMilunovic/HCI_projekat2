@@ -1,6 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MapPosDG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <map1Monuments />
+  <map1Monuments>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>11</Id>
+        <Name> StaromEstske NamEsti, Czech Republic</Name>
+        <Description>Otherwise known as the Old Town Square in Prague, this historical space is a magnet for history lovers. Moments from the famous Charles Bridge, it features the Prague Orloj astronomical clock, the Old Town Hall and the Gothic Church of Our Lady before Tyn.Pro tip: Visit over Christmas to see the area lit up in Christmas Market fair.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument11.png</Image>
+        <Type>
+          <Id>7</Id>
+          <Name>Fountain</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type7.png</Icon>
+          <Description>Water-pouring structures usually placed in formal gardens or town squares</Description>
+          <DescriptionShort>Water-pouring structures usual...</DescriptionShort>
+        </Type>
+        <Era>Ancient</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type7.png</Icon>
+        <ArcheologicallyExplored>true</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>false</PopulatedRegion>
+        <TouristicStatus>Available</TouristicStatus>
+        <Income>45000</Income>
+        <DiscoveryDate>3.4.1084 BCE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+            <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+            <Id>Plastic</Id>
+            <Color>
+              <Red>255</Red>
+              <Green>255</Green>
+              <Blue>255</Blue>
+              <Hex>#FFFFFF</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>914.3668763102728</Top>
+      <Left>179.53987421383647</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>16</Id>
+        <Name> The Acropolis, Greece</Name>
+        <Description>No visit to Athens would be complete without taking in the magnanimity of the Acropolis.Perched high above the city, it's pretty difficult not to spot this ancient citadel. This incredible architectural feat is home to the famous Parthenon as well as the Temple of Athena NikePro tip: The lines at the base of The Acropolis always run long but if you're planning to visit multiple sites, you can purchase a multi-site pass from a ticket booth at a participating archaeological site including Ancient Agora, Roman Agora and Hadrian's Library) which typically have short or no line.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument16.png</Image>
+        <Type>
+          <Id>14</Id>
+          <Name>Palace</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type14.png</Icon>
+          <Description>Imposing royal residences designed to impress people with their grandeur and greatness</Description>
+          <DescriptionShort>Imposing royal residences desi...</DescriptionShort>
+        </Type>
+        <Era>Neolithic</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type14.png</Icon>
+        <ArcheologicallyExplored>false</ArcheologicallyExplored>
+        <Unesco>true</Unesco>
+        <PopulatedRegion>true</PopulatedRegion>
+        <TouristicStatus>Exploited</TouristicStatus>
+        <Income>72000</Income>
+        <DiscoveryDate>8.4.406 BCE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Heave bronze work surviving the test of time with honour</Description>
+            <DescriptionShort>Heave bronze work surviving th...</DescriptionShort>
+            <Id>Green bronze</Id>
+            <Color>
+              <Red>173</Red>
+              <Green>255</Green>
+              <Blue>47</Blue>
+              <Hex>#ADFF2F</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Simple and effective, massive and powerful</Description>
+            <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+            <Id>Stone</Id>
+            <Color>
+              <Red>255</Red>
+              <Green>255</Green>
+              <Blue>255</Blue>
+              <Hex>#FFFFFF</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>620.79664570230625</Top>
+      <Left>277.81660377358492</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>14</Id>
+        <Name> Eiffel Tower, France</Name>
+        <Description>The iconic symbol of France is visited by millions yearly and is unsurprisingly the most visited monument in Paris. Originally criticised when it was first erected in 1889 for its design, more than 100 years on it stand synonymous with the city. Guess it's Alexandre Gustave Eiffel (designer) who is laughing now, haw haw haw.Pro tip: Climb the tower if you wish, but for that picture perfect photo, your best bet is on the green of the Champ de Mars park which is stands inside.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument14.png</Image>
+        <Type>
+          <Id>16</Id>
+          <Name>Statue</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type16.png</Icon>
+          <Description>Usually statue of famous individuals or symbols</Description>
+          <DescriptionShort>Usually statue of famous indiv...</DescriptionShort>
+        </Type>
+        <Era>Medieval</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type16.png</Icon>
+        <ArcheologicallyExplored>true</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>true</PopulatedRegion>
+        <TouristicStatus>Available</TouristicStatus>
+        <Income>98000</Income>
+        <DiscoveryDate>4.4.6 CE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+            <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+            <Id>Black Marble</Id>
+            <Color>
+              <Red>147</Red>
+              <Green>112</Green>
+              <Blue>219</Blue>
+              <Hex>#9370DB</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>860.18867924528308</Top>
+      <Left>303.01576519916148</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>19</Id>
+        <Name> Burj Khalifa, UAE</Name>
+        <Description>Welcome the tallest building in the world (to date). Standing at 828.8 metres tall (what a number), Burf Khalifa was constructed in 2004 and sits in Downtown Dubai. And if you're having problems seeing it, there must be something wrong with your eyes because it stands out like crazy.Pro tip: Get in early (before 5pm) for less crowds and less moolah. Prime time is 5pm-7:30pm.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument19.png</Image>
+        <Type>
+          <Id>12</Id>
+          <Name>Mound</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type12.png</Icon>
+          <Description>Erected to commemorate great leaders or events</Description>
+          <DescriptionShort>Erected to commemorate great l...</DescriptionShort>
+        </Type>
+        <Era>Neolithic</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type12.png</Icon>
+        <ArcheologicallyExplored>false</ArcheologicallyExplored>
+        <Unesco>true</Unesco>
+        <PopulatedRegion>true</PopulatedRegion>
+        <TouristicStatus>Unavailable</TouristicStatus>
+        <Income>195000</Income>
+        <DiscoveryDate>6.7.1227 CE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Heavy bronze work</Description>
+            <DescriptionShort>Heavy bronze work</DescriptionShort>
+            <Id>Bronze</Id>
+            <Color>
+              <Red>220</Red>
+              <Green>20</Green>
+              <Blue>60</Blue>
+              <Hex>#DC143C</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>886.64779874213843</Top>
+      <Left>469.33023060796654</Left>
+    </MonumentPosition>
+  </map1Monuments>
   <map2Monuments />
   <map3Monuments />
   <map4Monuments />

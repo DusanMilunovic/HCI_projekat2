@@ -20,6 +20,7 @@ using Type = emlekmu.models.Type;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using static emlekmu.MainContent;
+using System.Threading;
 
 namespace emlekmu
 {
@@ -287,8 +288,19 @@ namespace emlekmu
             this.AddMonumentCallback = addMonumentCallback;
             this.AddTypeCallBack = addTypeCallback;
             this.AddTagCallback = addTagCallback;
+            TextCompositionManager.AddTextInputHandler(this,
+                new TextCompositionEventHandler(OnTextComposition));
         }
 
+        private void OnTextComposition(object sender, TextCompositionEventArgs e)
+        {
+            MainContent content = ((MainWindow)Application.Current.MainWindow).MainContent;
+            if (content.DemonAlive)
+            {
+                content.Demon.Abort();
+                content.DemonAlive = false;
+            }
+        }
 
         public int findNextId()
         {
