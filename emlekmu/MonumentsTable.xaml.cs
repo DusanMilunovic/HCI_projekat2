@@ -1,4 +1,5 @@
-﻿using emlekmu.models;
+﻿using emlekmu.copy_service;
+using emlekmu.models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -175,6 +176,35 @@ namespace emlekmu
             }
         }
 
+        private int findNextId()
+        {
+            int i = 1;
+        loop: while (true)
+            {
+                foreach (var t in ((MainWindow)Application.Current.MainWindow).MainContent.Monuments)
+                {
+                    if (t.Id == i)
+                    {
+                        i++;
+                        goto loop;
+                    }
+                }
+                return i;
+            }
+        }
+
+
+        private void PasteMonumentAction(object sender, RoutedEventArgs e)
+        {
+            CopyService cs = CopyService.Instance;
+            var monument = new Monument(findNextId(), cs.Copied.Name, cs.Copied.Description, cs.Copied.Image, cs.Copied.Type, cs.Copied.Era, cs.Copied.Icon, cs.Copied.ArcheologicallyExplored, cs.Copied.Unesco, cs.Copied.PopulatedRegion, cs.Copied.TouristicStatus, cs.Copied.Income, cs.Copied.DiscoveryDate, new List<Tag>(cs.Copied.Tags));
+            ((MainWindow)Application.Current.MainWindow).MainContent.addMonumentCallback(monument);
+            if (monument != null)
+            {
+                monumentClicked(monument.Id);
+                ScrollToSelected();
+            }
+        }
 
 
         public ObservableCollection<int> enMon
@@ -224,7 +254,7 @@ namespace emlekmu
             }
         }
 
-        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        public IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj != null)
             {
@@ -282,9 +312,33 @@ namespace emlekmu
                 MonumentSelectionChangedCallback();
             }
         }
+
+        public static UIElement GetByUid(DependencyObject rootElement, string uid)
+        {
+            foreach (UIElement element in LogicalTreeHelper.GetChildren(rootElement).OfType<UIElement>())
+            {
+                if (element.Uid == uid)
+                    return element;
+                UIElement resultChildren = GetByUid(element, uid);
+                if (resultChildren != null)
+                    return resultChildren;
+            }
+            return null;
+        }
+
+
         private void onRightClick(object sender, MouseButtonEventArgs e)
         {
             ContextMenu cm = this.FindResource("cmMonumentTable") as ContextMenu;
+            CopyService cs = CopyService.Instance;
+            if (cs.Copied == null)
+            {
+                GetByUid(cm, "cmPaste").IsEnabled = false;
+            }
+            else
+            {
+                GetByUid(cm, "cmPaste").IsEnabled = true;
+            }
             cm.IsOpen = true;
         }
 

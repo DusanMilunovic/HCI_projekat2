@@ -1,4 +1,5 @@
-﻿using emlekmu.models;
+﻿using emlekmu.copy_service;
+using emlekmu.models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -239,7 +240,11 @@ namespace emlekmu
             InitializeComponent();
             Root.DataContext = this;
         }
-
+        private void copyMenuAction(object s, RoutedEventArgs ea)
+        {
+            CopyService cs = CopyService.Instance;
+            cs.Copied = ((MainWindow)Application.Current.MainWindow).MainContent.findMonumentCallback(MonumentId);
+        }
         public void DetailsAction(object sender, RoutedEventArgs e)
         {
             OpenMonumentDetailCallback(MonumentId);

@@ -95,7 +95,22 @@ namespace emlekmu
 
             Root.DataContext = this;
             EditTypeCallback = editTypeCallback;
+
+            TextCompositionManager.AddTextInputHandler(this,
+                new TextCompositionEventHandler(OnTextComposition));
         }
+
+        private void OnTextComposition(object sender, TextCompositionEventArgs e)
+        {
+            MainContent content = ((MainWindow)Application.Current.MainWindow).MainContent;
+            if (content.DemonAlive)
+            {
+                content.Demon.Abort();
+                content.DemonAlive = false;
+            }
+        }
+
+
 
         private void EditTypeButton_Click(object sender, RoutedEventArgs e)
         {

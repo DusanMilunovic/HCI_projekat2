@@ -28,7 +28,7 @@
                         <Label Margin="5 5 40 0">Id:</Label>
                         <TextBox x:Name="IdTextBox"  Background="#E5E5E5" IsReadOnly="True" FontSize="14" Margin="5 0 40 0" Height="25">
                             <TextBox.Text>
-                                <Binding Path="Monument.Id">
+                                <Binding Path="NewMonument.Id">
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>

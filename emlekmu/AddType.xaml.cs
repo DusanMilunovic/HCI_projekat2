@@ -84,6 +84,7 @@ namespace emlekmu
             InitializeComponent();
             this.NewType = new Type();
             Root.DataContext = this;
+            
         }
 
         public AddType(onAddType addTypeCallback, ObservableCollection<Type> types)
@@ -95,6 +96,19 @@ namespace emlekmu
             this.NewType.Id = findNextId();
             
             Root.DataContext = this;
+
+            TextCompositionManager.AddTextInputHandler(this,
+                new TextCompositionEventHandler(OnTextComposition));
+        }
+
+        private void OnTextComposition(object sender, TextCompositionEventArgs e)
+        {
+            MainContent content = ((MainWindow)Application.Current.MainWindow).MainContent;
+            if (content.DemonAlive)
+            {
+                content.Demon.Abort();
+                content.DemonAlive = false;
+            }
         }
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)

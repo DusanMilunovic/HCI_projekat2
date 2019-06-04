@@ -38,8 +38,7 @@ namespace emlekmu
             this.Title = "Emlekmu";
         }
 
-        private Thread demon;
-        private bool isAlive;
+        
 
         private void AddMonumentCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -149,6 +148,7 @@ namespace emlekmu
             typeSectionDialog.Width = 800;
             typeSectionDialog.MinHeight = 560;
             typeSectionDialog.MinWidth = 600;
+            this.TypeSectionDemonDialog = typeSectionDialog;
             typeSectionDialog.ShowDialog();
         }
 
@@ -167,6 +167,7 @@ namespace emlekmu
             tagSectionDialog.Width = 800;
             tagSectionDialog.MinHeight = 560;
             tagSectionDialog.MinWidth = 600;
+            this.TagSectionDemonDialog = TagSectionDemonDialog;
             tagSectionDialog.ShowDialog();
         }
 
@@ -257,55 +258,18 @@ namespace emlekmu
             HelpProvider.ShowHelpTopic("Emlekmu");
         }
 
-        private void DemonModeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void DemonModeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-
-            //Search demon
-            /*
-            ThreadStart ts = delegate
-            {
-
-                DemonFramework.SearchDemon(MainContent.Search, MainContent.SFControl.input_id, MainContent.SFControl.SearchFilterButton);
-            };
-            Thread t = new Thread(ts);
-            t.IsBackground = true;
-            t.Start();
-            this.demon = t;
-            this.isAlive = true;
-            
-            */
-
-            //Add tag demon
-            if (this.isAlive)
-                return;
-
-            ThreadStart ts = delegate
-            {
-                DemonFramework.MapDemon(MainContent);
-            };
-            Thread t = new Thread(ts);
-            t.Start();
-            this.demon = t;
-            this.isAlive = true;
-            
 
 
+        public TagSection TagSectionDemonDialog { get; set; }
+        public TypeSection TypeSectionDemonDialog { get; set; }
 
-
-            //MainContent.Search.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
-        }
 
         private void OnTextComposition(object sender, TextCompositionEventArgs e)
         {
-            if (isAlive)
+            if (MainContent.DemonAlive)
             {
-                this.demon.Abort();
-                isAlive = false;
+                MainContent.Demon.Abort();
+                MainContent.DemonAlive = false;
             }
             
         }

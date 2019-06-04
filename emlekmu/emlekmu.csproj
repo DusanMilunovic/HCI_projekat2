@@ -87,6 +87,7 @@
     <Compile Include="CheatSheet.xaml.cs">
       <DependentUpon>CheatSheet.xaml</DependentUpon>
     </Compile>
+    <Compile Include="copy_service\CopyService.cs" />
     <Compile Include="DeleteTagDialog.xaml.cs">
       <DependentUpon>DeleteTagDialog.xaml</DependentUpon>
     </Compile>

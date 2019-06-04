@@ -19,6 +19,7 @@ using Type = emlekmu.models.Type;
 using static emlekmu.MainContent;
 using static emlekmu.TypeSection;
 using static emlekmu.MonumentsTable;
+using emlekmu.copy_service;
 
 namespace emlekmu
 {
@@ -179,7 +180,11 @@ namespace emlekmu
             InitializeComponent();
             Root.DataContext = this;
         }
-
+        private void copyMenuAction(object s, RoutedEventArgs ea)
+        {
+            CopyService cs = CopyService.Instance;
+            cs.Copied = ((MainWindow)Application.Current.MainWindow).MainContent.findMonumentCallback(MonumentId);
+        }
         private void DeleteBtn_Click(object s, RoutedEventArgs ea)
         {
 
@@ -217,7 +222,10 @@ namespace emlekmu
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            editMonumentCallbackFun(MonumentId);
+            if (editMonumentCallbackFun(MonumentId) != null)
+            {
+                ((MainWindow)Application.Current.MainWindow).MainContent.MonumentTable.ScrollToSelected();
+            }
         }
 
         private void onRigthClick(object sender, MouseButtonEventArgs e)

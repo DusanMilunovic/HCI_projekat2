@@ -115,7 +115,21 @@ namespace emlekmu
             AddTypeCallback = addTypeCallback;
             EditTypeCallback = editTypeCallback;
             RemoveTypeCallback = removeTypeCallback;
+            TextCompositionManager.AddTextInputHandler(this,
+                new TextCompositionEventHandler(OnTextComposition));
         }
+
+        private void OnTextComposition(object sender, TextCompositionEventArgs e)
+        {
+            MainContent content = ((MainWindow)Application.Current.MainWindow).MainContent;
+            if (content.DemonAlive)
+            {
+                content.Demon.Abort();
+                content.DemonAlive = false;
+            }
+        }
+
+
 
         ObservableCollection<int> enlargenedTypes;
         public ObservableCollection<int> EnlargenedTypes
@@ -191,6 +205,10 @@ namespace emlekmu
 
 
 
+        public AddType AddTypeDemonDialog { get; set; }
+        public EditType EditTypeDemonDialog { get; set; }
+
+
         private void AddTypeButton_Click(object sender, RoutedEventArgs e)
         {
             AddType addTypeDialog = new AddType(AddTypeCallback, Types);
@@ -200,6 +218,8 @@ namespace emlekmu
             addTypeDialog.Width = 350;
             addTypeDialog.MinHeight = 420;
             addTypeDialog.MinWidth = 280;
+
+            this.AddTypeDemonDialog = addTypeDialog;
 
             addTypeDialog.ShowDialog();
 

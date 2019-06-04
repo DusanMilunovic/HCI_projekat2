@@ -17,6 +17,7 @@
             <MenuItem Header="Details" Click="DetailsButton_Click"></MenuItem>
             <MenuItem Header="Edit" Click="EditButton_Click"></MenuItem>
             <MenuItem Header="Delete" Click="DeleteBtn_Click"></MenuItem>
+            <MenuItem Header="Copy" Click="copyMenuAction"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
     <Grid x:Name="Root" Margin="5" Background="White" MouseLeftButtonUp="OnMouseDown" Cursor="Hand">

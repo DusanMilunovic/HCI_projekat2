@@ -131,7 +131,22 @@ namespace emlekmu
             EditTagCallback = editTagCallback;
             RemoveTagCallback = removeTagCallback;
 
+            TextCompositionManager.AddTextInputHandler(this,
+                new TextCompositionEventHandler(OnTextComposition));
+
         }
+
+        private void OnTextComposition(object sender, TextCompositionEventArgs e)
+        {
+            MainContent content = ((MainWindow)Application.Current.MainWindow).MainContent;
+            if (content.DemonAlive)
+            {
+                content.Demon.Abort();
+                content.DemonAlive = false;
+            }
+        }
+
+
 
         ObservableCollection<string> enlargenedTags;
         public ObservableCollection<string> EnlargenedTags

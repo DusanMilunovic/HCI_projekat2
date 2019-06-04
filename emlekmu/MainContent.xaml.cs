@@ -21,6 +21,7 @@ using WpfApplication1;
 using Type = emlekmu.models.Type;
 using Color = emlekmu.models.Color;
 using emlekmu.models.IO;
+using System.Threading;
 
 namespace emlekmu
 {
@@ -775,8 +776,6 @@ namespace emlekmu
         Monument editMonument(Monument t)
         {
             int idx = this.Monuments.IndexOf(t);
-            this.SearchedMonuments.Remove(t);
-            this.FilteredMonuments.Remove(t);
             if (idx == -1)
                 return null;
             this.Monuments[idx].Name = t.Name;
@@ -792,9 +791,22 @@ namespace emlekmu
             this.Monuments[idx].Income = t.Income;
             this.Monuments[idx].DiscoveryDate = t.DiscoveryDate;
             this.Monuments[idx].Tags = t.Tags;
-            
 
-            this.SearchedMonuments.Add(t);
+
+            int idxs = this.SearchedMonuments.IndexOf(t);
+            this.SearchedMonuments[idxs].Name = t.Name;
+            this.SearchedMonuments[idxs].Description = t.Description;
+            this.SearchedMonuments[idxs].Image = t.Image;
+            this.SearchedMonuments[idxs].Type = t.Type;
+            this.SearchedMonuments[idxs].Era = t.Era;
+            this.SearchedMonuments[idxs].Icon = t.Icon;
+            this.SearchedMonuments[idxs].ArcheologicallyExplored = t.ArcheologicallyExplored;
+            this.SearchedMonuments[idxs].Unesco = t.Unesco;
+            this.SearchedMonuments[idxs].PopulatedRegion = t.PopulatedRegion;
+            this.SearchedMonuments[idxs].TouristicStatus = t.TouristicStatus;
+            this.SearchedMonuments[idxs].Income = t.Income;
+            this.SearchedMonuments[idxs].DiscoveryDate = t.DiscoveryDate;
+            this.SearchedMonuments[idxs].Tags = t.Tags;
             if (id_s != -1)
             {
                 if (t.Id != id_s)
@@ -1023,12 +1035,32 @@ namespace emlekmu
             }
 
             if (anyfilter && flag)
-                this.FilteredMonuments.Add(t);
+            {
+                int idxf = this.FilteredMonuments.IndexOf(t);
+                this.FilteredMonuments[idxf].Name = t.Name;
+                this.FilteredMonuments[idxf].Description = t.Description;
+                this.FilteredMonuments[idxf].Image = t.Image;
+                this.FilteredMonuments[idxf].Type = t.Type;
+                this.FilteredMonuments[idxf].Era = t.Era;
+                this.FilteredMonuments[idxf].Icon = t.Icon;
+                this.FilteredMonuments[idxf].ArcheologicallyExplored = t.ArcheologicallyExplored;
+                this.FilteredMonuments[idxf].Unesco = t.Unesco;
+                this.FilteredMonuments[idxf].PopulatedRegion = t.PopulatedRegion;
+                this.FilteredMonuments[idxf].TouristicStatus = t.TouristicStatus;
+                this.FilteredMonuments[idxf].Income = t.Income;
+                this.FilteredMonuments[idxf].DiscoveryDate = t.DiscoveryDate;
+                this.FilteredMonuments[idxf].Tags = t.Tags;
+            }
             else if (!anyfilter)
                 this.FilteredMonuments = new ObservableCollection<Monument>();
 
             this.SearchedNFMonuments = new ObservableCollection<Monument>(this.SearchedMonuments.Except(this.FilteredMonuments));
 
+            if (MonumentTable.EnlargenedMonuments.Contains(t.Id))
+            {
+                MonumentTable.monumentClicked(t.Id);
+                MonumentTable.monumentClicked(t.Id);
+            }
             SaveData();
             return t;
 
@@ -1690,6 +1722,9 @@ namespace emlekmu
         public delegate Monument onOpenEditMonument(int monumentId);
         public onOpenEditMonument openEditMonumentCallback { get; set; }
 
+        //demon dialog
+        public EditMonument EditMonumentDemonDialog { get; set; }
+
         public Monument openEditMonument(int monumentId)
         {
             Monument monumentToEdit = Monuments.SingleOrDefault(x => x.Id == monumentId);
@@ -1701,6 +1736,9 @@ namespace emlekmu
             editMonumentDialog.Width = 800;
             editMonumentDialog.MinHeight = 560;
             editMonumentDialog.MinWidth = 800;
+
+            EditMonumentDemonDialog = editMonumentDialog;
+
             editMonumentDialog.ShowDialog();
 
             if (editMonumentDialog.DialogResult.HasValue && editMonumentDialog.DialogResult.Value)
@@ -1712,7 +1750,10 @@ namespace emlekmu
             }
         }
 
+        public AddMonument AddMonumentDemonDialog { get; set; }
         public delegate Monument onOpenAddMonument();
+
+        //demon dialog
         public onOpenAddMonument openAddMonumentCallback { get; set; }
 
         public Monument openAddMonument()
@@ -1725,6 +1766,8 @@ namespace emlekmu
             addMonumentDialog.Width = 800;
             addMonumentDialog.MinHeight = 560;
             addMonumentDialog.MinWidth = 800;
+
+            this.AddMonumentDemonDialog = addMonumentDialog;
 
             addMonumentDialog.ShowDialog();
 
@@ -1809,37 +1852,15 @@ namespace emlekmu
             DependencyProperty.Register("EnlargenedMonuments", typeof(ObservableCollection<int>), typeof(MainContent), new PropertyMetadata(new ObservableCollection<int>()));
 
 
+        public Thread Demon { get; set; }
+        public bool DemonAlive { get; set; }
+
+
+        //CONSTRUCTOR!!!!
         public MainContent()
         {
             MyMap = new MapEurope();
-            //Tags = new ObservableCollection<Tag>();
-
-            //this.Tags.Add(new Tag("Good1", new Color(0, 100, 166), "Very good tag"));
-            //this.Tags.Add(new Tag("GRood2", new Color(100, 0, 166), "Very grood tag"));
-            //this.Tags.Add(new Tag("GRooden3", new Color(100, 166, 0), "Very grooden tag"));
-            //this.Tags.Add(new Tag("Good4", new Color(100, 100, 166), "Even verier good tag"));
-            //this.Tags.Add(new Tag("GRood5", new Color(100, 100, 166), "Even verier grood tag"));
-            //this.Tags.Add(new Tag("GRoode6n", new Color(100, 166, 100), "Even verier grooden tag"));
-            //this.Tags.Add(new Tag("Good7", new Color(45, 100, 166), "Even verier beste tag"));
-            //this.Tags.Add(new Tag("GRood8", new Color(130, 207, 166), "Even verier bestere tag"));
-            //this.Tags.Add(new Tag("GRoode9n", new Color(114, 20, 35), "Even verier besterederen tag"));
-            //this.Tags.Add(new Tag("Good0", new Color(66, 100, 200), "Even verier more grood beste tag"));
-            //this.Tags.Add(new Tag("GRood11", new Color(70, 100, 50), "Even verier more grooder beste tag"));
-            //this.Tags.Add(new Tag("GRoode12nasdfghjklpoiiuytsadfghjklj", new Color(20, 30, 20), "Even verier more grooderen bestere tagEven verier more groven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more oderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more ven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag"));
             RESOURCES_PATH = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString() + "\\resources\\";
-
-            //this.Tags.Add(new Tag("Good13", new Color(0, 100, 166), "Very good tag"));
-            //this.Tags.Add(new Tag("GRood14", new Color(100, 0, 166), "Very grood tag"));
-            //this.Tags.Add(new Tag("GRoode15n", new Color(100, 166, 0), "Very grooden tag"));
-            //this.Tags.Add(new Tag("Good136", new Color(100, 100, 166), "Even verier good tag"));
-            //this.Tags.Add(new Tag("GRood145", new Color(100, 100, 166), "Even verier grood tag"));
-            //this.Tags.Add(new Tag("GRood453en1", new Color(100, 166, 100), "Even verier grooden tag"));
-            //this.Tags.Add(new Tag("Goo453d2", new Color(45, 100, 166), "Even verier beste tag"));
-            //this.Tags.Add(new Tag("GRo543od2", new Color(130, 207, 166), "Even verier bestere tag"));
-            //this.Tags.Add(new Tag("GRoo123den2", new Color(114, 20, 35), "Even verier besterederen tag"));
-            //this.Tags.Add(new Tag("Good3123", new Color(66, 100, 200), "Even verier more grood beste tag"));
-            //this.Tags.Add(new Tag("GRo4537od3", new Color(70, 100, 50), "Even verier more grooder beste tag"));
-            //this.Tags.Add(new Tag("GRoo789den3", new Color(20, 30, 20), "Even verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tagEven verier more grooderen bestere tag"));
 
             //DataGraph dataGraph = CsvParser.readCSV();
             //XmlParser.serialize(dataGraph);
@@ -1882,22 +1903,6 @@ namespace emlekmu
             Map3Monuments = new ObservableCollection<MonumentPosition>(mpdg.map3Monuments);
             Map4Monuments = new ObservableCollection<MonumentPosition>(mpdg.map4Monuments);
             
-
-            //Monuments[0].Tags.Add(this.Tags[0]);
-            //Monuments[0].Tags.Add(this.Tags[7]);
-            //Monuments[0].Tags.Add(this.Tags[10]);
-            //Monuments[0].Tags.Add(this.Tags[11]);
-            //Monuments[0].Tags.Add(this.Tags[7]);
-            //Monuments[0].Tags.Add(this.Tags[10]);
-            //Monuments[1].Tags.Add(this.Tags[1]);
-            //Monuments[1].Tags.Add(this.Tags[2]);
-            //Monuments[6].Tags.Add(this.Tags[3]);
-            //Monuments[6].Tags.Add(this.Tags[6]);
-            //Monuments[2].Tags.Add(this.Tags[7]);
-            //Monuments[3].Tags.Add(this.Tags[1]);
-            //Monuments[3].Tags.Add(this.Tags[2]);
-            //Monuments[3].Tags.Add(this.Tags[3]);
-            //Monuments[4].Tags.Add(this.Tags[3]);
 
             this.SearchedMonuments = new ObservableCollection<Monument>(this.Monuments);
             this.FilteredMonuments = new ObservableCollection<Monument>();
@@ -2053,5 +2058,94 @@ namespace emlekmu
 
             XmlParser.serMapPog(mpdg);
         }
+
+        private void SearchDemon_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DemonAlive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.SearchDemon(Search, SFControl.input_id, SFControl.SearchFilterButton);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.Demon = t;
+            this.DemonAlive = true;
+        }
+
+        private void MapDemon_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DemonAlive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.MapDemon(this);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.Demon = t;
+            this.DemonAlive = true;
+        }
+
+        private void MonumentDemon_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DemonAlive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.MonumentDemon(this);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.Demon = t;
+            this.DemonAlive = true;
+        }
+
+
+        private void TypeDemon_click(object sender, RoutedEventArgs e)
+        {
+            if (this.DemonAlive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.TypeDemon(this);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.Demon = t;
+            this.DemonAlive = true;
+        }
+
+        private void TagDemon_click(object sender, RoutedEventArgs e)
+        {
+            if (this.DemonAlive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.TypeDemon(this);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.Demon = t;
+            this.DemonAlive = true;
+        }
+
+
+
+
+
+
     }
+
+    
 }

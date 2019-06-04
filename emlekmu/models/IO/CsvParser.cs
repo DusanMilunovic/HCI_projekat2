@@ -33,7 +33,7 @@ namespace emlekmu.models.IO
                     var values = line.Split('|');
                     string id = values[0];
                     string image = ABSOLUTE_PATH + "type" + values[0] + ".png";
-                    retVal.tags.Add(new Tag(id, new Color(255, 255, 255), values[1]));
+                    retVal.tags.Add(new Tag(id, new Color(values[2]), values[1]));
                 }
             }
             using (var reader = new StreamReader(@"../../resources/monuments.txt"))
@@ -61,11 +61,11 @@ namespace emlekmu.models.IO
                     var income = Convert.ToInt32(values[11]);
                     var date = values[12];
 
-                    int numoftags = r.Next(1, 3);
+                    int numoftags = r.Next(1, 7);
                     List<Tag> tagzzz = new List<Tag>();
                     for (int i = 0; i < numoftags; i++)
                     {
-                        Tag t = retVal.tags.ElementAt(r.Next(0, retVal.tags.Count() - 1));
+                        Tag t = retVal.tags.ElementAt(r.Next(0, retVal.tags.Count()));
                         if (tagzzz.IndexOf(t) == -1)
                             tagzzz.Add(t);
                     }
