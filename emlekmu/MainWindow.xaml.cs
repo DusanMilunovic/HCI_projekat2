@@ -56,6 +56,20 @@ namespace emlekmu
             dialog.MinHeight = 560;
             dialog.MinWidth = 800;
             dialog.ShowDialog();
+            if (dialog.DialogResult.HasValue && dialog.DialogResult.Value)
+            {
+                var m = dialog.Monument;
+                if (m != null)
+                {
+                    MainContent.MonumentTable.monumentClicked(m.Id);
+                    MainContent.MonumentTable.ScrollToSelected();
+                }
+            }
+            else
+            {
+                return;
+            }
+            
         }
 
         private void AddTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
