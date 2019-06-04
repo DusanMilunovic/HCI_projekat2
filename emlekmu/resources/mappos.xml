@@ -1,7 +1,701 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MapPosDG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <map1Monuments />
-  <map2Monuments />
+  <map1Monuments>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>1</Id>
+        <Name> Angkor Wat, Cambodia</Name>
+        <Description>Eerie and majestic, Angkor Wat is a pilgrimage that must be taken by anyone venturing into Cambodia. The UNESCO World Heritage site is one of the finest preserved Ancient Cities and stretches over 400km2 in Angkor Archaeological Park. Highlights include the Temple of Angkor Wat and Angkor Thom, which isa Bayon temple.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument1.png</Image>
+        <Type>
+          <Id>9</Id>
+          <Name>Mausoleum or tomb</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type9.png</Icon>
+          <Description>Honors the dead</Description>
+          <DescriptionShort>Honors the dead</DescriptionShort>
+        </Type>
+        <Era>Medieval</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type9.png</Icon>
+        <ArcheologicallyExplored>true</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>true</PopulatedRegion>
+        <TouristicStatus>Unavailable</TouristicStatus>
+        <Income>86000</Income>
+        <DiscoveryDate>11.1.265 BCE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Hard metal material used during war periods</Description>
+            <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+            <Id>Iron</Id>
+            <Color>
+              <Red>128</Red>
+              <Green>128</Green>
+              <Blue>128</Blue>
+              <Hex>#808080</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Simple and effective, massive and powerful</Description>
+            <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+            <Id>Stone</Id>
+            <Color>
+              <Red>128</Red>
+              <Green>128</Green>
+              <Blue>128</Blue>
+              <Hex>#808080</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Heavy bronze work</Description>
+            <DescriptionShort>Heavy bronze work</DescriptionShort>
+            <Id>Bronze</Id>
+            <Color>
+              <Red>220</Red>
+              <Green>20</Green>
+              <Blue>60</Blue>
+              <Hex>#DC143C</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+            <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+            <Id>Black Marble</Id>
+            <Color>
+              <Red>33</Red>
+              <Green>32</Green>
+              <Blue>32</Blue>
+              <Hex>#212020</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>831.20964360587</Top>
+      <Left>423.9717400419288</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>2</Id>
+        <Name> Plaza de Espana, Spain</Name>
+        <Description>One of the most iconic landmarks in Seville, Spain the Plaza de Espana is best hailed for its architecture. Drawing inspiration from the Reconnaissance and Moorish revival periods, it features colourful tiles, fountains and ponds.Flowers bask in the open space, as do orange trees which Seville is particularly known for.Pro tip: Due to its location Sevillian summers can be quite harsh so if you'd prefer to enjoy cool sightseeing weather aim to arrive in April or May.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument2.png</Image>
+        <Type>
+          <Id>10</Id>
+          <Name>Triumphal arch</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
+          <Description>Almost always to commemorate military successes</Description>
+          <DescriptionShort>Almost always to commemorate m...</DescriptionShort>
+        </Type>
+        <Era>Medieval</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
+        <ArcheologicallyExplored>true</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>true</PopulatedRegion>
+        <TouristicStatus>Unavailable</TouristicStatus>
+        <Income>66000</Income>
+        <DiscoveryDate>11.1.52 BCE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Refined iron, indicator of rich war winners</Description>
+            <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
+            <Id>Steel</Id>
+            <Color>
+              <Red>176</Red>
+              <Green>196</Green>
+              <Blue>222</Blue>
+              <Hex>#B0C4DE</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Heavy bronze work surviving the test of time with honour</Description>
+            <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+            <Id>Green bronze</Id>
+            <Color>
+              <Red>28</Red>
+              <Green>125</Green>
+              <Blue>65</Blue>
+              <Hex>#1C7D41</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>470.86163522012578</Top>
+      <Left>325.69501048218035</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>3</Id>
+        <Name> Sheikh Zayed Grand Mosque Center, Abu Dhabi</Name>
+        <Description>An absolute gem of the modern world, Sheikh Zayed Grand Mosque Center may have only been completed in 2007, but it has already garnered much media attention (remember that controversial photograph of Rihanna posing in front of it? Yeah, you do). It's wonders include 82 domes of seven different sizes and a library pregnant with classic Islamic books and publications.Pro tip: This is a place of worship, so be respectful and follow custom or you may end up like Rihanna and be asked to leave the premises.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument3.png</Image>
+        <Type>
+          <Id>10</Id>
+          <Name>Triumphal arch</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
+          <Description>Almost always to commemorate military successes</Description>
+          <DescriptionShort>Almost always to commemorate m...</DescriptionShort>
+        </Type>
+        <Era>Renaissance</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
+        <ArcheologicallyExplored>false</ArcheologicallyExplored>
+        <Unesco>true</Unesco>
+        <PopulatedRegion>false</PopulatedRegion>
+        <TouristicStatus>Exploited</TouristicStatus>
+        <Income>56000</Income>
+        <DiscoveryDate>11.2.726 CE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Heavy bronze work surviving the test of time with honour</Description>
+            <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+            <Id>Green bronze</Id>
+            <Color>
+              <Red>28</Red>
+              <Green>125</Green>
+              <Blue>65</Blue>
+              <Hex>#1C7D41</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Hard metal material used during war periods</Description>
+            <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+            <Id>Iron</Id>
+            <Color>
+              <Red>128</Red>
+              <Green>128</Green>
+              <Blue>128</Blue>
+              <Hex>#808080</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Refined iron, indicator of rich war winners</Description>
+            <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
+            <Id>Steel</Id>
+            <Color>
+              <Red>176</Red>
+              <Green>196</Green>
+              <Blue>222</Blue>
+              <Hex>#B0C4DE</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+            <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+            <Id>Black Marble</Id>
+            <Color>
+              <Red>33</Red>
+              <Green>32</Green>
+              <Blue>32</Blue>
+              <Hex>#212020</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Simple and effective, massive and powerful</Description>
+            <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+            <Id>Stone</Id>
+            <Color>
+              <Red>128</Red>
+              <Green>128</Green>
+              <Blue>128</Blue>
+              <Hex>#808080</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>664.89517819706509</Top>
+      <Left>393.73274633123697</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>4</Id>
+        <Name> St Peter's Basilica, Italy</Name>
+        <Description>According to Catholicism, St Peter's Basilica houses the body of the disciple, St Peter, who is also known as the guardian of the gates to heaven. As an architectural piece, it is majestic, the domes stretch high above and may be climbed all the way, or can be accessed (half the way) via elevator.Pro tip: Arrive in the early afternoon, this way you avoid the tour group crowds, or you may be in line for a while.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument4.png</Image>
+        <Type>
+          <Id>10</Id>
+          <Name>Triumphal arch</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
+          <Description>Almost always to commemorate military successes</Description>
+          <DescriptionShort>Almost always to commemorate m...</DescriptionShort>
+        </Type>
+        <Era>Paleolith</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type10.png</Icon>
+        <ArcheologicallyExplored>true</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>true</PopulatedRegion>
+        <TouristicStatus>Unavailable</TouristicStatus>
+        <Income>52000</Income>
+        <DiscoveryDate>20.10.131 BCE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Heavy bronze work surviving the test of time with honour</Description>
+            <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+            <Id>Green bronze</Id>
+            <Color>
+              <Red>28</Red>
+              <Green>125</Green>
+              <Blue>65</Blue>
+              <Hex>#1C7D41</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+            <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+            <Id>Black Marble</Id>
+            <Color>
+              <Red>33</Red>
+              <Green>32</Green>
+              <Blue>32</Blue>
+              <Hex>#212020</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>522.51991614255758</Top>
+      <Left>315.6153459119497</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>6</Id>
+        <Name> Taj Mahal, India</Name>
+        <Description>A constant on the Seven Wonders of World lists, the Taj Mahal is so highly acclaimed that one TripAdvisor user has been bold enough to claim that "you haven't lived until you've visited it." Built in 1632, the white marble mausoleum houses the tomb of the Mughal emperor Shah Jahan's favourite wife, Mumtaz Mahal.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument6.png</Image>
+        <Type>
+          <Id>14</Id>
+          <Name>Palace</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type14.png</Icon>
+          <Description>Imposing royal residences designed to impress people with their grandeur and greatness</Description>
+          <DescriptionShort>Imposing royal residences desi...</DescriptionShort>
+        </Type>
+        <Era>Renaissance</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type14.png</Icon>
+        <ArcheologicallyExplored>false</ArcheologicallyExplored>
+        <Unesco>false</Unesco>
+        <PopulatedRegion>false</PopulatedRegion>
+        <TouristicStatus>Available</TouristicStatus>
+        <Income>174000</Income>
+        <DiscoveryDate>15.9.914 CE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+            <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+            <Id>Plastic</Id>
+            <Color>
+              <Red>0</Red>
+              <Green>0</Green>
+              <Blue>255</Blue>
+              <Hex>#0000FF</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Heavy bronze work surviving the test of time with honour</Description>
+            <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+            <Id>Green bronze</Id>
+            <Color>
+              <Red>28</Red>
+              <Green>125</Green>
+              <Blue>65</Blue>
+              <Hex>#1C7D41</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Heavy bronze work</Description>
+            <DescriptionShort>Heavy bronze work</DescriptionShort>
+            <Id>Bronze</Id>
+            <Color>
+              <Red>220</Red>
+              <Green>20</Green>
+              <Blue>60</Blue>
+              <Hex>#DC143C</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>743.01257861635224</Top>
+      <Left>376.09333333333336</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>8</Id>
+        <Name> Alcatraz, USA</Name>
+        <Description>The infamous prison island off the coast of San Francisco is an undisputed "must visit" when in San Fran. It's a completely alternate feeling from the other winners on this list, harbouring a more eerie and haunted atmosphere. Its journeyed from being a military garrison to a military prison to being the home of Native American activists and now remains abandoned and open for tourists.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument8.png</Image>
+        <Type>
+          <Id>8</Id>
+          <Name>Gravestone</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type8.png</Icon>
+          <Description>Small monuments to the deceased, placed at their gravesites</Description>
+          <DescriptionShort>Small monuments to the decease...</DescriptionShort>
+        </Type>
+        <Era>Renaissance</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type8.png</Icon>
+        <ArcheologicallyExplored>true</ArcheologicallyExplored>
+        <Unesco>true</Unesco>
+        <PopulatedRegion>true</PopulatedRegion>
+        <TouristicStatus>Unavailable</TouristicStatus>
+        <Income>133000</Income>
+        <DiscoveryDate>1.10.413 CE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Refined iron, indicator of rich war winners</Description>
+            <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
+            <Id>Steel</Id>
+            <Color>
+              <Red>176</Red>
+              <Green>196</Green>
+              <Blue>222</Blue>
+              <Hex>#B0C4DE</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Simple and effective, massive and powerful</Description>
+            <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+            <Id>Stone</Id>
+            <Color>
+              <Red>128</Red>
+              <Green>128</Green>
+              <Blue>128</Blue>
+              <Hex>#808080</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+            <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+            <Id>Black Marble</Id>
+            <Color>
+              <Red>33</Red>
+              <Green>32</Green>
+              <Blue>32</Blue>
+              <Hex>#212020</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>75.592850624273609</Top>
+      <Left>337.85078119664206</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>13</Id>
+        <Name> Corcovado - Cristo Redeemer, Brazil</Name>
+        <Description>Watching over the city of Rio de Janeiro, is a giant statue of Christ the Redeemer who stands at an impressive 30 metres, which doesn't include its 8 metre pedestal. Second only to its panoramic views of the city which include Sugar Loaf Mountain. Originally designed as a statue of Christ holding a globe, it now features Christ opening his arms to embrace the world instead.Pro tip: If you're travelling during winter, ensure the day of your trip is not a rainy one or you'll hardly be able to see the statue, let alone the view.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument13.png</Image>
+        <Type>
+          <Id>5</Id>
+          <Name>Column</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type5.png</Icon>
+          <Description>Often topped with a statue</Description>
+          <DescriptionShort>Often topped with a statue</DescriptionShort>
+        </Type>
+        <Era>Neolithic</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type5.png</Icon>
+        <ArcheologicallyExplored>true</ArcheologicallyExplored>
+        <Unesco>true</Unesco>
+        <PopulatedRegion>false</PopulatedRegion>
+        <TouristicStatus>Unavailable</TouristicStatus>
+        <Income>66000</Income>
+        <DiscoveryDate>17.12.13 CE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+            <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+            <Id>Black Marble</Id>
+            <Color>
+              <Red>33</Red>
+              <Green>32</Green>
+              <Blue>32</Blue>
+              <Hex>#212020</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Hard metal material used during war periods</Description>
+            <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+            <Id>Iron</Id>
+            <Color>
+              <Red>128</Red>
+              <Green>128</Green>
+              <Blue>128</Blue>
+              <Hex>#808080</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Simple and effective, massive and powerful</Description>
+            <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+            <Id>Stone</Id>
+            <Color>
+              <Red>128</Red>
+              <Green>128</Green>
+              <Blue>128</Blue>
+              <Hex>#808080</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>339.82599580712787</Top>
+      <Left>546.1876729559749</Left>
+    </MonumentPosition>
+  </map1Monuments>
+  <map2Monuments>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>5</Id>
+        <Name> Mezquita Catedral de Cordoba, Spain</Name>
+        <Description>Instantly Insta-worthy and candy for the eyes, the Mezquita Catedral de Cordoba is a heady mix of Gothic and Islamic architecture.The architecture reflects its history, having served as both an Islamic mosque and a Catholic cathedral.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument5.png</Image>
+        <Type>
+          <Id>8</Id>
+          <Name>Gravestone</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type8.png</Icon>
+          <Description>Small monuments to the deceased, placed at their gravesites</Description>
+          <DescriptionShort>Small monuments to the decease...</DescriptionShort>
+        </Type>
+        <Era>Ancient</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type8.png</Icon>
+        <ArcheologicallyExplored>false</ArcheologicallyExplored>
+        <Unesco>true</Unesco>
+        <PopulatedRegion>false</PopulatedRegion>
+        <TouristicStatus>Unavailable</TouristicStatus>
+        <Income>193000</Income>
+        <DiscoveryDate>14.6.227 CE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+            <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+            <Id>Plastic</Id>
+            <Color>
+              <Red>0</Red>
+              <Green>0</Green>
+              <Blue>255</Blue>
+              <Hex>#0000FF</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Heavy bronze work</Description>
+            <DescriptionShort>Heavy bronze work</DescriptionShort>
+            <Id>Bronze</Id>
+            <Color>
+              <Red>220</Red>
+              <Green>20</Green>
+              <Blue>60</Blue>
+              <Hex>#DC143C</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Heavy bronze work surviving the test of time with honour</Description>
+            <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+            <Id>Green bronze</Id>
+            <Color>
+              <Red>28</Red>
+              <Green>125</Green>
+              <Blue>65</Blue>
+              <Hex>#1C7D41</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+            <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+            <Id>Black Marble</Id>
+            <Color>
+              <Red>33</Red>
+              <Green>32</Green>
+              <Blue>32</Blue>
+              <Hex>#212020</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Refined iron, indicator of rich war winners</Description>
+            <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
+            <Id>Steel</Id>
+            <Color>
+              <Red>176</Red>
+              <Green>196</Green>
+              <Blue>222</Blue>
+              <Hex>#B0C4DE</Hex>
+              <Hexi>#000000</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>5.5890985324947735</Top>
+      <Left>639.05140461215933</Left>
+    </MonumentPosition>
+    <MonumentPosition>
+      <Showable>Visible</Showable>
+      <Color>
+        <Red>255</Red>
+        <Green>255</Green>
+        <Blue>255</Blue>
+        <Hex>#FFFFFF</Hex>
+        <Hexi>#000000</Hexi>
+      </Color>
+      <Monument>
+        <Id>7</Id>
+        <Name> Milan Cathedral, Italy</Name>
+        <Description>Milan may be the capital of Italian fashion, but it also holds a capital "duomo" Cathedral in its square. An immense construction, it's best viewed and photographed on the outside with its brilliant white facade leaving you absolutely flawed. Make sure you make the climb up to the top of the Cathedral for pristine views over the city.Pro tip: Be careful in the square / forecourt: there are pigeons EVERYWHERE.</Description>
+        <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument7.png</Image>
+        <Type>
+          <Id>9</Id>
+          <Name>Mausoleum or tomb</Name>
+          <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type9.png</Icon>
+          <Description>Honors the dead</Description>
+          <DescriptionShort>Honors the dead</DescriptionShort>
+        </Type>
+        <Era>Paleolith</Era>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type9.png</Icon>
+        <ArcheologicallyExplored>false</ArcheologicallyExplored>
+        <Unesco>true</Unesco>
+        <PopulatedRegion>false</PopulatedRegion>
+        <TouristicStatus>Exploited</TouristicStatus>
+        <Income>232000</Income>
+        <DiscoveryDate>17.3.1110 BCE</DiscoveryDate>
+        <Tags>
+          <Tag>
+            <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+            <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+            <Id>Black Marble</Id>
+            <Color>
+              <Red>33</Red>
+              <Green>32</Green>
+              <Blue>32</Blue>
+              <Hex>#212020</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+          <Tag>
+            <Description>Brick by brick, the most magnificent art is built in steps</Description>
+            <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
+            <Id>Brick</Id>
+            <Color>
+              <Red>255</Red>
+              <Green>61</Green>
+              <Blue>0</Blue>
+              <Hex>#FF3D00</Hex>
+              <Hexi>#FFFFFF</Hexi>
+            </Color>
+            <Selected>false</Selected>
+          </Tag>
+        </Tags>
+      </Monument>
+      <Top>255.26834381551367</Top>
+      <Left>497.81870020964357</Left>
+    </MonumentPosition>
+  </map2Monuments>
   <map3Monuments />
   <map4Monuments />
 </MapPosDG>
