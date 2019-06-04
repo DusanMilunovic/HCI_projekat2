@@ -139,15 +139,12 @@ namespace emlekmu
                 MouseEvent(MouseEventFlags.RightUp);
 
                 absolutePos.X += 30;
-                absolutePos.Y += 65;
+                absolutePos.Y += 105;
                 MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
                 MouseEvent(MouseEventFlags.LeftDown);
                 Thread.Sleep(200);
                 MouseEvent(MouseEventFlags.LeftUp);
-                Thread.Sleep(400);
-                System.Windows.Forms.SendKeys.SendWait("{TAB}");
-                Thread.Sleep(400);
-                System.Windows.Forms.SendKeys.SendWait("{ENTER}");
+                
 
             }
         }
@@ -197,7 +194,7 @@ namespace emlekmu
             System.Windows.Forms.SendKeys.SendWait("{TAB}");
             System.Windows.Forms.SendKeys.SendWait("{DOWN}");
             System.Windows.Forms.SendKeys.SendWait("{TAB}");
-            fillTextBox(form.ImageTextBox, @"C: \Users\Nenad\Desktop\test.png");
+            fillTextBox(form.ImageTextBox, @"C:\Users\Nenad\Desktop\test.png");
             System.Windows.Forms.SendKeys.SendWait("{TAB}");
             Thread.Sleep(150);
             System.Windows.Forms.SendKeys.SendWait("{TAB}");
@@ -506,7 +503,7 @@ namespace emlekmu
             fillTextBox(addType.DescriptionTextBox, "A very demonic type of monuments");
 
             System.Windows.Forms.SendKeys.SendWait("{TAB}");
-            fillTextBox(addType.IconTextBox, @"C: \Users\Nenad\Desktop\test.png");
+            fillTextBox(addType.IconTextBox, @"C:\Users\Nenad\Desktop\test.png");
 
             absolutePos = getElementPos(addType.AddTypeButton);
             absolutePos.X += 10;
@@ -565,7 +562,7 @@ namespace emlekmu
                     textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
                     
                 });
-                Thread.Sleep(30);
+                Thread.Sleep(150);
             }
         }
 
@@ -592,7 +589,7 @@ namespace emlekmu
                 {
                     textBox.Text += c;
                 });
-                Thread.Sleep(30);
+                Thread.Sleep(150);
             }
         }
 

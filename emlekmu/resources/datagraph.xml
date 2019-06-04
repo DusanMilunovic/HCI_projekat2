@@ -23,28 +23,15 @@
       <DiscoveryDate>11.1.265 BCE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Simple and effective, massive and powerful</Description>
-          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
-          <Id>Stone</Id>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
           <Color>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-            <Hex>#808080</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Refined iron, indicator of rich war winners</Description>
-          <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
-          <Id>Steel</Id>
-          <Color>
-            <Red>176</Red>
-            <Green>196</Green>
-            <Blue>222</Blue>
-            <Hex>#B0C4DE</Hex>
-            <Hexi>#000000</Hexi>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>255</Blue>
+            <Hex>#0000FF</Hex>
+            <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -98,28 +85,15 @@
       <DiscoveryDate>11.1.52 BCE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Brick by brick, the most magnificent art is built in steps</Description>
-          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
-          <Id>Brick</Id>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
           <Color>
-            <Red>255</Red>
-            <Green>61</Green>
-            <Blue>0</Blue>
-            <Hex>#FF3D00</Hex>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>255</Blue>
+            <Hex>#0000FF</Hex>
             <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Carved from pure marble</Description>
-          <DescriptionShort>Carved from pure marble</DescriptionShort>
-          <Id>Marble</Id>
-          <Color>
-            <Red>230</Red>
-            <Green>230</Green>
-            <Blue>250</Blue>
-            <Hex>#E6E6FA</Hex>
-            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -132,19 +106,6 @@
             <Green>20</Green>
             <Blue>60</Blue>
             <Hex>#DC143C</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
-          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
-          <Id>Black Marble</Id>
-          <Color>
-            <Red>33</Red>
-            <Green>32</Green>
-            <Blue>32</Blue>
-            <Hex>#212020</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -173,14 +134,27 @@
       <DiscoveryDate>11.2.726 CE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
-          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
-          <Id>Plastic</Id>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
           <Color>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>255</Blue>
-            <Hex>#0000FF</Hex>
+            <Red>220</Red>
+            <Green>20</Green>
+            <Blue>60</Blue>
+            <Hex>#DC143C</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Brick by brick, the most magnificent art is built in steps</Description>
+          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
+          <Id>Brick</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>61</Green>
+            <Blue>0</Blue>
+            <Hex>#FF3D00</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -209,15 +183,54 @@
       <DiscoveryDate>20.10.131 BCE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Heavy bronze work</Description>
-          <DescriptionShort>Heavy bronze work</DescriptionShort>
-          <Id>Bronze</Id>
+          <Description>Heavy bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
           <Color>
-            <Red>220</Red>
-            <Green>20</Green>
-            <Blue>60</Blue>
-            <Hex>#DC143C</Hex>
+            <Red>28</Red>
+            <Green>125</Green>
+            <Blue>65</Blue>
+            <Hex>#1C7D41</Hex>
             <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Brick by brick, the most magnificent art is built in steps</Description>
+          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
+          <Id>Brick</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>61</Green>
+            <Blue>0</Blue>
+            <Hex>#FF3D00</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Refined iron, indicator of rich war winners</Description>
+          <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
+          <Id>Steel</Id>
+          <Color>
+            <Red>176</Red>
+            <Green>196</Green>
+            <Blue>222</Blue>
+            <Hex>#B0C4DE</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Hard metal material used during war periods</Description>
+          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+          <Id>Iron</Id>
+          <Color>
+            <Red>128</Red>
+            <Green>128</Green>
+            <Blue>128</Blue>
+            <Hex>#808080</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -245,27 +258,53 @@
       <DiscoveryDate>14.6.227 CE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Heavy bronze work surviving the test of time with honour</Description>
-          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
-          <Id>Green bronze</Id>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
           <Color>
-            <Red>28</Red>
-            <Green>125</Green>
-            <Blue>65</Blue>
-            <Hex>#1C7D41</Hex>
+            <Red>220</Red>
+            <Green>20</Green>
+            <Blue>60</Blue>
+            <Hex>#DC143C</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
-          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
-          <Id>Black Marble</Id>
+          <Description>Hard metal material used during war periods</Description>
+          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+          <Id>Iron</Id>
           <Color>
-            <Red>33</Red>
-            <Green>32</Green>
-            <Blue>32</Blue>
-            <Hex>#212020</Hex>
+            <Red>128</Red>
+            <Green>128</Green>
+            <Blue>128</Blue>
+            <Hex>#808080</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
+          <Color>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>255</Blue>
+            <Hex>#0000FF</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Brick by brick, the most magnificent art is built in steps</Description>
+          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
+          <Id>Brick</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>61</Green>
+            <Blue>0</Blue>
+            <Hex>#FF3D00</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -294,19 +333,6 @@
       <DiscoveryDate>15.9.914 CE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Heavy bronze work surviving the test of time with honour</Description>
-          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
-          <Id>Green bronze</Id>
-          <Color>
-            <Red>28</Red>
-            <Green>125</Green>
-            <Blue>65</Blue>
-            <Hex>#1C7D41</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
           <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
           <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
           <Id>Plastic</Id>
@@ -320,9 +346,22 @@
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Hard metal material used during war periods</Description>
-          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
-          <Id>Iron</Id>
+          <Description>Refined iron, indicator of rich war winners</Description>
+          <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
+          <Id>Steel</Id>
+          <Color>
+            <Red>176</Red>
+            <Green>196</Green>
+            <Blue>222</Blue>
+            <Hex>#B0C4DE</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Simple and effective, massive and powerful</Description>
+          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+          <Id>Stone</Id>
           <Color>
             <Red>128</Red>
             <Green>128</Green>
@@ -333,15 +372,15 @@
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
-          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
-          <Id>Black Marble</Id>
+          <Description>Hard metal material used during war periods</Description>
+          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+          <Id>Iron</Id>
           <Color>
-            <Red>33</Red>
-            <Green>32</Green>
-            <Blue>32</Blue>
-            <Hex>#212020</Hex>
-            <Hexi>#FFFFFF</Hexi>
+            <Red>128</Red>
+            <Green>128</Green>
+            <Blue>128</Blue>
+            <Hex>#808080</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -368,6 +407,19 @@
       <Income>232000</Income>
       <DiscoveryDate>17.3.1110 BCE</DiscoveryDate>
       <Tags>
+        <Tag>
+          <Description>Simple and effective, massive and powerful</Description>
+          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+          <Id>Stone</Id>
+          <Color>
+            <Red>128</Red>
+            <Green>128</Green>
+            <Blue>128</Blue>
+            <Hex>#808080</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
         <Tag>
           <Description>Carved from pure marble</Description>
           <DescriptionShort>Carved from pure marble</DescriptionShort>
@@ -405,6 +457,58 @@
       <DiscoveryDate>1.10.413 CE</DiscoveryDate>
       <Tags>
         <Tag>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
+          <Color>
+            <Red>220</Red>
+            <Green>20</Green>
+            <Blue>60</Blue>
+            <Hex>#DC143C</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Brick by brick, the most magnificent art is built in steps</Description>
+          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
+          <Id>Brick</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>61</Green>
+            <Blue>0</Blue>
+            <Hex>#FF3D00</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Carved from pure marble</Description>
+          <DescriptionShort>Carved from pure marble</DescriptionShort>
+          <Id>Marble</Id>
+          <Color>
+            <Red>230</Red>
+            <Green>230</Green>
+            <Blue>250</Blue>
+            <Hex>#E6E6FA</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Hard metal material used during war periods</Description>
+          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+          <Id>Iron</Id>
+          <Color>
+            <Red>128</Red>
+            <Green>128</Green>
+            <Blue>128</Blue>
+            <Hex>#808080</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
           <Description>Heavy bronze work surviving the test of time with honour</Description>
           <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
           <Id>Green bronze</Id>
@@ -413,32 +517,6 @@
             <Green>125</Green>
             <Blue>65</Blue>
             <Hex>#1C7D41</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Refined iron, indicator of rich war winners</Description>
-          <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
-          <Id>Steel</Id>
-          <Color>
-            <Red>176</Red>
-            <Green>196</Green>
-            <Blue>222</Blue>
-            <Hex>#B0C4DE</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
-          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
-          <Id>Plastic</Id>
-          <Color>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>255</Blue>
-            <Hex>#0000FF</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -480,28 +558,15 @@
       <DiscoveryDate>6.3.156 CE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
-          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
-          <Id>Plastic</Id>
+          <Description>Heavy bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
           <Color>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>255</Blue>
-            <Hex>#0000FF</Hex>
+            <Red>28</Red>
+            <Green>125</Green>
+            <Blue>65</Blue>
+            <Hex>#1C7D41</Hex>
             <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Simple and effective, massive and powerful</Description>
-          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
-          <Id>Stone</Id>
-          <Color>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-            <Hex>#808080</Hex>
-            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -529,28 +594,41 @@
       <DiscoveryDate>23.2.1201 BCE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Simple and effective, massive and powerful</Description>
-          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
-          <Id>Stone</Id>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
           <Color>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-            <Hex>#808080</Hex>
-            <Hexi>#000000</Hexi>
+            <Red>220</Red>
+            <Green>20</Green>
+            <Blue>60</Blue>
+            <Hex>#DC143C</Hex>
+            <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Hard metal material used during war periods</Description>
-          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
-          <Id>Iron</Id>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
           <Color>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-            <Hex>#808080</Hex>
-            <Hexi>#000000</Hexi>
+            <Red>33</Red>
+            <Green>32</Green>
+            <Blue>32</Blue>
+            <Hex>#212020</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
+          <Color>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>255</Blue>
+            <Hex>#0000FF</Hex>
+            <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -590,45 +668,6 @@
           </Color>
           <Selected>false</Selected>
         </Tag>
-        <Tag>
-          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
-          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
-          <Id>Plastic</Id>
-          <Color>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>255</Blue>
-            <Hex>#0000FF</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Heavy bronze work</Description>
-          <DescriptionShort>Heavy bronze work</DescriptionShort>
-          <Id>Bronze</Id>
-          <Color>
-            <Red>220</Red>
-            <Green>20</Green>
-            <Blue>60</Blue>
-            <Hex>#DC143C</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Brick by brick, the most magnificent art is built in steps</Description>
-          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
-          <Id>Brick</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>61</Green>
-            <Blue>0</Blue>
-            <Hex>#FF3D00</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
       </Tags>
     </Monument>
     <Monument>
@@ -653,53 +692,14 @@
       <DiscoveryDate>1.4.767 CE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Hard metal material used during war periods</Description>
-          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
-          <Id>Iron</Id>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
           <Color>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-            <Hex>#808080</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Refined iron, indicator of rich war winners</Description>
-          <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
-          <Id>Steel</Id>
-          <Color>
-            <Red>176</Red>
-            <Green>196</Green>
-            <Blue>222</Blue>
-            <Hex>#B0C4DE</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Carved from pure marble</Description>
-          <DescriptionShort>Carved from pure marble</DescriptionShort>
-          <Id>Marble</Id>
-          <Color>
-            <Red>230</Red>
-            <Green>230</Green>
-            <Blue>250</Blue>
-            <Hex>#E6E6FA</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Heavy bronze work surviving the test of time with honour</Description>
-          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
-          <Id>Green bronze</Id>
-          <Color>
-            <Red>28</Red>
-            <Green>125</Green>
-            <Blue>65</Blue>
-            <Hex>#1C7D41</Hex>
+            <Red>220</Red>
+            <Green>20</Green>
+            <Blue>60</Blue>
+            <Hex>#DC143C</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -741,6 +741,19 @@
           <Selected>false</Selected>
         </Tag>
         <Tag>
+          <Description>Heavy bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
+          <Color>
+            <Red>28</Red>
+            <Green>125</Green>
+            <Blue>65</Blue>
+            <Hex>#1C7D41</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
           <Description>Heavy bronze work</Description>
           <DescriptionShort>Heavy bronze work</DescriptionShort>
           <Id>Bronze</Id>
@@ -749,19 +762,6 @@
             <Green>20</Green>
             <Blue>60</Blue>
             <Hex>#DC143C</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Brick by brick, the most magnificent art is built in steps</Description>
-          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
-          <Id>Brick</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>61</Green>
-            <Blue>0</Blue>
-            <Hex>#FF3D00</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -790,6 +790,19 @@
       <DiscoveryDate>4.4.6 CE</DiscoveryDate>
       <Tags>
         <Tag>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
+          <Color>
+            <Red>220</Red>
+            <Green>20</Green>
+            <Blue>60</Blue>
+            <Hex>#DC143C</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
           <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
           <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
           <Id>Black Marble</Id>
@@ -803,27 +816,14 @@
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Brick by brick, the most magnificent art is built in steps</Description>
-          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
-          <Id>Brick</Id>
+          <Description>Carved from pure marble</Description>
+          <DescriptionShort>Carved from pure marble</DescriptionShort>
+          <Id>Marble</Id>
           <Color>
-            <Red>255</Red>
-            <Green>61</Green>
-            <Blue>0</Blue>
-            <Hex>#FF3D00</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Hard metal material used during war periods</Description>
-          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
-          <Id>Iron</Id>
-          <Color>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-            <Hex>#808080</Hex>
+            <Red>230</Red>
+            <Green>230</Green>
+            <Blue>250</Blue>
+            <Hex>#E6E6FA</Hex>
             <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -852,28 +852,15 @@
       <DiscoveryDate>6.1.130 BCE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Hard metal material used during war periods</Description>
-          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
-          <Id>Iron</Id>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
           <Color>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-            <Hex>#808080</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Simple and effective, massive and powerful</Description>
-          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
-          <Id>Stone</Id>
-          <Color>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-            <Hex>#808080</Hex>
-            <Hexi>#000000</Hexi>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>255</Blue>
+            <Hex>#0000FF</Hex>
+            <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -887,6 +874,58 @@
             <Blue>32</Blue>
             <Hex>#212020</Hex>
             <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Heavy bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
+          <Color>
+            <Red>28</Red>
+            <Green>125</Green>
+            <Blue>65</Blue>
+            <Hex>#1C7D41</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
+          <Color>
+            <Red>220</Red>
+            <Green>20</Green>
+            <Blue>60</Blue>
+            <Hex>#DC143C</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Carved from pure marble</Description>
+          <DescriptionShort>Carved from pure marble</DescriptionShort>
+          <Id>Marble</Id>
+          <Color>
+            <Red>230</Red>
+            <Green>230</Green>
+            <Blue>250</Blue>
+            <Hex>#E6E6FA</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Hard metal material used during war periods</Description>
+          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+          <Id>Iron</Id>
+          <Color>
+            <Red>128</Red>
+            <Green>128</Green>
+            <Blue>128</Blue>
+            <Hex>#808080</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -914,19 +953,6 @@
       <DiscoveryDate>8.4.406 BCE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
-          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
-          <Id>Plastic</Id>
-          <Color>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>255</Blue>
-            <Hex>#0000FF</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
           <Description>Heavy bronze work</Description>
           <DescriptionShort>Heavy bronze work</DescriptionShort>
           <Id>Bronze</Id>
@@ -935,6 +961,32 @@
             <Green>20</Green>
             <Blue>60</Blue>
             <Hex>#DC143C</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Heavy bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
+          <Color>
+            <Red>28</Red>
+            <Green>125</Green>
+            <Blue>65</Blue>
+            <Hex>#1C7D41</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
+          <Color>
+            <Red>33</Red>
+            <Green>32</Green>
+            <Blue>32</Blue>
+            <Hex>#212020</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -963,41 +1015,41 @@
       <DiscoveryDate>18.6.336 CE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Brick by brick, the most magnificent art is built in steps</Description>
-          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
-          <Id>Brick</Id>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
           <Color>
-            <Red>255</Red>
-            <Green>61</Green>
-            <Blue>0</Blue>
-            <Hex>#FF3D00</Hex>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>255</Blue>
+            <Hex>#0000FF</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
-          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
-          <Id>Black Marble</Id>
-          <Color>
-            <Red>33</Red>
-            <Green>32</Green>
-            <Blue>32</Blue>
-            <Hex>#212020</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Hard metal material used during war periods</Description>
-          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
-          <Id>Iron</Id>
+          <Description>Simple and effective, massive and powerful</Description>
+          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+          <Id>Stone</Id>
           <Color>
             <Red>128</Red>
             <Green>128</Green>
             <Blue>128</Blue>
             <Hex>#808080</Hex>
             <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Heavy bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
+          <Color>
+            <Red>28</Red>
+            <Green>125</Green>
+            <Blue>65</Blue>
+            <Hex>#1C7D41</Hex>
+            <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -1025,6 +1077,19 @@
       <DiscoveryDate>1.12.1087 BCE</DiscoveryDate>
       <Tags>
         <Tag>
+          <Description>Brick by brick, the most magnificent art is built in steps</Description>
+          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
+          <Id>Brick</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>61</Green>
+            <Blue>0</Blue>
+            <Hex>#FF3D00</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
           <Description>Refined iron, indicator of rich war winners</Description>
           <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
           <Id>Steel</Id>
@@ -1034,19 +1099,6 @@
             <Blue>222</Blue>
             <Hex>#B0C4DE</Hex>
             <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Heavy bronze work surviving the test of time with honour</Description>
-          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
-          <Id>Green bronze</Id>
-          <Color>
-            <Red>28</Red>
-            <Green>125</Green>
-            <Blue>65</Blue>
-            <Hex>#1C7D41</Hex>
-            <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -1087,14 +1139,27 @@
       <DiscoveryDate>6.7.1227 CE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
-          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
-          <Id>Plastic</Id>
+          <Description>Hard metal material used during war periods</Description>
+          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+          <Id>Iron</Id>
           <Color>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>255</Blue>
-            <Hex>#0000FF</Hex>
+            <Red>128</Red>
+            <Green>128</Green>
+            <Blue>128</Blue>
+            <Hex>#808080</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Brick by brick, the most magnificent art is built in steps</Description>
+          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
+          <Id>Brick</Id>
+          <Color>
+            <Red>255</Red>
+            <Green>61</Green>
+            <Blue>0</Blue>
+            <Hex>#FF3D00</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -1113,15 +1178,15 @@
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Simple and effective, massive and powerful</Description>
-          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
-          <Id>Stone</Id>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
           <Color>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-            <Hex>#808080</Hex>
-            <Hexi>#000000</Hexi>
+            <Red>33</Red>
+            <Green>32</Green>
+            <Blue>32</Blue>
+            <Hex>#212020</Hex>
+            <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -1161,45 +1226,6 @@
           </Color>
           <Selected>false</Selected>
         </Tag>
-        <Tag>
-          <Description>Heavy bronze work surviving the test of time with honour</Description>
-          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
-          <Id>Green bronze</Id>
-          <Color>
-            <Red>28</Red>
-            <Green>125</Green>
-            <Blue>65</Blue>
-            <Hex>#1C7D41</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Brick by brick, the most magnificent art is built in steps</Description>
-          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
-          <Id>Brick</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>61</Green>
-            <Blue>0</Blue>
-            <Hex>#FF3D00</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Simple and effective, massive and powerful</Description>
-          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
-          <Id>Stone</Id>
-          <Color>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-            <Hex>#808080</Hex>
-            <Hexi>#000000</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
       </Tags>
     </Monument>
     <Monument>
@@ -1224,6 +1250,45 @@
       <DiscoveryDate>11.2.44 BCE</DiscoveryDate>
       <Tags>
         <Tag>
+          <Description>Heavy bronze work surviving the test of time with honour</Description>
+          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
+          <Id>Green bronze</Id>
+          <Color>
+            <Red>28</Red>
+            <Green>125</Green>
+            <Blue>65</Blue>
+            <Hex>#1C7D41</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Heavy bronze work</Description>
+          <DescriptionShort>Heavy bronze work</DescriptionShort>
+          <Id>Bronze</Id>
+          <Color>
+            <Red>220</Red>
+            <Green>20</Green>
+            <Blue>60</Blue>
+            <Hex>#DC143C</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
+          <Color>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>255</Blue>
+            <Hex>#0000FF</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
           <Description>Simple and effective, massive and powerful</Description>
           <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
           <Id>Stone</Id>
@@ -1237,28 +1302,15 @@
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
-          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
-          <Id>Black Marble</Id>
+          <Description>Refined iron, indicator of rich war winners</Description>
+          <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
+          <Id>Steel</Id>
           <Color>
-            <Red>33</Red>
-            <Green>32</Green>
-            <Blue>32</Blue>
-            <Hex>#212020</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-        <Tag>
-          <Description>Brick by brick, the most magnificent art is built in steps</Description>
-          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
-          <Id>Brick</Id>
-          <Color>
-            <Red>255</Red>
-            <Green>61</Green>
-            <Blue>0</Blue>
-            <Hex>#FF3D00</Hex>
-            <Hexi>#FFFFFF</Hexi>
+            <Red>176</Red>
+            <Green>196</Green>
+            <Blue>222</Blue>
+            <Hex>#B0C4DE</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
@@ -1286,14 +1338,14 @@
       <DiscoveryDate>26.8.720 CE</DiscoveryDate>
       <Tags>
         <Tag>
-          <Description>Heavy bronze work</Description>
-          <DescriptionShort>Heavy bronze work</DescriptionShort>
-          <Id>Bronze</Id>
+          <Description>Carved from pure blacked marbe, rarest mineral in Africa</Description>
+          <DescriptionShort>Carved from pure blacked marbe...</DescriptionShort>
+          <Id>Black Marble</Id>
           <Color>
-            <Red>220</Red>
-            <Green>20</Green>
-            <Blue>60</Blue>
-            <Hex>#DC143C</Hex>
+            <Red>33</Red>
+            <Green>32</Green>
+            <Blue>32</Blue>
+            <Hex>#212020</Hex>
             <Hexi>#FFFFFF</Hexi>
           </Color>
           <Selected>false</Selected>
@@ -1320,6 +1372,68 @@
       <TouristicStatus>Exploited</TouristicStatus>
       <Income>218000</Income>
       <DiscoveryDate>1.1.1431 BCE</DiscoveryDate>
+      <Tags>
+        <Tag>
+          <Description>Simple and effective, massive and powerful</Description>
+          <DescriptionShort>Simple and effective, massive ...</DescriptionShort>
+          <Id>Stone</Id>
+          <Color>
+            <Red>128</Red>
+            <Green>128</Green>
+            <Blue>128</Blue>
+            <Hex>#808080</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Refined iron, indicator of rich war winners</Description>
+          <DescriptionShort>Refined iron, indicator of ric...</DescriptionShort>
+          <Id>Steel</Id>
+          <Color>
+            <Red>176</Red>
+            <Green>196</Green>
+            <Blue>222</Blue>
+            <Hex>#B0C4DE</Hex>
+            <Hexi>#000000</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+        <Tag>
+          <Description>Creation of modern times, non-conventional material, indicator of a spiritually embraced artist</Description>
+          <DescriptionShort>Creation of modern times, non-...</DescriptionShort>
+          <Id>Plastic</Id>
+          <Color>
+            <Red>0</Red>
+            <Green>0</Green>
+            <Blue>255</Blue>
+            <Hex>#0000FF</Hex>
+            <Hexi>#FFFFFF</Hexi>
+          </Color>
+          <Selected>false</Selected>
+        </Tag>
+      </Tags>
+    </Monument>
+    <Monument>
+      <Id>24</Id>
+      <Name> Shwedagon Pagoda, Myanmar</Name>
+      <Description>Also known as the Great Dagon Pagoda, Shwedagon Pagoda is arguable one of the most famous and iconic pagodas in the world.Standing at 99 metres high on top of a hill, it can be captured from almost everyone in the city of Yangon. It's guided top boasts over 7,000 jewels including diamonds, rubies and sapphires.This is an active Buddhist pagoda which welcomes followers to pray and worship on its grounds daily.</Description>
+      <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument24.png</Image>
+      <Type>
+        <Id>11</Id>
+        <Name>Mosque Monument</Name>
+        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type11.png</Icon>
+        <Description>Places of worship that generally have domes and minarets that stand out against the skyline. They also usually feature highly skilled Islamic calligraphy and geometric artwork</Description>
+        <DescriptionShort>Places of worship that general...</DescriptionShort>
+      </Type>
+      <Era>Paleolith</Era>
+      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type11.png</Icon>
+      <ArcheologicallyExplored>false</ArcheologicallyExplored>
+      <Unesco>false</Unesco>
+      <PopulatedRegion>true</PopulatedRegion>
+      <TouristicStatus>Exploited</TouristicStatus>
+      <Income>100000</Income>
+      <DiscoveryDate>16.1.839 CE</DiscoveryDate>
       <Tags>
         <Tag>
           <Description>Carved from pure marble</Description>
@@ -1361,51 +1475,15 @@
           <Selected>false</Selected>
         </Tag>
         <Tag>
-          <Description>Brick by brick, the most magnificent art is built in steps</Description>
-          <DescriptionShort>Brick by brick, the most magni...</DescriptionShort>
-          <Id>Brick</Id>
+          <Description>Hard metal material used during war periods</Description>
+          <DescriptionShort>Hard metal material used durin...</DescriptionShort>
+          <Id>Iron</Id>
           <Color>
-            <Red>255</Red>
-            <Green>61</Green>
-            <Blue>0</Blue>
-            <Hex>#FF3D00</Hex>
-            <Hexi>#FFFFFF</Hexi>
-          </Color>
-          <Selected>false</Selected>
-        </Tag>
-      </Tags>
-    </Monument>
-    <Monument>
-      <Id>24</Id>
-      <Name> Shwedagon Pagoda, Myanmar</Name>
-      <Description>Also known as the Great Dagon Pagoda, Shwedagon Pagoda is arguable one of the most famous and iconic pagodas in the world.Standing at 99 metres high on top of a hill, it can be captured from almost everyone in the city of Yangon. It's guided top boasts over 7,000 jewels including diamonds, rubies and sapphires.This is an active Buddhist pagoda which welcomes followers to pray and worship on its grounds daily.</Description>
-      <Image>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\monument24.png</Image>
-      <Type>
-        <Id>11</Id>
-        <Name>Mosque Monument</Name>
-        <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type11.png</Icon>
-        <Description>Places of worship that generally have domes and minarets that stand out against the skyline. They also usually feature highly skilled Islamic calligraphy and geometric artwork</Description>
-        <DescriptionShort>Places of worship that general...</DescriptionShort>
-      </Type>
-      <Era>Paleolith</Era>
-      <Icon>C:\Fakultet\6. semestar\HCI\Emlekmu2\HCI_projekat2\emlekmu\resources\type11.png</Icon>
-      <ArcheologicallyExplored>false</ArcheologicallyExplored>
-      <Unesco>false</Unesco>
-      <PopulatedRegion>true</PopulatedRegion>
-      <TouristicStatus>Exploited</TouristicStatus>
-      <Income>100000</Income>
-      <DiscoveryDate>16.1.839 CE</DiscoveryDate>
-      <Tags>
-        <Tag>
-          <Description>Heavy bronze work surviving the test of time with honour</Description>
-          <DescriptionShort>Heavy bronze work surviving th...</DescriptionShort>
-          <Id>Green bronze</Id>
-          <Color>
-            <Red>28</Red>
-            <Green>125</Green>
-            <Blue>65</Blue>
-            <Hex>#1C7D41</Hex>
-            <Hexi>#FFFFFF</Hexi>
+            <Red>128</Red>
+            <Green>128</Green>
+            <Blue>128</Blue>
+            <Hex>#808080</Hex>
+            <Hexi>#000000</Hexi>
           </Color>
           <Selected>false</Selected>
         </Tag>
