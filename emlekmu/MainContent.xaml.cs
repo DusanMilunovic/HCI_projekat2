@@ -1691,6 +1691,9 @@ namespace emlekmu
         public delegate Monument onOpenEditMonument(int monumentId);
         public onOpenEditMonument openEditMonumentCallback { get; set; }
 
+        //demon dialog
+        public EditMonument EditMonumentDemonDialog { get; set; }
+
         public Monument openEditMonument(int monumentId)
         {
             Monument monumentToEdit = Monuments.SingleOrDefault(x => x.Id == monumentId);
@@ -1702,6 +1705,9 @@ namespace emlekmu
             editMonumentDialog.Width = 800;
             editMonumentDialog.MinHeight = 560;
             editMonumentDialog.MinWidth = 800;
+
+            EditMonumentDemonDialog = editMonumentDialog;
+
             editMonumentDialog.ShowDialog();
 
             if (editMonumentDialog.DialogResult.HasValue && editMonumentDialog.DialogResult.Value)
@@ -1715,6 +1721,8 @@ namespace emlekmu
 
         public AddMonument AddMonumentDemonDialog { get; set; }
         public delegate Monument onOpenAddMonument();
+
+        //demon dialog
         public onOpenAddMonument openAddMonumentCallback { get; set; }
 
         public Monument openAddMonument()

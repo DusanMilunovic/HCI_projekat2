@@ -91,31 +91,7 @@ namespace emlekmu
         }
 
 
-        /*
-
-
-        public static void AddTagDemon(MenuItem file, MenuItem tag)
-        {
-            
-            System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
-            absolutePos = getElementPos(file);
-            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
-            file.Dispatcher.Invoke(() =>
-            {
-                file.IsSubmenuOpen = true;
-            });
-            absolutePos = getElementPos(file);
-            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
-            absolutePos = getElementPos(tag);
-            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
-            MouseEvent(MouseEventFlags.LeftDown);
-            Thread.Sleep(100);
-            MouseEvent(MouseEventFlags.LeftUp);
-
-        }
-
-        */
-
+ 
 
         private void maximizeMainWindow(MainWindow window)
         {
@@ -129,28 +105,9 @@ namespace emlekmu
         }
         
 
-
-        //TODO
-        /*
-        private void maximizeMainWindow(MainContent content)
-        {
-            bool done = false;
-            content.Dispatcher.Invoke(() =>
-            {
-                content.
-                window.WindowState = WindowState.Maximized;
-                done = true;
-            });
-            while (!done) { }
-        }
-        */
-
-
-
         public static void MapDemon(MainContent main)
         {
-            
-            
+           
             while (true)
             {
                 System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
@@ -193,8 +150,6 @@ namespace emlekmu
                 System.Windows.Forms.SendKeys.SendWait("{ENTER}");
 
             }
-
-
         }
 
         public static void SearchDemon(Button searchButton, TextBox idTextBox, Button finalizeButton)
@@ -295,16 +250,16 @@ namespace emlekmu
             absolutePos = getElementPos(form.AddMonumentButton);
             MoveCursorSlowly((int)absolutePos.X + 30, (int)absolutePos.Y + 15);
             clickButton(form.AddMonumentButton);
-
-
-
         }
 
+        
         public static void MonumentDemon(MainContent mainContent)
         {
             System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
             absolutePos = getElementPos(mainContent.MonumentTable.AddMonumentButton);
             MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
+
+            //uvek koristi ovo da bi otvarao dijaloge, nemoj ni slucajno ono moje cudo clickButton
             MouseEvent(MouseEventFlags.LeftDown);
             MouseEvent(MouseEventFlags.LeftUp);
 
@@ -318,14 +273,12 @@ namespace emlekmu
             List<MonumentRowDetail> myList = new List<MonumentRowDetail>();
             bool done = false;
             MonumentRowDetail rowDetail = null;
-            object tag = null;
             mainContent.MonumentTable.Dispatcher.Invoke(() =>
             {
                 foreach(MonumentRowDetail m in mainContent.MonumentTable.FindVisualChildren<MonumentRowDetail>(mainContent.MonumentTable.RootWoot))
                 {
                     if (m.Tag.Equals(mainContent.MonumentTable.EnlargenedMonuments.SingleOrDefault()))
                     {
-                        tag = m.Tag;
                         rowDetail = m;
                         absolutePos = getElementPos(m.EditButton);
                         done = true;
@@ -337,14 +290,15 @@ namespace emlekmu
 
             //nakon sto ga nadjemo kliknemo ga
             MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
-            clickButton(rowDetail.EditButton);
             MouseEvent(MouseEventFlags.LeftDown);
             MouseEvent(MouseEventFlags.LeftUp);
 
+            
+
             //Thread sleep da bi dijalog stigao da se inicijalizuje
             Thread.Sleep(1000);
+            EditMonumentFormDemon(mainContent.EditMonumentDemonDialog);
 
-            //editform demon takes over
 
 
 
@@ -353,6 +307,11 @@ namespace emlekmu
             //Ali takodje ne mogu ponovo ni da pronadjem Taj TagRow objekat posto se skupi taj monument u listi nakon editovanja (pa samim tim nije u enlargened monuments)
             //kod posle ovog komentara puca
 
+
+
+
+
+            /*
             rowDetail = null;
             done = false;
 
@@ -369,7 +328,10 @@ namespace emlekmu
                 }
             });
             while (!done) { }
+            */
 
+
+            //ovo bi radilo vrv ukoliko bi rowDetail bio dobar
             absolutePos = getElementPos(rowDetail);
             MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
             MouseEvent(MouseEventFlags.LeftDown);
@@ -379,12 +341,6 @@ namespace emlekmu
             MouseEvent(MouseEventFlags.LeftDown);
             MouseEvent(MouseEventFlags.LeftUp);
             System.Windows.Forms.SendKeys.SendWait("{ENTER}");
-
-
-
-
-
-
         }
 
         public static void EditMonumentFormDemon(EditMonument form)
