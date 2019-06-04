@@ -32,8 +32,7 @@
                     <MenuItem x:Name="MapDemon" Header="_Placing monument on map demo" Click="MapDemon_Click"></MenuItem>
                     <MenuItem x:Name="MonumentDemon" Header="_Monument forms demo" Click="MonumentDemon_Click"></MenuItem>
                     <MenuItem x:Name="TypeDemon" Click="TypeDemon_click" Header="_Type forms demo"></MenuItem>
-                    <MenuItem x:Name="TagDemon" Click="TagDemon_click" Header="_Tag section demo"></MenuItem>
-                    
+
                 </MenuItem>
             </Menu>
             <StatusBar DockPanel.Dock="Bottom" Height="20">
