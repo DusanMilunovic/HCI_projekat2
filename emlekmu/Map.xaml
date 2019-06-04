@@ -10,6 +10,7 @@
     <UserControl.Resources>
         <ContextMenu x:Key="cmMap">
             <MenuItem Header="Add Monument" Click="AddMonumentAction"></MenuItem>
+            <MenuItem x:Uid="cmPaste" Header="Paste Monument" Click="PasteMonumentAction" IsEnabled="{Binding ElementName=Root, Path=DataContext.cp}"></MenuItem>
             <MenuItem Header="Zoom In" Click="ZoomInAction"></MenuItem>
             <MenuItem Header="Zoom Out" Click="ZoomOutAction"></MenuItem>
         </ContextMenu>

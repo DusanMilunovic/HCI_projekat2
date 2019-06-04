@@ -1839,7 +1839,7 @@ namespace emlekmu
         public static readonly DependencyProperty EnlargenedMonumentsProperty =
             DependencyProperty.Register("EnlargenedMonuments", typeof(ObservableCollection<int>), typeof(MainContent), new PropertyMetadata(new ObservableCollection<int>()));
 
-
+        //CONSTRUCTOR!!!!
         public MainContent()
         {
             MyMap = new MapEurope();
@@ -1886,22 +1886,6 @@ namespace emlekmu
             Map3Monuments = new ObservableCollection<MonumentPosition>(mpdg.map3Monuments);
             Map4Monuments = new ObservableCollection<MonumentPosition>(mpdg.map4Monuments);
             
-
-            //Monuments[0].Tags.Add(this.Tags[0]);
-            //Monuments[0].Tags.Add(this.Tags[7]);
-            //Monuments[0].Tags.Add(this.Tags[10]);
-            //Monuments[0].Tags.Add(this.Tags[11]);
-            //Monuments[0].Tags.Add(this.Tags[7]);
-            //Monuments[0].Tags.Add(this.Tags[10]);
-            //Monuments[1].Tags.Add(this.Tags[1]);
-            //Monuments[1].Tags.Add(this.Tags[2]);
-            //Monuments[6].Tags.Add(this.Tags[3]);
-            //Monuments[6].Tags.Add(this.Tags[6]);
-            //Monuments[2].Tags.Add(this.Tags[7]);
-            //Monuments[3].Tags.Add(this.Tags[1]);
-            //Monuments[3].Tags.Add(this.Tags[2]);
-            //Monuments[3].Tags.Add(this.Tags[3]);
-            //Monuments[4].Tags.Add(this.Tags[3]);
 
             this.SearchedMonuments = new ObservableCollection<Monument>(this.Monuments);
             this.FilteredMonuments = new ObservableCollection<Monument>();

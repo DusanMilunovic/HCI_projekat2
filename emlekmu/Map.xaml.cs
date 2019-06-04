@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using emlekmu.models;
 using static emlekmu.MainContent;
 using System.Windows.Threading;
+using emlekmu.copy_service;
 
 namespace emlekmu
 {
@@ -26,6 +27,18 @@ namespace emlekmu
     public partial class Map : UserControl, INotifyPropertyChanged
     {
 
+
+
+
+        public Monument Copied
+        {
+            get { return (Monument)GetValue(CopiedProperty); }
+            set { SetValue(CopiedProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Copied.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CopiedProperty =
+            DependencyProperty.Register("Copied", typeof(Monument), typeof(Map), new PropertyMetadata(null));
 
 
         public ObservableCollection<int> EnlargenedMonuments
@@ -335,9 +348,10 @@ namespace emlekmu
         public Map()
         {
             InitializeComponent();
-
-            RemovePinCallback = new onRemovePin(RemovePinFromMap);
             Root.DataContext = this;
+            CopyService cs = CopyService.Instance;
+            this.Copied = cs.Copied;
+            RemovePinCallback = new onRemovePin(RemovePinFromMap);
             EWidth = 160;
             EHeight = 160;
             //ova dva namestiti na polovinu velicine grida koji sadrzi monument pinove. nisam uspeo da izvucem iz xamla
@@ -574,8 +588,33 @@ namespace emlekmu
         {
             e.Handled = true;
         }
+
+        public static UIElement GetByUid(DependencyObject rootElement, string uid)
+        {
+            foreach (UIElement element in LogicalTreeHelper.GetChildren(rootElement).OfType<UIElement>())
+            {
+                if (element.Uid == uid)
+                    return element;
+                UIElement resultChildren = GetByUid(element, uid);
+                if (resultChildren != null)
+                    return resultChildren;
+            }
+            return null;
+        }
+
         private void onRightClick(object sender, MouseButtonEventArgs e)
         {
+            CopyService cs = CopyService.Instance;
+            if (cs.Copied == null)
+            {
+                ContextMenu cm = this.FindResource("cmMap") as ContextMenu;
+                GetByUid(cm, "cmPaste").IsEnabled = false;
+            }
+            else
+            {
+                ContextMenu cm = this.FindResource("cmMap") as ContextMenu;
+                GetByUid(cm, "cmPaste").IsEnabled = true;
+            }
             if (e.Source.GetType().Name.Equals("MapWorld"))
             {
                 CurrentMousePoint = e.GetPosition((IInputElement)sender);
@@ -602,6 +641,39 @@ namespace emlekmu
             }
         }
 
+        private int findNextId()
+        {
+            int i = 1;
+            loop: while (true)
+            {
+                foreach (var t in ((MainWindow)Application.Current.MainWindow).MainContent.Monuments)
+                {
+                    if (t.Id == i)
+                    {
+                        i++;
+                        goto loop;
+                    }
+                }
+                return i;
+            }
+        }
+        private void PasteMonumentAction(object sender, RoutedEventArgs e)
+        {
+            CopyService cs = CopyService.Instance;
+            var monument = new Monument(findNextId(), cs.Copied.Name, cs.Copied.Description, cs.Copied.Image, cs.Copied.Type, cs.Copied.Era, cs.Copied.Icon, cs.Copied.ArcheologicallyExplored, cs.Copied.Unesco, cs.Copied.PopulatedRegion, cs.Copied.TouristicStatus, cs.Copied.Income, cs.Copied.DiscoveryDate, new List<Tag>(cs.Copied.Tags));
+            ((MainWindow)Application.Current.MainWindow).MainContent.addMonumentCallback(monument);
+            if (monument != null)
+            {
+                PinClickedCallback(monument.Id);
+                var tmp = new List<MonumentPosition>(Positions);
+                tmp.Add(new MonumentPosition(Convert.ToInt32(CurrentMousePoint.X - PinContainerWidth),
+                    Convert.ToInt32(CurrentMousePoint.Y - PinContainerWidth), monument));
+                Positions = new ObservableCollection<MonumentPosition>(tmp);
+                saveMapData();
+                UpdateLayout();
+                this.updateSelection();
+            }
+        }
         private void ZoomInAction(object sender, RoutedEventArgs e)
         {
             double scaleDeltaX;

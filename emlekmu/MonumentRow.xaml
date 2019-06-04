@@ -13,6 +13,7 @@
             <MenuItem Header="Details" Click="DetailsAction"></MenuItem>
             <MenuItem Header="Edit" Click="editMenuAction"></MenuItem>
             <MenuItem Header="Delete" Click="deleteMenuAction"></MenuItem>
+            <MenuItem Header="Copy" Click="copyMenuAction"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
     <Grid x:Name="Root" Margin="5" Cursor="Hand">
