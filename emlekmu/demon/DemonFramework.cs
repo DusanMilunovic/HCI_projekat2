@@ -197,7 +197,7 @@ namespace emlekmu
             System.Windows.Forms.SendKeys.SendWait("{TAB}");
             System.Windows.Forms.SendKeys.SendWait("{DOWN}");
             System.Windows.Forms.SendKeys.SendWait("{TAB}");
-            fillTextBox(form.ImageTextBox, @"C: \Users\Nikola Nemes\Desktop\Untitled.png");
+            fillTextBox(form.ImageTextBox, @"C: \Users\Nenad\Desktop\test.png");
             System.Windows.Forms.SendKeys.SendWait("{TAB}");
             Thread.Sleep(150);
             System.Windows.Forms.SendKeys.SendWait("{TAB}");
@@ -255,92 +255,83 @@ namespace emlekmu
         
         public static void MonumentDemon(MainContent mainContent)
         {
-            System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
-            absolutePos = getElementPos(mainContent.MonumentTable.AddMonumentButton);
-            MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
 
-            //uvek koristi ovo da bi otvarao dijaloge, nemoj ni slucajno ono moje cudo clickButton
-            MouseEvent(MouseEventFlags.LeftDown);
-            MouseEvent(MouseEventFlags.LeftUp);
-
-            //Thread sleep da bi dijalog stigao da se inicijalizuje
-            Thread.Sleep(1000);
-            AddMonumentFormDemon(mainContent.AddMonumentDemonDialog);
-
-            //ova logika pronalazi monument koji treba da se edituje
-            Thread.Sleep(1000);
-            mainContent.MonumentTable.FindVisualChildren<MonumentRowDetail>(mainContent.MonumentTable.RootWoot);
-            List<MonumentRowDetail> myList = new List<MonumentRowDetail>();
-            bool done = false;
-            MonumentRowDetail rowDetail = null;
-            mainContent.MonumentTable.Dispatcher.Invoke(() =>
+            while (true)
             {
-                foreach(MonumentRowDetail m in mainContent.MonumentTable.FindVisualChildren<MonumentRowDetail>(mainContent.MonumentTable.RootWoot))
+                System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
+                absolutePos = getElementPos(mainContent.MonumentTable.AddMonumentButton);
+                MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
+
+                //uvek koristi ovo da bi otvarao dijaloge, nemoj ni slucajno ono moje cudo clickButton
+                MouseEvent(MouseEventFlags.LeftDown);
+                MouseEvent(MouseEventFlags.LeftUp);
+
+                //Thread sleep da bi dijalog stigao da se inicijalizuje
+                Thread.Sleep(1000);
+                AddMonumentFormDemon(mainContent.AddMonumentDemonDialog);
+
+                //ova logika pronalazi monument koji treba da se edituje
+                Thread.Sleep(1000);
+                mainContent.MonumentTable.FindVisualChildren<MonumentRowDetail>(mainContent.MonumentTable.RootWoot);
+                List<MonumentRowDetail> myList = new List<MonumentRowDetail>();
+                bool done = false;
+                MonumentRowDetail rowDetail = null;
+                mainContent.MonumentTable.Dispatcher.Invoke(() =>
                 {
-                    if (m.Tag.Equals(mainContent.MonumentTable.EnlargenedMonuments.SingleOrDefault()))
+                    foreach (MonumentRowDetail m in mainContent.MonumentTable.FindVisualChildren<MonumentRowDetail>(mainContent.MonumentTable.RootWoot))
                     {
-                        rowDetail = m;
-                        absolutePos = getElementPos(m.EditButton);
-                        done = true;
+                        if (m.Tag.Equals(mainContent.MonumentTable.EnlargenedMonuments.SingleOrDefault()))
+                        {
+                            rowDetail = m;
+                            absolutePos = getElementPos(m.EditButton);
+                            done = true;
+                        }
                     }
-                }
-            });
-            while (!done) { }
+                });
+                while (!done) { }
 
 
-            //nakon sto ga nadjemo kliknemo ga
-            MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
-            MouseEvent(MouseEventFlags.LeftDown);
-            MouseEvent(MouseEventFlags.LeftUp);
-
-            
-
-            //Thread sleep da bi dijalog stigao da se inicijalizuje
-            Thread.Sleep(1000);
-            EditMonumentFormDemon(mainContent.EditMonumentDemonDialog);
+                //nakon sto ga nadjemo kliknemo ga
+                MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
+                MouseEvent(MouseEventFlags.LeftDown);
+                MouseEvent(MouseEventFlags.LeftUp);
 
 
 
-
-            //ovde krece problem, sada trebamo da krenemo sa brisanjem monumenta
-            //trenutna referenca na TagRowDetail objekat sto imam ne valja, dobijam neki exception
-            //Ali takodje ne mogu ponovo ni da pronadjem Taj TagRow objekat posto se skupi taj monument u listi nakon editovanja (pa samim tim nije u enlargened monuments)
-            //kod posle ovog komentara puca
+                //Thread sleep da bi dijalog stigao da se inicijalizuje
+                Thread.Sleep(1000);
+                EditMonumentFormDemon(mainContent.EditMonumentDemonDialog);
 
 
 
+                Thread.Sleep(1000);
 
+                rowDetail = null;
+                done = false;
 
-            /*
-            rowDetail = null;
-            done = false;
-
-            mainContent.MonumentTable.Dispatcher.Invoke(() =>
-            {
-                foreach (MonumentRowDetail m in mainContent.MonumentTable.FindVisualChildren<MonumentRowDetail>(mainContent.MonumentTable.RootWoot))
+                mainContent.MonumentTable.Dispatcher.Invoke(() =>
                 {
-                    if (m.Tag.Equals(tag))
+                    foreach (MonumentRowDetail m in mainContent.MonumentTable.FindVisualChildren<MonumentRowDetail>(mainContent.MonumentTable.RootWoot))
                     {
-                        tag = m.Tag;
-                        rowDetail = m;
-                        done = true;
+                        if (m.Tag.Equals(mainContent.MonumentTable.EnlargenedMonuments.SingleOrDefault()))
+                        {
+                            rowDetail = m;
+                            done = true;
+                        }
                     }
-                }
-            });
-            while (!done) { }
-            */
+                });
+                while (!done) { }
 
 
-            //ovo bi radilo vrv ukoliko bi rowDetail bio dobar
-            absolutePos = getElementPos(rowDetail);
-            MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
-            MouseEvent(MouseEventFlags.LeftDown);
-            MouseEvent(MouseEventFlags.LeftUp);
-            absolutePos = getElementPos(rowDetail.DeleteBtn);
-            MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
-            MouseEvent(MouseEventFlags.LeftDown);
-            MouseEvent(MouseEventFlags.LeftUp);
-            System.Windows.Forms.SendKeys.SendWait("{ENTER}");
+
+                //ovo bi radilo vrv ukoliko bi rowDetail bio dobar
+                absolutePos = getElementPos(rowDetail.DeleteBtn);
+                MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
+                MouseEvent(MouseEventFlags.LeftDown);
+                MouseEvent(MouseEventFlags.LeftUp);
+                Thread.Sleep(1000);
+                System.Windows.Forms.SendKeys.SendWait("{ENTER}");
+            }
         }
 
         public static void EditMonumentFormDemon(EditMonument form)
@@ -515,7 +506,7 @@ namespace emlekmu
             fillTextBox(addType.DescriptionTextBox, "A very demonic type of monuments");
 
             System.Windows.Forms.SendKeys.SendWait("{TAB}");
-            fillTextBox(addType.IconTextBox, @"C: \Users\Nikola Nemes\Desktop\Untitled.png");
+            fillTextBox(addType.IconTextBox, @"C: \Users\Nenad\Desktop\test.png");
 
             absolutePos = getElementPos(addType.AddTypeButton);
             absolutePos.X += 10;
@@ -574,7 +565,7 @@ namespace emlekmu
                     textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
                     
                 });
-                Thread.Sleep(150);
+                Thread.Sleep(30);
             }
         }
 
@@ -601,7 +592,7 @@ namespace emlekmu
                 {
                     textBox.Text += c;
                 });
-                Thread.Sleep(150);
+                Thread.Sleep(30);
             }
         }
 

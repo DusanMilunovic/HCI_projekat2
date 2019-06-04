@@ -86,3 +86,4 @@ F:\Arbeit\semestar 6\HCIFinal\HCI_projekat2\emlekmu\obj\Debug\WpfApplication1.Pr
 F:\Arbeit\semestar 6\HCIFinal\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csproj.GenerateResource.Cache
 F:\Arbeit\semestar 6\HCIFinal\HCI_projekat2\emlekmu\obj\Debug\WpfApplication1.exe
 F:\Arbeit\semestar 6\HCIFinal\HCI_projekat2\emlekmu\obj\Debug\WpfApplication1.pdb
+F:\Arbeit\semestar 6\HCIFinal\HCI_projekat2\emlekmu\obj\Debug\emlekmu.csprojResolveAssemblyReference.cache
