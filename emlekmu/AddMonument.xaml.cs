@@ -20,6 +20,7 @@ using Type = emlekmu.models.Type;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using static emlekmu.MainContent;
+using System.Threading;
 
 namespace emlekmu
 {
@@ -288,6 +289,8 @@ namespace emlekmu
             this.AddTypeCallBack = addTypeCallback;
             this.AddTagCallback = addTagCallback;
         }
+
+
 
 
         public int findNextId()

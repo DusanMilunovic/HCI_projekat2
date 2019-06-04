@@ -255,10 +255,10 @@ namespace emlekmu
 
         private void OnTextComposition(object sender, TextCompositionEventArgs e)
         {
-            if (MainContent.Alive)
+            if (MainContent.DemonAlive)
             {
                 MainContent.Demon.Abort();
-                MainContent.Alive = false;
+                MainContent.DemonAlive = false;
             }
             
         }

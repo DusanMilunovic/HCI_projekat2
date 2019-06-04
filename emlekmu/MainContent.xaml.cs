@@ -1778,7 +1778,7 @@ namespace emlekmu
 
 
         public Thread Demon { get; set; }
-        public bool Alive { get; set; }
+        public bool DemonAlive { get; set; }
 
 
         public MainContent()
@@ -2002,7 +2002,7 @@ namespace emlekmu
 
         private void SearchDemon_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Alive)
+            if (this.DemonAlive)
                 return;
 
             ThreadStart ts = delegate
@@ -2013,12 +2013,12 @@ namespace emlekmu
             t.IsBackground = true;
             t.Start();
             this.Demon = t;
-            this.Alive = true;
+            this.DemonAlive = true;
         }
 
         private void MapDemon_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Alive)
+            if (this.DemonAlive)
                 return;
 
             ThreadStart ts = delegate
@@ -2029,12 +2029,12 @@ namespace emlekmu
             t.IsBackground = true;
             t.Start();
             this.Demon = t;
-            this.Alive = true;
+            this.DemonAlive = true;
         }
 
         private void MonumentDemon_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Alive)
+            if (this.DemonAlive)
                 return;
 
             ThreadStart ts = delegate
@@ -2045,7 +2045,7 @@ namespace emlekmu
             t.IsBackground = true;
             t.Start();
             this.Demon = t;
-            this.Alive = true;
+            this.DemonAlive = true;
         }
     }
 }

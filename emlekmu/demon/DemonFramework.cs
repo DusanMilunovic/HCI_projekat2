@@ -91,6 +91,8 @@ namespace emlekmu
         }
 
 
+        /*
+
 
         public static void AddTagDemon(MenuItem file, MenuItem tag)
         {
@@ -109,16 +111,47 @@ namespace emlekmu
             MouseEvent(MouseEventFlags.LeftDown);
             Thread.Sleep(100);
             MouseEvent(MouseEventFlags.LeftUp);
-            
-            /*file.Dispatcher.Invoke(() =>
-            {
-                dialog.Show();
-            });*/
+
         }
+
+        */
+
+
+        private void maximizeMainWindow(MainWindow window)
+        {
+            bool done = false;
+            window.Dispatcher.Invoke(() =>
+            {
+                window.WindowState = WindowState.Maximized;
+                done = true;
+            });
+            while (!done) { }
+        }
+        
+
+
+        //TODO
+        /*
+        private void maximizeMainWindow(MainContent content)
+        {
+            bool done = false;
+            content.Dispatcher.Invoke(() =>
+            {
+                content.
+                window.WindowState = WindowState.Maximized;
+                done = true;
+            });
+            while (!done) { }
+        }
+        */
+
+
 
         public static void MapDemon(MainContent main)
         {
-            while(true)
+            
+            
+            while (true)
             {
                 System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
                 absolutePos = getElementPos(main.MonumentTable);
@@ -190,33 +223,217 @@ namespace emlekmu
             }
         }
 
+        public static void AddMonumentFormDemon(AddMonument form)
+        {
+            System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
+            absolutePos = getElementPos(form.IdTextBox);
+            MoveCursorSlowly((int)absolutePos.X + 20, (int)absolutePos.Y + 5);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            fillTextBox(form.NameTextBox, "Demon monument");
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            fillTextBox(form.DescriptionTextBox, "Slightly demonic");
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            System.Windows.Forms.SendKeys.SendWait("{DELETE}");
+            fillTextBox(form.IncomeTextBox, "666");
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            fillTextBoxPeasentMode(form.DateTextBox, "1205666");
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            System.Windows.Forms.SendKeys.SendWait("{DOWN}");
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            fillTextBox(form.ImageTextBox, @"C: \Users\Nikola Nemes\Desktop\Untitled.png");
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            Thread.Sleep(150);
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            Thread.Sleep(150);
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            Thread.Sleep(150);
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            Thread.Sleep(150);
+            System.Windows.Forms.SendKeys.SendWait("{DOWN}");
+            Thread.Sleep(150);
+            System.Windows.Forms.SendKeys.SendWait("{DOWN}");
+            Thread.Sleep(150);
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            Thread.Sleep(150);
+            System.Windows.Forms.SendKeys.SendWait("{DOWN}");
+            Thread.Sleep(150);
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            absolutePos = getElementPos(form.ArcheologicalCheckBox);
+            MoveCursorSlowly((int)absolutePos.X + 5, (int)absolutePos.Y + 5);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+
+            absolutePos = getElementPos(form.PopulatedCheckBox);
+            MoveCursorSlowly((int)absolutePos.X + 5, (int)absolutePos.Y + 5);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+
+            absolutePos = getElementPos(form.TagListBox);
+            MoveCursorSlowly((int)absolutePos.X + 40, (int)absolutePos.Y + 10);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+            Thread.Sleep(100);
+            MoveCursorSlowly((int)absolutePos.X + 40, (int)absolutePos.Y + 40);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+
+            absolutePos = getElementPos(form.AddMonumentButton);
+            MoveCursorSlowly((int)absolutePos.X + 30, (int)absolutePos.Y + 15);
+            clickButton(form.AddMonumentButton);
+
+            absolutePos = getElementPos(form.TypesComboBox);
+            MoveCursorSlowly((int)absolutePos.X + 30, (int)absolutePos.Y + 10);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+            Thread.Sleep(150);
+            MoveCursorSlowly((int)absolutePos.X + 30, (int)absolutePos.Y + 40);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+            Thread.Sleep(150);
+            absolutePos = getElementPos(form.AddMonumentButton);
+            MoveCursorSlowly((int)absolutePos.X + 30, (int)absolutePos.Y + 15);
+            clickButton(form.AddMonumentButton);
+
+
+
+        }
+
         public static void MonumentDemon(MainContent mainContent)
         {
             System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
             absolutePos = getElementPos(mainContent.MonumentTable.AddMonumentButton);
-            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
-            clickButton(mainContent.MonumentTable.AddMonumentButton);
-            Thread.Sleep(1000);
-            absolutePos = getElementPos(mainContent.AddMonumentDemonDialog.IdTextBox);
-           
-
-
-
-            /*bool done = false;
-            element.Dispatcher.Invoke(() =>
-            {
-                retVal = element.PointToScreen(new System.Windows.Point(0, 0));
-                done = true;
-            });
-            while (!done) { }
-            return retVal;*/
-
-
-            MoveCursorSlowly((int)absolutePos.X + 50, (int)absolutePos.Y + 20);
+            MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
             MouseEvent(MouseEventFlags.LeftDown);
             MouseEvent(MouseEventFlags.LeftUp);
 
+            //Thread sleep da bi dijalog stigao da se inicijalizuje
+            Thread.Sleep(1000);
+            AddMonumentFormDemon(mainContent.AddMonumentDemonDialog);
+
+            //ova logika pronalazi monument koji treba da se edituje
+            Thread.Sleep(1000);
+            mainContent.MonumentTable.FindVisualChildren<MonumentRowDetail>(mainContent.MonumentTable.RootWoot);
+            List<MonumentRowDetail> myList = new List<MonumentRowDetail>();
+            bool done = false;
+            MonumentRowDetail rowDetail = null;
+            object tag = null;
+            mainContent.MonumentTable.Dispatcher.Invoke(() =>
+            {
+                foreach(MonumentRowDetail m in mainContent.MonumentTable.FindVisualChildren<MonumentRowDetail>(mainContent.MonumentTable.RootWoot))
+                {
+                    if (m.Tag.Equals(mainContent.MonumentTable.EnlargenedMonuments.SingleOrDefault()))
+                    {
+                        tag = m.Tag;
+                        rowDetail = m;
+                        absolutePos = getElementPos(m.EditButton);
+                        done = true;
+                    }
+                }
+            });
+            while (!done) { }
+
+
+            //nakon sto ga nadjemo kliknemo ga
+            MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
+            clickButton(rowDetail.EditButton);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+
+            //Thread sleep da bi dijalog stigao da se inicijalizuje
+            Thread.Sleep(1000);
+
+            //editform demon takes over
+
+
+
+            //ovde krece problem, sada trebamo da krenemo sa brisanjem monumenta
+            //trenutna referenca na TagRowDetail objekat sto imam ne valja, dobijam neki exception
+            //Ali takodje ne mogu ponovo ni da pronadjem Taj TagRow objekat posto se skupi taj monument u listi nakon editovanja (pa samim tim nije u enlargened monuments)
+            //kod posle ovog komentara puca
+
+            rowDetail = null;
+            done = false;
+
+            mainContent.MonumentTable.Dispatcher.Invoke(() =>
+            {
+                foreach (MonumentRowDetail m in mainContent.MonumentTable.FindVisualChildren<MonumentRowDetail>(mainContent.MonumentTable.RootWoot))
+                {
+                    if (m.Tag.Equals(tag))
+                    {
+                        tag = m.Tag;
+                        rowDetail = m;
+                        done = true;
+                    }
+                }
+            });
+            while (!done) { }
+
+            absolutePos = getElementPos(rowDetail);
+            MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+            absolutePos = getElementPos(rowDetail.DeleteBtn);
+            MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+            System.Windows.Forms.SendKeys.SendWait("{ENTER}");
+
+
+
+
+
+
         }
+
+        public static void EditMonumentFormDemon(EditMonument form)
+        {
+            System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
+            absolutePos = getElementPos(form.DescriptionTextBox);
+            MoveCursorSlowly((int)absolutePos.X + 20, (int)absolutePos.Y + 5);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+            slowlyDeleteTextBox(form.DescriptionTextBox);
+            fillTextBox(form.DescriptionTextBox, "Slightly more demonic");
+            absolutePos = getElementPos(form.IconTextBox);
+            MoveCursorSlowly((int)absolutePos.X + 20, (int)absolutePos.Y + 5);
+            MouseEvent(MouseEventFlags.LeftDown);
+            MouseEvent(MouseEventFlags.LeftUp);
+            slowlyDeleteTextBox(form.IconTextBox);
+            absolutePos = getElementPos(form.EditMonumentButton);
+            MoveCursorSlowly((int)absolutePos.X + 15, (int)absolutePos.Y + 5);
+            clickButton(form.EditMonumentButton);
+
+        }
+
+        private static void slowlyDeleteTextBox(TextBox textBox)
+        {
+
+            bool done = false;
+            int len = 0;
+            textBox.Dispatcher.Invoke(() =>
+            {
+                len = textBox.Text.Length;
+                done = true;
+            });
+
+            while (!done) { }
+
+            for (int i = 0; i < len; i++)
+            {
+                textBox.Dispatcher.Invoke(() =>
+                {
+                    textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
+                    
+                });
+                Thread.Sleep(150);
+            }
+        }
+
+
+
+
 
         public static void resetTextBox(TextBox textBox)
         {
@@ -237,9 +454,17 @@ namespace emlekmu
                 {
                     textBox.Text += c;
                 });
-                Thread.Sleep(300);
+                Thread.Sleep(150);
             }
-            
+        }
+
+        public static void fillTextBoxPeasentMode(TextBox textBox, string text)
+        {
+            foreach (char c in text)
+            {
+                System.Windows.Forms.SendKeys.SendWait("{" + c + "}");
+                Thread.Sleep(150);
+            }
         }
 
         public static System.Windows.Point getElementPos(System.Windows.Media.Visual element)
