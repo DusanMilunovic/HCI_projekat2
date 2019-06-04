@@ -182,8 +182,13 @@ namespace emlekmu
 
         private void DeleteBtn_Click(object s, RoutedEventArgs ea)
         {
-            MessageBoxResult result = MessageBox.Show("Delete Monument?", "delete", MessageBoxButton.OKCancel);
-            if (result == MessageBoxResult.Cancel)
+
+            AreYouSure ars = new AreYouSure("Are you sure you want to delete this monument?");
+            ars.Owner = Application.Current.MainWindow;
+            ars.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            ars.ShowDialog();
+
+            if (ars.DialogResult.HasValue && !ars.DialogResult.Value)
             {
                 return;
             }
@@ -227,6 +232,12 @@ namespace emlekmu
         private void DetailsButton_Click(object sender, RoutedEventArgs e)
         {
             OpenMonumentDetailCallback(MonumentId);
+        }
+
+        private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+            e.Handled = true;
         }
     }
 }

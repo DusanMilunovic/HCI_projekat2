@@ -14,7 +14,8 @@
             <MenuItem Header="Delete" Click="DeleteTagButton_Click"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
-    <Grid x:Name="Root" Margin="5" Background="White">
+    <Grid x:Name="Root" Margin="5" Background="White" MouseLeftButtonUp="OnMouseDown"
+                           Cursor="Hand">
         <Border CornerRadius="3" BorderBrush="#DC143C" BorderThickness="4">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -27,7 +28,7 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <DockPanel Grid.Row="0" Grid.Column="0"
-                           MouseLeftButtonUp="OnMouseDown"
+                           
                            Cursor="Hand">
                     <Label DockPanel.Dock="Top" Margin="10 10 10 0"
                            Height="25" FontSize="12">ID:</Label>
@@ -40,7 +41,7 @@
                     
                 </Border>
                 <DockPanel Grid.Row="1" Grid.Column="0"
-                           MouseLeftButtonUp="OnMouseDown"
+                           
                            Cursor="Hand">
                     
 
@@ -55,9 +56,9 @@
                 <Ellipse Grid.Row="0" Grid.Column="1" Margin="0 0 5 0"
                          Width="50" Height="50"  Fill="{Binding Color}"
                          HorizontalAlignment="Center" VerticalAlignment="Center"
-                           MouseLeftButtonUp="OnMouseDown" Cursor="Hand"></Ellipse>
+                            Cursor="Hand"></Ellipse>
                 
-                <Grid  Background="AliceBlue" Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid Cursor="Arrow" MouseLeftButtonUp="Grid_MouseLeftButtonUp" Background="AliceBlue" Grid.Row="2" Grid.ColumnSpan="2">
                     <StackPanel  Orientation="Horizontal"
                             HorizontalAlignment="Center">
                         <Button x:Name="EditTagButton" Margin="20" Height="25" Width="100" Click="EditTagButton_Click">Edit tag</Button>

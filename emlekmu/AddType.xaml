@@ -54,7 +54,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1">
-                <Label x:Name="NameLabel" Margin="5 5 5 0">Id</Label>
+                <Label x:Name="NameLabel" Margin="5 5 5 0">Name</Label>
                 <TextBox x:Name="NameTextBox" Height ="25" Margin="10">
                     <Validation.ErrorTemplate>
                         <ControlTemplate>

@@ -142,16 +142,46 @@ namespace emlekmu
             EditTag editTagDialog = new EditTag(new Tag(Id, Color, Description), EditTagCallback);
             editTagDialog.Height = 590;
             editTagDialog.Width = 450;
+            editTagDialog.Owner = Application.Current.MainWindow;
+            editTagDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editTagDialog.ShowDialog();
         }
 
         private void DeleteAction_Click(object s, RoutedEventArgs ea)
         {
-            MessageBoxResult result = MessageBox.Show("Delete Tag?", "delete", MessageBoxButton.OKCancel);
-            if (result == MessageBoxResult.Cancel)
+            MainContent mc = ((MainWindow)Application.Current.MainWindow).MainContent;
+
+            List<Monument> conflicting = mc.tagConflictingMonuments(Id);
+            if (conflicting == null)
             {
-                return;
+
+                AreYouSure ars = new AreYouSure("Are you sure you want to delete this tag?");
+                ars.Owner = Application.Current.MainWindow;
+                ars.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                ars.ShowDialog();
+
+                if (ars.DialogResult.HasValue && !ars.DialogResult.Value)
+                {
+                    return;
+                }
+            } else
+            {
+
+                DeleteTagDialog dtDialog = new DeleteTagDialog(new ObservableCollection<Monument>(conflicting));
+
+                dtDialog.Owner = Application.Current.MainWindow;
+                dtDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                dtDialog.ShowDialog();
+                if (dtDialog.DialogResult.HasValue && dtDialog.DialogResult.Value)
+                {
+                    mc.removeTagFromMonuments(Id);
+                }
+                else
+                {
+                    return;
+                }
             }
+            
 
             DoubleAnimation animation = new DoubleAnimation();
             animation.To = 0;

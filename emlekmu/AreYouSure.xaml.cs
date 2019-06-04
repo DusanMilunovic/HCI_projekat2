@@ -43,6 +43,10 @@ namespace emlekmu
         public static readonly DependencyProperty TextContentProperty =
             DependencyProperty.Register("TextContent", typeof(string), typeof(AreYouSure), new PropertyMetadata("Are you sure you want to delete?"));
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            this.Close();
+        }
     }
 }
