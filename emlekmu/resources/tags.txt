@@ -1,6 +1,6 @@
 Marble|Carved from pure marble|#E6E6FA
 Black Marble|Carved from pure blacked marbe, rarest mineral in Africa|#212020
-Bronze|Heavy bronze work|#1C7D41
+Bronze|Heavy bronze work|#DC143C
 Green bronze|Heavy bronze work surviving the test of time with honour|#1C7D41
 Iron|Hard metal material used during war periods|#808080
 Steel|Refined iron, indicator of rich war winners|#B0C4DE

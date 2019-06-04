@@ -1,4 +1,5 @@
-﻿using emlekmu.models;
+﻿using emlekmu.copy_service;
+using emlekmu.models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -175,6 +176,13 @@ namespace emlekmu
 
             RemoveMonumentCallback(MyMonument.Id);
         }
+        private void CopyAction(object sender, RoutedEventArgs e)
+        {
+            CopyService cs = CopyService.Instance;
+            cs.Copied = this.MyMonument;
+        }
+        
+    
 
         private void onLeftClick(object sender, MouseButtonEventArgs e)
         {

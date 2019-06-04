@@ -10,6 +10,8 @@
     <UserControl.Resources>
         <ContextMenu x:Key="cmMonumentTable">
             <MenuItem Header="Add Monument" Click="AddMonumentButton_Click"></MenuItem>
+            <MenuItem x:Uid="cmPaste" Header="Paste Monument" Click="PasteMonumentAction"></MenuItem>
+
         </ContextMenu>
     </UserControl.Resources>
     <Grid x:Name="RootWoot" Background="#cceeff">
