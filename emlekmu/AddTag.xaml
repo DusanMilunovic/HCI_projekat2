@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:emlekmu"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
+             xmlns:help="clr-namespace:emlekmu.models"
+             help:HelpProvider.HelpTopic="Adding tags.htm"
         Title="Add Tag"
             d:DesignHeight="450" d:DesignWidth="400">
     <DockPanel  Background="#cceeff">

@@ -7,6 +7,8 @@
              MouseLeftButtonUp="OnMouseDown"
              MouseRightButtonUp="onRigthClick"
              mc:Ignorable="d" 
+             xmlns:help="clr-namespace:emlekmu.models"
+             help:HelpProvider.HelpTopic="Tags"
              d:DesignHeight="100" d:DesignWidth="900">
     <UserControl.Resources>
         <ContextMenu x:Key="cmTypeRow">

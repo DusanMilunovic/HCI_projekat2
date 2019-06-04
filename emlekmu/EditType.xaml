@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
-             mc:Ignorable="d"
-        Title="Edit Type"
+             mc:Ignorable="d" 
+             xmlns:help="clr-namespace:emlekmu.models"
+             help:HelpProvider.HelpTopic="Editing types"
+             Title="Edit Type"
              d:DesignHeight="500" d:DesignWidth="400">
     <DockPanel  Background="#cceeff">
 

@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:emlekmu"
              MouseRightButtonUp="onRigthClick"
              mc:Ignorable="d" 
+             xmlns:help="clr-namespace:emlekmu.models"
+             help:HelpProvider.HelpTopic="Monuments"
              MouseLeftButtonUp="OnMouseDown"
              d:DesignHeight="90" d:DesignWidth="900">
     <UserControl.Resources>

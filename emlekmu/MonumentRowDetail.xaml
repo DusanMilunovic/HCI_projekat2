@@ -7,6 +7,8 @@
              xmlns:cmd="clr-namespace:emlekmu.commands"
              MouseRightButtonUp="onRigthClick"
              mc:Ignorable="d" 
+             xmlns:help="clr-namespace:emlekmu.models"
+             help:HelpProvider.HelpTopic="Monuments"
              d:DesignHeight="360"
              d:DesignWidth="840"
              >

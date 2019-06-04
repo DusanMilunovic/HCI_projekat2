@@ -770,5 +770,14 @@ namespace emlekmu
                 Kartocka.Children.Insert(0, map);
             }
         }
+
+        private void UserControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                e.Handled = true;
+                HelpProvider.ShowHelpTopic("Maps");
+            }
+        }
     }
 }

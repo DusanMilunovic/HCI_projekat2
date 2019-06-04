@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:emlekmu"
              xmlns:cmd="clr-namespace:emlekmu.commands"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
+             xmlns:help="clr-namespace:emlekmu.models"
+             help:HelpProvider.HelpTopic="Emlekmu"
              d:DesignHeight="325" d:DesignWidth="800">
     <Grid x:Name="Root" Background="#cceeff">
         <DockPanel>
@@ -30,8 +32,7 @@
                     <MenuItem x:Name="MapDemon" Header="_Placing monument on map demo" Click="MapDemon_Click"></MenuItem>
                     <MenuItem x:Name="MonumentDemon" Header="_Monument forms demo" Click="MonumentDemon_Click"></MenuItem>
                     <MenuItem x:Name="TypeDemon" Click="TypeDemon_click" Header="_Type forms demo"></MenuItem>
-                    <MenuItem x:Name="TagDemon" Click="TagDemon_click" Header="_Tag section demo"></MenuItem>
-                    
+
                 </MenuItem>
             </Menu>
             <StatusBar DockPanel.Dock="Bottom" Height="20">
