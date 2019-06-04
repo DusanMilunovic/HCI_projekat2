@@ -8,6 +8,7 @@
              mc:Ignorable="d"
              xmlns:help="clr-namespace:emlekmu.models"
              help:HelpProvider.HelpTopic="Editing tags"
+             Title="Edit Tag"
              d:DesignHeight="450" d:DesignWidth="400">
     <DockPanel  Background="#cceeff">
 

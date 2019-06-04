@@ -7,11 +7,17 @@
              mc:Ignorable="d" 
              xmlns:help="clr-namespace:emlekmu.models"
              help:HelpProvider.HelpTopic="Monuments"
+             MouseRightButtonUp="onRightClick"
              d:DesignHeight="450" d:DesignWidth="400">
+    <UserControl.Resources>
+        <ContextMenu x:Key="cmMonumentTable">
+            <MenuItem Header="Add Monument" Click="AddMonumentButton_Click"></MenuItem>
+        </ContextMenu>
+    </UserControl.Resources>
     <Grid x:Name="RootWoot" Background="#cceeff">
         <DockPanel>
             <StackPanel DockPanel.Dock="Bottom" Height="50" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Background="#FFFFFF" x:Name="AddMonumentButton" FontSize="16" Width="140" Margin="5 5 15 5" Click="AddMonumentButton_Click">Add Monument</Button>
+                <Button Background="#FFFFFF" x:Name="AddMonumentButton" Height="25" Width="100" Margin="5 5 15 5" Click="AddMonumentButton_Click">Add Monument</Button>
             </StackPanel>
             <Border BorderBrush="#555555" BorderThickness="1" Margin="15 10">
                 <ScrollViewer x:Name="Scroller" VerticalScrollBarVisibility="Auto"
@@ -28,19 +34,20 @@
                                                                MonumentName="{Binding Path=Name}"
                                                                MonumentTags="{Binding Path=Tags}"
                                                                MonumentType="{Binding Path=Type}"
-                                                               MonumentImage="{Binding Path=Icon}"
+                                                               MonumentImage="{Binding Path=Image}"
                                                                RemoveMonumentCallback="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}"
                                                                EditMonumentCallback="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
                                                                MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
                                                                EnlargenedMonuments="{Binding ElementName=Root, Path=DataContext.EnlargenedMonuments}"
-                                                               BorderColor="#ef5656">
+                                                               BorderColor="#2299CC"
+                                                               BorderThiccness="4">
 
                                         </local:MonumentRow>
                                         <local:MonumentRowDetail Tag="{Binding Path=Id}" MonumentId="{Binding Path=Id}"
                                                                      MonumentName="{Binding Path=Name}"
                                                                      MonumentTags="{Binding Path=Tags}"
                                                                      MonumentType="{Binding Path=Type}"
-                                                                     MonumentImage="{Binding Path=Icon}"
+                                                                     MonumentImage="{Binding Path=Image}"
                                                                      MonumentDescription="{Binding Path=Description}"
                                                                      editMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
                                                                      MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
@@ -65,7 +72,8 @@
                                                                MonumentTags="{Binding Path=Tags}"
                                                                MonumentType="{Binding Path=Type}"
                                                                BorderColor="#808080"
-                                                               MonumentImage="{Binding Path=Icon}"
+                                                               BorderThiccness="2"
+                                                               MonumentImage="{Binding Path=Image}"
                                                                RemoveMonumentCallback="{Binding ElementName=Root, Path=DataContext.RemoveMonumentCallback}"
                                                                EditMonumentCallback="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
                                                                MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"
@@ -77,7 +85,7 @@
                                                                  MonumentName="{Binding Path=Name}"
                                                                  MonumentTags="{Binding Path=Tags}"
                                                                  MonumentType="{Binding Path=Type}"
-                                                                 MonumentImage="{Binding Path=Icon}"
+                                                                 MonumentImage="{Binding Path=Image}"
                                                                  MonumentDescription="{Binding Path=Description}"
                                                                  editMonumentCallbackFun="{Binding ElementName=Root, Path=DataContext.EditMonumentCallback}"
                                                                  MonumentClickedCallback="{Binding ElementName=Root, Path=DataContext.MonumentClickedCallback}"

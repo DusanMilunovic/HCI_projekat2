@@ -189,7 +189,7 @@ namespace emlekmu
                     {
                         if (filteredMonuments.IndexOf(item.Monument) != -1)
                         {
-                            item.Color = new Color(220, 20, 60);
+                            item.Color = new Color("#2299CC");
                         }
                         else
                         {
@@ -200,7 +200,7 @@ namespace emlekmu
                     {
                         if (filteredMonuments.IndexOf(item.Monument) != -1)
                         {
-                            item.Color = new Color(220, 20, 60);
+                            item.Color = new Color("#2299CC");
                         }
                         else
                         {
@@ -211,7 +211,7 @@ namespace emlekmu
                     {
                         if (filteredMonuments.IndexOf(item.Monument) != -1)
                         {
-                            item.Color = new Color(220, 20, 60);
+                            item.Color = new Color("#2299CC");
                         }
                         else
                         {
@@ -222,7 +222,7 @@ namespace emlekmu
                     {
                         if (filteredMonuments.IndexOf(item.Monument) != -1)
                         {
-                            item.Color = new Color(220, 20, 60);
+                            item.Color = new Color("#2299CC");
                         }
                         else
                         {
@@ -277,7 +277,7 @@ namespace emlekmu
                         if(this.filteredMonuments != null)
                         {
                             if (this.filteredMonuments.IndexOf(item.Monument) != -1)
-                                item.Color = new Color(220, 20, 60);
+                                item.Color = new Color("#2299CC");
                             else
                                 item.Color = new Color(255, 255, 255);
                         }
@@ -314,7 +314,7 @@ namespace emlekmu
                         if (this.filteredMonuments != null)
                         {
                             if (this.filteredMonuments.IndexOf(item.Monument) != -1)
-                                item.Color = new Color(220, 20, 60);
+                                item.Color = new Color("#2299CC");
                             else
                                 item.Color = new Color(255, 255, 255);
                         }
@@ -351,7 +351,7 @@ namespace emlekmu
                         if (this.filteredMonuments != null)
                         {
                             if (this.filteredMonuments.IndexOf(item.Monument) != -1)
-                                item.Color = new Color(220, 20, 60);
+                                item.Color = new Color("#2299CC");
                             else
                                 item.Color = new Color(255, 255, 255);
                         }
@@ -388,7 +388,7 @@ namespace emlekmu
                         if (this.filteredMonuments != null)
                         {
                             if (this.filteredMonuments.IndexOf(item.Monument) != -1)
-                                item.Color = new Color(220, 20, 60);
+                                item.Color = new Color("#2299CC");
                             else
                                 item.Color = new Color(255, 255, 255);
                         }
@@ -1207,18 +1207,27 @@ namespace emlekmu
 
 
         //SLJUUUUN
-        private void removeTagFromMonuments(Tag t)
+        public void removeTagFromMonuments(string tagId)
         {
-            this.Tags.Remove(t);
-            foreach(Monument m in this.Monuments)
+            Tag t = Tags.SingleOrDefault(x => x.Id == tagId);
+            if (t == null)
             {
-                m.Tags.Remove(t);
+                return;
+            }
+
+            foreach (Monument m in this.Monuments)
+            {
+
+                Monument newMonumnet = m;
+                if (newMonumnet.Tags.Remove(t))
+                    this.editMonument(newMonumnet);
             }
         }
 
+
+        // DO NOT USE, COMPILER WILL REMOVE eXcesS CODE
         public void cascadeRemoveTag(Tag t)
         {
-            this.Tags.Remove(t);
             List<Monument> toRemove = new List<Monument>();
             foreach(Monument m in this.Monuments)
             {
@@ -1230,13 +1239,19 @@ namespace emlekmu
             }
             foreach(Monument m in toRemove)
             {
-                this.Monuments.Remove(m);
+                this.removeMonument(m.Id);
+                //this.Monuments.Remove(m);
             }
         }
 
-        private void removeTypeAndMonuments(Type t)
+        public void removeTypeAndMonuments(int typeId)
         {
-            this.Types.Remove(t);
+            Type t = Types.SingleOrDefault(x => x.Id == typeId);
+            if (t == null)
+            {
+                return;
+            }
+
             List<Monument> toRemove = new List<Monument>();
             foreach (Monument m in this.Monuments)
             {
@@ -1247,11 +1262,11 @@ namespace emlekmu
             }
             foreach (Monument m in toRemove)
             {
-                this.Monuments.Remove(m);
+                this.removeMonument(m.Id);
             }
         }
 
-        private bool checkIfTagReferenced(Tag t)
+        public bool checkIfTagReferenced(Tag t)
         {
             foreach(Monument m in this.Monuments)
             {
@@ -1263,7 +1278,7 @@ namespace emlekmu
             return false;
         }
 
-        private bool checkIfTypeReferences(Type t)
+        public bool checkIfTypeReferences(Type t)
         {
             foreach(Monument m in this.Monuments)
             {
@@ -1275,8 +1290,14 @@ namespace emlekmu
             return false;
         }
 
-        private List<Monument> tagConflictingMonuments(Tag t)
+        public List<Monument> tagConflictingMonuments(string tagId)
         {
+            Tag t = Tags.SingleOrDefault(x => x.Id == tagId);
+            if (t == null)
+            {
+                return null;
+            }
+
             List<Monument> retVal = new List<Monument>();
             foreach(Monument m in this.Monuments)
             {
@@ -1292,8 +1313,14 @@ namespace emlekmu
             return retVal;
         }
 
-        private List<Monument> typeConflictingMonuments(Type t)
+        public List<Monument> typeConflictingMonuments(int typeId)
         {
+            Type t = Types.SingleOrDefault(x => x.Id == typeId);
+            if (t == null)
+            {
+                return null;
+            }
+
             List<Monument> retVal = new List<Monument>();
             foreach(Monument m in this.Monuments)
             {
@@ -1607,6 +1634,8 @@ namespace emlekmu
         public void types_Click(object sender, RoutedEventArgs e)
         {
             TypeSection typeSectionDialog = new TypeSection(Types, addTypeCallback, editTypeCallback, removeTypeCallback);
+            typeSectionDialog.Owner = Application.Current.MainWindow;
+            typeSectionDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             typeSectionDialog.Width = 700;
             typeSectionDialog.Height = 800;
             typeSectionDialog.ShowDialog();
@@ -1616,6 +1645,8 @@ namespace emlekmu
         {
             TagSection tagSectionDialog = new TagSection(Tags, addTagCallback, editTagCallback, removeTagCallback);
 
+            tagSectionDialog.Owner = Application.Current.MainWindow;
+            tagSectionDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             tagSectionDialog.Width = 700;
             tagSectionDialog.Height = 800;
             tagSectionDialog.ShowDialog();
@@ -1624,6 +1655,8 @@ namespace emlekmu
         public void monumentAdd_Click(object sender, RoutedEventArgs e)
         {
             AddMonument addMonumentDialog = new emlekmu.AddMonument(Monuments, Types, Tags, addMonumentCallback, addTypeCallback, addTagCallback);
+            addMonumentDialog.Owner = Application.Current.MainWindow;
+            addMonumentDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             addMonumentDialog.Height = 610;
             addMonumentDialog.Width = 800;
             addMonumentDialog.ShowDialog();
@@ -1632,6 +1665,8 @@ namespace emlekmu
         public void tagAdd_Click(object sender, RoutedEventArgs e)
         {
             AddTag addTagDialog = new AddTag(addTagCallback, Tags);
+            addTagDialog.Owner = Application.Current.MainWindow;
+            addTagDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             addTagDialog.Height = 590;
             addTagDialog.Width = 450;
             addTagDialog.ShowDialog();
@@ -1641,6 +1676,8 @@ namespace emlekmu
         {
             AddType addTypeDialog = new AddType(addTypeCallback, Types);
             addTypeDialog.Height = 590;
+            addTypeDialog.Owner = Application.Current.MainWindow;
+            addTypeDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             addTypeDialog.MinHeight = 535;
             addTypeDialog.Width = 450;
             addTypeDialog.MinWidth = 250;
@@ -1658,6 +1695,12 @@ namespace emlekmu
             Monument monumentToEdit = Monuments.SingleOrDefault(x => x.Id == monumentId);
 
             EditMonument editMonumentDialog = new EditMonument(Types, Tags, editMonumentCallback, monumentToEdit, addTypeCallback, addTagCallback);
+            editMonumentDialog.Owner = Application.Current.MainWindow;
+            editMonumentDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            editMonumentDialog.Height = 560;
+            editMonumentDialog.Width = 800;
+            editMonumentDialog.MinHeight = 560;
+            editMonumentDialog.MinWidth = 800;
             editMonumentDialog.ShowDialog();
 
             if (editMonumentDialog.DialogResult.HasValue && editMonumentDialog.DialogResult.Value)
@@ -1676,6 +1719,12 @@ namespace emlekmu
         {
             AddMonument addMonumentDialog = new AddMonument(Monuments,
                 Types, Tags, addMonumentCallback, addTypeCallback, addTagCallback);
+            addMonumentDialog.Owner = Application.Current.MainWindow;
+            addMonumentDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            addMonumentDialog.Height = 560;
+            addMonumentDialog.Width = 800;
+            addMonumentDialog.MinHeight = 560;
+            addMonumentDialog.MinWidth = 800;
 
             addMonumentDialog.ShowDialog();
 
@@ -1696,8 +1745,12 @@ namespace emlekmu
         {
             Monument monument = Monuments.SingleOrDefault(x => x.Id == monumentId);
             MonumentDetail mdDialog = new MonumentDetail(monument);
+            mdDialog.Owner = Application.Current.MainWindow;
+            mdDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             mdDialog.Height = 590;
             mdDialog.Width = 890;
+            mdDialog.MinHeight = 590;
+            mdDialog.MinWidth = 890;
             mdDialog.ShowDialog();
         }
 
@@ -1887,6 +1940,8 @@ namespace emlekmu
             EditMonument dialog = new EditMonument(Types, Tags, this.editMonumentCallback, this.Monuments.First(), addTypeCallback, addTagCallback);
             dialog.Height = 610;
             dialog.Width = 800;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             dialog.ShowDialog();
         }
         
@@ -1917,14 +1972,26 @@ namespace emlekmu
             {
                 if (SFControl.Visibility == Visibility.Collapsed)
                 {
+                    Search.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(204, 238, 255));
+                    Search.BorderThickness = new Thickness(1, 1, 1, 0);
+                    Filter.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+                    Filter.BorderThickness = new Thickness(1, 1, 1, 1);
                     SFControl.Visibility = Visibility.Visible;
                 } else
                 {
+                    Search.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+                    Search.BorderThickness = new Thickness(1, 1, 1, 1);
+                    Filter.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+                    Filter.BorderThickness = new Thickness(1, 1, 1, 1);
                     SFControl.Visibility = Visibility.Collapsed;
                 }
             } else
             {
                 SearchFilter = "Search";
+                Search.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(204, 238, 255));
+                Search.BorderThickness = new Thickness(1, 1, 1, 0);
+                Filter.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+                Filter.BorderThickness = new Thickness(1, 1, 1, 1);
                 SFControl.Visibility = Visibility.Visible;
             }
         }
@@ -1935,16 +2002,28 @@ namespace emlekmu
             {
                 if (SFControl.Visibility == Visibility.Collapsed)
                 {
+                    Filter.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(204, 238, 255));
+                    Filter.BorderThickness = new Thickness(1, 1, 1, 0);
+                    Search.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+                    Search.BorderThickness = new Thickness(1, 1, 1, 1);
                     SFControl.Visibility = Visibility.Visible;
                 }
                 else
                 {
+                    Filter.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+                    Filter.BorderThickness = new Thickness(1, 1, 1, 1);
+                    Search.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+                    Search.BorderThickness = new Thickness(1, 1, 1, 1);
                     SFControl.Visibility = Visibility.Collapsed;
                 }
             }
             else
             {
                 SearchFilter = "Filter";
+                Filter.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(204, 238, 255));
+                Filter.BorderThickness = new Thickness(1, 1, 1, 0);
+                Search.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+                Search.BorderThickness = new Thickness(1, 1, 1, 1);
                 SFControl.Visibility = Visibility.Visible;
             }
         }

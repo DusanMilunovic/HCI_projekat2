@@ -19,8 +19,8 @@
             <MenuItem Header="Delete" Click="DeleteBtn_Click"></MenuItem>
         </ContextMenu>
     </UserControl.Resources>
-    <Grid x:Name="Root" Margin="5" Background="White">
-        <Border CornerRadius="3" BorderBrush="#2299CC" BorderThickness="4">
+    <Grid x:Name="Root" Margin="5" Background="White" MouseLeftButtonUp="OnMouseDown" Cursor="Hand">
+        <Border CornerRadius="3" BorderBrush="#DC143C" BorderThickness="4">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
@@ -35,8 +35,8 @@
                 </Grid.ColumnDefinitions>
                 
                 <DockPanel Grid.Row="0" Grid.Column="0"
-                           MouseLeftButtonUp="OnMouseDown"
-                           Cursor="Hand">
+                           
+                           >
                     <Label DockPanel.Dock="Top" FontSize="12"
                            Height="25" VerticalAlignment="Center"
                            Margin="5 0 0 0">ID: </Label>
@@ -45,11 +45,12 @@
                 </DockPanel>
 
                 <Border Grid.Row="1" Grid.Column="0"
-                        BorderBrush="#aaaaaa" BorderThickness="0 1"></Border>
+                        BorderBrush="#aaaaaa" BorderThickness="0 1" 
+                           ></Border>
 
                 <DockPanel Grid.Row="1" Grid.Column="0"
-                           MouseLeftButtonUp="OnMouseDown"
-                           Cursor="Hand">
+                           
+                           >
                     <Label DockPanel.Dock="Top" FontSize="12"
                            Height="25" VerticalAlignment="Center"
                            Margin="5 0 0 0">Name:</Label>
@@ -58,11 +59,12 @@
                 </DockPanel>
 
                 <Border Grid.Row="2" Grid.Column="0"
-                        BorderBrush="#aaaaaa" BorderThickness="0 0 0 1"></Border>
+                        BorderBrush="#aaaaaa" BorderThickness="0 0 0 1" 
+                           ></Border>
 
                 <DockPanel Grid.Row="2" Grid.Column="0"
-                           MouseLeftButtonUp="OnMouseDown"
-                           Cursor="Hand">
+                           
+                           >
                     <Label DockPanel.Dock="Top" FontSize="12"
                            Height="25" VerticalAlignment="Center"
                            Margin="5 0 0 0">Type:</Label>
@@ -71,11 +73,12 @@
                 </DockPanel>
 
                 <Border Grid.Row="2" Grid.Column="0"
-                        BorderBrush="#aaaaaa" BorderThickness="0 0 0 1"></Border>
+                        BorderBrush="#aaaaaa" BorderThickness="0 0 0 1" 
+                           ></Border>
 
                 <DockPanel Grid.Row="3" Grid.Column="0"
-                           MouseLeftButtonUp="OnMouseDown"
-                           Cursor="Hand">
+                           
+                           >
                     <Label DockPanel.Dock="Top" FontSize="12"
                            Height="25" VerticalAlignment="Center"
                            Margin="5 0 0 0">Desription:</Label>
@@ -87,9 +90,10 @@
                 </DockPanel>
 
                 <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
-                        BorderBrush="#aaaaaa" BorderThickness="0 1 0 0"></Border>
+                        BorderBrush="#aaaaaa" BorderThickness="0 1 0 0" 
+                           ></Border>
                 
-                <Grid Grid.Row="4" Grid.ColumnSpan="2" Background="AliceBlue">
+                <Grid Cursor="Arrow" MouseLeftButtonUp="Grid_MouseLeftButtonUp" Grid.Row="4" Grid.ColumnSpan="2" Background="AliceBlue">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
                                 VerticalAlignment="Center">
                         <Button x:Name="DetailsButton" Margin="20" Height="25" Width="100" Click="DetailsButton_Click">Details</Button>
@@ -101,9 +105,11 @@
 
                 <Image  Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"
                         Width="100" Height="100" Margin="10"
-                        Source="{Binding MonumentImage}"></Image>
+                        Source="{Binding MonumentImage}" 
+                           ></Image>
 
-                <DockPanel Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
+                <DockPanel Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" 
+                           >
                     <Label DockPanel.Dock="Top" HorizontalAlignment="Center">Tags</Label>
                     <Grid Margin="5">
                         <ItemsControl ItemsSource="{Binding MonumentTags}">

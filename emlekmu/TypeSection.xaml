@@ -8,6 +8,7 @@
              mc:Ignorable="d" 
              xmlns:help="clr-namespace:emlekmu.models"
              help:HelpProvider.HelpTopic="Types"
+             Title="Types"
              d:DesignHeight="800" d:DesignWidth="740">
     <Window.CommandBindings>
         <CommandBinding x:Name="AddTypeCommand" Command="cmd:RoutedCommands.AddType" CanExecute="AddTypeCommand_CanExecute"  Executed="AddTypeCommand_Executed"></CommandBinding>
@@ -27,8 +28,8 @@
 
             <StackPanel DockPanel.Dock="Bottom" Height="50"
                         Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Background="#FFFFFF" x:Name="AddTypeButton" FontSize="16" Width="100" Margin="5 5 15 5" Click="AddTypeButton_Click">Add Type</Button>
-                <Button Background="#FFFFFF" x:Name="CloseButton" IsCancel="True" FontSize="16" Width="100" Margin="15 5 5 5">Close</Button>
+                <Button Background="#FFFFFF" x:Name="AddTypeButton" Height="25" Width="100" Margin="5 5 15 5" Click="AddTypeButton_Click">Add Type</Button>
+                <Button Background="#FFFFFF" x:Name="CloseButton" IsCancel="True" Height="25" Width="100" Margin="15 5 5 5">Close</Button>
             </StackPanel>
 
             <Border BorderBrush="#555555" BorderThickness="1" Margin="15 10">

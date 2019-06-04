@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              xmlns:help="clr-namespace:emlekmu.models"
              help:HelpProvider.HelpTopic="Editing types"
+             Title="Edit Type"
              d:DesignHeight="500" d:DesignWidth="400">
     <DockPanel  Background="#cceeff">
 

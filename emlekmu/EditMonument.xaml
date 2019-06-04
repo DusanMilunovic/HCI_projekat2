@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         xmlns:help="clr-namespace:emlekmu.models"
         help:HelpProvider.HelpTopic="Editing monuments"
+        Title="Edit Monument"
         d:DesignHeight="560" d:DesignWidth="750">
     <Grid x:Name="Root">
         <DockPanel Background="#cceeff">

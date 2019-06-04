@@ -163,6 +163,18 @@ namespace emlekmu
 
 
 
+        public int BorderThiccness
+        {
+            get { return (int)GetValue(BorderThiccnessProperty); }
+            set { SetValue(BorderThiccnessProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for BorderThiccness.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BorderThiccnessProperty =
+            DependencyProperty.Register("BorderThiccness", typeof(int), typeof(MonumentRow), new PropertyMetadata(2));
+
+
+
 
         private void OnMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -175,6 +187,7 @@ namespace emlekmu
 
             ContextMenu cm = this.FindResource("cmMonumentRow") as ContextMenu;
             cm.IsOpen = true;
+            e.Handled = true;
         }
 
         private void editMenuAction(object sender, RoutedEventArgs e)
@@ -188,8 +201,12 @@ namespace emlekmu
 
         private void deleteMenuAction(object s, RoutedEventArgs ea)
         {
-            MessageBoxResult result = MessageBox.Show("Delete Monument?", "delete", MessageBoxButton.OKCancel);
-            if (result == MessageBoxResult.Cancel)
+            AreYouSure ars = new AreYouSure("Are you sure you want to delete this monument?");
+            ars.Owner = Application.Current.MainWindow;
+            ars.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            ars.ShowDialog();
+
+            if (ars.DialogResult.HasValue && !ars.DialogResult.Value)
             {
                 return;
             }

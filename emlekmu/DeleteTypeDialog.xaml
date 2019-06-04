@@ -8,31 +8,36 @@
              mc:Ignorable="d"
              xmlns:help="clr-namespace:emlekmu.models"
              help:HelpProvider.HelpTopic="Deleting types"
+             Title="Delete Type"
+             Width="400" Height="300" MinWidth="400" MinHeight="300"
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel x:Name="Root">
-        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="16">Are you sure you want to delete?</Label>
-        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="14">Some monuments have that type assigned.</Label>
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="14">Are you sure you want to delete?</Label>
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="12">Some monuments have that type assigned.</Label>
 
         <StackPanel DockPanel.Dock="Bottom">
-            <Button x:Name="deleteMonuments" Width="150" Margin="5">Delete monuments too</Button>
+            <Button x:Name="deleteMonuments" Width="150" Margin="5" Click="DeleteMonuments_Click">Delete monuments too</Button>
             <Button IsCancel="True" Width="150" Margin="5">Cancel</Button>
         </StackPanel>
 
-        <ListBox x:Name="MonumentsListBox" Margin="5" IsEnabled="False" ItemsSource="{Binding Monuments}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Ellipse HorizontalAlignment="Left" Height="15" Width="15">
-                            <Ellipse.Fill>
-                                    <ImageBrush ImageSource="{Binding Image}" Stretch="Fill"></ImageBrush>
-                                </Ellipse.Fill>
-                            </Ellipse>
-                        <Label Content="{Binding Id}"></Label>
-                        <Label Content=". "></Label>
-                        <Label Content="{Binding Name}"></Label>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Border BorderBrush="LightGray" Margin="5" BorderThickness="2">
+            <ScrollViewer  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="MonumentsListBox" Margin="5" ItemsSource="{Binding Monuments}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Margin="0 0 10 0" HorizontalAlignment="Left" Height="30" Width="30">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding Image}" Stretch="Fill"></ImageBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <Label HorizontalAlignment="Right" VerticalAlignment="Center" Content="{Binding Id}"></Label>
+                                <Label VerticalAlignment="Center" Content="{Binding Name}"></Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
     </DockPanel>
 </Window>

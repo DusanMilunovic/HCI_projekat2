@@ -221,8 +221,12 @@ namespace emlekmu
         private void AddTagButton_Click(object sender, RoutedEventArgs e)
         {
             AddTag addTagDialog = new emlekmu.AddTag(AddTagCallback, Tags);
-            addTagDialog.Height = 590;
-            addTagDialog.Width = 450;
+            addTagDialog.Owner = Application.Current.MainWindow;
+            addTagDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            addTagDialog.Height = 490;
+            addTagDialog.Width = 350;
+            addTagDialog.MinHeight = 420;
+            addTagDialog.MinWidth = 280;
 
             addTagDialog.ShowDialog();
 
@@ -262,8 +266,12 @@ namespace emlekmu
             string toEdit = EnlargenedTags.First();
             Tag t = this.Tags.SingleOrDefault(x => x.Id == toEdit);
             EditTag dialog = new EditTag(t, this.EditTagCallback);
-            dialog.Width = 590;
-            dialog.Height = 450;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 490;
+            dialog.Width = 350;
+            dialog.MinHeight = 420;
+            dialog.MinWidth = 280;
             dialog.ShowDialog();
         }
 
@@ -275,18 +283,17 @@ namespace emlekmu
         private void AddTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             AddTag dialog = new AddTag(this.AddTagCallback, this.Tags);
-            dialog.Height = 590;
-            dialog.Width = 450;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 490;
+            dialog.Width = 350;
+            dialog.MinHeight = 420;
+            dialog.MinWidth = 280;
             dialog.ShowDialog();
         }
 
         private void DeleteTagCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Delete Tag?", "delete", MessageBoxButton.OKCancel);
-            if (result == MessageBoxResult.Cancel)
-            {
-                return;
-            }
 
             e.CanExecute = this.EnlargenedTags.Count > 0;
         }
@@ -294,6 +301,41 @@ namespace emlekmu
         private void DeleteTagCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             string toRemove = this.EnlargenedTags.First();
+
+            MainContent mc = ((MainWindow)Application.Current.MainWindow).MainContent;
+
+            List<Monument> conflicting = mc.tagConflictingMonuments(toRemove);
+            if (conflicting == null)
+            {
+
+                AreYouSure ars = new AreYouSure("Are you sure you want to delete this tag?");
+                ars.Owner = Application.Current.MainWindow;
+                ars.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                ars.ShowDialog();
+
+                if (ars.DialogResult.HasValue && !ars.DialogResult.Value)
+                {
+                    return;
+                }
+            }
+            else
+            {
+
+                DeleteTagDialog dtDialog = new DeleteTagDialog(new ObservableCollection<Monument>(conflicting));
+
+                dtDialog.Owner = Application.Current.MainWindow;
+                dtDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                dtDialog.ShowDialog();
+                if (dtDialog.DialogResult.HasValue && dtDialog.DialogResult.Value)
+                {
+                    mc.removeTagFromMonuments(toRemove);
+                }
+                else
+                {
+                    return;
+                }
+            }
+
             Tag t = this.Tags.SingleOrDefault(x => x.Id == toRemove);
             this.RemoveTagCallback(toRemove);
             this.EnlargenedTags.Remove(toRemove);

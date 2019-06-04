@@ -1,4 +1,5 @@
-﻿using System;
+﻿using emlekmu.models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -193,9 +194,12 @@ namespace emlekmu
         private void AddTypeButton_Click(object sender, RoutedEventArgs e)
         {
             AddType addTypeDialog = new AddType(AddTypeCallback, Types);
-
-            addTypeDialog.Height = 590;
-            addTypeDialog.Width = 450;
+            addTypeDialog.Owner = Application.Current.MainWindow;
+            addTypeDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            addTypeDialog.Height = 490;
+            addTypeDialog.Width = 350;
+            addTypeDialog.MinHeight = 420;
+            addTypeDialog.MinWidth = 280;
 
             addTypeDialog.ShowDialog();
 
@@ -233,8 +237,12 @@ namespace emlekmu
             int toEdit = EnlargenedTypes.First();
             Type m = this.Types.SingleOrDefault(x => x.Id == toEdit);
             EditType dialog = new EditType(m, this.EditTypeCallback);
-            dialog.Width = 590;
-            dialog.Height = 450;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 490;
+            dialog.Width = 350;
+            dialog.MinHeight = 420;
+            dialog.MinWidth = 280;
             dialog.ShowDialog();
         }
 
@@ -246,18 +254,17 @@ namespace emlekmu
         private void AddTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             AddType dialog = new AddType(this.AddTypeCallback, this.Types);
-            dialog.Height = 590;
-            dialog.Width = 450;
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            dialog.Height = 490;
+            dialog.Width = 350;
+            dialog.MinHeight = 420;
+            dialog.MinWidth = 280;
             dialog.ShowDialog();
         }
 
         private void DeleteTypeCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Delete Type?", "delete", MessageBoxButton.OKCancel);
-            if (result == MessageBoxResult.Cancel)
-            {
-                return;
-            }
 
             e.CanExecute = this.EnlargenedTypes.Count > 0;
         }
@@ -265,6 +272,37 @@ namespace emlekmu
         private void DeleteTypeCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             int toRemove = this.EnlargenedTypes.First();
+
+            MainContent mc = ((MainWindow)Application.Current.MainWindow).MainContent;
+
+            List<Monument> conflicting = mc.typeConflictingMonuments(toRemove);
+            if (conflicting == null)
+            {
+
+                AreYouSure ars = new AreYouSure("Are you sure you want to delete this type?");
+                ars.ShowDialog();
+
+                if (ars.DialogResult.HasValue && !ars.DialogResult.Value)
+                {
+                    return;
+                }
+            }
+            else
+            {
+
+                DeleteTypeDialog dtDialog = new DeleteTypeDialog(new ObservableCollection<Monument>(conflicting));
+
+                dtDialog.ShowDialog();
+                if (dtDialog.DialogResult.HasValue && dtDialog.DialogResult.Value)
+                {
+                    mc.removeTypeAndMonuments(toRemove);
+                }
+                else
+                {
+                    return;
+                }
+            }
+
             Type t = this.Types.SingleOrDefault(x => x.Id == toRemove);
             this.RemoveTypeCallback(toRemove);
             this.EnlargenedTypes.Remove(toRemove);

@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              xmlns:help="clr-namespace:emlekmu.models"
              help:HelpProvider.HelpTopic="Monuments"
+             Title="Monument Detail"
              d:DesignHeight="540" d:DesignWidth="840">
 
     <Grid x:Name="Root" Margin="5" Background="White">

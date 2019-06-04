@@ -1,4 +1,5 @@
-﻿using System;
+﻿using emlekmu.models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -148,10 +149,38 @@ namespace emlekmu
 
         private void deleteMenuAction(object s, RoutedEventArgs ea)
         {
-            MessageBoxResult result = MessageBox.Show("Delete Type?", "delete", MessageBoxButton.OKCancel);
-            if (result == MessageBoxResult.Cancel)
+            MainContent mc = ((MainWindow)Application.Current.MainWindow).MainContent;
+
+            List<Monument> conflicting = mc.typeConflictingMonuments(Id);
+            if (conflicting == null)
             {
-                return;
+
+                AreYouSure ars = new AreYouSure("Are you sure you want to delete this type?");
+                ars.Owner = Application.Current.MainWindow;
+                ars.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                ars.ShowDialog();
+
+                if (ars.DialogResult.HasValue && !ars.DialogResult.Value)
+                {
+                    return;
+                }
+            }
+            else
+            {
+
+                DeleteTypeDialog dtDialog = new DeleteTypeDialog(new ObservableCollection<Monument>(conflicting));
+
+                dtDialog.Owner = Application.Current.MainWindow;
+                dtDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                dtDialog.ShowDialog();
+                if (dtDialog.DialogResult.HasValue && dtDialog.DialogResult.Value)
+                {
+                    mc.removeTypeAndMonuments(Id);
+                }
+                else
+                {
+                    return;
+                }
             }
 
             DoubleAnimation animation = new DoubleAnimation();

@@ -516,6 +516,8 @@ namespace emlekmu
                         
                         position.Left = (a.Y - PinContainerWidth);
                         position.Top = (a.X - PinContainerHeight);
+                        UpdateLayout();
+                        updateSelection();
                         return;
                     }
                 }
@@ -524,6 +526,8 @@ namespace emlekmu
                 tmp.Add(mp);
 
                 Positions = new ObservableCollection<MonumentPosition>(tmp);
+                UpdateLayout();
+                updateSelection();
                 saveMapData();
             }
         }
