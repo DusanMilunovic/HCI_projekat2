@@ -2117,5 +2117,46 @@ namespace emlekmu
             this.Demon = t;
             this.DemonAlive = true;
         }
+
+
+        private void TypeDemon_click(object sender, RoutedEventArgs e)
+        {
+            if (this.DemonAlive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.TypeDemon(this);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.Demon = t;
+            this.DemonAlive = true;
+        }
+
+        private void TagDemon_click(object sender, RoutedEventArgs e)
+        {
+            if (this.DemonAlive)
+                return;
+
+            ThreadStart ts = delegate
+            {
+                DemonFramework.TypeDemon(this);
+            };
+            Thread t = new Thread(ts);
+            t.IsBackground = true;
+            t.Start();
+            this.Demon = t;
+            this.DemonAlive = true;
+        }
+
+
+
+
+
+
     }
+
+    
 }

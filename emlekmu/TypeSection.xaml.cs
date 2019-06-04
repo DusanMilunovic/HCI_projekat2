@@ -205,6 +205,10 @@ namespace emlekmu
 
 
 
+        public AddType AddTypeDemonDialog { get; set; }
+        public EditType EditTypeDemonDialog { get; set; }
+
+
         private void AddTypeButton_Click(object sender, RoutedEventArgs e)
         {
             AddType addTypeDialog = new AddType(AddTypeCallback, Types);
@@ -214,6 +218,8 @@ namespace emlekmu
             addTypeDialog.Width = 350;
             addTypeDialog.MinHeight = 420;
             addTypeDialog.MinWidth = 280;
+
+            this.AddTypeDemonDialog = addTypeDialog;
 
             addTypeDialog.ShowDialog();
 

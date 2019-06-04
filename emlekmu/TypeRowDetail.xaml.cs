@@ -141,6 +141,12 @@ namespace emlekmu
             var obj = new models.Type(this.Id, this.TypeName, this.Icon, this.Description);
             EditType editTypeDialog = new emlekmu.EditType(obj, this.editTypeCallbackFun);
 
+            MainWindow window = (MainWindow)Application.Current.MainWindow;
+            if (window.MainContent.DemonAlive)
+            {
+                window.TypeSectionDemonDialog.EditTypeDemonDialog = editTypeDialog;
+            }
+
             editTypeDialog.Height = 590;
             editTypeDialog.Width = 450;
             editTypeDialog.Owner = Application.Current.MainWindow;

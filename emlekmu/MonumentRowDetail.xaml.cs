@@ -217,7 +217,10 @@ namespace emlekmu
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            editMonumentCallbackFun(MonumentId);
+            if (editMonumentCallbackFun(MonumentId) != null)
+            {
+                ((MainWindow)Application.Current.MainWindow).MainContent.MonumentTable.ScrollToSelected();
+            }
         }
 
         private void onRigthClick(object sender, MouseButtonEventArgs e)

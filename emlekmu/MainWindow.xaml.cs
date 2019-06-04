@@ -149,6 +149,7 @@ namespace emlekmu
             typeSectionDialog.Width = 800;
             typeSectionDialog.MinHeight = 560;
             typeSectionDialog.MinWidth = 600;
+            this.TypeSectionDemonDialog = typeSectionDialog;
             typeSectionDialog.ShowDialog();
         }
 
@@ -167,6 +168,7 @@ namespace emlekmu
             tagSectionDialog.Width = 800;
             tagSectionDialog.MinHeight = 560;
             tagSectionDialog.MinWidth = 600;
+            this.TagSectionDemonDialog = TagSectionDemonDialog;
             tagSectionDialog.ShowDialog();
         }
 
@@ -256,6 +258,12 @@ namespace emlekmu
         {
             Process.Start(@"..\..\resources\Emlekmu.chm");
         }
+
+
+
+        public TagSection TagSectionDemonDialog { get; set; }
+        public TypeSection TypeSectionDemonDialog { get; set; }
+
 
         private void OnTextComposition(object sender, TextCompositionEventArgs e)
         {

@@ -363,6 +363,197 @@ namespace emlekmu
 
         }
 
+
+        public static void TypeDemon(MainContent mainContent)
+        {
+            while (true)
+            {
+                System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
+                absolutePos = getElementPos(mainContent.FileMenu);
+                MoveCursorSlowly((int)absolutePos.X + 10, (int)absolutePos.Y + 5);
+
+                MouseEvent(MouseEventFlags.LeftDown);
+                Thread.Sleep(200);
+                MouseEvent(MouseEventFlags.LeftUp);
+
+                absolutePos.X += 20;
+                absolutePos.Y += 30;
+
+                MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
+
+                MouseEvent(MouseEventFlags.LeftDown);
+                Thread.Sleep(200);
+                MouseEvent(MouseEventFlags.LeftUp);
+
+                Thread.Sleep(1000);
+
+                MainWindow window = null;
+                TypeSection typeSection = null;
+                bool done = false;
+                mainContent.Dispatcher.Invoke(() =>
+                {
+                    window = (MainWindow)Application.Current.MainWindow;
+                    typeSection = window.TypeSectionDemonDialog;
+                    done = true;
+                });
+                while (!done) { }
+
+
+                TypeSectionDemon(typeSection);
+           }
+
+        }
+
+        public static void TypeSectionDemon(TypeSection typeSection)
+        {
+            System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
+            absolutePos = getElementPos(typeSection.AddTypeButton);
+            absolutePos.X += 30;
+            absolutePos.Y += 10;
+            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
+            MouseEvent(MouseEventFlags.LeftDown);
+            Thread.Sleep(200);
+            MouseEvent(MouseEventFlags.LeftUp);
+
+            Thread.Sleep(1000);
+            bool done = false;
+            AddType addType = null;
+
+            typeSection.Dispatcher.Invoke(() =>
+            {
+                addType = typeSection.AddTypeDemonDialog;
+                done = true;
+            });
+            while (!done) { }
+
+            AddTypeDemon(addType);
+
+
+            Thread.Sleep(1000);
+
+
+            //Finds the edit button
+            TypeSection.FindVisualChildren<TypeRowDetail>(typeSection.RootWoot);
+            List<TypeRowDetail> myList = new List<TypeRowDetail>();
+            done = false;
+            TypeRowDetail rowDetail = null;
+            typeSection.Dispatcher.Invoke(() =>
+            {
+                foreach(TypeRowDetail m in TypeSection.FindVisualChildren<TypeRowDetail>(typeSection.RootWoot))
+                {
+                    if (m.Tag.Equals(typeSection.EnlargenedTypes.SingleOrDefault()))
+                    {
+                        rowDetail = m;
+                        absolutePos = getElementPos(m.EditTagButton);
+                        done = true;
+                    }
+                }
+            });
+            while (!done) { }
+            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
+            MouseEvent(MouseEventFlags.LeftDown);
+            Thread.Sleep(200);
+            MouseEvent(MouseEventFlags.LeftUp);
+
+            Thread.Sleep(1000);
+
+            EditTypeDemon(typeSection.EditTypeDemonDialog);
+
+
+            //Finds the delete button
+            myList = new List<TypeRowDetail>();
+            done = false;
+            rowDetail = null;
+            typeSection.Dispatcher.Invoke(() =>
+            {
+                foreach(TypeRowDetail m in TypeSection.FindVisualChildren<TypeRowDetail>(typeSection.RootWoot))
+                {
+                    if (m.Tag.Equals(typeSection.EnlargenedTypes.SingleOrDefault()))
+                    {
+                        rowDetail = m;
+                        absolutePos = getElementPos(m.DeleteTagButton);
+                        done = true;
+                    }
+                }
+            });
+            while (!done) { }
+
+            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
+            MouseEvent(MouseEventFlags.LeftDown);
+            Thread.Sleep(200);
+            MouseEvent(MouseEventFlags.LeftUp);
+
+            Thread.Sleep(1000);
+
+            System.Windows.Forms.SendKeys.SendWait("{ENTER}");
+
+            absolutePos = getElementPos(typeSection.CloseButton);
+            absolutePos.X += 30;
+            absolutePos.Y += 10;
+            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
+            MouseEvent(MouseEventFlags.LeftDown);
+            Thread.Sleep(200);
+            MouseEvent(MouseEventFlags.LeftUp);
+
+        }
+
+        public static void AddTypeDemon(AddType addType)
+        {
+            System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
+            absolutePos = getElementPos(addType.NameTextBox);
+            absolutePos.X += 30;
+            absolutePos.Y += 10;
+            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
+
+            MouseEvent(MouseEventFlags.LeftDown);
+            Thread.Sleep(200);
+            MouseEvent(MouseEventFlags.LeftUp);
+
+            fillTextBox(addType.NameTextBox, "Demonic type");
+
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            fillTextBox(addType.DescriptionTextBox, "A very demonic type of monuments");
+
+            System.Windows.Forms.SendKeys.SendWait("{TAB}");
+            fillTextBox(addType.IconTextBox, @"C: \Users\Nikola Nemes\Desktop\Untitled.png");
+
+            absolutePos = getElementPos(addType.AddTypeButton);
+            absolutePos.X += 10;
+            absolutePos.Y += 10;
+            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
+            MouseEvent(MouseEventFlags.LeftDown);
+            Thread.Sleep(200);
+            MouseEvent(MouseEventFlags.LeftUp);
+
+           
+
+        }
+
+        public static void EditTypeDemon(EditType form)
+        {
+            System.Windows.Point absolutePos = new System.Windows.Point(0, 0);
+            absolutePos = getElementPos(form.DescriptionTextBox);
+            absolutePos.X += 10;
+            absolutePos.Y += 10;
+            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
+            MouseEvent(MouseEventFlags.LeftDown);
+            Thread.Sleep(200);
+            MouseEvent(MouseEventFlags.LeftUp);
+            slowlyDeleteTextBox(form.DescriptionTextBox);
+            fillTextBox(form.DescriptionTextBox, "Perhaps its angelic");
+            absolutePos = getElementPos(form.EditTypeButton);
+            absolutePos.X += 10;
+            absolutePos.Y += 10;
+            MoveCursorSlowly((int)absolutePos.X, (int)absolutePos.Y);
+            MouseEvent(MouseEventFlags.LeftDown);
+            Thread.Sleep(200);
+            MouseEvent(MouseEventFlags.LeftUp);
+        }
+
+
+
+
+
         private static void slowlyDeleteTextBox(TextBox textBox)
         {
 
@@ -484,6 +675,8 @@ namespace emlekmu
                 Thread.Sleep(2);
             }
         }
+
+
 
  
     }
